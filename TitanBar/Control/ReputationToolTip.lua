@@ -36,8 +36,10 @@ function RPRefreshListBox()
 	local bFound = false;
 	
 	for i = 1, #FactionOrder do
-		if PlayerReputation[PN][tostring( FactionOrder[i] )].V then
-			HideMaxReps = true;-- Assume that people want factions that are max hidden until I can offer an option checkbox
+		if PlayerReputation[PN][Rep[i]].V then
+			HideMaxReps = true;
+            -- Assume that people want factions that are max hidden until I 
+            -- can offer an option checkbox
 			
 			bFound = true;
 			--**v Control of all data v**
@@ -53,23 +55,24 @@ function RPRefreshListBox()
 			repLbl:SetSize( RPTTListBox:GetWidth() - 35, 15 );
 			repLbl:SetPosition( 0, 0 );
 			repLbl:SetFont( Turbine.UI.Lotro.Font.TrajanPro16 );
-			repLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
+			repLbl:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleCenter);
 			repLbl:SetForeColor( Color["nicegold"] );
-			repLbl:SetText( PlayerReputation[PN][tostring( FactionOrder[i] )][TBLocale] );
+			repLbl:SetText( L[Rep[i]] );
 			
 			local tl, tm, percentage_done = nil, nil, 0;
-			local tp = PlayerReputation[PN][tostring( FactionOrder[i] )].P;
-			local ts = PlayerReputation[PN][tostring( FactionOrder[i] )].S;
-			local tr = tonumber(PlayerReputation[PN][tostring( FactionOrder[i] )].R);
+			local tp = PlayerReputation[PN][Rep[i]].P;
+			local ts = PlayerReputation[PN][Rep[i]].T;
+			local tr = tonumber(PlayerReputation[PN][Rep[i]].R);
+            local tn = PlayerReputation[PN][Rep[i]].N; 
 
-			if ts == "guild" then tm = RPGR[tonumber( tr )];
-			elseif ts == "chicken" then tm = RCC[tonumber( tr )];
-			else tm = RPR[tonumber( tr )]; end
+			if ts == "2" then tr = tr + 1; end
+			tm = RPGR[tonumber( tr )];
 			
-			if tr == #RPR and ts == "good" then percentage_done = "max";
-			elseif tr == #RPGR and ts == "guild" then percentage_done = "max";
-			elseif tr == #RCC and ts == "chicken" then percentage_done = "max";
-			else percentage_done = string.format( "%.2f", ( tp / tm ) * 100 ); end
+			if tr == 5 and ts == "1" then percentage_done = "max";
+			elseif tr == 6 and ts == "2" then percentage_done = "max";
+			elseif tr == 8 and ts == "3" then percentage_done = "max";
+			else percentage_done = string.format( "%.2f", ( tp / tm ) * 100 );
+            end
 
 			--**v progress bar v**			
 			local RPPBFill = Turbine.UI.Control();--Filling
@@ -77,12 +80,13 @@ function RPRefreshListBox()
 			RPPBFill:SetPosition( 9, 17 );
 			if percentage_done == "max" then RPPBFill:SetSize( 183, 9 );
 			else RPPBFill:SetSize( ( 183 * percentage_done ) / 100, 9 ); end
-			if ts == "good" then RPPBFill:SetBackground( resources.Reputation.BGGood );
-			elseif ts == "bad" then RPPBFill:SetBackground( resources.Reputation.BGBad );
-			elseif ts == "guild" then RPPBFill:SetBackground( resources.Reputation.BGGuild ); 
---			elseif ts == "chicken" then RPPBFill:SetBackground( resources.Reputation.BGChicken ); end
-			elseif ts == "chicken" then RPPBFill:SetBackground( resources.Reputation.BGGuild ); end
-		
+			if ts == "1" then 
+                RPPBFill:SetBackground( resources.Reputation.BGGood );
+			elseif ts == "2" then 
+                RPPBFill:SetBackground( resources.Reputation.BGBad );
+			elseif ts == "3" then 
+                RPPBFill:SetBackground( resources.Reputation.BGGuild ); 
+		    end
 			local RPPB = Turbine.UI.Control(); --Frame
 			RPPB:SetParent( RPTTCtr );
 			RPPB:SetPosition( 0, 14 );
@@ -92,26 +96,44 @@ function RPRefreshListBox()
 			
 			local RPPC = Turbine.UI.Label(); --percentage
 			RPPC:SetParent( RPTTCtr );
-			if percentage_done == "max" then RPPC:SetPosition( 1, 17 ); RPPC:SetText( L["RPMSR"] );
-			else RPPC:SetPosition( 9, 17 ); RPPC:SetText( tp.."/"..tm.."  "..percentage_done.."%" ); end
+			if percentage_done == "max" then 
+                RPPC:SetPosition( 1, 17 );
+                RPPC:SetText( L["RPMSR"] );
+			else 
+                RPPC:SetPosition( 9, 17 );
+                RPPC:SetText( tp.."/"..tm.."  "..percentage_done.."%" );
+            end
 			RPPC:SetSize( 200, 9 );
 			RPPC:SetForeColor( Color["white"] );
 			RPPC:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
 			--**^
 
 			local RPLvl = Turbine.UI.Label();
-			if ts == "good" then
-				tl = RPGL[tr]; --rank
+            if tn == "3" then
+                tl = L["RCCLE"..tr];
+            elseif tn == "2" then
+                tl = L["RPGG"..tr];
+            else
+                if ts == 2 then
+                    if tr == 0 then
+                        if Rep[i] == "RPLF" then
+                            tl = L["RPBL1"];
+                        else
+                            tl = L["RPBL2"];
+                        end
+                    else
+                        tl = L["RPGL"..(tr-1)];
+                    end
+                else
+                    tl = L["RPGL"..tr];
+                end
+            end
+            if ts == "1" then
 				RPLvl:SetForeColor( Color["white"] );
-			elseif ts == "bad" then
-				tl = RPBL[tr];
+			elseif ts == "2" then
 				RPLvl:SetForeColor( Color["red"] );
-			elseif ts == "guild" then
-				tl = RPGGL[tr];
+			elseif ts == "3" then
 				RPLvl:SetForeColor( Color["green"] );
-			elseif ts == "chicken" then
-				tl = RCCL[tr];
-				RPLvl:SetForeColor( Color["blue"] );
 			end
 			RPLvl:SetParent( RPTTCtr );
 			RPLvl:SetText( tl );
@@ -151,8 +173,11 @@ function RPRefreshListBox()
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			
-	if _G.ToolTipWin:GetWidth() + mouseX + 5 > screenWidth then x = _G.ToolTipWin:GetWidth() - 10;
-	else x = -5; end
+	if _G.ToolTipWin:GetWidth() + mouseX + 5 > screenWidth then 
+        x = _G.ToolTipWin:GetWidth() - 10;
+	else
+        x = -5;
+    end
 			
 	if TBTop then y = -15;
 	else y = _G.ToolTipWin:GetHeight() end
