@@ -239,7 +239,7 @@ end
 function RefreshRPListBox()
     RPListBox:ClearItems();
 
-    for i = 1, #FactionOrder do
+    for i = 1, #Rep do
         --**v Control of all data v**
         local RPCtr = Turbine.UI.Control();
         RPCtr:SetParent(RPListBox);
@@ -294,7 +294,7 @@ function RefreshRPListBox()
                         end
                     end
                 end
-                if Rep[i] == "RPDMT" then
+                if Rep[i] == "RPDMT" or Rep[i] == "RPHOTW" then
                     table.insert(RPCBO, L["RPGL6"]);
                     table.insert(RPCBO, L["RPGL7"]);
                     table.insert(RPCBO, L["RPGL8"]);

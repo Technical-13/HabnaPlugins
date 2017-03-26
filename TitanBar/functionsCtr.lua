@@ -887,6 +887,7 @@ function LoadPlayerReputation()
         -- Other - Minas Tirith, Chicken, Inn, Ale, 
         "RPCCLE", "RPTIL", "RPTAA",
         -- Place new raputation below
+        "RPHOTW", "RPHOTWA", "RPHOTWW", "RPHOTWP", -- Host of the West
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");
@@ -915,9 +916,10 @@ function LoadPlayerReputation()
             end
         end -- Reputation names
         if PlayerReputation[PN][Rep[i]].T == nil then
-            if Rep[i] == "RPDMT" or PlayerReputation[PN][Rep[i]].N == "2" then
+            if Rep[i] == "RPDMT" or Rep[i] == "RPHOTW" or
+                    PlayerReputation[PN][Rep[i]].N == "2" then
                 PlayerReputation[PN][Rep[i]].T = "3";
-                -- Crafting guild/Defenders of Minas Tirith, 8 ranks
+                -- Crafting guild/Defenders of MT/Host of the West, 8 ranks
             elseif Rep[i] == "RPLF" or Rep[i] == "RPTIL" or 
                     Rep[i] == "RPTAA" then
                 PlayerReputation[PN][Rep[i]].T = "2";

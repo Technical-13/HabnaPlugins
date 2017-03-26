@@ -35,7 +35,7 @@ function RPRefreshListBox()
 	RPTTPosY = 0;
 	local bFound = false;
 	
-	for i = 1, #FactionOrder do
+	for i = 1, #Rep do
 		if PlayerReputation[PN][Rep[i]].V then
 			HideMaxReps = true;
             -- Assume that people want factions that are max hidden until I 

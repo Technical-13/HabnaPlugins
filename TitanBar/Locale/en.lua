@@ -194,6 +194,10 @@ L["RPRI"] = "Rangers of Ithilien";
 L["RPDMT"] = "Defenders of Minas Tirith";
 L["RPRR"] = "Riders of Rohan";
 L["RPCCLE"] = "Chicken Chasing League of Eriador";
+L["RPHOTW"] = "Host of the West";
+L["RPHOTWA"] = "Host of the West: Armour";
+L["RPHOTWW"] = "Host of the West: Weapons";
+L["RPHOTWP"] = "Host of the West: Provisions";
 
 -- All reputation standings
 L["RPMSR"] = "Maximum standing reached"

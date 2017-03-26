@@ -15,10 +15,6 @@ AppLocaleD = AppDirD.."Locale.";
 
 Version = Plugins["TitanBar"]:GetVersion();--> ** TitanBar current version **
 _G.TB = {};
-FactionOrder = { 
-    1,2,3,4,15,16,5,6,7,8,17,18,9,10,11,12,19,20,13,14,21,22,30,31,32,33,34,35,
-    36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,23,24,25,26,27,28,
-    29,55 };
 WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14 };
 windowOpen = true;
 _G.Debug = false;-- True will enable some functions when I'm debuging

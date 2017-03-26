@@ -194,6 +194,11 @@ L["RPRI"] = "R\195\180deurs de l'Ithilien";
 L["RPDMT"] = "Les D\195\169fenseurs de Minas Tirith";
 L["RPRR"] = "Cavaliers de Rohan";
 L["RPCCLE"] = "Ligue des Chasseurs de Poulets d'Eriador";
+L["RPHOTW"] = "Host of the West";
+L["RPHOTWA"] = "Host of the West: Armour";
+L["RPHOTWW"] = "Host of the West: Weapons";
+L["RPHOTWP"] = "Host of the West: Provisions";
+
 
 -- All reputation standings
 L["RPMSR"] = "Statut maximum atteint";
