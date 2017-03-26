@@ -112,7 +112,8 @@ end
     
 function ComboBox:FireEvent()
     if (type(self.ItemChanged) == "function") then
-        self:ItemChanged({selection=self:GetSelection()}); --Pass value to args.selection
+        self:ItemChanged({selection=self:GetSelection()});
+        --Pass value to args.selection
 	end
 end
 
@@ -145,7 +146,8 @@ function ComboBox:AddItem(text, value)
     listItem.MouseEnter = function(sender, args)
         sender:SetFontStyle(Turbine.UI.FontStyle.Outline);
         sender:SetForeColor(ComboBox.ItemColor);
-		sender:SetBackColor(ComboBox.BackHighlightColor); -- enable if want to highlight the background
+		sender:SetBackColor(ComboBox.BackHighlightColor);
+        -- enable if want to highlight the background
         sender:SetText(sender:GetText());
     end
 
@@ -154,7 +156,8 @@ function ComboBox:AddItem(text, value)
         if (self.listBox:IndexOfItem(sender) == self.selection) then
             sender:SetForeColor(ComboBox.SelectionColor);
         end
-		sender:SetBackColor(ComboBox.BlackColor); -- enable if want to highlight the background
+		sender:SetBackColor(ComboBox.BlackColor);
+        -- enable if want to highlight the background
         sender:SetText(sender:GetText());
     end
 
@@ -167,6 +170,10 @@ function ComboBox:AddItem(text, value)
 
     listItem.value = value;
     self.listBox:AddItem(listItem);
+end
+
+function ComboBox:ClearItems()
+    self.listBox:ClearItems();
 end
 
 function ComboBox:SetSelection(value)
@@ -254,7 +261,8 @@ function ComboBox:ShowDropDown()
         -- position
         --local x, y = self:GetParent():PointToScreen(self:GetPosition());
         --self.dropDownWindow:SetPosition(x, y + height + 2);
-		--self.dropDownWindow:SetPosition(self.label:GetLeft()-2, self.label:GetTop()-2 + height + 2);
+		--self.dropDownWindow:SetPosition(
+        --    self.label:GetLeft()-2, self.label:GetTop()-2 + height + 2);
         self.dropDownWindow:SetVisible(true);
         
         -- store the open drop down
