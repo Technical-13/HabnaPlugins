@@ -924,6 +924,8 @@ function LoadPlayerReputation()
                     Rep[i] == "RPTAA" then
                 PlayerReputation[PN][Rep[i]].T = "2";
                 -- Starts at negative level than normal
+            elseif 37<i and i<46 then
+                Playerreputation[PN][Rep[i]].t = "4";
             else
                 PlayerReputation[PN][Rep[i]].T = "1";
                 -- Normal, 5 ranks
