@@ -131,6 +131,14 @@ function ComboBox:ItemSelected(index)
     self:CloseDropDown();
 end
 
+function ComboBox:ClearSelection()
+    if (self.selection ~= -1) then
+        local old = self.listBox:GetItem(self.selection);
+        old:SetForeColor(ComboBox.ItemColor);
+    end
+    self.selection = -1;
+end
+
 function ComboBox:AddItem(text, value)
     local width, height = self.listBox:GetSize();
 
