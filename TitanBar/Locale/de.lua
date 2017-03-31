@@ -193,10 +193,10 @@ L["RPRI"] = "Waldl\195\164ufer von Ithilien";
 L["RPDMT"] = "Verteidiger von Minas Tirith";
 L["RPRR"] = "Reiter von Rohan";
 L["RPCCLE"] = "H\195\188hnerjagd-Liga von Eriador";
-L["RPHOTW"] = "Host of the West";
-L["RPHOTWA"] = "Host of the West: Armour";
-L["RPHOTWW"] = "Host of the West: Weapons";
-L["RPHOTWP"] = "Host of the West: Provisions";
+L["RPHOTW"] = "Heer des Westens";
+L["RPHOTWA"] = "Heer des Westens: R\195\188stung";
+L["RPHOTWW"] = "Heer des Westens: Waffen";
+L["RPHOTWP"] = "Heer des Westens: Vorr\195\164te";
 
 -- All reputation standings
 L["RPMSR"] = "Maximale Geltung erreicht";-- Thx DaBear78!
