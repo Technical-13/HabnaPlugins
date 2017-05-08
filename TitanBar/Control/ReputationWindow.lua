@@ -113,6 +113,7 @@ function frmReputationWindow()
     RPWCtr.MouseClick = function(sender, args)
         if (args.Button == Turbine.UI.MouseButton.Right) then
             RPDD.Cleanup();
+            RPDD:ClearSelection();
             RPWCtr:SetVisible(false);
             RPWCtr:SetZOrder(0);
         end
@@ -205,7 +206,6 @@ function frmReputationWindow()
             RPtxtTotal:Focus();
             return
         end
-
         RPtxtTotal:Focus();
         RPWCtr:SetVisible(false);
         RPWCtr:SetZOrder(0);
@@ -216,20 +216,10 @@ function frmReputationWindow()
 
         for i = 1, maxrank do -- number of rank in the drop down box
             if RPCBO[i] == RPDD.label:GetText() then
-                if i <= 5 then
-                    PlayerReputation[PN][Rep[fIndex]].T = "1";
-                    PlayerReputation[PN][Rep[fIndex]].R = tostring(i);
-                elseif i <= 6 then
-                    PlayerReputation[PN][Rep[fIndex]].T = "2";
-                    PlayerReputation[PN][Rep[fIndex]].R = tostring(i-1);
-                elseif i <= 8 then
-                    PlayerReputation[PN][Rep[fIndex]].T = "3";
-                    PlayerReputation[PN][Rep[fIndex]].R = tostring(i);
-                end
-                break
+                PlayerReputation[PN][Rep[fIndex]].R = tostring(i);
             end
         end
-
+        RPDD:ClearSelection();
         PlayerReputation[PN][Rep[fIndex]].P = RPtxtTotal:GetText();
         SavePlayerReputation();
     end
@@ -264,11 +254,8 @@ function RefreshRPListBox()
                 RPCBO = {};
                 
                 maxrank = 5;
-                if Rep[i] == "RPLF" then
-                    table.insert(RPCBO, L["RPBL1"]);
-                end
                 local repType = PlayerReputation[PN][Rep[i]].N;
-                if i>37 and i<46 then 
+                if PlayerReputation[PN][Rep[i]].T == "4" then 
                     table.insert(RPCBO, L["RPGL1"]);
                     table.insert(RPCBO, L["RPGL2"]);
                     maxrank = 2;
@@ -283,7 +270,11 @@ function RefreshRPListBox()
                     maxrank = 8;
                 else -- normal
                     if PlayerReputation[PN][Rep[i]].T == "2" then
-                        table.insert(RPCBO, L["RPBL2"]);
+                        if Rep[i] == "RPLF" then
+                            table.insert(RPCBO, L["RPBL1"]);
+                        else
+                            table.insert(RPCBO, L["RPBL2"]);
+                        end
                         for j=1,5 do
                             table.insert(RPCBO, L["RPGL"..j]);
                         end
