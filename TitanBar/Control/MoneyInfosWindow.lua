@@ -1,6 +1,6 @@
 -- MoneyInfosWindow.lua
 -- written by Habna
-
+-- refacotred by 4andreas
 
 function frmMoneyInfosWindow()
 	-- **v Set some window stuff v**
@@ -132,12 +132,16 @@ function RefreshMIListBox()
 
 	--for k,v in pairs(wallet) do
 	for i = 1, #a do
-		DecryptMoney(wallet[a[i]].Money);
-
 		if a[i] == Player:GetName() then
-			if wallet[a[i]].Show then MIShowData(a[i]); end
+			if wallet[a[i]].Show then 
+        MITTShowData(MIListBox, a[i], wallet[a[i]].Money, Color["green"], Color["green"], true); 
+        MIPosY = MIPosY + 19;
+      end
 		else
-			if wallet[a[i]].ShowToAll or wallet[a[i]].ShowToAll == nil then MIShowData(a[i]); end
+			if wallet[a[i]].ShowToAll or wallet[a[i]].ShowToAll == nil then 
+        MITTShowData(MIListBox, a[i], wallet[a[i]].Money, Color["white"], Color["white"], true); 
+        MIPosY = MIPosY + 19;
+      end
 		end
 	end
 	
@@ -183,83 +187,8 @@ function RefreshMIListBox()
 	MIListBox:AddItem( LineCtr );
 	MIPosY = MIPosY + 7;
 	--**^
-	
-	--**v Control of total Gold/Silver/Copper v**
-	local TotMoneyCtr = Turbine.UI.Control();
-	TotMoneyCtr:SetParent( MIListBox );
-	--TotMoneyCtr:SetPosition( 0, _G.wMI:GetWidth() );
-	TotMoneyCtr:SetSize( MIListBox:GetWidth(), 19 );
-	TotMoneyCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	--TotMoneyCtr:SetBackColor( Color["red"] ); -- Debug purpose
-	--**^
-	--**v Total label v**
-	local TotLbl = Turbine.UI.Label();
-	TotLbl:SetParent( TotMoneyCtr );
-	--TotLbl:SetFont ( 12 );
-	TotLbl:SetText( L["MIWTotal"] );
-	TotLbl:SetPosition( 21, 0 );
-	TotLbl:SetSize( 65, TotMoneyCtr:GetHeight() );
-	TotLbl:SetForeColor( Color["white"] );
-	TotLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
-	--TotLbl:SetBackColor( Color["red"] ); -- debug purpose
-	--**^
-	--**v Copper icon & amount v**
-	local CopperIcon = Turbine.UI.Control();
-	CopperIcon:SetParent( TotMoneyCtr );
-	CopperIcon:SetSize( 27, 21 );
-	CopperIcon:SetPosition( TotMoneyCtr:GetWidth() - 30, -2 );
-	CopperIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	CopperIcon:SetBackground( resources.MoneyIcon.Copper ); -- in-game copper icon
-	--CopperIcon:SetBackColor( Color["blue"] ); -- Debug purpose
-			
-	local CopperLbl = Turbine.UI.Label();
-	CopperLbl:SetParent( TotMoneyCtr );
-	--CopperLbl:SetForeColor( Color["white"] );
-	CopperLbl:SetText( string.format("%.0f", CopperTot) );
-	CopperLbl:SetSize( 20, TotMoneyCtr:GetHeight() );
-	CopperLbl:SetPosition( CopperIcon:GetLeft() - 18, 0 );
-	CopperLbl:SetFontStyle( Turbine.UI.FontStyle.Outline );
-	CopperLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
-	--CopperLbl:SetBackColor( Color["white"] ); -- Debug purpose
-	--**^
-	--**v Silver icon & amount v**
-	local SilverIcon = Turbine.UI.Control();
-	SilverIcon:SetParent( TotMoneyCtr );
-	SilverIcon:SetSize( 27, 21 );
-	SilverIcon:SetPosition( CopperLbl:GetLeft() - 34, -2 );
-	SilverIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	SilverIcon:SetBackground( resources.MoneyIcon.Silver ); -- in-game silver icon
-	--SilverIcon:SetBackColor( Color["blue"] ); -- Debug purpose
-			
-	local SilverLbl = Turbine.UI.Label();
-	SilverLbl:SetParent( TotMoneyCtr );
-	--SilverLbl:SetForeColor( Color["white"] );
-	SilverLbl:SetText( string.format("%.0f", SilverTot) );
-	SilverLbl:SetSize( 20, TotMoneyCtr:GetHeight() );
-	SilverLbl:SetPosition( SilverIcon:GetLeft() - 18, 0 );
-	SilverLbl:SetFontStyle( Turbine.UI.FontStyle.Outline );
-	SilverLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
-	--SilverLbl:SetBackColor( Color["white"] ); -- Debug purpose
-	--**^
-	--**v Gold icon & amount v**
-	local GoldIcon = Turbine.UI.Control();
-	GoldIcon:SetParent( TotMoneyCtr );
-	GoldIcon:SetSize( 27, 21 );
-	GoldIcon:SetPosition( SilverLbl:GetLeft() - 34, -2 );
-	GoldIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	GoldIcon:SetBackground( resources.MoneyIcon.Gold ); -- in-game gold icon
-	--GoldIcon:SetBackColor( Color["blue"] ); -- Debug purpose
-			
-	local GoldLbl = Turbine.UI.Label();
-	GoldLbl:SetParent( TotMoneyCtr );
-	--GoldLbl:SetForeColor( Color["white"] );
-	GoldLbl:SetText( string.format("%.0f", GoldTot) );
-	GoldLbl:SetSize( 50, TotMoneyCtr:GetHeight() );
-	GoldLbl:SetPosition( GoldIcon:GetLeft() - 48, 0 );
-	GoldLbl:SetFontStyle( Turbine.UI.FontStyle.Outline );
-	GoldLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
-	--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
-	--**^
+	MITTShowData(MIListBox, L["MIWTotal"], (GoldTot*100000+SilverTot*100+CopperTot), Color["white"], Color["white"]);
+  MIPosY = MIPosY + 19;
 	
 	MIListBox:AddItem( TotMoneyCtr );
 	MIPosY = MIPosY + 19;
@@ -277,109 +206,4 @@ function RefreshMIListBox()
 	STSCB:SetPosition( MIListBox:GetLeft(), MIPosY );
 	
 	_G.wMI:SetHeight( MIPosY + 45 );
-end
-
-function MIShowData(k)
-	iFound = true;
-	--**v Control of Gold/Silver/Copper currencies v**
-	local MoneyCtr = Turbine.UI.Control();
-	MoneyCtr:SetParent( MIListBox );
-	MoneyCtr:SetSize( MIListBox:GetWidth(), 19 );
-	MoneyCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	--MoneyCtr:SetBackColor( Color["red"] ); -- Debug purpose
-	--**^
-	--**v Delete icon v**
-	local DelIcon = Turbine.UI.Label();
-	DelIcon:SetParent( MoneyCtr );
-	DelIcon:SetPosition( 0, 0 );
-	DelIcon:SetSize( 16, 16 );
-	DelIcon:SetBackground( resources.DelIcon );
-	DelIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	DelIcon:SetVisible( true );
-	if k == Player:GetName() then DelIcon:SetVisible( false ); end
-				
-	DelIcon.MouseClick = function( sender, args )
-		if ( args.Button == Turbine.UI.MouseButton.Left ) then
-			write(k .. L["MIWID"]);
-			--wallet[k].Show = false;
-			wallet[k].ShowToAll = false;
-			if _G.STM then AllCharCB:SetChecked( false ); SavePlayerMoney(true); AllCharCB:SetChecked( true ); else SavePlayerMoney(true); end
-			RefreshMIListBox();
-		end
-	end
-	--**^
-	--**v Player name v**
-	local lblName = Turbine.UI.Label();
-	lblName:SetParent( MoneyCtr );
-	--lblName:SetFont ( 12 );
-	lblName:SetText( k );
-	lblName:SetPosition( DelIcon:GetLeft() + DelIcon:GetWidth() + 5, 0 );
-	lblName:SetSize( lblName:GetTextLength() * 7.5, MoneyCtr:GetHeight() );
-	if k == Player:GetName() then lblName:SetForeColor( Color["green"] );
-	else lblName:SetForeColor( Color["white"] ); end
-	lblName:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
-	--lblName:SetBackColor( Color["red"] ); -- debug purpose
-	--**^
-	--**v Copper icon & amount v**
-	local CopperIcon = Turbine.UI.Control();
-	CopperIcon:SetParent( MoneyCtr );
-	CopperIcon:SetSize( 27, 21 );
-	CopperIcon:SetPosition( MoneyCtr:GetWidth() - 30, -2 );
-	CopperIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	CopperIcon:SetBackground( resources.MoneyIcon.Copper ); -- in-game copper icon
-	--CopperIcon:SetBackColor( Color["blue"] ); -- Debug purpose
-			
-	local CopperLbl = Turbine.UI.Label();
-	CopperLbl:SetParent( MoneyCtr );
-	--CopperLbl:SetForeColor( Color["white"] );
-	CopperLbl:SetText( string.format("%.0f", copper) );
-	CopperLbl:SetSize(20, MoneyCtr:GetHeight() );
-	CopperLbl:SetPosition( CopperIcon:GetLeft() - 18, 0 );
-	CopperLbl:SetFontStyle( Turbine.UI.FontStyle.Outline );
-	CopperLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
-	--CopperLbl:SetBackColor( Color["white"] ); -- Debug purpose
-	--**^
-	--**v Silver icon & amount v**
-	local SilverIcon = Turbine.UI.Control();
-	SilverIcon:SetParent( MoneyCtr );
-	SilverIcon:SetSize( 27, 21 );
-	SilverIcon:SetPosition( CopperLbl:GetLeft() - 34, -2 );
-	SilverIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	SilverIcon:SetBackground( resources.MoneyIcon.Silver ); -- in-game silver icon
-	--SilverIcon:SetBackColor( Color["blue"] ); -- Debug purpose
-			
-	local SilverLbl = Turbine.UI.Label();
-	SilverLbl:SetParent( MoneyCtr );
-	--SilverLbl:SetForeColor( Color["white"] );
-	SilverLbl:SetText( string.format("%.0f", silver) );
-	SilverLbl:SetSize(20, MoneyCtr:GetHeight() );
-	SilverLbl:SetPosition( SilverIcon:GetLeft() - 18, 0 );
-	SilverLbl:SetFontStyle( Turbine.UI.FontStyle.Outline );
-	SilverLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
-	--SilverLbl:SetBackColor( Color["white"] ); -- Debug purpose
-	--**^
-	--**v Gold icon & amount v**
-	local GoldIcon = Turbine.UI.Control();
-	GoldIcon:SetParent( MoneyCtr );
-	GoldIcon:SetSize( 27, 21 );
-	GoldIcon:SetPosition( SilverLbl:GetLeft() - 34, -2 );
-	GoldIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-	GoldIcon:SetBackground( resources.MoneyIcon.Gold ); -- in-game gold icon
-	--GoldIcon:SetBackColor( Color["blue"] ); -- Debug purpose
-			
-	local GoldLbl = Turbine.UI.Label();
-	GoldLbl:SetParent( MoneyCtr );
-	--GoldLbl:SetForeColor( Color["white"] );
-	GoldLbl:SetText( string.format("%.0f", gold) );
-	GoldLbl:SetSize(50, MoneyCtr:GetHeight() );
-	GoldLbl:SetPosition( GoldIcon:GetLeft() - 48, 0 );
-	GoldLbl:SetFontStyle( Turbine.UI.FontStyle.Outline );
-	GoldLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
-	--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
-	--**^
-
-	MIListBox:AddItem( MoneyCtr );
-	MIListBox:SetHeight( MIPosY );
-		
-	MIPosY = MIPosY + 19;
 end
