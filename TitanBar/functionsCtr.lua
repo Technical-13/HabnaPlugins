@@ -925,7 +925,7 @@ function LoadPlayerReputation()
                 PlayerReputation[PN][Rep[i]].T = "2";
                 -- Starts at negative level than normal
             elseif 37<i and i<46 then
-                Playerreputation[PN][Rep[i]].t = "4";
+                PlayerReputation[PN][Rep[i]].T = "4";
             else
                 PlayerReputation[PN][Rep[i]].T = "1";
                 -- Normal, 5 ranks
@@ -942,7 +942,7 @@ function LoadPlayerReputation()
                     PlayerReputation[PN][ind].fr == L[Rep[j]] then
                 PlayerReputation[PN][Rep[j]].P = PlayerReputation[PN][ind].P;
                 PlayerReputation[PN][Rep[j]].V = PlayerReputation[PN][ind].V;
-                PlayerReputation[PN][Rep[j]].R = PlayerReputation[PM][ind].R;
+								PlayerReputation[PN][Rep[j]].R = PlayerReputation[PN][ind].R;
                 PlayerReputation[PN][ind] = nil;
                 break;
             end
