@@ -17,7 +17,9 @@ PlayerLevel = {
     [70]="9,896,024", [71]="10,478,333", [72]="11,090,176", [73]="11,733,051", [74]="12,408,532", [75]="13,117,787", [76]="13,862,504", [77]="14,644,456", [78]="15,465,505", [79]="16,327,606", 
     [80]="17,232,812", [81]="18,183,278", [82]="19,181,267", [83]="20,229,155", [84]="21,329,437", [85]="22,484,733", [86]="23,697,793", [87]="24,971,506", [88]="26,308,904", [89]="27,713,171",
     [90]="29,187,651", [91]="30,735,855", [92]="32,361,469", [93]="34,068,363", [94]="35,860,601", [95]="37,742,450", [96]="39,718,391", [97]="41,793,129 ", [98]="43,971,603 ", [99]="46,259,000",
-    [100]="48,660,766", [101]="51,182,620", [102] ="53,830,566", [103] ="56,610,909", [104] ="59,527,269", [105] ="0" };
+    [100]="48,660,766", [101]="51,182,620", [102] ="53,830,566", [103] ="56,610,909", [104] ="59,527,269", [105] ="62,592,597",
+    [106]="65,811,191", [107]="69,190,714", [108]="72,739,213", [109]="76,465,136", [110]="80,377,355", [111]="84,485,184", [112]="88,798,404", [113]="93,327,285", [114]="93,327,285", [115]="0"
+    };
 
 -- Data 2-dim array, Data[index][string], string could be name,value,icon
 Data = {};
@@ -117,86 +119,120 @@ end
 -- Formula and data used from: http://lotro-wiki.com/index.php/rating_to_percentage_formula
 function get_percentage( Attribute, R, L )
     R = round(R);
-    local X0, Y0, K, lowRL, highRL;
-    local RL = R/L;
-    local Armour, Ratings;
+    local Ratings;
     local Capped = 0;
     
--- S   = Segments?
--- dp  = height of the segment (y-axis)
--- K   = curve constant
--- dRL = width of the segment (x-axis)
-    
+-- L    = Level segment
+-- C    = Curve constant
+-- Pcap = Percentage cap
+-- RcapF= Rating factor
+-- RcapC= Rating constant
+-- T2   = T2 115 penetration constant
+--
+-- Rcap = RcapF * L + RcapC
+-- P = (C + 1)/(C + (Rcap/R)) * Pcap
+-- T2 required rating = Rcap + T2
+
 RatingsData = { 
     CritHit = {                 -- Critical Hit
-        S = 3,
-        dp = { 0, 0.15, 0.05, 0.05 },
-        K = { 1190/3, 794.8, 1075.2 },
-        dRL = { 0, 70, 79438/19, 1075.2/19 }
+        L = {50, 84, 104, 105, 115},
+        C = {0.66, 1, 1, 1, 1},
+        Pcap = {15, 20, 25, 25, 25},
+        RcapF = {71.5, 250, 165, 3550/21, 44375/9},
+        RcapC = {0, -6900, 375, 0, -4464125/9}
     },
     DevasHit = {                -- Devastating Hit
-        S = 1,
-        dp = {0, 0.1},
-        K = {1330},
-        dRL = {0, 1330/9}
+        L = {50, 104, 105, 115},
+        C = {2, 2, 2, 2},
+        Pcap = {10, 10, 10, 10},
+        RcapF = {160, 166, 3440/21, 43000/9},
+        RcapC = {0, -300, 0, -4325800/9}
     },
-    OffDam = {                  -- Offence Damage (Linear)
-        levSegStart = { 1, 21, 31, 41, 51, 61, 71, 81, 91, 101 }, 
-        Factor = { 14.6, 24.2, 17, 13.4, 11.4 ,10.2, 7.4, 6.6, 5.7, 2.7 },
-        FactorLevel = { 0, 0.48, 0.24, 0.15, 0.11, 0.09, 0.05, 0.04, 0.03, 0 },
-        CapPct = { 40, 40, 40, 40, 200, 200, 200, 200, 200, 400 }
+    Finesse = {
+        L = {105, 115},
+        C = {10, 10},
+        Pcap = {50, 50},
+        RcapF = {4000, 350000/3},
+        RcapC = {0, -35210000/3}
+    },
+    OffDam = {                  -- Offence Damage
+        L = {20, 49, 50, 59, 60, 99, 100, 104, 105, 115},
+        C = {1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9},
+        Pcap = {40, 40, 40, 80, 80, 200, 200, 400, 400, 400},
+        RcapF = {144.45, 7733/58, 1220/9, 305.5, 2500/9, 62489/76, 2225/3, 
+            133/3, 9900/7, 4125},
+        RcapC = {0, 6451/29, 0, -1691.5, 0, -560739/76, 0, 431567/3, 0, 
+            -251625}
     },                
     OutHeal = {                 -- Tactical Outgoing Healing
-        S = 3,
-        dp = { 0, 0.3, 0.2, 0.2 },
-        K = { 1190/3, 2380/3, 1190 },
-        dRL = { 0, 170, 595/3, 297.5 }
+        L = {20, 50, 105, 115},
+        C = {0.43, 1, 1.4, 1.4},
+        Pcap = {30, 50, 70, 70},
+        RcapF = {171.5, 400, 777, 353675/18},
+        RcapC = {0, 0, -10850, -35579705/18}
     },          
     Resistance = {          -- Resistance
-        S = 2,
-        dp = { 0, 0.3, 0.2 },
-        K = { 1190/3, 2380/3 },
-        dRL = { 0, 170, 595/3 },
-        T2c105 = 49500
+        L = {50, 105, 115},
+        C = {1, 1, 1},
+        Pcap = {30, 50, 50},
+        RcapF = {180, 2600/7, 32500/3},
+        RcapC = {0, 0, -3269500/3},
+        T2 = {90, 90, 90}
+    },
+    CritDef = {             -- Critical Defence
+        L = {105, 115},
+        C = {1, 1},
+        Pcap = {50, 50},
+        RcapF = {100, 8750/3},
+        RcapC = {0, -880250/3}
     },
     InHeal = {                  -- Incoming Healing
-        S = 2,
-        dp = { 0, 0.15, 0.1 },
-        K = { 1190/3, 2380/3 },
-        dRL = { 0, 70, 2380/27 }
+        L = {50, 104, 105, 115},
+        C = {1, 1, 1, 1},
+        Pcap = {15, 25, 25, 25},
+        RcapF = {72, 243, 3400/21, 42500/9},
+        RcapC = {0, -8550, 0, -4275500/9}
     },
-    BPE = {                         --  Block, Parry, Evade
-        S = 1,
-        dp = { 0, 0.13 },
-        K = { 499.95 },
-        dRL = { 0, 43329/580 },
-        T2c105 = 12389
+    BPE = {                     --  Block, Parry, Evade
+        L = {20, 50, 105, 115},
+        C = {2, 2, 2, 2},
+        Pcap = {13, 13, 13, 13},
+        RcapF = {115, 90, 200, 40000/9},
+        RcapC = {0, 500, -5000, -4024000/9},
+        T2 = {40, 40, 40, 40}
     },
     PartBPE = {                 -- Partially Block, Parry, Evade
-        S = 4,
-        dp = { 0, 0.15, 0.02, 0.03, 0.15 },
-        K = { 396.66, 991.66, 1050, 1200 },
-        dRL = { 0, 59499/850, 49583/2450, 3150/97, 3600/17 },
-        T2c105 = 40444
+        L = {20, 50, 84, 95, 104, 105, 115},
+        C = {2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5},
+        Pcap = {15, 15, 17, 20, 35, 35, 35},
+        RcapF = {112.5, 75, 775, 775, 775, 9500/21, 118750/9},
+        RcapC = {0, 750, -34250, -34250, -34250, 0, -11946250/9},
+        T2 = {40, 40, 40, 40, 40, 40, 40}
     },
     Mitigation = {          -- Mitigation
         Light = {
-            dp = { 0.2, 0.2 },
-            K = { 150, 350 },
-            dRL = { 37.5, 87.5 },
-            T2c105 = 20790
+            L = {104, 105, 115},
+            C = {1.6, 1.6, 1.6},
+            Pcap = {40, 40, 40},
+            RcapF = {128, 2720/21, 34000/9},
+            RcapC = {0, 0, -3420400/9},
+            T2 = {13.5, 13.5, 13.5}
         },
         Medium = {
-            dp = { 0.2, 0.3 },
-            K = { 149.9175, 253.003 },
-            dRL = { 59967/1600, 759009/7000 },
-            T2c105 = 23049
+            L = {104, 105, 115},
+            C = {10/7, 10/7, 10/7},
+            Pcap = {50, 50, 50},
+            RcapF = {148.66, 1047.625/7, 13095.3125/3},
+            RcapC = {0, 0, -1317388.4375/3},
+            T2 = {13.5, 13.5, 13.5},
         },
         Heavy = {
-            dp = { 0.1, 0.5 },
-            K = { 5697/38, 5697/38 },
-            dRL = { 633/38, 5697/38 },
-            T2c105 = 25281
+            L = {104, 105, 115},
+            C = {1.2, 1.2, 1.2},
+            Pcap = {60, 60, 60},
+            RcapF= {166.5, 1168/7, 14600/3},
+            RcapC = {0, 0, -1468760/3},
+            T2 = {13.5, 13.5, 13.5}
         }
     }
 };
@@ -204,83 +240,26 @@ RatingsData = {
     if Attribute == "Mitigation" then -- is dependant on armour type
     Armour = RatingsData.Mitigation.Light;
         if PlayerClassIs == _G.L["Lore-Master"] or PlayerClassIs == _G.L["Minstrel"] or PlayerClassIs == _G.L["Rune-Keeper"] then
-            Armour = RatingsData.Mitigation.Light;
+            Ratings = RatingsData.Mitigation.Light;
         elseif PlayerClassIs == _G.L["Beorning"] or PlayerClassIs == _G.L["Burglar"] or PlayerClassIs == _G.L["Hunter"] or PlayerClassIs == _G.L["Warden"] then
-            Armour = RatingsData.Mitigation.Medium;
+            Ratings = RatingsData.Mitigation.Medium;
         elseif PlayerClassIs == _G.L["Captain"] or PlayerClassIs == _G.L["Champion"] or PlayerClassIs == _G.L["Guardian"] then
-            Armour = RatingsData.Mitigation.Heavy;
+            Ratings = RatingsData.Mitigation.Heavy;
         end
-        if RL <= Armour.dRL[1] then
-            X0 = 0;
-            Y0 = 0;
-            K = Armour.K[1];
-        elseif (RL > Armour.dRL[1]) and (RL <= Armour.dRL[1]+Armour.dRL[2]) then
-            X0 = Armour.dRL[1];
-            Y0 = Armour.dp[1];
-            K = Armour.K[2];
-        elseif RL > Armour.dRL[1]+Armour.dRL[2] then -- CAPPED
-            Capped = 1;
-            if R >= Armour.T2c105 then Capped = 2 end;
-            answer = sum_array(Armour.dp, 2)*100;
-            return rating_string(R, answer, Attribute), Capped;
-        end
-        answer = (Y0 + 1/(1+K/(RL-X0)))*100;
-        return rating_string(R, answer, Attribute), Capped;
-    elseif Attribute == "Finesse" then 
-        return rating_string(R, 100/(1+(1190*curLvl/(R*3))), Attribute);
-    elseif Attribute == "CritDef" then
-        return rating_string(R, 100/(1+(100*curLvl/R)), Attribute);
-    elseif Attribute == "OffDam" then -- linear
-        Ratings = RatingsData.OffDam;
-        local i = #Ratings.levSegStart;
-        local answer;
-        while Ratings.levSegStart[i] > L do
-            i = i-1;
-        end
-        local Factor = Ratings.Factor[i] - Ratings.FactorLevel[i] * L
-        answer = Factor * R / 1000;
-        if answer > Ratings.CapPct[i] then
-            Capped = 1;
-            answer = Ratings.CapPct[i];
-        end
-        return rating_string(R, answer, Attribute), Capped;
     else Ratings = RatingsData[Attribute];
     end
-    
-    local i = 0;
-    local OverSet = 0;
-    local answer;
-    while 1 do
-        i = i+1;
-        MaxD = #Ratings.dRL;
-        if Ratings.S == 0 then
-            if i >= MaxD - 1 then
-                OverSet = i + 1 - MaxD;
-            end
-            if (RL >= sum_array(Ratings.dRL, i-OverSet) + OverSet * Ratings.dRL[MaxD]) and (RL < sum_array(Ratings.dRL, i+1-OverSet) + OverSet * Ratings.dRL[MaxD]) then
-                X0 = sum_array(Ratings.dRL, i-OverSet) + OverSet * Ratings.dRL[MaxD];
-                Y0 = sum_array(Ratings.dp, i-OverSet) + OverSet * Ratings.dRL[MaxD];
-                if OverSet == 0 then
-                    K = Ratings.K[i];
-                else
-                    K = Ratings.K[MaxD-1];
-                end
-                answer = (Y0 + 1/(1+K/(RL-X0)))*100;
-                return rating_string(R, answer, Attribute), Capped;
-            end
-        elseif (Ratings.S+1 == i) and (Ratings.S > 0) and (RL>sum_array(Ratings.dRL,i)) then -- CAPPED
-            Capped = 1;
-            if (Ratings.T2c105 ~= nil) and (R >= Ratings.T2c105) then Capped = 2; end;
-            answer = sum_array(Ratings.dp, i)*100;
-            return rating_string(R, answer, Attribute), Capped;
-        elseif (RL >= sum_array(Ratings.dRL, i)) and (RL < sum_array(Ratings.dRL, i+1)) and (Ratings.S > 0) then
-            X0 = sum_array(Ratings.dRL, i);
-            Y0 = sum_array(Ratings.dp, i);
-            K = Ratings.K[i];
-            answer = (Y0 + 1/(1+K/(RL-X0)))*100;
-            return rating_string(R, answer, Attribute), Capped;
-        end
+    local P, Rcap;
+    local i = 1;
+    while L > Ratings.L[i] do i = i + 1; end
+    Rcap = Ratings.RcapF[i] * L + Ratings.RcapC[i];
+    if R >= Rcap then Capped = 1; end
+    if Ratings.T2 ~= nil then 
+        local offset = Ratings.T2[i] * L;
+        if Attribute == "Mitigation" then offset = math.floor(offset)*5; end
+        if R >= Rcap + offset then Capped = 2; end
     end
+    P = ((Ratings.C[i] + 1)/(Ratings.C[i] + (Rcap/R))) * Ratings.Pcap[i];
+    return rating_string(R, P, Attribute), Capped;
 end
 
 function rating_string(r,p,a) -- String format for Rating and percentage 1234 (25.1%)
@@ -288,14 +267,6 @@ function rating_string(r,p,a) -- String format for Rating and percentage 1234 (2
     return (r .. " (" .. string.format("%.1f", p) .. "%)");
 end
 
-function sum_array( Array, MaxInt )
-    local sum = 0;
-    for i = 1,MaxInt do
-        sum = sum+Array[i];
-    end
-    return sum;
-end
- 
 function comma_value(n) -- credit http://richard.warburton.it
     local left,num,right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
     return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
@@ -447,7 +418,7 @@ function ShowPIWindow()
         T2Label:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
         T2Label:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         T2Label:SetForeColor(Color["orange"]);
-        T2Label:SetText("Values in ORANGE are capped for T2");
+        T2Label:SetText("Values in ORANGE are capped against on level T2");
     end
     ApplySkin();
 end
