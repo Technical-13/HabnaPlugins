@@ -33,8 +33,7 @@ function LoadSettings()
 		-- AU3 MARKER 3 END
 	end
 	
-	if GLocale == "en" then	tA, tR, tG, tB, tX, tY, tW = 0.3, 0.3, 0.3, 0.3, 0, 0, 3;
-	else tA, tR, tG, tB, tX, tY, tW = "0,3", "0,3", "0,3", "0,3", "0", "0", "3"; end --Default alpha, red, green, blue, X, Y pos of control, Show where
+	tA, tR, tG, tB, tX, tY, tW = 0.3, 0.3, 0.3, 0.3, 0, 0, 3; --Default alpha, red, green, blue, X, Y pos of control, Show where
 	tL, tT = 100, 100; --Default position of control window
 
 	if settings == nil then	settings = {}; end
