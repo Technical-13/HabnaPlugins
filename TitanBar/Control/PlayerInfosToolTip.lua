@@ -136,9 +136,9 @@ function get_percentage( Attribute, R, L )
 RatingsData = { 
     CritHit = {                 -- Critical Hit
         L = {50, 84, 104, 105, 115},
-        C = {0.66, 1, 1, 1, 1},
+        C = {2/3, 1, 1, 1, 1},
         Pcap = {15, 20, 25, 25, 25},
-        RcapF = {71.5, 250, 165, 3550/21, 44375/9},
+        RcapF = {215/3, 250, 165, 3550/21, 44375/9},
         RcapC = {0, -6900, 375, 0, -4464125/9}
     },
     DevasHit = {                -- Devastating Hit
@@ -159,16 +159,16 @@ RatingsData = {
         L = {20, 49, 50, 59, 60, 99, 100, 104, 105, 115},
         C = {1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9, 1/9},
         Pcap = {40, 40, 40, 80, 80, 200, 200, 400, 400, 400},
-        RcapF = {144.45, 7733/58, 1220/9, 305.5, 2500/9, 62489/76, 2225/3, 
-            133/3, 9900/7, 4125},
-        RcapC = {0, 6451/29, 0, -1691.5, 0, -560739/76, 0, 431567/3, 0, 
+        RcapF = {1300/9, 1200/9, 1220/9, 2750/9, 2500/9, 7400/9, 6675/9, 
+            400/9, 9900/7, 4125},
+        RcapC = {0, 2000/9, 0, -15250/9, 0, -66400/9, 0, 1294600/9, 0, 
             -251625}
     },                
     OutHeal = {                 -- Tactical Outgoing Healing
         L = {20, 50, 105, 115},
-        C = {0.43, 1, 1.4, 1.4},
+        C = {3/7, 1, 1.4, 1.4},
         Pcap = {30, 50, 70, 70},
-        RcapF = {171.5, 400, 777, 353675/18},
+        RcapF = {1200/7, 400, 777, 353675/18},
         RcapC = {0, 0, -10850, -35579705/18}
     },          
     Resistance = {          -- Resistance
@@ -222,8 +222,8 @@ RatingsData = {
             L = {104, 105, 115},
             C = {10/7, 10/7, 10/7},
             Pcap = {50, 50, 50},
-            RcapF = {148.66, 1047.625/7, 13095.3125/3},
-            RcapC = {0, 0, -1317388.4375/3},
+            RcapF = {446/3, 110000/735, 275000/63},
+            RcapC = {0, 0, -27665000/63},
             T2 = {13.5, 13.5, 13.5},
         },
         Heavy = {
@@ -258,7 +258,9 @@ RatingsData = {
         if Attribute == "Mitigation" then offset = math.floor(offset)*5; end
         if R >= Rcap + offset then Capped = 2; end
     end
-    P = ((Ratings.C[i] + 1)/(Ratings.C[i] + (Rcap/R))) * Ratings.Pcap[i];
+    local EffR = R;
+    if Capped ~= 0 then EffR = Rcap; end
+    P = ((Ratings.C[i] + 1)/(Ratings.C[i] + (Rcap/EffR))) * Ratings.Pcap[i];
     return rating_string(R, P, Attribute), Capped;
 end
 
