@@ -481,3 +481,14 @@ function ShowHideGiftgiversBrand()
 	end
 	GGB["Ctr"]:SetVisible( ShowGiftgiversBrand );
 end
+function ShowHideAshOfGorgoroth()
+	ShowAshOfGorgoroth = not ShowAshOfGorgoroth;
+	settings.AshOfGorgoroth.V = ShowAshOfGorgoroth;
+	settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere);
+	SaveSettings( false );
+	ImportCtr( "AOG" );
+	if ShowAshOfGorgoroth then
+		AOG["Ctr"]:SetBackColor( Turbine.UI.Color( AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue ) );
+	end
+	AOG["Ctr"]:SetVisible( ShowAshOfGorgoroth );
+end

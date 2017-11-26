@@ -369,6 +369,12 @@ function ImportCtr( value )
             GGB["Ctr"]:SetPosition( _G.GGBLocX, _G.GGBLocY );
         end
         if _G.GGBWhere ~= 3 then UpdateGiftgiversBrand(); end
+    elseif value == "AOG" then --Ash of Gorgoroth
+        if _G.AOGWhere == 1 then
+            import (AppCtrD.."AshOfGorgoroth");
+            AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY );
+        end
+        if _G.AOGWhere ~= 3 then UpdateAshOfGorgoroth(); end
     -- AU3 MARKER END
     elseif value == "RP" then --Reputation Points
         RPGR = {
@@ -1009,6 +1015,8 @@ function UpdateCurrency(str)
         UpdateCentralGondorSilverPiece(); end
     if str == pwGiftgiversBrand and ShowGiftgiversBrand then 
         UpdateGiftgiversBrand(); end
+    if str == pwAshOfGorgoroth and ShowAshOfGorgoroth then 
+        UpdateAshOfGorgoroth(); end
     -- AU3 MARKER 2 END
 end
 

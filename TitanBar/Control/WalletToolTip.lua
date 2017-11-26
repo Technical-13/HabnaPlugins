@@ -49,10 +49,11 @@ function RefreshWITTListBox()
 		elseif wttcur == L["MCP"] then ttw = _G.CPWhere; CtrIconCodeIs=WalletItem.Commendation.Icon; CtrQteIs=GetCurrency( pwCommendation );
 		elseif wttcur == L["MLP"] then ttw = _G.LPWhere; CtrIconCodeIs=WalletItem.LOTROPTS.Icon; CtrQteIs=_G.LOTROPTS;
 		-- AU3 MARKER 1 - DO NOT REMOVE
-	    elseif wttcur == L["MASP"] then ttw = _G.ASPWhere; CtrIconCodeIs=WalletItem.AmrothSilverPiece.Icon; CtrQteIs=GetCurrency( pwAmrothSilverPiece );
+		elseif wttcur == L["MASP"] then ttw = _G.ASPWhere; CtrIconCodeIs=WalletItem.AmrothSilverPiece.Icon; CtrQteIs=GetCurrency( pwAmrothSilverPiece );
 		elseif wttcur == L["MSOM"] then ttw = _G.SOMWhere; CtrIconCodeIs=WalletItem.StarsofMerit.Icon; CtrQteIs=GetCurrency( pwStarsofMerit );
 		elseif wttcur == L["MCGSP"] then ttw = _G.CGSPWhere; CtrIconCodeIs=WalletItem.CentralGondorSilverPiece.Icon; CtrQteIs=GetCurrency( pwCentralGondorSilverPiece );
 		elseif wttcur == L["MGGB"] then ttw = _G.GGBWhere; CtrIconCodeIs=WalletItem.GiftgiversBrand.Icon; CtrQteIs=GetCurrency( pwGiftgiversBrand );
+		elseif wttcur == L["MAOG"] then ttw = _G.AOGWhere; CtrIconCodeIs=WalletItem.AshOfGorgoroth.Icon; CtrQteIs=GetCurrency( pwAshOfGorgoroth );
 		-- AU3 MARKER 1 END
 		end
 		

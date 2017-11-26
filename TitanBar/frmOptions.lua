@@ -329,6 +329,9 @@ function ResizeControls()
 	if ShowGiftgiversBrand then GGB["Ctr"]:SetHeight( CTRHeight ); GGB["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("GGB");
 	end
+	if ShowAshOfGorgoroth then AOG["Ctr"]:SetHeight( CTRHeight ); AOG["Lbl"]:SetHeight( CTRHeight );
+		AjustIcon("AOG");
+	end
 	-- AU3 MARKER 1 END
 	if ShowPlayerLoc then PL["Ctr"]:SetHeight( CTRHeight ); PL["Lbl"]:SetHeight( CTRHeight ); end
 	if ShowGameTime then GT["Ctr"]:SetHeight( CTRHeight );	GT["Lbl"]:SetHeight( CTRHeight ); end
@@ -363,5 +366,6 @@ function ResizeIcon()
 	if ShowStarsofMerit then AjustIcon("SOM"); end
 	if ShowCentralGondorSilverPiece then AjustIcon("CGSP"); end
 	if ShowGiftgiversBrand then AjustIcon("GGB"); end
+	if ShowAshOfGorgoroth then AjustIcon("AOG"); end
 	-- AU3 MARKER 2 END
 end

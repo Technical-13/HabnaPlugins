@@ -92,6 +92,7 @@ function frmBackground()
 	if sFrom == "SOM" then curSelAlpha =SOMbcAlpha; curSelRed = SOMbcRed; curSelGreen = SOMbcGreen; curSelBlue = SOMbcBlue; end
 	if sFrom == "CGSP" then curSelAlpha =CGSPbcAlpha; curSelRed = CGSPbcRed; curSelGreen = CGSPbcGreen; curSelBlue = CGSPbcBlue; end
 	if sFrom == "GGB" then curSelAlpha =GGBbcAlpha; curSelRed = GGBbcRed; curSelGreen = GGBbcGreen; curSelBlue = GGBbcBlue; end
+	if sFrom == "AOG" then curSelAlpha =AOGbcAlpha; curSelRed = AOGbcRed; curSelGreen = AOGbcGreen; curSelBlue = AOGbcBlue; end
 	-- AU3 MARKER 1 END
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
@@ -324,10 +325,11 @@ function UpdateBCvariable()
 		bcGreen, WIbcGreen, MIbcGreen, DPbcGreen, SPbcGreen, SMbcGreen, MCbcGreen,HTbcGreen, MPbcGreen, SLbcGreen, CPbcGreen, BIbcGreen, PIbcGreen, EIbcGreen, DIbcGreen, TIbcGreen, IFbcGreen, VTbcGreen, SSbcGreen, BKbcGreen, DNbcGreen, RPbcGreen, LPbcGreen, PLbcGreen, GTbcGreen--[[, YTbcGreen]]= --[[ curSelGreen,]] curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen,curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen;
 		bcBlue, WIbcBlue, MIbcBlue, DPbcBlue, SPbcBlue, SMbcBlue, MCbcBlue,HTbcBlue, MPbcBlue, SLbcBlue, CPbcBlue, BIbcBlue, PIbcBlue, EIbcBlue, DIbcBlue, TIbcBlue, IFbcBlue, VTbcBlue, SSbcBlue, BKbcBlue, DNbcBlue, RPbcBlue, LPbcBlue, PLbcBlue, GTbcBlue--[[, YTbcBlue]] = --[[curSelBlue,]] curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue;
 		-- AU3 MARKER 2 - DO NOT REMOVE
-	    ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		-- AU3 MARKER 2 END
 	else
 		if sFrom == "TitanBar" then bcAlpha = curSelAlpha; bcRed = curSelRed; bcGreen = curSelGreen; bcBlue = curSelBlue; end
@@ -358,10 +360,11 @@ function UpdateBCvariable()
 		if sFrom == "PL" then PLbcAlpha = curSelAlpha; PLbcRed = curSelRed; PLbcGreen = curSelGreen; PLbcBlue = curSelBlue; end
 		if sFrom == "GT" then GTbcAlpha = curSelAlpha; GTbcRed = curSelRed; GTbcGreen = curSelGreen; GTbcBlue = curSelBlue; end
 		-- AU3 MARKER 3 - DO NOT REMOVE
-	    if sFrom == "ASP" then ASPbcAlpha = curSelAlpha; ASPbcRed = curSelRed; ASPbcGreen = curSelGreen; ASPbcBlue = curSelBlue; end
+		if sFrom == "ASP" then ASPbcAlpha = curSelAlpha; ASPbcRed = curSelRed; ASPbcGreen = curSelGreen; ASPbcBlue = curSelBlue; end
 		if sFrom == "SOM" then SOMbcAlpha = curSelAlpha; SOMbcRed = curSelRed; SOMbcGreen = curSelGreen; SOMbcBlue = curSelBlue; end
 		if sFrom == "CGSP" then CGSPbcAlpha = curSelAlpha; CGSPbcRed = curSelRed; CGSPbcGreen = curSelGreen; CGSPbcBlue = curSelBlue; end
 		if sFrom == "GGB" then GGBbcAlpha = curSelAlpha; GGBbcRed = curSelRed; GGBbcGreen = curSelGreen; GGBbcBlue = curSelBlue; end
+		if sFrom == "AOG" then AOGbcAlpha = curSelAlpha; AOGbcRed = curSelRed; AOGbcGreen = curSelGreen; AOGbcBlue = curSelBlue; end
 		-- AU3 MARKER 3 END
 	end
 end

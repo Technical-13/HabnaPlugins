@@ -8,28 +8,31 @@ function LoadSettings()
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsDE" );
 		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Scherbe", "Zeichen", "Medaillon", "Siegel", "Anerkennung", "Mithril-M\195\188nze",--[[ "Yule Token", ]]"M\195\188nze von Hytbold";
 		-- AU3 MARKER 1 - DO NOT REMOVE
-	    pwAmrothSilverPiece = "Amroth-Silberstck"
+		pwAmrothSilverPiece = "Amroth-Silberstck"
 		pwStarsofMerit = "Stern des Verdienst"
 		pwCentralGondorSilverPiece = "Zentralgondorisches Silberst\195\188ck"
 		pwGiftgiversBrand = "Zeichen des Schenkenden"
+		pwAshOfGorgoroth = "Asche von Gorgoroth"
 		-- AU3 MARKER 1 END
 	elseif GLocale == "en" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsEN" );
 		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Shard", "Mark", "Medallion", "Seal", "Commendation", "Mithril Coin",--[[ "Yule Token", ]]"Token of Hytbold";
 		-- AU3 MARKER 2 - DO NOT REMOVE
-	    pwAmrothSilverPiece = "Amroth Silver Piece"
+		pwAmrothSilverPiece = "Amroth Silver Piece"
 		pwStarsofMerit = "Star of Merit"
 		pwCentralGondorSilverPiece = "Central Gondor Silver Piece"
 		pwGiftgiversBrand = "Gift-giver's Brand"
+		pwAshOfGorgoroth = "Ash of Gorgoroth"
 		-- AU3 MARKER 2 END
 	elseif GLocale == "fr" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsFR" );
 		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Eclat", "Marque", "M\195\169daillon", "Sceau", "Citation", "Pi\195\168ce de mithril",--[[ "Yule Token", ]]"Jeton d'Hytbold";
 		-- AU3 MARKER 3 - DO NOT REMOVE
-	    pwAmrothSilverPiece = "Pice d'argent d'Amroth"
+		pwAmrothSilverPiece = "Pice d'argent d'Amroth"
 		pwStarsofMerit = "Star of Merit"
 		pwCentralGondorSilverPiece = "Central Gondor Silver Piece"
 		pwGiftgiversBrand = "Gift-giver's Brand"
+		pwAshOfGorgoroth = "Ash of Gorgoroth"
 		-- AU3 MARKER 3 END
 	end
 	
@@ -772,6 +775,25 @@ function LoadSettings()
 	_G.GGBLocY = tonumber(settings.GiftgiversBrand.Y);
 	_G.GGBWhere = tonumber(settings.GiftgiversBrand.W);
 	if _G.GGBWhere == 3 and ShowGiftgiversBrand then _G.GGBWhere = 1; settings.GiftgiversBrand.W = string.format("%.0f", _G.GGBWhere); end --Remove after Oct, 15th 2013
+
+	if settings.AshOfGorgoroth == nil then settings.AshOfGorgoroth = {}; end
+	if settings.AshOfGorgoroth.V == nil then settings.AshOfGorgoroth.V = false; end
+	if settings.AshOfGorgoroth.A == nil then settings.AshOfGorgoroth.A = string.format("%.3f", tA); end
+	if settings.AshOfGorgoroth.R == nil then settings.AshOfGorgoroth.R = string.format("%.3f", tR); end
+	if settings.AshOfGorgoroth.G == nil then settings.AshOfGorgoroth.G = string.format("%.3f", tG); end
+	if settings.AshOfGorgoroth.B == nil then settings.AshOfGorgoroth.B = string.format("%.3f", tB); end
+	if settings.AshOfGorgoroth.X == nil then settings.AshOfGorgoroth.X = string.format("%.0f", tX); end
+	if settings.AshOfGorgoroth.Y == nil then settings.AshOfGorgoroth.Y = string.format("%.0f", tY); end
+	if settings.AshOfGorgoroth.W == nil then settings.AshOfGorgoroth.W = string.format("%.0f", tW); end
+	ShowAshOfGorgoroth = settings.AshOfGorgoroth.V;
+	AOGbcAlpha = tonumber(settings.AshOfGorgoroth.A);
+	AOGbcRed = tonumber(settings.AshOfGorgoroth.R);
+	AOGbcGreen = tonumber(settings.AshOfGorgoroth.G);
+	AOGbcBlue = tonumber(settings.AshOfGorgoroth.B);
+	_G.AOGLocX = tonumber(settings.AshOfGorgoroth.X);
+	_G.AOGLocY = tonumber(settings.AshOfGorgoroth.Y);
+	_G.AOGWhere = tonumber(settings.AshOfGorgoroth.W);
+	if _G.AOGWhere == 3 and ShowAshOfGorgoroth then _G.AOGWhere = 1; settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere); end --Remove after Oct, 15th 2013
 	-- AU3 MARKER 4 END
 	
 	SaveSettings( false );
@@ -1139,6 +1161,15 @@ function SaveSettings(str)
 		settings.GiftgiversBrand.X = string.format("%.0f", _G.GGBLocX);
 		settings.GiftgiversBrand.Y = string.format("%.0f", _G.GGBLocY);
 		settings.GiftgiversBrand.W = string.format("%.0f", _G.GGBWhere);
+		settings.AshOfGorgoroth = {};
+		settings.AshOfGorgoroth.V = ShowAshOfGorgoroth;
+		settings.AshOfGorgoroth.A = string.format("%.3f", AOGbcAlpha);
+		settings.AshOfGorgoroth.R = string.format("%.3f", AOGbcRed);
+		settings.AshOfGorgoroth.G = string.format("%.3f", AOGbcGreen);
+		settings.AshOfGorgoroth.B = string.format("%.3f", AOGbcBlue);
+		settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
+		settings.AshOfGorgoroth.Y = string.format("%.0f", _G.AOGLocY);
+		settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere);
 		-- AU3 MARKER 5 END
 	end
 	
@@ -1189,6 +1220,7 @@ function ResetSettings()
 	StarsofMerit, SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue, _G.SOMLocX, _G.SOMLocY, _G.SOMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Stars of Merit Control
 	CentralGondorSilverPiece, CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue, _G.CGSPLocX, _G.CGSPLocY, _G.CGSPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Central Gondor Silver Piece Control
 	GiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
+	AshOfGorgoroth, AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue, _G.AOGLocX, _G.AOGLocY, _G.AOGWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Gorgoroth Control
 	-- AU3 MARKER 6 END
 		
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
@@ -1347,6 +1379,10 @@ function ReplaceCtr()
 	_G.GGBLocX = oldLocX * screenWidth;
 	settings.GiftgiversBrand.X = string.format("%.0f", _G.GGBLocX);
 	if ShowGiftgiversBrand and _G.GGBWhere == 1 then GGB["Ctr"]:SetPosition( _G.GGBLocX, _G.GGBLocY ); end
+	oldLocX = settings.AshOfGorgoroth.X / oldScreenWidth;
+	_G.AOGLocX = oldLocX * screenWidth;
+	settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
+	if ShowAshOfGorgoroth and _G.AOGWhere == 1 then AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY ); end
 	-- AU3 MARKER 7 END
 	
 	SaveSettings( false );

@@ -509,3 +509,7 @@ L["CGSPh"] = "Deine Zentralgondorischen Silberst\195\188cke";
 -- Gift giver's Brand control
 L["MGGB"] = "Zeichen des Schenkenden";
 L["GGBh"] = "Deine Zeichen des Schenkenden";
+
+-- Ash of Gorgoroth control
+L["MAOG"] = "Asche von Gorgoroth";
+L["AOGh"] = "Deine Asche von Gorgoroth";

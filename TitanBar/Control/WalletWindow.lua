@@ -239,6 +239,10 @@ function frmWalletWindow()
 			_G.GGBWhere = SelIndex; settings.GiftgiversBrand.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end
 			else if ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end end
+		elseif wcur == L["MAOG"] then
+			_G.AOGWhere = SelIndex; settings.AshOfGorgoroth.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowAshOfGorgoroth then ShowHideAshOfGorgoroth(); end
+			else if ShowAshOfGorgoroth then ShowHideAshOfGorgoroth(); end end
 		-- AU3 MARKER 1 END
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
@@ -311,6 +315,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MSOM"] then tw = _G.SOMWhere;
 				elseif wcur == L["MCGSP"] then tw = _G.CGSPWhere;
 				elseif wcur == L["MGGB"] then tw = _G.GGBWhere;
+				elseif wcur == L["MAOG"] then tw = _G.AOGWhere;
 				-- AU3 MARKER 2 END
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end

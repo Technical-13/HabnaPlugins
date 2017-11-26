@@ -510,3 +510,7 @@ L["CGSPh"] = "These are your Central Gondor Silver Pieces";
 -- Gift giver's Brand control
 L["MGGB"] = "Gift-giver's Brand";
 L["GGBh"] = "These are your Gift-giver's Brands";
+
+-- Ash of Gorgoroth control
+L["MAOG"] = "Ash of Gorgoroth";
+L["AOGh"] = "These are your Ash of Gorgoroth";

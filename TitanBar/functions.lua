@@ -298,6 +298,12 @@ function ShowToolTipWin( ToShow )
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["GGBh"], L["EIt2"], 
             L["EIt3"] );
+	elseif ToShow == "AOG" then -- Ash of Gorgoroth
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["AOGh"], L["EIt2"], 
+            L["EIt3"] );
 	-- AU3 MARKER 1 END
 	end
 
@@ -533,6 +539,15 @@ function UpdateGiftgiversBrand()
 		GGB["Lbl"]:SetText( GetCurrency( pwGiftgiversBrand ) );
 		GGB["Lbl"]:SetSize( GGB["Lbl"]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "GGB" );
+	end
+end
+--**^
+--**v Update Ash of Gorgoroth currency on TitanBar v**
+function UpdateAshOfGorgoroth()
+	if _G.AOGWhere == 1 then
+		AOG["Lbl"]:SetText( GetCurrency( pwAshOfGorgoroth ) );
+		AOG["Lbl"]:SetSize( AOG["Lbl"]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "AOG" );
 	end
 end
 --**^
@@ -873,9 +888,9 @@ function ChangeColor(tColor)
 		-- AU3 MARKER 3 - DO NOT REMOVE
 		if ShowAmrothSilverPiece then ASP["Ctr"]:SetBackColor( tColor ); end
 		if ShowStarsofMerit then SOM["Ctr"]:SetBackColor( tColor ); end
-		if ShowCentralGondorSilverPiece then 
-            CGSP["Ctr"]:SetBackColor( tColor ); end
+		if ShowCentralGondorSilverPiece then CGSP["Ctr"]:SetBackColor( tColor ); end
 		if ShowGiftgiversBrand then GGB["Ctr"]:SetBackColor( tColor ); end
+		if ShowAshOfGorgoroth then AOG["Ctr"]:SetBackColor( tColor ); end
 		-- AU3 MARKER 3 END
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
@@ -910,6 +925,7 @@ function ChangeColor(tColor)
 		if sFrom == "SOM" then SOM["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "CGSP" then CGSP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "GGB" then GGB["Ctr"]:SetBackColor( tColor ); end
+		if sFrom == "AOG" then AOG["Ctr"]:SetBackColor( tColor ); end
 		-- AU3 MARKER 4 END
 	end
 end
@@ -1128,8 +1144,7 @@ function AjustIcon(str)
 		SOM["Icon"]:SetStretchMode( 3 );
 	elseif str == "CGSP" then
 		CGSP["Icon"]:SetStretchMode( 1 );
-		CGSP["Icon"]:SetPosition( CGSP["Lbl"]:GetLeft() +
-            CGSP["Lbl"]:GetWidth() + 3, Y );
+		CGSP["Icon"]:SetPosition( CGSP["Lbl"]:GetLeft() + CGSP["Lbl"]:GetWidth() + 3, Y );
 		CGSP["Ctr"]:SetSize( CGSP["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		CGSP["Icon"]:SetSize( TBIconSize, TBIconSize );
 		CGSP["Icon"]:SetStretchMode( 3 );
@@ -1139,6 +1154,12 @@ function AjustIcon(str)
 		GGB["Ctr"]:SetSize( GGB["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		GGB["Icon"]:SetSize( TBIconSize, TBIconSize );
 		GGB["Icon"]:SetStretchMode( 3 );
+	elseif str == "AOG" then
+		AOG["Icon"]:SetStretchMode( 1 );
+		AOG["Icon"]:SetPosition(AOG["Lbl"]:GetLeft()+AOG["Lbl"]:GetWidth()+3,Y);
+		AOG["Ctr"]:SetSize( AOG["Icon"]:GetLeft() + TBIconSize, CTRHeight );
+		AOG["Icon"]:SetSize( TBIconSize, TBIconSize );
+		AOG["Icon"]:SetStretchMode( 3 );
 	-- AU3 MARKER 5 END
 	end
 end

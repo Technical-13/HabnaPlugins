@@ -62,6 +62,7 @@ _G.WalletItem = {
 	StarsofMerit = { Icon = 0x4115bea4 },
 	CentralGondorSilverPiece = { Icon = 0x41155957 },
 	GiftgiversBrand = { Icon = 0x4115c888 },
+	AshOfGorgoroth = { Icon = 0x411B91DD },
 	-- AU3 MARKER END
 	LOTROPTS = { Icon = 0x4113478C }
 };

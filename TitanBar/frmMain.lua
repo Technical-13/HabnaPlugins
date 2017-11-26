@@ -171,20 +171,22 @@ function frmMain()
 			if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end
 			if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end
 			-- AU3 MARKER 1 - DO NOT REMOVE
-	        if _G.ASPWhere ~= 3 then ImportCtr( "ASP" ); end
+			if _G.ASPWhere ~= 3 then ImportCtr( "ASP" ); end
 			if _G.SOMWhere ~= 3 then ImportCtr( "SOM" ); end
 			if _G.CGSPWhere ~= 3 then ImportCtr( "CGSP" ); end
 			if _G.GGBWhere ~= 3 then ImportCtr( "GGB" ); end
+			if _G.AOGWhere ~= 3 then ImportCtr( "AOG" ); end
 			-- AU3 MARKER 1 END
 		end
 	else
 		-- Disable DurabilityInfos, EquipInfos, DestinyPoints, Shard, YuleTokens, SkirmishMark, Medallion, Seal, Vault, SharedStoreage. (Infos not usefull in Monster Play)
 		ShowDurabilityInfos, ShowEquipInfos, ShowDestinyPoints, ShowShards,--[[ ShowYuleTokens, ]]ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions, ShowSeals, ShowVault, ShowSharedStorage, ShowReputation = false, false, false, false,--[[  false, ]]false, false, false, false, false, false, false;
 		-- AU3 MARKER 2 - DO NOT REMOVE
-	    ShowAmrothSilverPiece = false
+		ShowAmrothSilverPiece = false
 		ShowStarsofMerit = false
 		ShowCentralGondorSilverPiece = false
 		ShowGiftgiversBrand = false
+		ShowAshOfGorgoroth = false
 		-- AU3 MARKER 2 END
 		if PlayerWalletSize ~= nil or PlayerWalletSize ~= 0 then
 			if ShowWallet then ImportCtr( "WI" ); end
@@ -315,10 +317,11 @@ function frmMain()
 				if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end
 				if _G.LPWhere ~= 3 then ImportCtr( "CP" ); end
 				-- AU3 MARKER 3 - DO NOT REMOVE
-	            if _G.ASPWhere ~= 3 then ImportCtr( "ASP" ); end
+				if _G.ASPWhere ~= 3 then ImportCtr( "ASP" ); end
 				if _G.SOMWhere ~= 3 then ImportCtr( "SOM" ); end
 				if _G.CGSPWhere ~= 3 then ImportCtr( "CGSP" ); end
 				if _G.GGBWhere ~= 3 then ImportCtr( "GGB" ); end
+				if _G.AOGWhere ~= 3 then ImportCtr( "AOG" ); end
 				-- AU3 MARKER 3 END
 			end
 

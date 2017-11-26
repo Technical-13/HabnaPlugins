@@ -32,10 +32,11 @@ function UnloadControl( value )
 		if ShowPlayerLoc then ShowHidePlayerLoc(); opt_PL:SetChecked( false ); end
 		if ShowGameTime then ShowHideGameTime(); opt_GT:SetChecked( false ); end
 	    -- AU3 MARKER 1 - DO NOT REMOVE
-	    if ShowAmrothSilverPiece then _G.ASPWhere = 3; ShowHideAmrothSilverPiece(); end
+		if ShowAmrothSilverPiece then _G.ASPWhere = 3; ShowHideAmrothSilverPiece(); end
 	   	if ShowStarsofMerit then _G.SOMWhere = 3; ShowHideStarsofMerit(); end
 	   	if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
 	   	if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
+	   	if ShowAshOfGorgoroth then _G.AOGWhere = 3; ShowHideAshOfGorgoroth(); end
 	   	-- AU3 MARKER 1 END
 		elseif value == "this" then
 		if _G.sFromCtr == "WI" then	ShowHideWallet();
@@ -64,10 +65,11 @@ function UnloadControl( value )
 		elseif _G.sFromCtr == "PL" then	ShowHidePlayerLoc(); opt_PL:SetChecked( false );
 		elseif _G.sFromCtr == "GT" then	ShowHideGameTime(); opt_GT:SetChecked( false );
 		-- AU3 MARKER 2 - DO NOT REMOVE
-	    elseif _G.sFromCtr == "ASP" then	_G.ASPWhere = 3; ShowHideAmrothSilverPiece();
+		elseif _G.sFromCtr == "ASP" then	_G.ASPWhere = 3; ShowHideAmrothSilverPiece();
 	   	elseif _G.sFromCtr == "SOM" then	_G.SOMWhere = 3; ShowHideStarsofMerit();
 	   	elseif _G.sFromCtr == "CGSP" then	_G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece();
 	   	elseif _G.sFromCtr == "GGB" then	_G.GGBWhere = 3; ShowHideGiftgiversBrand();
+	   	elseif _G.sFromCtr == "AOG" then	_G.AOGWhere = 3; ShowHideAshOfGorgoroth();
 	   	-- AU3 MARKER 2 END
 		end
 	end
@@ -114,6 +116,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "SOM" then tA, tR, tG, tB = SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue;
 		elseif _G.sFromCtr == "CGSP" then tA, tR, tG, tB = CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue;
 		elseif _G.sFromCtr == "GGB" then tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
+		elseif _G.sFromCtr == "AOG" then tA, tR, tG, tB = AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue;
 		-- AU3 MARKER 3 END
 		end
 	end
@@ -179,6 +182,8 @@ function BGColor( cmd, value )
 		if CentralGondorSilverPiece then CGSP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
 		if GiftgiversBrand then GGB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
+		if AshOfGorgoroth then AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		-- AU3 MARKER 4 END
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
@@ -260,7 +265,7 @@ function BGColor( cmd, value )
 			GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue = tA, tR, tG, tB;
 			GT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		-- AU3 MARKER 5 - DO NOT REMOVE
-	    elseif _G.sFromCtr == "ASP" then
+		elseif _G.sFromCtr == "ASP" then
 			ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = tA, tR, tG, tB;
 			ASP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "SOM" then
@@ -272,6 +277,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "GGB" then
 			GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
 			GGB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "AOG" then
+			AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
+			AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		-- AU3 MARKER 5 END
 		end
 	elseif value == "TitanBar" then
