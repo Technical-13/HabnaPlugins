@@ -198,6 +198,10 @@ L["RPHOTW"] = "Host of the West";
 L["RPHOTWA"] = "Host of the West: Armour";
 L["RPHOTWW"] = "Host of the West: Weapons";
 L["RPHOTWP"] = "Host of the West: Provisions";
+L["RPCOG"] = "Conquest of Gorgoroth";
+L["RPEOFBS"] = "Enmity of Fushaum Bal south";
+L["RPEOFBN"] = "Enmity of Fushaum Bal north";
+L["RPRSC"] = "Red Sky Clan";
 
 -- All reputation standings
 L["RPMSR"] = "Maximum standing reached"
@@ -509,7 +513,3 @@ L["CGSPh"] = "These are your Central Gondor Silver Pieces";
 -- Gift giver's Brand control
 L["MGGB"] = "Gift-giver's Brand";
 L["GGBh"] = "These are your Gift-giver's Brands";
-
--- Ash of Gorgoroth control
-L["MAOG"] = "Ash of Gorgoroth";
-L["AOGh"] = "These are your Ash of Gorgoroth";
