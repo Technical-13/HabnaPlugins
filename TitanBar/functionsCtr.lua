@@ -975,14 +975,14 @@ function LoadPlayerReputation()
     -- if old reputation data exists, load them into new.
     for i = 1, 60 do
         if PlayerReputation[PN][tostring(i)] == nil then break end
-        for j = 1, #Rep do
+        for j = 1, #RepOrder do
             local ind = tostring(i);
-            if PlayerReputation[PN][ind].en == L[Rep[j]] or
-                    PlayerReputation[PN][ind].de == L[Rep[j]] or
-                    PlayerReputation[PN][ind].fr == L[Rep[j]] then
-                PlayerReputation[PN][Rep[j]].P = PlayerReputation[PN][ind].P;
-                PlayerReputation[PN][Rep[j]].V = PlayerReputation[PN][ind].V;
-                PlayerReputation[PN][Rep[j]].R = PlayerReputation[PN][ind].R;
+            if PlayerReputation[PN][ind].en == L[RepOrder[j]] or
+                    PlayerReputation[PN][ind].de == L[RepOrder[j]] or
+                    PlayerReputation[PN][ind].fr == L[RepOrder[j]] then
+                PlayerReputation[PN][RepOrder[j]].P = PlayerReputation[PN][ind].P;
+                PlayerReputation[PN][RepOrder[j]].V = PlayerReputation[PN][ind].V;
+                PlayerReputation[PN][RepOrder[j]].R = PlayerReputation[PN][ind].R;
                 PlayerReputation[PN][ind] = nil;
                 break;
             end
