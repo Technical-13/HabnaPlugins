@@ -12,6 +12,13 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 =================================================
+v1.30.26 (January 11, 2018)
+
+Fixed:
+- Wrong reputations in french lua https://github.com/Technical-13/HabnaPlugins/issues/34
+- Lua error 978 https://github.com/Technical-13/HabnaPlugins/issues/35
+
+=================================================
 v1.30.25 (January 8, 2018)
 
 Fixed:
