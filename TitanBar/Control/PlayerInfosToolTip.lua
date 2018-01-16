@@ -18,31 +18,32 @@ PlayerLevel = {
     [80]="17,232,812", [81]="18,183,278", [82]="19,181,267", [83]="20,229,155", [84]="21,329,437", [85]="22,484,733", [86]="23,697,793", [87]="24,971,506", [88]="26,308,904", [89]="27,713,171",
     [90]="29,187,651", [91]="30,735,855", [92]="32,361,469", [93]="34,068,363", [94]="35,860,601", [95]="37,742,450", [96]="39,718,391", [97]="41,793,129 ", [98]="43,971,603 ", [99]="46,259,000",
     [100]="48,660,766", [101]="51,182,620", [102] ="53,830,566", [103] ="56,610,909", [104] ="59,527,269", [105] ="62,592,597",
-    [106]="65,811,191", [107]="69,190,714", [108]="72,739,213", [109]="76,465,136", [110]="80,377,355", [111]="84,485,184", [112]="88,798,404", [113]="93,327,285", [114]="93,327,285", [115]="0"
+    [106]="65,811,191", [107]="69,190,714", [108]="72,739,213", [109]="76,465,136", [110]="80,377,355", [111]="84,485,184", [112]="88,798,404", [113]="93,327,285", [114]="98,082,610", [115]="0"
     };
 
 -- Data 2-dim array, Data[index][string], string could be name,value,icon
 Data = {};
 -- DataHeading - headings for Data, index - position of heading in Data
-DataHeading = {[9] = "Stats", [14] = "Mitigations", [18] = "Healing", [20] = "Offence", [26] = "Defence"};
+DataHeading = {[9] = "Stats", [22] = "Mitigations", [20] = "Healing", [14] = "Offence", [26] = "Defence"};
 for i = 1,33 do Data[i] = {}; end
 
 function GetData()
     Data[1]["name"] = "Morale";
-    Data[1]["value"] = round(Player:GetMorale()).." / ".. round(Player:GetMaxMorale());
+    Data[1]["value"] = comma_value(round(Player:GetMorale()))
+        .." / ".. comma_value(round(Player:GetMaxMorale()));
     Data[1]["icon"] = resources.PlayerInfo.Morale;
     if PlayerClassIs == L["Beorning"] then 
         Power = round(Player:GetClassAttributes():GetWrath());
         MaxPower = 100;
     else 
-        Power = round(Player:GetPower());
-        MaxPower = round(Player:GetMaxPower());
+        Power = comma_value(round(Player:GetPower()));
+        MaxPower = comma_value(round(Player:GetMaxPower()));
     end;
     Data[2]["name"],Data[2]["value"] = "Power",(Power .." / ".. MaxPower);
     Data[2]["icon"] = resources.PlayerInfo.Power;  
     
     if PlayerAlign == 1 then
-        Data[3]["name"],Data[3]["value"] = "Armour",PlayerAtt:GetArmor();
+        Data[3]["name"],Data[3]["value"] = "Armour",comma_value(PlayerAtt:GetArmor());
         Data[3]["icon"] = resources.PlayerInfo.Armor;    
         curLvl = Player:GetLevel(); --Current player level
         -- OTHER --
@@ -86,20 +87,21 @@ function GetData()
         Data[12]["name"],Data[12]["value"] = "Will",PlayerAtt:GetWill();
         Data[13]["name"],Data[13]["value"] = "Fate",PlayerAtt:GetFate();
         -- STATISTICS END --
+        for i = 9,13 do Data[i]["value"] = comma_value(Data[i]["value"]); end
         PlayerAttArray = {}; -- array[i] = {"Visible label name", value, "formula category"};
         for i = 14,32 do PlayerAttArray[i] = {} end; 
-            PlayerAttArray[14] = {"Physical", PlayerAtt:GetCommonMitigation(), "Mitigation"};
-            PlayerAttArray[15] = {"Tactical", PlayerAtt:GetTacticalMitigation(), "Mitigation"};
-            PlayerAttArray[16] = {"Orc", PlayerAtt:GetPhysicalMitigation(), "Mitigation"};
-            PlayerAttArray[17] = {"Fell", PlayerAtt:GetPhysicalMitigation(), "Mitigation"};
-            PlayerAttArray[18] = {"Outgoing", PlayerAtt:GetOutgoingHealing(), "OutHeal"};
-            PlayerAttArray[19] = {"Incoming", PlayerAtt:GetIncomingHealing(), "InHeal"};
-            PlayerAttArray[20] = {"Melee", PlayerAtt:GetMeleeDamage(), "OffDam"};
-            PlayerAttArray[21] = {"Ranged", PlayerAtt:GetRangeDamage(), "OffDam"};
-            PlayerAttArray[22] = {"Tactical", PlayerAtt:GetTacticalDamage(), "OffDam"};
-            PlayerAttArray[23] = {"CritHit", PlayerAtt:GetBaseCriticalHitChance(), "CritHit"};
-            PlayerAttArray[24] = {"DevHit", PlayerAtt:GetBaseCriticalHitChance(), "DevasHit"};
-            PlayerAttArray[25] = {"Finesse", PlayerAtt:GetFinesse(), "Finesse"};
+            PlayerAttArray[22] = {"Physical", PlayerAtt:GetCommonMitigation(), "Mitigation"};
+            PlayerAttArray[23] = {"Tactical", PlayerAtt:GetTacticalMitigation(), "Mitigation"};
+            PlayerAttArray[24] = {"Orc", PlayerAtt:GetPhysicalMitigation(), "Mitigation"};
+            PlayerAttArray[25] = {"Fell", PlayerAtt:GetPhysicalMitigation(), "Mitigation"};
+            PlayerAttArray[20] = {"Outgoing", PlayerAtt:GetOutgoingHealing(), "OutHeal"};
+            PlayerAttArray[21] = {"Incoming", PlayerAtt:GetIncomingHealing(), "InHeal"};
+            PlayerAttArray[14] = {"Melee", PlayerAtt:GetMeleeDamage(), "OffDam"};
+            PlayerAttArray[15] = {"Ranged", PlayerAtt:GetRangeDamage(), "OffDam"};
+            PlayerAttArray[16] = {"Tactical", PlayerAtt:GetTacticalDamage(), "OffDam"};
+            PlayerAttArray[17] = {"CritHit", PlayerAtt:GetBaseCriticalHitChance(), "CritHit"};
+            PlayerAttArray[18] = {"DevHit", PlayerAtt:GetBaseCriticalHitChance(), "DevasHit"};
+            PlayerAttArray[19] = {"Finesse", PlayerAtt:GetFinesse(), "Finesse"};
             PlayerAttArray[26] = {"CritDef", PlayerAtt:GetBaseCriticalHitAvoidance(), "CritDef"};
             PlayerAttArray[27] = {"Resistances", PlayerAtt:GetBaseResistance(), "Resistance"};
             PlayerAttArray[28] = {"Block", PlayerAtt:GetBlock(), "BPE"};
@@ -265,6 +267,7 @@ RatingsData = {
 end
 
 function rating_string(r,p,a) -- String format for Rating and percentage 1234 (25.1%)
+    r = comma_value(r);
     if a == "PartBPE" then return (string.format("%.1f", p) .. "%"); end
     return (r .. " (" .. string.format("%.1f", p) .. "%)");
 end
@@ -357,7 +360,7 @@ end
 
 function ShowPIWindow()
     CtrW = 285;
-    if PlayerAlign == 1 then th = 250; tw = 3*CtrW; else th = 75; tw = 2*CtrW; end --th: temp height / tw: temp width
+    if PlayerAlign == 1 then th = 240; tw = 3*CtrW; else th = 75; tw = 2*CtrW; end --th: temp height / tw: temp width
 
     -- ( offsetX, offsetY, width, height, bubble side )
     local x, y, w, h = -5, -15, tw, th;
@@ -399,7 +402,7 @@ function ShowPIWindow()
         Separator:SetBackColor(Color["trueblue"]);
         local x,y = 20,47;
         for i = 4,33 do
-            if (i == 14) or (i == 20) or (i == 26) then y = 47; x = x + 210; end
+            if (i == 14) or (i == 22) or (i == 26) then y = 47; x = x + 210; end
             if DataHeading[i] ~= nill then CreateHeading(APICtr,i,x,y+5); y = y +27; end
             CreateLabel(APICtr,i,90,100,x,y);
             y = y + 15;
@@ -407,20 +410,21 @@ function ShowPIWindow()
         local CappedLabel=Turbine.UI.Label();
         CappedLabel:SetParent(APICtr);
         CappedLabel:SetSize(400,15);
-        CappedLabel:SetPosition(340,y+15);
         CappedLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
         CappedLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         CappedLabel:SetForeColor(Color["yellow"]);
-        CappedLabel:SetText(L["Capped"]);
+        CappedLabel:SetText("YELLOW - capped");
+        CappedLabel:SetPosition(540-CappedLabel:GetTextLength()*4.1,y);
         
         local T2Label=Turbine.UI.Label();
         T2Label:SetParent(APICtr);
         T2Label:SetSize(400,15);
-        T2Label:SetPosition(320,y+30);
         T2Label:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
         T2Label:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         T2Label:SetForeColor(Color["orange"]);
-        T2Label:SetText("Values in ORANGE are capped against on level T2");
+        T2Label:SetText("ORANGE - T2 capped");
+        T2Label:SetPosition(540-T2Label:GetTextLength()*4.1,y+15);
     end
+    
     ApplySkin();
 end

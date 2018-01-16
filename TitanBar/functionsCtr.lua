@@ -115,12 +115,12 @@ function ImportCtr( value )
     elseif value == "BI" then --Backpack Infos
         import (AppCtrD.."BagInfos");
         --import (AppCtrD.."BagInfosToolTip");
-        AddCallback(backpack, "ItemAdded", 
+        AddCallback(backpack, "ItemAdded",
             function(sender, args) UpdateBackpackInfos(); end
             );
-        AddCallback(backpack, "ItemRemoved", 
-            function(sender, args) 
-                ItemRemovedTimer:SetWantsUpdates( true ); 
+        AddCallback(backpack, "ItemRemoved",
+            function(sender, args)
+                ItemRemovedTimer:SetWantsUpdates( true );
             end
             ); --Workaround
         --AddCallback(backpack, "ItemRemoved", 
@@ -133,11 +133,17 @@ function ImportCtr( value )
         import (AppCtrD.."PlayerInfosToolTip");
         PlayerAtt = Player:GetAttributes();
         AddCallback(Player, "LevelChanged", 
-            function(sender, args) PI["Lvl"]:SetText( Player:GetLevel() ); end
-            );
-        AddCallback(Player, "NameChanged", 
-            function(sender, args) PI["Name"]:SetText( Player:GetName() ); end
-            );
+            function(sender, args)
+                PI["Lvl"]:SetText( Player:GetLevel() );
+                PI["Lvl"]:SetSize( PI["Lvl"]:GetTextLength() * NM+1, CTRHeight );
+                PI["Name"]:SetPosition( PI["Lvl"]:GetLeft() + PI["Lvl"]:GetWidth() + 5, 0 );
+            end);
+        AddCallback(Player, "NameChanged",
+            function(sender, args)
+                PI["Name"]:SetText( Player:GetName() );
+                PI["Name"]:SetSize( PI["Name"]:GetTextLength() * TM, CTRHeight );
+                AjustIcon(" PI ");
+            end);
         XPcb = AddCallback(Turbine.Chat, "Received", 
             function(sender, args)
             if args.ChatType == Turbine.ChatType.Advancement then
@@ -472,6 +478,7 @@ function ImportCtr( value )
                                         max = RPGR[ (newR) ];
                                         PlayerReputation[PN][name].R = tostring(newR);
                                         tot = tot + max;
+                                    end
                                 end
                                 if PlayerReputation[PN][name].R == lastR then
                                     tot = 0;

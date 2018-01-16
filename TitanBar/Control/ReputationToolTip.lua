@@ -69,13 +69,15 @@ function RPRefreshListBox()
             local tp = PlayerReputation[PN][RepOrder[i]].P;
             local tr = tonumber(PlayerReputation[PN][RepOrder[i]].R);
 
-            local tt = Reptype[i];
+            local tt = RepType[i];
+            if tt == 2 or tt == 7 or tt == 8 then
+                tm = RPGR[tonumber( tr-1 )];
+            else
+                tm = RPGR[tonumber( tr )];
+            end
             if tt == 10 then
                 tm = 80000;
-            elseif tt == 2 or tt == 7 or tt == 8 then
-                tr = tr - 1;
             end
-            tm = RPGR[tonumber( tr )];
 
             if tr == #RepTypes[RepType[i]] and HideBonus then
                 percentage_done = "max";
