@@ -81,6 +81,7 @@ import (AppDirD.."menu");
 import (AppDirD.."menuControl");
 import (AppDirD.."background");
 import (AppDirD.."frmMain");
+import (AppDirD.."FontMetric");
 frmMain();
 
 if PlayerAlign == 1 then 

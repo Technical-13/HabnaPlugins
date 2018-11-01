@@ -808,8 +808,10 @@ end
 --**^
 --**v Update Player Location on TitanBar v**
 function UpdatePlayerLoc( value )
-	PL[ "Lbl" ]:SetText( value );
-	PL[ "Lbl" ]:SetSize( PL[ "Lbl" ]:GetTextLength() * TM + 1, CTRHeight );
+	fontMetric=FontMetric();
+    fontMetric:SetFont(_G.TBFont);
+    PL[ "Lbl" ]:SetText( value );
+	PL[ "Lbl" ]:SetSize( fontMetric:GetTextWidth(value,fontMetric.FontSize), CTRHeight );
 
 	PL[ "Ctr" ]:SetSize( PL[ "Lbl" ]:GetWidth(), CTRHeight );
 end

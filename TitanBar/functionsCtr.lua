@@ -910,7 +910,7 @@ function LoadPlayerReputation()
         -- Plateau of Gorgoroth
         "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
         -- Strongholds of the North
-        "RPDOE", "RPEOF", "RPMOD", "RPGME"
+        "RPDOE", "RPEOF", "RPMOD", "RPGME",
         -- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
