@@ -97,9 +97,12 @@ function frmGameTimeWindow()
 
 		if parsed_text == "" or parsed_text == "-" or parsed_text == "+" then
 			return
-		elseif tonumber(parsed_text) == nil or string.find(parsed_text,"%.") ~= nil or parsed_text == "-0" or parsed_text == "+0" or parsed_text == "00" then
-			GMT:SetText( string.sub( parsed_text, 1, string.len(parsed_text)-1 ) );
+		elseif parsed_text == "0-" or parsed_text == "0+" or parsed_text == "00" then
+			GMT:SetText( string.sub( parsed_text, 2, 2 ) );
 			return
+		elseif tonumber(parsed_text) == nil or string.find(parsed_text,"%.") ~= nil or string.find(parsed_text,",") then
+            GMT:SetText( "0" );
+            return
 		elseif string.len(parsed_text) == 2 and string.sub(parsed_text,1,1) == "0" then
 			GMT:SetText( string.sub( parsed_text, 2 ) );
 			return
