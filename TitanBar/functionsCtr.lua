@@ -911,6 +911,8 @@ function LoadPlayerReputation()
         "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
         -- Strongholds of the North
         "RPDOE", "RPEOF", "RPMOD", "RPGME",
+		-- Vales of Anduin
+		"RPWF",
         -- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -930,8 +932,10 @@ function LoadPlayerReputation()
         3, 1, 1, 1,
         -- Plateau of Gorgoroth
         3, 8, 8, 9,
-        -- Mirkwood
+        -- Strongholds of the North
         11, 1, 1, 1,
+		-- Vales of Anduin
+		1,
         -- Special Event
         6, 7, 7,
         -- Accelerator
