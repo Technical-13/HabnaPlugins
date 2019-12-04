@@ -373,7 +373,7 @@ function ImportCtr( value )
     elseif value == "RP" then --Reputation Points
         RPGR = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
-            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 1 };
+            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000 };
             -- Reputation max points per rank
         import (AppCtrD.."Reputation");
         import (AppCtrD.."ReputationToolTip");
