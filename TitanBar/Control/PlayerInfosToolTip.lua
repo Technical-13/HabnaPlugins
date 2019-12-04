@@ -1,11 +1,12 @@
 -- Written By Habna
 -- Refactored By 4andreas
+-- Adjusted for CalcStat use By Giseldah (and added a few more caps)
+
+import (string.gsub(getfenv(1)._.Name,"%.PlayerInfosToolTip","")..".CalcStat");
 
 -- XP needed to reach next level
 -- Ex.: at lvl 1 u need 100 XP to reach lvl 2, at lvl 2 u need 275 XP to reach lvl 3 and so on.
 -- Source: http://lotro-wiki.com/index.php/Character#Character_Levels_and_Experience_Points
--- XP from lvl 75 to 85 from player Geko, thanks!
--- Lvls 96 to 100 from Hyoss.
 PlayerLevel = {
     [1]="100", [2]="275", [3]="550", [4]="950", [5]="1,543", [6]="2,395", [7]="3,575", [8]="5,150", [9]="7,188", [10]="9,798",
     [11]="13,090", [12]="17,175", [13]="22,163", [14]="28,163", [15]="35,328", [16]="43,810", [17]="53,763", [18]="65,338", [19]="78,688", [20]="94,008",
@@ -89,31 +90,31 @@ function GetData()
         Data[13]["name"],Data[13]["value"] = "Fate",PlayerAtt:GetFate();
         -- STATISTICS END --
         for i = 9,13 do Data[i]["value"] = comma_value(Data[i]["value"]); end
-        PlayerAttArray = {}; -- array[i] = {"Visible label name", value, "formula category"};
+        PlayerAttArray = {}; -- array[i] = {"Visible label name", value, "formula category", "penetration debuff", penetration factor};
         for i = 14,32 do PlayerAttArray[i] = {} end; 
-            PlayerAttArray[22] = {"Physical", PlayerAtt:GetCommonMitigation(), "Mitigation"};
-            PlayerAttArray[23] = {"Tactical", PlayerAtt:GetTacticalMitigation(), "Mitigation"};
-            PlayerAttArray[24] = {"Orc", PlayerAtt:GetPhysicalMitigation(), "Mitigation"};
-            PlayerAttArray[25] = {"Fell", PlayerAtt:GetPhysicalMitigation(), "Mitigation"};
-            PlayerAttArray[20] = {"Outgoing", PlayerAtt:GetOutgoingHealing(), "OutHeal"};
-            PlayerAttArray[21] = {"Incoming", PlayerAtt:GetIncomingHealing(), "InHeal"};
-            PlayerAttArray[14] = {"Melee", PlayerAtt:GetMeleeDamage(), "OffDam"};
-            PlayerAttArray[15] = {"Ranged", PlayerAtt:GetRangeDamage(), "OffDam"};
-            PlayerAttArray[16] = {"Tactical", PlayerAtt:GetTacticalDamage(), "OffDam"};
-            PlayerAttArray[17] = {"CritHit", PlayerAtt:GetBaseCriticalHitChance(), "CritHit"};
-            PlayerAttArray[18] = {"DevHit", PlayerAtt:GetBaseCriticalHitChance(), "DevasHit"};
-            PlayerAttArray[19] = {"Finesse", PlayerAtt:GetFinesse(), "Finesse"};
-            PlayerAttArray[26] = {"CritDef", PlayerAtt:GetBaseCriticalHitAvoidance(), "CritDef"};
-            PlayerAttArray[27] = {"Resistances", PlayerAtt:GetBaseResistance(), "Resistance"};
-            PlayerAttArray[28] = {"Block", PlayerAtt:GetBlock(), "BPE"};
-            PlayerAttArray[29] = {"Partial", PlayerAtt:GetBlock(), "PartBPE"};
-            PlayerAttArray[30] = {"Parry", PlayerAtt:GetParry(), "BPE"};
-            PlayerAttArray[31] = {"Partial", PlayerAtt:GetParry(), "PartBPE"};
-            PlayerAttArray[32] = {"Evade", PlayerAtt:GetEvade(), "BPE"};
-            PlayerAttArray[33] = {"Partial", PlayerAtt:GetEvade(), "PartBPE"};
+            PlayerAttArray[22] = {"Physical", PlayerAtt:GetCommonMitigation(), "PhyMit", "Armour", 1.0};
+            PlayerAttArray[23] = {"Tactical", PlayerAtt:GetTacticalMitigation(), "TacMit", "Armour", 0.2};
+            PlayerAttArray[24] = {"Orc", PlayerAtt:GetPhysicalMitigation(), "PhyMit", "Armour", 0.2};
+            PlayerAttArray[25] = {"Fell", PlayerAtt:GetPhysicalMitigation(), "PhyMit", "Armour", 0.2};
+            PlayerAttArray[20] = {"Outgoing", PlayerAtt:GetOutgoingHealing(), "OutHeal", nil, nil};
+            PlayerAttArray[21] = {"Incoming", PlayerAtt:GetIncomingHealing(), "InHeal", nil, nil};
+            PlayerAttArray[14] = {"Melee", PlayerAtt:GetMeleeDamage(), "PhyDmg", nil, nil};
+            PlayerAttArray[15] = {"Ranged", PlayerAtt:GetRangeDamage(), "PhyDmg", nil, nil};
+            PlayerAttArray[16] = {"Tactical", PlayerAtt:GetTacticalDamage(), "TacDmg", nil, nil};
+            PlayerAttArray[17] = {"CritHit", PlayerAtt:GetBaseCriticalHitChance(), "CritHit", nil, nil};
+            PlayerAttArray[18] = {"DevHit", PlayerAtt:GetBaseCriticalHitChance(), "DevHit", nil, nil};
+            PlayerAttArray[19] = {"Finesse", PlayerAtt:GetFinesse(), "Finesse", nil, nil};
+            PlayerAttArray[26] = {"CritDef", PlayerAtt:GetBaseCriticalHitAvoidance(), "CritDef", nil, nil};
+            PlayerAttArray[27] = {"Resistances", PlayerAtt:GetBaseResistance(), "Resist", "Resist", nil};
+            PlayerAttArray[28] = {"Block", PlayerAtt:GetBlock(), "Block", "BPE", nil};
+            PlayerAttArray[29] = {"Partial", PlayerAtt:GetBlock(), "PartBlock", "BPE", nil};
+            PlayerAttArray[30] = {"Parry", PlayerAtt:GetParry(), "Parry", "BPE", nil};
+            PlayerAttArray[31] = {"Partial", PlayerAtt:GetParry(), "PartParry", "BPE", nil};
+            PlayerAttArray[32] = {"Evade", PlayerAtt:GetEvade(), "Evade", "BPE", nil};
+            PlayerAttArray[33] = {"Partial", PlayerAtt:GetEvade(), "PartEvade", "BPE", nil};
         for i = 14,33 do
             Data[i]["name"] = PlayerAttArray[i][1];
-            Data[i]["value"], Data[i]["capped"] = get_percentage(PlayerAttArray[i][3], PlayerAttArray[i][2], curLvl);
+            Data[i]["value"], Data[i]["capped"] = get_percentage(PlayerAttArray[i][3], PlayerAttArray[i][2], curLvl, PlayerAttArray[i][4], PlayerAttArray[i][5]);
         end
         
     end
@@ -121,147 +122,56 @@ end
 
 -- Formula and data used from: http://lotro-wiki.com/index.php/rating_to_percentage_formula
 -- Huge thanks to Giseldah for figuring this out and sharing    
-function get_percentage( Attribute, R, L )
-    R = round(R);
-    local Ratings;
+function get_percentage(Attribute,R,L,PenName,PenFactor)
+    local SName = Attribute;
     local Capped = 0;
--- L    = Level segment
--- C    = Curve constant
--- Pcap = Percentage cap
--- RcapF= Rating factor
--- RcapC= Rating constant
--- T2   = T2 115 penetration constant
---
--- Rcap = RcapF * L + RcapC
--- P = (C + 1)/(C + (Rcap/R)) * Pcap
--- T2 required rating = Rcap + T2
-
-RatingsData = { 
-    CritHit = {                 -- Critical Hit
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {25, 25, 25, 25},
-        RcapF = {200, 3000, 4000, 31500},
-        RcapC = {0, -270000, -370000, -3555000}
-    },
-    DevasHit = {                -- Devastating Hit
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {10, 10, 10, 10},
-        RcapF = {400, 6000, 8000, 63000},
-        RcapC = {0, -540000, -740000, -7110000}
-    },
-    Finesse = {
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {50, 50, 50, 50},
-        RcapF = {200, 3000, 4000, 31500},
-        RcapC = {0, -27000, -370000, -3555000}
-    },
-    OffDam = {                  -- Offence Damage
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {200, 200, 200, 200},
-        RcapF = {270, 4050, 5400, 42525},
-        RcapC = {0, -364500, -499500, -4799250}
-    },                
-    OutHeal = {                 -- Tactical Outgoing Healing
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1,},
-        Pcap = {70, 70, 70, 70},
-        RcapF = {200, 3000, 4000, 32500},
-        RcapC = {0, -270000, -370000, -3555000}
-    },          
-    Resistance = {          -- Resistance
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {50, 50, 50, 50},
-        RcapF = {200, 3000, 4000, 31500},
-        RcapC = {0, -270000, -370000, -3555000},
-    },
-    CritDef = {             -- Critical Defence
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {80, 80, 80, 80},
-        RcapF = {200, 3000, 4000, 31500},
-        RcapC = {0, -270000, -370000, -3555000},
-    },
-    InHeal = {                  -- Incoming Healing
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {25, 25, 25, 25},
-        RcapF = {200, 3000, 4000, 31500},
-        RcapC = {0, -270000, -370000, -3555000},
-    },
-    BPE = {                     --  Block, Parry, Evade
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {13, 13, 13, 13},
-        RcapF = {200, 3000, 4000, 31500},
-        RcapC = {0, -270000, -370000, -3555000},
-    },
-    PartBPE = {                 -- Partially Block, Parry, Evade
-        L = {75, 105, 115, 120},
-        C = {1, 1, 1, 1},
-        Pcap = {35, 35, 35, 35},
-        RcapF = {400, 6000, 8000, 63000},
-        RcapC = {0, -540000, -740000, -7110000},
-    },
-    Mitigation = {          -- Mitigation
-        Light = {
-            L = {75, 105, 115, 120},
-            C = {1.6, 1.6, 1.6, 1.6},
-            Pcap = {40, 40, 40, 40},
-            RcapF = {448/3, 2240, 8960/3, 23520},
-            RcapC = {0, -201600, -828800/3, -2654400},
-        },
-        Medium = {
-            L = {75, 105, 115, 120},
-            C = {10/7, 10/7, 10/7, 10/7},
-            Pcap = {50, 50, 50, 50},
-            RcapF = {3820/21, 19100/7, 76400/21, 200550/7},
-            RcapC = {0, -1719000/7, -7067000/21, -22633500/7},
-        },
-        Heavy = {
-            L = {75, 76, 77, 100, 105, 115, 120},
-            C = {1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2},
-            Pcap = {60, 60, 60, 60, 60, 60, 60},
-            RcapF= {208.8, 17280/76, 18408/77, 6180/11, 3132, 4176, 32886},
-            RcapC = {0, 0, 0, -137520/11, -281880, -386280, -3711420},
-        }
-    }
-};
     
-    if Attribute == "Mitigation" then -- is dependant on armour type
-    Armour = RatingsData.Mitigation.Light;
+    if SName == "PhyMit" or SName == "TacMit" then -- is dependant on armour type
         if PlayerClassIs == _G.L["Lore-Master"] or PlayerClassIs == _G.L["Minstrel"] or PlayerClassIs == _G.L["Rune-Keeper"] then
-            Ratings = RatingsData.Mitigation.Light;
-        elseif PlayerClassIs == _G.L["Beorning"] or PlayerClassIs == _G.L["Burglar"] or PlayerClassIs == _G.L["Hunter"] or PlayerClassIs == _G.L["Warden"] then
-            Ratings = RatingsData.Mitigation.Medium;
-        elseif PlayerClassIs == _G.L["Captain"] or PlayerClassIs == _G.L["Champion"] or PlayerClassIs == _G.L["Guardian"] then
-            Ratings = RatingsData.Mitigation.Heavy;
+            SName = SName.."L";
+        elseif PlayerClassIs == _G.L["Burglar"] or PlayerClassIs == _G.L["Hunter"] or PlayerClassIs == _G.L["Warden"] then
+            SName = SName.."M";
+        elseif PlayerClassIs == _G.L["Beorning"] or PlayerClassIs == _G.L["Captain"] or PlayerClassIs == _G.L["Champion"] or PlayerClassIs == _G.L["Guardian"] then
+            SName = SName.."H";
         end
-    else Ratings = RatingsData[Attribute];
     end
-    local P, Rcap;
-    local i = 1;
-    while L > Ratings.L[i] do i = i + 1; end
-    Rcap = Ratings.RcapF[i] * L + Ratings.RcapC[i];
-    if R >= Rcap then Capped = 1; end
-    if Ratings.T2 ~= nil then 
-        local offset = Ratings.T2[i] * L;
-        if Attribute == "Mitigation" then offset = math.floor(offset)*5; end
-        if R >= Rcap + offset then Capped = 2; end
+
+    local P = CalcStat(SName.."PRatP",L,R) + 0.0002 + CalcStat(SName.."PBonus",L);
+    local Rcap = CalcStat(SName.."PRatPCapR",L);
+  
+    if PenName == nil then
+      if R >= Rcap then
+        Capped = 1;
+      end
+    else
+      local PenValue;
+      PenValue = CalcStat("TPen"..PenName,L,3);
+      if PenFactor ~= nil then PenValue = PenValue * PenFactor; end
+      if R + PenValue >= Rcap then
+        Capped = 4;
+      else
+        PenValue = CalcStat("TPen"..PenName,L,2);
+        if PenFactor ~= nil then PenValue = PenValue * PenFactor; end
+        if R + PenValue >= Rcap then
+          Capped = 3;
+        else
+          PenValue = CalcStat("T2Pen"..PenName,L);
+          if PenFactor ~= nil then PenValue = PenValue * PenFactor; end
+          if R + PenValue >= Rcap then
+            Capped = 2;
+          elseif R >= Rcap then
+              Capped = 1;
+          end
+        end
+      end
     end
-    local EffR = R;
-    if Capped ~= 0 then EffR = Rcap; end
-    P = ((Ratings.C[i] + 1)/(Ratings.C[i] + (Rcap/EffR))) * Ratings.Pcap[i];
+    
     return rating_string(R, P, Attribute), Capped;
 end
 
 function rating_string(r,p,a) -- String format for Rating and percentage 1234 (25.1%)
-    r = comma_value(r);
-    if a == "PartBPE" then return (string.format("%.1f", p) .. "%"); end
+    r = comma_value(math.floor(r+0.5));
+    if a == "PartBlock" or a == "PartParry" or a == "PartEvade" then return (string.format("%.1f", p) .. "%"); end
     return (r .. " (" .. string.format("%.1f", p) .. "%)");
 end
 
@@ -329,6 +239,10 @@ function CreateLabel(parent,index,LblSize,ValSize,x,y)
         NewValue:SetForeColor(Color["yellow"]);
     elseif Data[index]["capped"] == 2 then
         NewValue:SetForeColor(Color["orange"]);
+    elseif Data[index]["capped"] == 3 then
+        NewValue:SetForeColor(Color["red"]);
+    elseif Data[index]["capped"] == 4 then
+        NewValue:SetForeColor(Color["purple"]);
     end
     NewValue:SetText(Data[index]["value"]);  
 end
@@ -407,7 +321,7 @@ function ShowPIWindow()
         CappedLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         CappedLabel:SetForeColor(Color["yellow"]);
         CappedLabel:SetText("YELLOW - capped");
-        CappedLabel:SetPosition(540-CappedLabel:GetTextLength()*4.1,y);
+        CappedLabel:SetPosition(540-CappedLabel:GetTextLength()*4.1,y-30);
         
         local T2Label=Turbine.UI.Label();
         T2Label:SetParent(APICtr);
@@ -416,7 +330,25 @@ function ShowPIWindow()
         T2Label:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         T2Label:SetForeColor(Color["orange"]);
         T2Label:SetText("ORANGE - T2 capped");
-        T2Label:SetPosition(540-T2Label:GetTextLength()*4.1,y+15);
+        T2Label:SetPosition(540-T2Label:GetTextLength()*4.1,y-15);
+        
+        local T2NLabel=Turbine.UI.Label();
+        T2NLabel:SetParent(APICtr);
+        T2NLabel:SetSize(400,15);
+        T2NLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
+        T2NLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16);
+        T2NLabel:SetForeColor(Color["red"]);
+        T2NLabel:SetText("RED - new T2 capped");
+        T2NLabel:SetPosition(540-T2NLabel:GetTextLength()*4.1,y);
+        
+        local T3NLabel=Turbine.UI.Label();
+        T3NLabel:SetParent(APICtr);
+        T3NLabel:SetSize(400,15);
+        T3NLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
+        T3NLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16);
+        T3NLabel:SetForeColor(Color["purple"]);
+        T3NLabel:SetText("PURPLE - new T3-5 capped");
+        T3NLabel:SetPosition(540-T3NLabel:GetTextLength()*4.1,y+15);
     end
     
     ApplySkin();
