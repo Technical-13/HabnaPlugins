@@ -254,6 +254,8 @@ L[ "RPEOF" ]   = "Elves of Felegoth";
 L[ "RPMOD" ]   = "Men of Dale";
 L[ "RPGME" ]   = "Grey Mountains Expedition";
 L[ "RPWF" ]    = "Wilderfolk";
+L[ "RPTGA" ]   = "The Great Alliance";
+L[ "RPTWC" ]   = "The White Company";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings
@@ -276,6 +278,7 @@ L[ "RPGG5" ]  = "Artisan";
 L[ "RPGG6" ]  = "Master";
 L[ "RPGG7" ]  = "Eastemnet Master";
 L[ "RPGG8" ]  = "Westemnet Master";
+L[ "RPGG9" ]  = "Honoured Master";
 L[ "RCCLE1" ] = "Rookie";
 L[ "RCCLE2" ] = "Minor Leaguer";
 L[ "RCCLE3" ] = "Major Leaguer";

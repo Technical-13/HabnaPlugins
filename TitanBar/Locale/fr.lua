@@ -254,6 +254,8 @@ L[ "RPEOF" ]   = "Elfes de Felegoth"; --thx bornfight
 L[ "RPMOD" ]   = "Hommes de Dale"; -- thx bornfight
 L[ "RPGME" ]   = "Exp\195\168dition des Montagnes Grises"; -- Grey Mountains Expedition -- Thx bornfight
 L[ "RPWF" ]    = "Peuple Sauvage"; -- Wilderfolk
+L[ "RPTGA" ]   = "La Grande Alliance"; -- The Great Alliance
+L[ "RPTWC" ]   = "La Compagnie Blanche"; -- The White Company
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
@@ -276,6 +278,7 @@ L[ "RPGG5" ]  = "Artisan";
 L[ "RPGG6" ]  = "Ma\195\174tre";--Maître
 L[ "RPGG7" ]  = "Eastemnet Master";
 L[ "RPGG8" ]  = "Westemnet Master";
+L[ "RPGG9" ]  = "Grand Ma\195\174tre Honor\195\169";
 L[ "RCCLE1" ] = "Rookie";
 L[ "RCCLE2" ] = "Minor Leaguer";
 L[ "RCCLE3" ] = "Major Leaguer";

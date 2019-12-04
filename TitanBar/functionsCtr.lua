@@ -60,7 +60,7 @@ function ImportCtr( value )
             MC[ "Ctr" ]:SetPosition( _G.MCLocX, _G.MCLocY );
         end
         if _G.MCWhere ~= 3 then UpdateMithril(); end
-		elseif value == "YT" then --Yule Tokens
+    elseif value == "YT" then --Yule Tokens
         if _G.YTWhere == 1 then 
             import (AppCtrD.."YuleToken"); 
             YT[ "Ctr" ]:SetPosition( _G.YTLocX, _G.YTLocY );
@@ -706,16 +706,16 @@ function SavePlayerMoney( save )
         end
     end
 
-		if ( CopperTot > 999 ) then
+    if ( CopperTot > 999 ) then
         SilverTot = SilverTot + ( CopperTot / 1000 );
         CopperTot = CopperTot % 1000;
-		end
-		
-		if ( SilverTot > 999 ) then
+    end
+    
+    if ( SilverTot > 999 ) then
         GoldTot = GoldTot + ( SilverTot / 1000 );
         SilverTot = SilverTot % 1000;
-		end
-		
+    end
+    
     if save then 
         Turbine.PluginData.Save(
             Turbine.DataScope.Server, "TitanBarPlayerWallet", wallet); 
@@ -911,8 +911,10 @@ function LoadPlayerReputation()
         "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
         -- Strongholds of the North
         "RPDOE", "RPEOF", "RPMOD", "RPGME",
-		-- Vales of Anduin
-		"RPWF",
+        -- Vales of Anduin
+        "RPWF",
+        -- Minas Morgul
+        "RPTGA", "RPTWC",
         -- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -920,10 +922,10 @@ function LoadPlayerReputation()
     };
     RepType = {
         1, 1, 1, 1, 1, 1, 1, 1,
-				2, 1, 1, 1, 1, 1, 1, 1,
-				1, 1, 1, 1, 1, 1, 1, 1,
-				1, 1, 1, 1, 1, 1, 1, 1,
-				1, 1, 1, 3, 1,
+        2, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 3, 1,
         -- DA Buildings
         4, 4, 4, 4, 4, 4, 4, 4,
         -- Crafting guilds
@@ -934,8 +936,10 @@ function LoadPlayerReputation()
         3, 8, 8, 9,
         -- Strongholds of the North
         11, 1, 1, 1,
-		-- Vales of Anduin
-		1,
+        -- Vales of Anduin
+        1,
+        -- Minas Morgul
+        12, 3,
         -- Special Event
         6, 7, 7,
         -- Accelerator
@@ -946,13 +950,14 @@ function LoadPlayerReputation()
         [2] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5"}, -- Forochel
         [3] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- extended normal
         [4] = {"RPGL1", "RPGL2"}, -- DA buildings
-        [5] = {"RPGG1", "RPGG2", "RPGG3", "RPGG4", "RPGG5", "RPGG6", "RPGG7", "RPGG8"}, -- craft guild
+        [5] = {"RPGG1", "RPGG2", "RPGG3", "RPGG4", "RPGG5", "RPGG6", "RPGG7", "RPGG8", "RPGG9"}, -- craft guild
         [6] = {"RCCLE1", "RCCLE2", "RCCLE3", "RCCLE4", "RCCLE5"}, -- chicken
         [7] = {"RPBL2", "RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5"}, -- inn/alhe
         [8] = {"RPBL2", "RPBL1", "RPGL1"}, -- fushaum
         [9] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3"}, -- red sky clan
         [10] = {"RPBR"}, -- Accelerator
         [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6", "RPGL7"}, -- why another??? Dwarfs of Erebor
+        [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");

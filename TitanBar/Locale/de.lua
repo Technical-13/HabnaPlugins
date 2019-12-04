@@ -251,6 +251,8 @@ L[ "RPTAA" ]   = "Die Bier-Genossenschaft";
 L[ "RPTIL" ]   = "Die Gasthausliga";
 L[ "RPGME" ]   = "Expedition ins Graue Gebirge"; -- Grey Mountains Expedition -- Thx bornfight
 L[ "RPWF" ]    = "Wildes Volk"; -- Wilderfolk
+L[ "RPTGA" ]   = "Die Gro\195\159e Allianz"; -- The Great Alliance
+L[ "RPTWC" ]   = "Die Wei\195\159e Schar"; -- The White Company
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings
@@ -273,6 +275,7 @@ L[ "RPGG5" ]  = "Virtuose";-- Thx DaBear78!
 L[ "RPGG6" ]  = "Meister";-- Thx DaBear78!
 L[ "RPGG7" ]  = "Ost-Emnet-Meister der Gilde";
 L[ "RPGG8" ]  = "West-Emnet-Meister der Gilde";
+L[ "RPGG9" ]  = "Ehrenmeister der Gilde";
 L[ "RCCLE1" ] = "Rookie";
 L[ "RCCLE2" ] = "Minor Leaguer";
 L[ "RCCLE3" ] = "Major Leaguer";
