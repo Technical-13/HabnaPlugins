@@ -223,7 +223,7 @@ L[ "RPDA" ]    = "Dol Amroth";
 L[ "RPDAA" ]   = "Dol Amroth - Waffenkammer";
 L[ "RPDAB" ]   = "Dol Amroth - Bank";
 L[ "RPDAD" ]   = "Dol Amroth - Landungsbr\195\188cken";
-L[ "RPDAGH" ]  = "Dol Amroth - Grosse Halle";
+L[ "RPDAGH" ]  = "Dol Amroth - Gro\195\159e Halle";
 L[ "RPDAL" ]   = "Dol Amroth - Bibliothek";
 L[ "RPDAW" ]   = "Dol Amroth - Lagerhaus";
 L[ "RPDAM" ]   = "Dol Amroth - Maurerei";
@@ -253,6 +253,7 @@ L[ "RPGME" ]   = "Expedition ins Graue Gebirge"; -- Grey Mountains Expedition --
 L[ "RPWF" ]    = "Wildes Volk"; -- Wilderfolk
 L[ "RPTGA" ]   = "Die Gro\195\159e Allianz"; -- The Great Alliance
 L[ "RPTWC" ]   = "Die Wei\195\159e Schar"; -- The White Company
+L[ "RPRMI" ]   = "R\195\188ckeroberung von Minas Ithil";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings
@@ -282,6 +283,16 @@ L[ "RCCLE3" ] = "Major Leaguer";
 L[ "RCCLE4" ] = "All-star";
 L[ "RCCLE5" ] = "Hall of Famer";
 L[ "RPBR" ]   = "Verbleibender Bonus";
+L[ "RPMI1" ]  = "Die R\195\188ckeroberung von Minas Ithil";
+L[ "RPMI2" ]  = "Die R\195\188ckeroberung geht weiter I";
+L[ "RPMI3" ]  = "Pr\195\188fung des Zorn";
+L[ "RPMI4" ]  = "Die R\195\188ckeroberung geht weiter II";
+L[ "RPMI5" ]  = "Pr\195\188fung der Trauer";
+L[ "RPMI6" ]  = "Die R\195\188ckeroberung geht weiter III";
+L[ "RPMI7" ]  = "Pr\195\188fung des Wahnsinn";
+L[ "RPMI8" ]  = "Die R\195\188ckeroberung geht weiter IV";
+L[ "RPMI9" ]  = "Pr\195\188fung der Verzweiflung";
+L[ "RPMI10" ] = "Pr\195\188fung des Todes";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Ansehen"; L[ "IFIF" ] = "Gesamtes Ansehen:";

@@ -373,7 +373,7 @@ function ImportCtr( value )
     elseif value == "RP" then --Reputation Points
         RPGR = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
-            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000 };
+            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000, [9] = 1 };
             -- Reputation max points per rank
         import (AppCtrD.."Reputation");
         import (AppCtrD.."ReputationToolTip");
@@ -449,6 +449,13 @@ function ImportCtr( value )
                                     max = max - 1
                                 elseif v == 8 then
                                     max = max - 1
+                                elseif v == 13 then
+                                  RPGR = { [1] = 4000, [2] = 6000, [3] = 8000, [4] = 10000, [5] = 12000, [6] = 14000, [7] = 16000, [8] = 18000, [9] = 20000, [10] = 1 };
+                                end
+                                if name == "RPTGA" then
+                                  RPGR = { [1] = 10000, [2] = 20000, [3] = 20000, [4] = 1 };
+                                elseif name == "RPTWC" then
+                                  RPGR = { [1] = 10000, [2] = 15000, [3] = 20000, [4] = 20000, [5] = 20000, [6] = 20000, [7] = 30000, [8] = 1 };
                                 end
                                 max = RPGR[ max ];
                                 if tot >= max then
@@ -914,7 +921,7 @@ function LoadPlayerReputation()
         -- Vales of Anduin
         "RPWF",
         -- Minas Morgul
-        "RPTGA", "RPTWC",
+        "RPTGA", "RPTWC", "RPRMI",
         -- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -939,7 +946,7 @@ function LoadPlayerReputation()
         -- Vales of Anduin
         1,
         -- Minas Morgul
-        12, 3,
+        12, 3, 13,
         -- Special Event
         6, 7, 7,
         -- Accelerator
@@ -958,6 +965,7 @@ function LoadPlayerReputation()
         [10] = {"RPBR"}, -- Accelerator
         [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6", "RPGL7"}, -- why another??? Dwarfs of Erebor
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
+        [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");
