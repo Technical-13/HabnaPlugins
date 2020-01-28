@@ -10,32 +10,32 @@ function ImportCtr( value )
         UpdateWallet();
         WI[ "Ctr" ]:SetPosition( _G.WILocX, _G.WILocY );
     elseif value == "MI" then --Money Infos
-        if _G.MIWhere == 1 then 
+        if _G.MIWhere == 1 then
             import (AppCtrD.."MoneyInfos");
             import (AppCtrD.."MoneyInfosToolTip");
             MI[ "Ctr" ]:SetPosition( _G.MILocX, _G.MILocY );
         end
         if _G.MIWhere ~= 3 then
             PlayerAtt = Player:GetAttributes();
-            AddCallback(PlayerAtt, "MoneyChanged", 
+            AddCallback(PlayerAtt, "MoneyChanged",
                 function(sender, args) UpdateMoney(); end
                 );
-            AddCallback(sspack, "CountChanged", UpdateSharedStorageGold); 
+            AddCallback(sspack, "CountChanged", UpdateSharedStorageGold);
             -- ^^ Thx Heridian!
             UpdateMoney();
         else
             RemoveCallback(PlayerAtt, "MoneyChanged");
-            RemoveCallback(sspack, "CountChanged", UpdateSharedStorageGold); 
+            RemoveCallback(sspack, "CountChanged", UpdateSharedStorageGold);
             -- ^^ Thx Heridian!
         end
     elseif value == "DP" then --Destiny Points
-        if _G.DPWhere == 1 then 
+        if _G.DPWhere == 1 then
             import (AppCtrD.."DestinyPoints");
             DP[ "Ctr" ]:SetPosition( _G.DPLocX, _G.DPLocY );
         end
-        if _G.DPWhere ~= 3 then 
+        if _G.DPWhere ~= 3 then
             PlayerAtt = Player:GetAttributes();
-            AddCallback(PlayerAtt, "DestinyPointsChanged", 
+            AddCallback(PlayerAtt, "DestinyPointsChanged",
                 function(sender, args) UpdateDestinyPoints(); end
                 );
             UpdateDestinyPoints();
@@ -43,53 +43,53 @@ function ImportCtr( value )
             RemoveCallback(PlayerAtt, "DestinyPointsChanged");
         end
     elseif value == "SP" then --Shards
-        if _G.SPWhere == 1 then 
+        if _G.SPWhere == 1 then
             import (AppCtrD.."Shards");
             SP[ "Ctr" ]:SetPosition( _G.SPLocX, _G.SPLocY );
         end
         if _G.SPWhere ~= 3 then UpdateShards(); end
     elseif value == "SM" then --Skirmish Marks
-        if _G.SMWhere == 1 then 
-            import (AppCtrD.."SkirmishMarks"); 
+        if _G.SMWhere == 1 then
+            import (AppCtrD.."SkirmishMarks");
             SM[ "Ctr" ]:SetPosition( _G.SMLocX, _G.SMLocY );
         end
         if _G.SMWhere ~= 3 then UpdateMarks(); end
     elseif value == "MC" then --Mithril Coins
-        if _G.MCWhere == 1 then 
+        if _G.MCWhere == 1 then
             import (AppCtrD.."MithrilCoins");
             MC[ "Ctr" ]:SetPosition( _G.MCLocX, _G.MCLocY );
         end
         if _G.MCWhere ~= 3 then UpdateMithril(); end
     elseif value == "YT" then --Yule Tokens
-        if _G.YTWhere == 1 then 
-            import (AppCtrD.."YuleToken"); 
+        if _G.YTWhere == 1 then
+            import (AppCtrD.."YuleToken");
             YT[ "Ctr" ]:SetPosition( _G.YTLocX, _G.YTLocY );
         end
         if _G.YTWhere ~= 3 then UpdateYuleToken(); end
     elseif value == "HT" then --Tokens of Hytbold
-        if _G.HTWhere == 1 then 
-            import (AppCtrD.."TokensOfHytbold"); 
+        if _G.HTWhere == 1 then
+            import (AppCtrD.."TokensOfHytbold");
             HT[ "Ctr" ]:SetPosition( _G.HTLocX, _G.HTLocY );
         end
         if _G.HTWhere ~= 3 then UpdateHytboldTokens(); end
     elseif value == "MP" then --Medallions
-        if _G.MPWhere == 1 then 
-            import (AppCtrD.."Medallions"); 
-            MP[ "Ctr" ]:SetPosition( _G.MPLocX, _G.MPLocY ); 
+        if _G.MPWhere == 1 then
+            import (AppCtrD.."Medallions");
+            MP[ "Ctr" ]:SetPosition( _G.MPLocX, _G.MPLocY );
         end
-        if _G.MPWhere ~= 3 then UpdateMedallions(); end     
+        if _G.MPWhere ~= 3 then UpdateMedallions(); end
     elseif value == "SL" then --Seals
-        if _G.SLWhere == 1 then 
+        if _G.SLWhere == 1 then
             import (AppCtrD.."Seals");
             SL[ "Ctr" ]:SetPosition( _G.SLLocX, _G.SLLocY );
         end
         if _G.SLWhere ~= 3 then UpdateSeals(); end
     elseif value == "CP" then --Commendations
-        if _G.CPWhere == 1 then 
+        if _G.CPWhere == 1 then
             import (AppCtrD.."Commendations");
             CP[ "Ctr" ]:SetPosition( _G.CPLocX, _G.CPLocY );
         end
-        if _G.CPWhere ~= 3 then UpdateCommendations(); end     
+        if _G.CPWhere ~= 3 then UpdateCommendations(); end
     elseif value == "BI" then --Backpack Infos
         import (AppCtrD.."BagInfos");
         --import (AppCtrD.."BagInfosToolTip");
@@ -101,7 +101,7 @@ function ImportCtr( value )
                 ItemRemovedTimer:SetWantsUpdates( true );
             end
             ); --Workaround
-        --AddCallback(backpack, "ItemRemoved", 
+        --AddCallback(backpack, "ItemRemoved",
         --    function(sender, args) UpdateBackpackInfos(); end
         --    ); --Add when workaround is not needed anymore
         UpdateBackpackInfos();
@@ -110,7 +110,7 @@ function ImportCtr( value )
         import (AppCtrD.."PlayerInfos");
         import (AppCtrD.."PlayerInfosToolTip");
         PlayerAtt = Player:GetAttributes();
-        AddCallback(Player, "LevelChanged", 
+        AddCallback(Player, "LevelChanged",
             function(sender, args)
                 PI["Lvl"]:SetText( Player:GetLevel() );
                 PI["Lvl"]:SetSize( PI["Lvl"]:GetTextLength() * NM+1, CTRHeight );
@@ -122,18 +122,18 @@ function ImportCtr( value )
                 PI["Name"]:SetSize( PI["Name"]:GetTextLength() * TM, CTRHeight );
                 AjustIcon(" PI ");
             end);
-        XPcb = AddCallback(Turbine.Chat, "Received", 
+        XPcb = AddCallback(Turbine.Chat, "Received",
             function(sender, args)
             if args.ChatType == Turbine.ChatType.Advancement then
                 xpMess = args.Message;
                 if xpMess ~= nil then
                     local xpPattern;
-                    if GLocale == "en" then 
+                    if GLocale == "en" then
                         xpPattern = "total of ([%d%p]*) XP";
-                    elseif GLocale == "fr" then 
+                    elseif GLocale == "fr" then
                         xpPattern = "de ([%d%p]*) points d'exp\195\169rience";
-                    elseif GLocale == "de" then 
-                        xpPattern = "\195\188ber ([%d%p]*) EP"; 
+                    elseif GLocale == "de" then
+                        xpPattern = "\195\188ber ([%d%p]*) EP";
                     end
                     local tmpXP = string.match(xpMess,xpPattern);
                     if tmpXP ~= nil then
@@ -159,19 +159,19 @@ function ImportCtr( value )
     elseif value == "PL" then --Player Location
         import (AppCtrD.."PlayerLoc");
         --AddCallback(Player, "LocationChanged", UpdatePlayerLoc(); end);
-        PLcb = AddCallback(Turbine.Chat, "Received", 
+        PLcb = AddCallback(Turbine.Chat, "Received",
             function(sender, args)
             if args.ChatType == Turbine.ChatType.Standard then
                 plMess = args.Message;
                 if plMess ~= nil then
-                    if GLocale == "en" then 
+                    if GLocale == "en" then
                         plPattern = "Entered the ([%a%p%u%l%s]*) %-";
-                    elseif GLocale == "fr" then 
+                    elseif GLocale == "fr" then
                         plPattern = "Canal ([%a%p%u%l%s]*) %-";
-                    elseif GLocale == "de" then 
+                    elseif GLocale == "de" then
                         plPattern = "Chat%-Kanal '([%a%p%u%l%s]*) %-";
                     end
-                    
+
                     local tmpPL = string.match( plMess, plPattern );
                     if tmpPL ~= nil then
                         --write("'".. tmpPL .. "'"); -- debug purpose
@@ -191,7 +191,7 @@ function ImportCtr( value )
         UpdateTrackItems();
         TI[ "Ctr" ]:SetPosition( _G.TILocX, _G.TILocY );
     elseif value == "IF" then --Infamy
-        _G.InfamyRanks = { 
+        _G.InfamyRanks = {
             [0] = 0, [1] = 500, [2] = 1250, [3] = 2750, [4] = 5750,
             [5] = 14750, [6] = 33500, [7] = 71000, [8] = 146000, [9] = 258500,
             [10] = 408500, [11] = 633500, [12] = 1008500, [13] = 1608500,
@@ -201,50 +201,50 @@ function ImportCtr( value )
         if PlayerAlign == 1 then
             --Free people rank icon 0 to 15
             InfIcon = resources.FreePeoples
-        else    
+        else
             --Monster play rank icon 0 to 15
             InfIcon = resources.Monster
         end
         import (AppCtrD.."Infamy");
         import (AppCtrD.."InfamyToolTip");
         ---InfamyCount = Turbine.
-        --AddCallback(InfamyCount, "QuantityChanged", 
+        --AddCallback(InfamyCount, "QuantityChanged",
         --    function(sender, args) UpdateInfamy(); end
         --    );
-        IFcb = AddCallback(Turbine.Chat, "Received", 
+        IFcb = AddCallback(Turbine.Chat, "Received",
             function(sender, args)
             if args.ChatType == Turbine.ChatType.Advancement then
                 ifMess = args.Message;
                 if ifMess ~= nil then
                     if PlayerAlign == 1 then
-                        if GLocale == "en" then 
+                        if GLocale == "en" then
                             ifPattern = "earned ([%d%p]*) renown points";
-                        elseif GLocale == "fr" then 
-                            ifPattern = "gagn\195\169 ([%d%p]*) points " .. 
+                        elseif GLocale == "fr" then
+                            ifPattern = "gagn\195\169 ([%d%p]*) points " ..
                                 "renomm\195\169e";
-                        elseif GLocale == "de" then 
-                            ifPattern = "habt ([%d%p]*) Ansehenspunkte"; 
+                        elseif GLocale == "de" then
+                            ifPattern = "habt ([%d%p]*) Ansehenspunkte";
                         end
                     else
-                        if GLocale == "en" then 
+                        if GLocale == "en" then
                             ifPattern = "earned ([%d%p]*) infamy points";
-                        elseif GLocale == "fr" then 
-                            ifPattern = "gagn\195\169 ([%d%p]*) points " .. 
+                        elseif GLocale == "fr" then
+                            ifPattern = "gagn\195\169 ([%d%p]*) points " ..
                                 "d'infamie";
-                        elseif GLocale == "de" then 
-                            ifPattern = "habt ([%d%p]*) Verrufenheitspunkte"; 
+                        elseif GLocale == "de" then
+                            ifPattern = "habt ([%d%p]*) Verrufenheitspunkte";
                         end
                     end
 
                     local tmpIF = string.match(ifMess,ifPattern);
                     if tmpIF ~= nil then
                         InfamyPTS = InfamyPTS + tmpIF;
-                        
+
                         for i=0, 14 do
-                            if tonumber(InfamyPTS) >= _G.InfamyRanks[i] and 
-                                tonumber(InfamyPTS) < _G.InfamyRanks[i+1] then 
-                                InfamyRank = i; 
-                                break 
+                            if tonumber(InfamyPTS) >= _G.InfamyRanks[i] and
+                                tonumber(InfamyPTS) < _G.InfamyRanks[i+1] then
+                                InfamyRank = i;
+                                break
                                 end
                         end
                         settings.Infamy.P = string.format("%.0f", InfamyPTS);
@@ -262,28 +262,28 @@ function ImportCtr( value )
         UpdateDayNight();
         DN[ "Ctr" ]:SetPosition( _G.DNLocX, _G.DNLocY );
     elseif value == "LP" then --LOTRO points
-        if _G.LPWhere == 1 then 
+        if _G.LPWhere == 1 then
             import (AppCtrD.."LOTROPoints");
             LP[ "Ctr" ]:SetPosition( _G.LPLocX, _G.LPLocY );
             UpdateLOTROPoints();
         end
         if _G.LPWhere ~= 3 then
             --PlayerLP = Player:GetLOTROPoints();
-            --AddCallback(PlayerLP, "LOTROPointsChanged", 
+            --AddCallback(PlayerLP, "LOTROPointsChanged",
             --    function(sender, args) UpdateLOTROPoints(); end
             --);
-            LPcb = AddCallback(Turbine.Chat, "Received", 
+            LPcb = AddCallback(Turbine.Chat, "Received",
                 function(sender, args)
                 if args.ChatType == Turbine.ChatType.Advancement then
                     tpMess = args.Message;
                     if tpMess ~= nil then
                         local tpPattern;
-                        if GLocale == "en" then 
+                        if GLocale == "en" then
                             tpPattern = "earned ([%d%p]*) LOTRO Points";
-                        elseif GLocale == "fr" then 
+                        elseif GLocale == "fr" then
                             tpPattern = "gagn\195\169 ([%d%p]*) points LOTRO";
-                        elseif GLocale == "de" then 
-                            tpPattern = "habt ([%d%p]*) Punkte erhalten"; 
+                        elseif GLocale == "de" then
+                            tpPattern = "habt ([%d%p]*) Punkte erhalten";
                         end
                         local tmpLP = string.match(tpMess,tpPattern);
                         if tmpLP ~= nil then
@@ -302,20 +302,20 @@ function ImportCtr( value )
         import (AppCtrD.."GameTime");
         --import (AppCtrD.."GameTimeToolTip");
         --PlayerTime = Turbine.Engine.GetDate();
-        --AddCallback(PlayerTime, "MinuteChanged", 
+        --AddCallback(PlayerTime, "MinuteChanged",
         --    function(sender, args) UpdateGameTime(); end
         --);
         if _G.ShowBT then UpdateGameTime("bt");
         elseif _G.ShowST then UpdateGameTime("st");
         else UpdateGameTime("gt") end
-        if _G.GTLocX + GT[ "Ctr" ]:GetWidth() > screenWidth then 
+        if _G.GTLocX + GT[ "Ctr" ]:GetWidth() > screenWidth then
             _G.GTLocX = screenWidth - GT[ "Ctr" ]:GetWidth();
         end --Replace if out of screen
         GT[ "Ctr" ]:SetPosition( _G.GTLocX, _G.GTLocY );
     elseif value == "VT" then --Vault
         import (AppCtrD.."Vault");
         import (AppCtrD.."VaultToolTip");
-        AddCallback(vaultpack, "CountChanged", 
+        AddCallback(vaultpack, "CountChanged",
             function(sender, args) SavePlayerVault(); end
             );
         UpdateVault();
@@ -323,7 +323,7 @@ function ImportCtr( value )
     elseif value == "SS" then --Shared Storage
         import (AppCtrD.."SharedStorage");
         import (AppCtrD.."SharedStorageToolTip");
-        AddCallback(sspack, "CountChanged", 
+        AddCallback(sspack, "CountChanged",
             function(sender, args) SavePlayerSharedStorage(); end
             );
         UpdateSharedStorage();
@@ -371,23 +371,30 @@ function ImportCtr( value )
         end
         if _G.LATWhere ~= 3 then UpdateAnniversaryToken(); end
     elseif value == "RP" then --Reputation Points
-        RPGR = {
+        RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
-            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000, [9] = 1 };
+            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000, [9] = 1 },
+            ['RPTGA'] = { [1] = 10000, [2] = 20000, [3] = 20000, [4] = 1 },
+            ['RPTWC'] = { [1] = 10000, [2] = 15000, [3] = 20000, [4] = 20000,
+                        [5] = 20000, [6] = 20000, [7] = 30000, [8] = 1 },
+            ['RPRMI'] = { [1] = 4000, [2] = 6000, [3] = 8000, [4] = 10000,
+                        [5] = 12000, [6] = 14000, [7] = 16000, [8] = 18000,
+                        [9] = 20000, [10] = 1 }
+            };
             -- Reputation max points per rank
         import (AppCtrD.."Reputation");
         import (AppCtrD.."ReputationToolTip");
-        RPcb = AddCallback(Turbine.Chat, "Received", 
+        RPcb = AddCallback(Turbine.Chat, "Received",
             function( sender, args )
                 rpMess = args.Message;
                 if rpMess ~= nil then
                 -- Check string, Reputation Name and Reputation Point pattern
                     local cstr, rpnPattern, rppPatern, rpbPattern;
-                    if GLocale == "en" then 
+                    if GLocale == "en" then
                         rpnPattern = "reputation with ([%a%p%u%l%s]*) has"..
                             " increased by";
                         rppPattern = "has increased by ([%d%p]*)%.";
-                    elseif GLocale == "fr" then 
+                    elseif GLocale == "fr" then
                         rpnPattern = "de la faction ([%a%p%u%l%s]*) a "..
                             "augment\195\169 de";
                         rppPattern = "a augment\195\169 de ([%d%p]*)%.";
@@ -396,26 +403,26 @@ function ImportCtr( value )
                         rppPattern = "hat sich um ([%d%p]*) verbessert";
                     end
                     -- check string if an accelerator was used
-                    if GLocale == "de" then 
+                    if GLocale == "de" then
                         cstr = string.match( rpMess, "Bonus" );
                     else cstr = string.match( rpMess, "bonus" ); end
-                    -- Accelerator was used, end of string is different. 
-                    -- Ex. (700 from bonus). instead of just a dot after the 
+                    -- Accelerator was used, end of string is different.
+                    -- Ex. (700 from bonus). instead of just a dot after the
                     -- amount of points
                     if cstr ~= nil then
-                        if GLocale == "en" then 
+                        if GLocale == "en" then
                             rppPattern = "has increased by ([%d%p]*) %(";
                             rpbPattern = "%(([%d%p]*) from bonus";
-                        elseif GLocale == "fr" then 
+                        elseif GLocale == "fr" then
                             rppPattern = "a augment\195\169 de ([%d%p]*) %(";
                             rpbPattern = "%(([%d%p]*) du bonus";
-                        elseif GLocale == "de" then 
-                            rpnPattern = "Euer Ruf bei der Gruppe \"([%a%p%u%l%s]*)\" wurde um"; 
+                        elseif GLocale == "de" then
+                            rpnPattern = "Euer Ruf bei der Gruppe \"([%a%p%u%l%s]*)\" wurde um";
                             rppPattern = "wurde um ([%d%p]*) erh\195\182ht";
                             rpbPattern = "%(([%d%p]*) durch Bonus";
                         end
                     end
-                    local rpName = string.match( rpMess,rpnPattern ); 
+                    local rpName = string.match( rpMess,rpnPattern );
                     -- Reputation Name
                     if rpMess ~= nil and rpName ~= nil then
                         if rpbPattern ~= nil then
@@ -437,7 +444,7 @@ function ImportCtr( value )
                             local name = RepOrder[ i ];
                             if L[ name ] == rpName then
                                 local lastR = #RepTypes[ v ]
-                                -- Check if new points is equal or bigger 
+                                -- Check if new points is equal or bigger
                                 -- of the max points
                                 local tot = PlayerReputation[ PN ][ name ].P;
                                 tot = tot + rpPTS;
@@ -449,15 +456,12 @@ function ImportCtr( value )
                                     max = max - 1
                                 elseif v == 8 then
                                     max = max - 1
-                                elseif v == 13 then
-                                  RPGR = { [1] = 4000, [2] = 6000, [3] = 8000, [4] = 10000, [5] = 12000, [6] = 14000, [7] = 16000, [8] = 18000, [9] = 20000, [10] = 1 };
                                 end
-                                if name == "RPTGA" then
-                                  RPGR = { [1] = 10000, [2] = 20000, [3] = 20000, [4] = 1 };
-                                elseif name == "RPTWC" then
-                                  RPGR = { [1] = 10000, [2] = 15000, [3] = 20000, [4] = 20000, [5] = 20000, [6] = 20000, [7] = 30000, [8] = 1 };
+                                RPPROG = "default";
+                                if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" then
+                                    RPPROG = name;
                                 end
-                                max = RPGR[ max ];
+                                max = RPGR[RPPROG][ max ];
                                 if tot >= max then
                                     -- true, then calculate diff to add to next rank
                                     tot = tot - max;
@@ -470,7 +474,7 @@ function ImportCtr( value )
                                         isNewRNegative = isNewRNegative + 1;
                                     end
                                     if isNewRNegative >= 0 then
-                                        max = RPGR[ ( newR ) ];
+                                        max = RPGR[RPPROG][ ( newR ) ];
                                         PlayerReputation[ PN ][ name ].R = tostring( newR );
                                         tot = tot + max;
                                     end
@@ -496,27 +500,27 @@ end
 function GetEquipmentInfos()
     LoadEquipmentTable();
     PlayerEquipment = Player:GetEquipment();
-    if PlayerEquipment == nil then 
-        write("<rgb=#FF3333>No equipment, returning.</rgb>"); 
-        return 
-    end 
+    if PlayerEquipment == nil then
+        write("<rgb=#FF3333>No equipment, returning.</rgb>");
+        return
+    end
     --Remove when Player Equipment info are available before plugin is loaded
-    
+
     itemEquip = {};
     itemScore, numItems = 0, 0;
     Wq = 4; -- weight Quality
     Wd = 1; -- weight Durability
-    
+
     for i, v in ipairs( EquipSlots ) do
         local PlayerEquipItem = PlayerEquipment:GetItem( v );
         itemEquip[i] = Turbine.UI.Lotro.ItemControl( PlayerEquipItem );
-    
+
         -- Item Name, WearState, Quality & Durability
         if PlayerEquipItem ~= nil then
             itemEquip[i].Item = true;
             itemEquip[i].Name = PlayerEquipItem:GetName();
             itemEquip[i].Slot = Slots[i];--Debug
-            
+
             local Quality = 10*((6-PlayerEquipItem:GetQuality())%6);
 
             local Durability = PlayerEquipItem:GetDurability();
@@ -524,37 +528,37 @@ function GetEquipmentInfos()
                 Durability = 10*((Durability%7)+1);
             end
 
-            itemEquip[i].Score = 
+            itemEquip[i].Score =
                 round((Wq*Quality*7 + Wd*Durability*5)/(3.5*(Wq + Wd)));
-            
+
             itemEquip[i].WearState = PlayerEquipItem:GetWearState();
-            if itemEquip[i].WearState == 0 then 
+            if itemEquip[i].WearState == 0 then
                 itemEquip[i].WearStatePts = 0; -- undefined
-            elseif itemEquip[i].WearState == 3 then 
+            elseif itemEquip[i].WearState == 3 then
                 itemEquip[i].WearStatePts = 0; -- Broken / cassé
-            elseif itemEquip[i].WearState == 1 then 
+            elseif itemEquip[i].WearState == 1 then
                 itemEquip[i].WearStatePts = 20; -- Damaged / endommagé
-            elseif itemEquip[i].WearState == 4 then 
+            elseif itemEquip[i].WearState == 4 then
                 itemEquip[i].WearStatePts = 99; -- Worn / usé
-            elseif itemEquip[i].WearState == 2 then 
-                itemEquip[i].WearStatePts = 100; 
+            elseif itemEquip[i].WearState == 2 then
+                itemEquip[i].WearStatePts = 100;
             end -- Pristine / parfait
             if itemEquip[i].WearState ~= 0 then
                 -- undefined items shouldn't be counted
                 numItems = numItems + 1;
             end
-                        
+
             itemEquip[i].BImgID = PlayerEquipItem:GetBackgroundImageID();
             itemEquip[i].QImgID = PlayerEquipItem:GetQualityImageID();
             itemEquip[i].UImgID = PlayerEquipItem:GetUnderlayImageID();
             itemEquip[i].SImgID = PlayerEquipItem:GetShadowImageID();
             itemEquip[i].IImgID = PlayerEquipItem:GetIconImageID();
-            
+
             itemEquip[i].wsHandler = AddCallback(
-                PlayerEquipItem, "WearStateChanged", 
+                PlayerEquipItem, "WearStateChanged",
                 function(sender, args) ChangeWearState(i); end
                 );
-            
+
             if _G.Debug then
                 write("<rgb=#00FF00>"..numItems.."</rgb> / <rgb=#FF0000>"..i..
                     "</rgb>: <rgb=#6969FF>"..itemEquip[i].Slot..
@@ -571,7 +575,7 @@ function GetEquipmentInfos()
             itemEquip[i].Score = 0;
             itemEquip[i].WearState = 0;
             itemEquip[i].WearStatePts = 0;
-            
+
             if _G.Debug then
                 write("<rgb=#FF0000>"..i.."</rgb>: <rgb=#6969FF>"..Slots[i]..
                     ":</rgb> <rgb=#FF3333>NO ITEM</rgb>");
@@ -582,7 +586,7 @@ end
 
 function LoadPlayerItemTrackingList()
     local locale = "TitanBarPlayerItemTrackingList" .. GLocale:upper();
-    ITL = Turbine.PluginData.Load(Turbine.DataScope.Character, locale); 
+    ITL = Turbine.PluginData.Load(Turbine.DataScope.Character, locale);
     if ITL == nil then ITL = {}; end
 end
 
@@ -597,7 +601,7 @@ end
 function LoadPlayerMoney()
     wallet = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarPlayerWallet");
-    
+
     if wallet == nil then wallet = {}; end
 
     local PN = Player:GetName();
@@ -611,25 +615,25 @@ function LoadPlayerMoney()
 
 
     --Convert wallet
-    --Removed 2017-02-07 (after 2012-08-18) 
+    --Removed 2017-02-07 (after 2012-08-18)
     --Restored 2017-10-02 (was causing "Invalid Data Scope" bug)
     local tGold, tSilver, tCopper, bOk;
     for k,v in pairs(wallet) do
-        if wallet[k].Gold ~= nil then 
-            bOk = true; 
+        if wallet[k].Gold ~= nil then
+            bOk = true;
             tGold = tonumber(wallet[k].Gold);
             wallet[k].Gold = nil;
         end
-        if wallet[k].Silver ~= nil then 
-            bOk = true; 
+        if wallet[k].Silver ~= nil then
+            bOk = true;
             tSilver = tonumber(wallet[k].Silver);
             wallet[k].Silver = nil;
         end
-        if wallet[k].Copper ~= nil then 
+        if wallet[k].Copper ~= nil then
             bOk = true;
             tCopper = tonumber(wallet[k].Copper);
             wallet[k].Copper = nil;
-            if tCopper < 10 then 
+            if tCopper < 10 then
                 tCopper = "0".. tCopper;
             end
         end
@@ -659,15 +663,15 @@ function LoadPlayerMoney()
     walletStats = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarPlayerWalletStats");
     if walletStats == nil then walletStats = {};
-    else 
-        for k,v in pairs(walletStats) do 
-            if k ~= DOY then 
-                walletStats[k] = nil; 
-            end 
-        end 
+    else
+        for k,v in pairs(walletStats) do
+            if k ~= DOY then
+                walletStats[k] = nil;
+            end
+        end
     end --Delete old date entry
     if walletStats[DOY] == nil then walletStats[DOY] = {}; end
-    if walletStats[DOY][PN] == nil then 
+    if walletStats[DOY][PN] == nil then
         walletStats[DOY][PN] = {};
         walletStats[DOY][PN].TotEarned = "0";
         walletStats[DOY][PN].TotSpent = "0";
@@ -695,7 +699,7 @@ function SavePlayerMoney( save )
     -- Calculate Gold/Silver/Copper Total
     GoldTot, SilverTot, CopperTot = 0, 0, 0;
     gold, silver, copper = 0, 0, 0;
-    
+
     for k,v in pairs( wallet ) do
         DecryptMoney( v.Money );
         if k == PN then
@@ -717,15 +721,15 @@ function SavePlayerMoney( save )
         SilverTot = SilverTot + ( CopperTot / 1000 );
         CopperTot = CopperTot % 1000;
     end
-    
+
     if ( SilverTot > 999 ) then
         GoldTot = GoldTot + ( SilverTot / 1000 );
         SilverTot = SilverTot % 1000;
     end
-    
-    if save then 
+
+    if save then
         Turbine.PluginData.Save(
-            Turbine.DataScope.Server, "TitanBarPlayerWallet", wallet); 
+            Turbine.DataScope.Server, "TitanBarPlayerWallet", wallet);
     end
 end
 -- **^
@@ -733,19 +737,19 @@ end
 function LoadPlayerWallet()
     PlayerWallet = Player:GetWallet();
     PlayerWalletSize = PlayerWallet:GetSize();
-    if PlayerWalletSize == 0 then return end 
+    if PlayerWalletSize == 0 then return end
     -- ^^ Remove when Wallet info are available before plugin is loaded
-    
+
     for i = 1, PlayerWalletSize do
         local CurItem = PlayerWallet:GetItem(i);
         local CurName = PlayerWallet:GetItem(i):GetName();
 
         PlayerCurrency[CurName] = CurItem;
-        if PlayerCurrencyHandler[CurName] == nil then 
+        if PlayerCurrencyHandler[CurName] == nil then
             PlayerCurrencyHandler[CurName] = AddCallback(
-                PlayerCurrency[CurName], "QuantityChanged", 
+                PlayerCurrency[CurName], "QuantityChanged",
                 function(sender, args) UpdateCurrency(CurName); end
-            ); 
+            );
         end
     end
 end
@@ -759,7 +763,7 @@ end
 
 function SavePlayerVault()
     if string.sub( PN, 1, 1 ) == "~" then return end; --Ignore session play
-    
+
     vaultpackSize = vaultpack:GetCapacity();
     vaultpackCount = vaultpack:GetCount();
 
@@ -769,7 +773,7 @@ function SavePlayerVault()
         local ind = tostring(ii);
         PlayerVault[PN][ind] = vaultpack:GetItem(ii);
         local iteminfo = PlayerVault[PN][ind]:GetItemInfo();
-        
+
         PlayerVault[PN][ind].Q = tostring(iteminfo:GetQualityImageID());
         PlayerVault[PN][ind].B = tostring(iteminfo:GetBackgroundImageID());
         PlayerVault[PN][ind].U = tostring(iteminfo:GetUnderlayImageID());
@@ -804,7 +808,7 @@ function SavePlayerSharedStorage()
         local ind = tostring(ii);
         PlayerSharedStorage[ind] = sspack:GetItem( ii );
         local iteminfo = PlayerSharedStorage[ind]:GetItemInfo();
-            
+
         PlayerSharedStorage[ind].Q = tostring(iteminfo:GetQualityImageID());
         PlayerSharedStorage[ind].B = tostring(iteminfo:GetBackgroundImageID());
         PlayerSharedStorage[ind].U = tostring(iteminfo:GetUnderlayImageID());
@@ -844,7 +848,7 @@ function UpdateSharedStorageGold( sender, args )
     wallet[ L[ "MStorage" ] ] =  {
         [ "Show" ] = true,
         [ "ShowToAll" ] = true,
-        [ "Money" ] = tostring( sharedmoney )   
+        [ "Money" ] = tostring( sharedmoney )
     }
     UpdateMoney()
 end
@@ -865,9 +869,9 @@ function SavePlayerBags()
     PlayerBags[PN] = {};
     ii=1;
     for i = 1, backpackSize do
-        
+
         local items = backpack:GetItem( i );
-        
+
         if items ~= nil then
             local ind = tostring(ii);
             PlayerBags[PN][ind] = items;
@@ -875,7 +879,7 @@ function SavePlayerBags()
 
             --local sc = Turbine.UI.Lotro.Shortcut( items );
             --PlayerBags[PN][ind].C = sc:GetData();
-            
+
             PlayerBags[PN][ind].Q = tostring(iteminfo:GetQualityImageID());
             PlayerBags[PN][ind].B = tostring(iteminfo:GetBackgroundImageID());
             PlayerBags[PN][ind].U = tostring(iteminfo:GetUnderlayImageID());
@@ -894,21 +898,21 @@ function SavePlayerBags()
     Turbine.PluginData.Save(
         Turbine.DataScope.Server, "TitanBarBags", PlayerBags);
     --[[
-    Turbine.PluginData.Save(Turbine.DataScope.Server, "TitanBarSharedStorage", 
+    Turbine.PluginData.Save(Turbine.DataScope.Server, "TitanBarSharedStorage",
         PlayerBags[PN]); --Debug purpose since i dont have a shared storage
     --]]
 end
 
 function LoadPlayerReputation()
     RepOrder = {
-        -- Normal faction advancement + Forochel and Minas Tirith 
-        "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA", 
-        "RPLF", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM", 
-        "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW", 
-        "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML", 
-        "RPP", "RPRI", "RPRR", "RPDMT", "RPDA", 
+        -- Normal faction advancement + Forochel and Minas Tirith
+        "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA",
+        "RPLF", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
+        "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW",
+        "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML",
+        "RPP", "RPRI", "RPRR", "RPDMT", "RPDA",
         -- Dol Amroth Buildings (position 37< <46)
-        "RPDAA", "RPDAB", "RPDAD", "RPDAGH", "RPDAL", "RPDAW", "RPDAM", 
+        "RPDAA", "RPDAB", "RPDAD", "RPDAGH", "RPDAL", "RPDAW", "RPDAM",
         "RPDAS",
         -- Crafting guilds (position 45< <53)
         "RPJG", "RPCG", "RPSG", "RPTG", "RPWoG", "RPWeG", "RPMG",
@@ -972,17 +976,17 @@ function LoadPlayerReputation()
     if PlayerReputation == nil then PlayerReputation = {}; end
     if PlayerReputation[PN] == nil then PlayerReputation[PN] = {}; end
     for i = 1, #RepOrder do
-        if PlayerReputation[PN][RepOrder[i]] == nil then 
-            PlayerReputation[PN][RepOrder[i]] = {}; 
+        if PlayerReputation[PN][RepOrder[i]] == nil then
+            PlayerReputation[PN][RepOrder[i]] = {};
         end
-        if PlayerReputation[PN][RepOrder[i]].P == nil then 
-            PlayerReputation[PN][RepOrder[i]].P = "0"; 
+        if PlayerReputation[PN][RepOrder[i]].P == nil then
+            PlayerReputation[PN][RepOrder[i]].P = "0";
         end --Points
-        if PlayerReputation[PN][RepOrder[i]].V == nil then 
-            PlayerReputation[PN][RepOrder[i]].V = false; 
+        if PlayerReputation[PN][RepOrder[i]].V == nil then
+            PlayerReputation[PN][RepOrder[i]].V = false;
         end --Show faction in tooltip
-        if PlayerReputation[PN][RepOrder[i]].R == nil then 
-            PlayerReputation[PN][RepOrder[i]].R = "1"; 
+        if PlayerReputation[PN][RepOrder[i]].R == nil then
+            PlayerReputation[PN][RepOrder[i]].R = "1";
         end --rank
         -- delete old values vv
         if PlayerReputation[PN][RepOrder[i]].T ~= nil then
@@ -1030,12 +1034,12 @@ function LoadPlayerLOTROPoints()
         if PlayerLOTROPoints == nil then
             PlayerLOTROPoints = {};-- If old doesn't exist either, start clean.
         else
-            if PlayerLOTROPoints.PTS == nil then 
-                PlayerLOTROPoints.PTS = "0"; 
+            if PlayerLOTROPoints.PTS == nil then
+                PlayerLOTROPoints.PTS = "0";
             end
             _G.LOTROPTS = PlayerLOTROPoints.PTS;
-            SavePlayerLOTROPoints() 
-            -- If old named file does exist, create new using data from file 
+            SavePlayerLOTROPoints()
+            -- If old named file does exist, create new using data from file
             -- with old name. Then delete old named file
         end
     end
@@ -1069,13 +1073,13 @@ end
 
 function GetCurrency( str )
     CurQuantity = 0;
-    
+
     for k,v in pairs( PlayerCurrency ) do
         if k == str then
             CurQuantity = PlayerCurrency[ str ]:GetQuantity();
             break
         end
     end
-    
+
     return CurQuantity
 end
