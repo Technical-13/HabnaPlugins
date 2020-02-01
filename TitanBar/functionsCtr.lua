@@ -967,7 +967,7 @@ function LoadPlayerReputation()
         [8] = {"RPBL2", "RPBL1", "RPGL1"}, -- fushaum
         [9] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3"}, -- red sky clan
         [10] = {"RPBR"}, -- Accelerator
-        [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6", "RPGL7"}, -- why another??? Dwarfs of Erebor
+        [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6"}, -- why another??? Dwarfs of Erebor
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
         [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
     };

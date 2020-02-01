@@ -253,7 +253,7 @@ L[ "RPGME" ]   = "Expedition ins Graue Gebirge"; -- Grey Mountains Expedition --
 L[ "RPWF" ]    = "Wildes Volk"; -- Wilderfolk
 L[ "RPTGA" ]   = "Die Gro\195\159e Allianz"; -- The Great Alliance
 L[ "RPTWC" ]   = "Die Wei\195\159e Schar"; -- The White Company
-L[ "RPRMI" ]   = "R\195\188ckeroberung von Minas Ithil";
+L[ "RPRMI" ]   = "Die R\195\188ckeroberung von Minas Ithil";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings
