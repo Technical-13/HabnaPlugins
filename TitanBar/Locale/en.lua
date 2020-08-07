@@ -243,17 +243,17 @@ L[ "RPCOG" ]   = "Conquest of Gorgoroth";
 L[ "RPEOFBs" ] = "Enmity of Fushaum Bal south";
 L[ "RPEOFBn" ] = "Enmity of Fushaum Bal north";
 L[ "RPRSC" ]   = "Red Sky Clan";
-L[ "RPDoE" ]   = "Dwarves of Erebor";
-L[ "RPEoF" ]   = "Elves of Felegoth";
-L[ "RPMoD" ]   = "Men of Dale";
-L[ "RPCCLE" ]  = "Chicken Chasing League of Eriador";
-L[ "RPTAA" ]   = "The Ale Association";
-L[ "RPTIL" ]   = "The Inn League";
 L[ "RPDOE" ]   = "Dwarves of Erebor";
 L[ "RPEOF" ]   = "Elves of Felegoth";
 L[ "RPMOD" ]   = "Men of Dale";
+L[ "RPCCLE" ]  = "Chicken Chasing League of Eriador";
+L[ "RPTAA" ]   = "The Ale Association";
+L[ "RPTIL" ]   = "The Inn League";
 L[ "RPGME" ]   = "Grey Mountains Expedition";
 L[ "RPWF" ]    = "Wilderfolk";
+L[ "RPTGA" ]   = "The Great Alliance";
+L[ "RPTWC" ]   = "The White Company";
+L[ "RPRMI" ]   = "Reclamation of Minas Ithil";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings
@@ -276,12 +276,23 @@ L[ "RPGG5" ]  = "Artisan";
 L[ "RPGG6" ]  = "Master";
 L[ "RPGG7" ]  = "Eastemnet Master";
 L[ "RPGG8" ]  = "Westemnet Master";
+L[ "RPGG9" ]  = "Honoured Master";
 L[ "RCCLE1" ] = "Rookie";
 L[ "RCCLE2" ] = "Minor Leaguer";
 L[ "RCCLE3" ] = "Major Leaguer";
 L[ "RCCLE4" ] = "All-star";
 L[ "RCCLE5" ] = "Hall of Famer";
-L[ "RPBR" ]  = "Bonus Remaining";
+L[ "RPBR" ]   = "Bonus Remaining";
+L[ "RPMI1" ]  = "The Reclamation";
+L[ "RPMI2" ]  = "The Reclamation Continues";
+L[ "RPMI3" ]  = "The Trial of Wrath";
+L[ "RPMI4" ]  = "The Reclamation Continues II";
+L[ "RPMI5" ]  = "The Trial of Sorrow";
+L[ "RPMI6" ]  = "The Reclamation Continues III";
+L[ "RPMI7" ]  = "The Trial of Madness";
+L[ "RPMI8" ]  = "The Reclamation Continues IV";
+L[ "RPMI9" ]  = "The Trial of Despair";
+L[ "RPMI10" ] = "The Trial of Death";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renown"; L[ "IFIF" ] = "Total renown:";

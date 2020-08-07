@@ -243,17 +243,17 @@ L[ "RPCOG" ]   = "Conqu\195\170te de Gorgoroth";-- Conquête de Gorgoroth
 L[ "RPEOFBs" ] = "Ennemie du sud de Fushaum Bal";
 L[ "RPEOFBn" ] = "Ennemie du nord de Fushaum Bal";
 L[ "RPRSC" ]   = "Clan du Ciel rouge";
-L[ "RPDoE" ]   = "Nains d’Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
-L[ "RPEoF" ]   = "Elfes de Felegoth";-- Elves of Felegoth -- Thanks bornfight#0574 on Discord
-L[ "RPMoD" ]   = "Hommes de Dale";-- Men of Dale -- Thanks bornfight#0574 on Discord
+L[ "RPDOE" ]   = "Nains d’Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
+L[ "RPEOF" ]   = "Elfes de Felegoth";-- Elves of Felegoth -- Thanks bornfight#0574 on Discord
+L[ "RPMOD" ]   = "Hommes de Dale";-- Men of Dale -- Thanks bornfight#0574 on Discord
 L[ "RPCCLE" ]  = "Ligue des Chasseurs de Poulets d'Eriador";
 L[ "RPTAA" ]   = "La confr\195\168rie de la cervoise";
 L[ "RPTIL" ]   = "La Ligue des Tavernes";
-L[ "RPDOE" ]   = "Nains d'Erebor"; --thx bornfight
-L[ "RPEOF" ]   = "Elfes de Felegoth"; --thx bornfight
-L[ "RPMOD" ]   = "Hommes de Dale"; -- thx bornfight
 L[ "RPGME" ]   = "Exp\195\168dition des Montagnes Grises"; -- Grey Mountains Expedition -- Thx bornfight
 L[ "RPWF" ]    = "Peuple Sauvage"; -- Wilderfolk
+L[ "RPTGA" ]   = "La Grande Alliance"; -- The Great Alliance
+L[ "RPTWC" ]   = "La Compagnie Blanche"; -- The White Company
+L[ "RPRMI" ]   = "R\195\169clamation de Minas Ithil";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
@@ -276,12 +276,23 @@ L[ "RPGG5" ]  = "Artisan";
 L[ "RPGG6" ]  = "Ma\195\174tre";--Maître
 L[ "RPGG7" ]  = "Eastemnet Master";
 L[ "RPGG8" ]  = "Westemnet Master";
+L[ "RPGG9" ]  = "Grand Ma\195\174tre Honor\195\169";
 L[ "RCCLE1" ] = "Rookie";
 L[ "RCCLE2" ] = "Minor Leaguer";
 L[ "RCCLE3" ] = "Major Leaguer";
 L[ "RCCLE4" ] = "All-star";
 L[ "RCCLE5" ] = "Hall of Famer";
 L[ "RPBR" ]   = "Bonus Restant";
+L[ "RPMI1" ]  = "The Reclamation";
+L[ "RPMI2" ]  = "The Reclamation Continues";
+L[ "RPMI3" ]  = "The Trial of Wrath";
+L[ "RPMI4" ]  = "The Reclamation Continues II";
+L[ "RPMI5" ]  = "The Trial of Sorrow";
+L[ "RPMI6" ]  = "The Reclamation Continues III";
+L[ "RPMI7" ]  = "The Trial of Madness";
+L[ "RPMI8" ]  = "The Reclamation Continues IV";
+L[ "RPMI9" ]  = "The Trial of Despair";
+L[ "RPMI10" ] = "The Trial of Death";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renomm\195\169e"; L[ "IFIF" ] = "Total de renomm\195\169e:";

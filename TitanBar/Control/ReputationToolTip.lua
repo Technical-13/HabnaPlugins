@@ -6,9 +6,9 @@ function ShowRPWindow()
     -- ( offsetX, offsetY, width, height, bubble side )
     --x, y, w, h, bblTo = -5, -15, 320, 0, "left";
     --mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
-    
+
     --if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
-    
+
     _G.ToolTipWin = Turbine.UI.Window();
     _G.ToolTipWin:SetZOrder( 1 );
     --_G.ToolTipWin.xOffset = x;
@@ -34,7 +34,7 @@ function RPRefreshListBox()
     RPTTListBox:ClearItems();
     RPTTPosY = 0;
     local bFound = false;
-    
+
     for i = 1, #RepOrder do
         if PlayerReputation[PN][RepOrder[i]].V then
             HideMaxReps = true;
@@ -45,16 +45,16 @@ function RPRefreshListBox()
                     -- hide rep accelerator if 0 points
                 end
             end
-            -- Assume that people want factions that are max hidden until I 
+            -- Assume that people want factions that are max hidden until I
             -- can offer an option checkbox
-            
+
             --**v Control of all data v**
             local RPTTCtr = Turbine.UI.Control();
             RPTTCtr:SetParent( RPTTListBox );
             RPTTCtr:SetSize( RPTTListBox:GetWidth(), 35 );
 --          RPTTCtr:SetBackColor( Color["red"] ); -- Debug purpose
             --**^
-    
+
             -- Reputation name
             local repLbl = Turbine.UI.Label();
             repLbl:SetParent( RPTTCtr );
@@ -64,16 +64,23 @@ function RPRefreshListBox()
             repLbl:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleCenter);
             repLbl:SetForeColor( Color["nicegold"] );
             repLbl:SetText( L[RepOrder[i]] );
-            
+
             local tl, tm, percentage_done = nil, nil, 0;
             local tp = PlayerReputation[PN][RepOrder[i]].P;
             local tr = tonumber(PlayerReputation[PN][RepOrder[i]].R);
 
+            name = RepOrder[i];
+            RPPROG = "default";
+            if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" then
+                RPPROG = name;
+            end
+
+
             local tt = RepType[i];
             if tt == 2 or tt == 7 or tt == 8 then
-                tm = RPGR[tonumber( tr-1 )];
+                tm = RPGR[RPPROG][tonumber( tr-1 )];
             else
-                tm = RPGR[tonumber( tr )];
+                tm = RPGR[RPPROG][tonumber( tr )];
             end
             if tt == 10 then
                 tm = 80000;
@@ -84,7 +91,7 @@ function RPRefreshListBox()
             else percentage_done = string.format( "%.2f", ( tp / tm ) * 100 );
             end
 
-            --**v progress bar v**          
+            --**v progress bar v**
             local RPPBFill = Turbine.UI.Control();--Filling
             RPPBFill:SetParent( RPTTCtr );
             RPPBFill:SetPosition( 9, 17 );
@@ -93,7 +100,7 @@ function RPRefreshListBox()
             RPPBFill:SetBackground( resources.Reputation.BGGood );
             --RPPBFill:SetBackground( resources.Reputation.BGBad );
             if RepType[i] == 5 then
-                RPPBFill:SetBackground( resources.Reputation.BGGuild ); 
+                RPPBFill:SetBackground( resources.Reputation.BGGuild );
             end
             local RPPB = Turbine.UI.Control(); --Frame
             RPPB:SetParent( RPTTCtr );
@@ -101,13 +108,13 @@ function RPRefreshListBox()
             RPPB:SetBlendMode( 4 );
             RPPB:SetSize( 200, 15 );
             RPPB:SetBackground( resources.Reputation.BGFrame );
-            
+
             local RPPC = Turbine.UI.Label(); --percentage
             RPPC:SetParent( RPTTCtr );
-            if percentage_done == "max" then 
+            if percentage_done == "max" then
                 RPPC:SetPosition( 1, 17 );
                 RPPC:SetText( L["RPMSR"] );
-            else 
+            else
                 bFound = true;
                 RPPC:SetPosition( 9, 17 );
                 RPPC:SetText( tp.."/"..tm.."  "..percentage_done.."%" );
@@ -123,7 +130,7 @@ function RPRefreshListBox()
             if RepType[i] == 10 then RPLvl:SetForeColor( Color["purple"] ); end
             --RPLvl:SetForeColor( Color["red"] );
             --RPLvl:SetForeColor( Color["green"] );
-            
+
             RPLvl:SetParent( RPTTCtr );
             RPLvl:SetText( tl );
             RPLvl:SetPosition( 205, 15 );
@@ -161,13 +168,13 @@ function RPRefreshListBox()
     _G.ToolTipWin:SetHeight( RPTTPosY + 30 );
 
     local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
-            
-    if _G.ToolTipWin:GetWidth() + mouseX + 5 > screenWidth then 
+
+    if _G.ToolTipWin:GetWidth() + mouseX + 5 > screenWidth then
         x = _G.ToolTipWin:GetWidth() - 10;
     else
         x = -5;
     end
-            
+
     if TBTop then y = -15;
     else y = _G.ToolTipWin:GetHeight() end
 
