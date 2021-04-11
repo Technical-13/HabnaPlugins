@@ -58,7 +58,8 @@ _G.WalletItem = {
 	AshOfEnchantment = { Icon = 0x411B91DD },
 	BingoBadge = { Icon = 0x410E6EE4 },
 	AnniversaryToken = { Icon = 0x4110E2E7 },
-	LOTROPTS = { Icon = 0x4113478C }
+	LOTROPTS = { Icon = 0x4113478C },
+	MotesOfEnchantment = { Icon = 0x411B91DD }
 };
 
 _G.DurabilitySlotsBG = { 0x41007eed, 0x41007ef6, 0x41007ef7, 0x41007eef, 0x41007eee, 0x41007ee9, 0x41007ef0, 0x41007ef9, 0x41007ef8,

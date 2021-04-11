@@ -310,6 +310,11 @@ function ShowToolTipWin( ToShow )
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["LATh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "MOE" then -- Motes of Enchantment
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["MOEh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -569,6 +574,15 @@ function UpdateAnniversaryToken()
 		LAT[ "Lbl" ]:SetText( GetCurrency( L[ "MLAT" ] ) );
 		LAT[ "Lbl" ]:SetSize( LAT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "LAT" );
+	end
+end
+--**^
+--**v Update Motes of Enchantment currency on TitanBar v**
+function UpdateMotesOfEnchantment()
+	if _G.MOEWhere == 1 then
+		MOE[ "Lbl" ]:SetText( GetCurrency( L[ "MMOE" ] ) );
+		MOE[ "Lbl" ]:SetSize( MOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "MOE" );
 	end
 end
 --**^
@@ -914,6 +928,7 @@ function ChangeColor(tColor)
 		if ShowAshOfEnchantment then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowAniversaryToken then LAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -948,6 +963,7 @@ function ChangeColor(tColor)
 		if sFrom == "AOE" then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "BB" then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "LAT" then LAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "MOE" then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1192,6 +1208,12 @@ function AjustIcon(str)
 		LAT[ "Ctr" ]:SetSize( LAT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		LAT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
 		LAT[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "MOE" then
+		MOE[ "Icon" ]:SetStretchMode( 1 );
+		MOE[ "Icon" ]:SetPosition(MOE[ "Lbl" ]:GetLeft()+MOE[ "Lbl" ]:GetWidth()+3,Y);
+		MOE[ "Ctr" ]:SetSize( MOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		MOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		MOE[ "Icon" ]:SetStretchMode( 3 );	
 	end
 end
 

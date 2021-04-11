@@ -370,6 +370,12 @@ function ImportCtr( value )
             LAT[ "Ctr" ]:SetPosition( _G.LATLocX, _G.LATLocY );
         end
         if _G.LATWhere ~= 3 then UpdateAnniversaryToken(); end
+	elseif value == "MOE" then --Motes of Enchantment
+        if _G.MOEWhere == 1 then
+            import (AppCtrD.."MotesOfEnchantment");
+            MOE[ "Ctr" ]:SetPosition( _G.MOELocX, _G.MOELocY );
+        end
+        if _G.MOEWhere ~= 3 then UpdateMotesOfEnchantment(); end	
     elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -1069,6 +1075,7 @@ function UpdateCurrency( str )
     if str == L[ "MAOE" ] and ShowAshOfEnchantment then UpdateAshOfEnchantment(); end
     if str == L[ "MBB" ] and ShowBingoBadge then UpdateBingoBadge(); end
     if str == L[ "MLAT" ] and ShowAnniversaryToken then UpdateAnniversaryToken(); end
+	if str == L[ "MMOE" ] and ShowMotesOfEnchantment then UpdateMotesOfEnchantment(); end
 end
 
 function GetCurrency( str )

@@ -39,6 +39,7 @@ function UnloadControl( value )
 		if ShowAshOfEnchantment then _G.AOEWhere = 3; ShowHideAshOfEnchantment(); end
 		if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
 		if ShowAnniversaryToken then _G.LATWhere = 3; ShowHideAnniversaryToken(); end
+		if ShowMotesOfEnchantment then _G.MOEWhere = 3; ShowHideMotesOfEnchantment(); end
 		elseif value == "this" then
 			if _G.sFromCtr == "WI" then ShowHideWallet();
 			elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
@@ -72,6 +73,7 @@ function UnloadControl( value )
 			elseif _G.sFromCtr == "AOE" then _G.AOEWhere = 3; ShowHideAshOfEnchantment();
 			elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
 			elseif _G.sFromCtr == "LAT" then _G.LATWhere = 3; ShowHideAnniversaryToken();
+			elseif _G.sFromCtr == "MOE" then _G.MOEWhere = 3; ShowHideMotesOfEnchantment();
 			end
 		end
 
@@ -119,6 +121,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "AOE" then tA, tR, tG, tB = AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue;
 		elseif _G.sFromCtr == "BB" then tA, tR, tG, tB = BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue;
 		elseif _G.sFromCtr == "LAT" then tA, tR, tG, tB = LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue;
+		elseif _G.sFromCtr == "MOE" then tA, tR, tG, tB = MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue;
 		end
 	end
 	
@@ -187,6 +190,8 @@ function BGColor( cmd, value )
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
 		if ShowAnniversaryToken then LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue = tA, tR, tG, tB;
+		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
@@ -287,6 +292,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "LAT" then
 			LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
 			LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "MOE" then
+			MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue = tA, tR, tG, tB;
+			MOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;

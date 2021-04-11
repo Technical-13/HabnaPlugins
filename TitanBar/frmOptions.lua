@@ -34,6 +34,7 @@ if GGB ~= nil then WalletControls[ "GGB" ] = { ShowHide = ShowGiftgiversBrand, C
 if AOE ~= nil then WalletControls[ "AOE" ] = { ShowHide = ShowAshOfEnchantment, Control = AOE[ "Ctr" ] }; end
 if BB ~= nil then WalletControls[ "BB" ] = { ShowHide = ShowBingoBadge, Control = BB[ "Ctr" ] }; end
 if LAT ~= nil then WalletControls[ "LAT" ] = { ShowHide = ShowAnniversaryToken, Control = LAT[ "Ctr" ] }; end
+if MOE ~= nil then WalletControls[ "MOE" ] = { ShowHide = ShowMotesOfEnchantment, Control = MOE[ "Ctr" ] }; end
 
 tFonts = { "Arial12", "TrajanPro13", "TrajanPro14", "TrajanPro15", "TrajanPro16", "TrajanPro18", "TrajanPro19", "TrajanPro20", "TrajanPro21",
 			"TrajanPro23", "TrajanPro24", "TrajanPro25", "TrajanPro26", "TrajanPro28", "TrajanProBold16", "TrajanProBold22", "TrajanProBold24",

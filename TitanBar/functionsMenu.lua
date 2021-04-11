@@ -514,3 +514,14 @@ function ShowHideAnniversaryToken()
 	end
 	LAT[ "Ctr" ]:SetVisible( ShowAnniversaryToken );
 end
+function ShowHideMotesOfEnchantment()
+	ShowMotesOfEnchantment = not ShowMotesOfEnchantment;
+	settings.MotesOfEnchantment.V = ShowMotesOfEnchantment;
+	settings.MotesOfEnchantment.W = string.format( "%.0f", _G.MOEWhere );
+	SaveSettings( false );
+	ImportCtr( "MOE" );
+	if ShowMotesOfEnchantment then
+		MOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue ) );
+	end
+	MOE[ "Ctr" ]:SetVisible( ShowMotesOfEnchantment );
+end

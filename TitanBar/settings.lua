@@ -810,6 +810,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.LATWhere = tonumber(settings.AnniversaryToken.W);
 	if _G.LATWhere == 3 and ShowAnniversaryToken then _G.LATWhere = 1; settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere); end
 
+	if settings.MotesOfEnchantment == nil then settings.MotesOfEnchantment = {}; end
+	if settings.MotesOfEnchantment.V == nil then settings.MotesOfEnchantment.V = false; end
+	if settings.MotesOfEnchantment.A == nil then settings.MotesOfEnchantment.A = string.format("%.3f", tA); end
+	if settings.MotesOfEnchantment.R == nil then settings.MotesOfEnchantment.R = string.format("%.3f", tR); end
+	if settings.MotesOfEnchantment.G == nil then settings.MotesOfEnchantment.G = string.format("%.3f", tG); end
+	if settings.MotesOfEnchantment.B == nil then settings.MotesOfEnchantment.B = string.format("%.3f", tB); end
+	if settings.MotesOfEnchantment.X == nil then settings.MotesOfEnchantment.X = string.format("%.0f", tX); end
+	if settings.MotesOfEnchantment.Y == nil then settings.MotesOfEnchantment.Y = string.format("%.0f", tY); end
+	if settings.MotesOfEnchantment.W == nil then settings.MotesOfEnchantment.W = string.format("%.0f", tW); end
+	ShowMotesOfEnchantment = settings.MotesOfEnchantment.V;
+	MOEbcAlpha = tonumber(settings.MotesOfEnchantment.A);
+	MOEbcRed = tonumber(settings.MotesOfEnchantment.R);
+	MOEbcGreen = tonumber(settings.MotesOfEnchantment.G);
+	MOEbcAlphabcBlue = tonumber(settings.MotesOfEnchantment.B);
+	_G.MOELocX = tonumber(settings.MotesOfEnchantment.X);
+	_G.MOELocY = tonumber(settings.MotesOfEnchantment.Y);
+	_G.MOEWhere = tonumber(settings.MotesOfEnchantment.W);
+	if _G.MOEWhere == 3 and ShowMotesOfEnchantment then _G.MOEWhere = 1; settings.MotesOfEnchantment.W = string.format("%.0f", _G.MOEWhere); end	
+
 	SaveSettings( false );
 	
 	--if settings.TitanBar.W ~= screenWidth then ReplaceCtr(); end --Replace control if screen width as changed
@@ -1207,6 +1226,16 @@ function SaveSettings(str)
 		settings.AnniversaryToken.X = string.format("%.0f", _G.LATLocX);
 		settings.AnniversaryToken.Y = string.format("%.0f", _G.LATLocY);
 		settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere);
+		
+		settings.MotesOfEnchantment = {};
+		settings.MotesOfEnchantment.V = ShowMotesOfEnchantment;
+		settings.MotesOfEnchantment.A = string.format("%.3f", MOEbcAlpha);
+		settings.MotesOfEnchantment.R = string.format("%.3f", MOEbcRed);
+		settings.MotesOfEnchantment.G = string.format("%.3f", MOEbcGreen);
+		settings.MotesOfEnchantment.B = string.format("%.3f", MOEbcBlue);
+		settings.MotesOfEnchantment.X = string.format("%.0f", _G.MOELocX);
+		settings.MotesOfEnchantment.Y = string.format("%.0f", _G.MOELocY);
+		settings.MotesOfEnchantment.W = string.format("%.0f", _G.MOEWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1256,7 +1285,8 @@ function ResetSettings()
 	ShowAshOfEnchantment, AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue, _G.AOELocX, _G.AOELocY, _G.AOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Enchantment Control
 	ShowBingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
 	ShowAnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
-		
+	ShowMotesOfEnchantment, MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue, _G.MOELocX, _G.MOELocY, _G.MOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Motes of Enchantment Control	
+	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
 end
@@ -1422,6 +1452,11 @@ function ReplaceCtr()
 	_G.LATLocX = oldLocX * screenWidth;
 	settings.AnniversaryToken.X = string.format("%.0f", _G.LATLocX);
 	if ShowAnniversaryToken and _G.LATWhere == 1 then LAT[ "Ctr" ]:SetPosition( _G.LATLocX, _G.LATLocY ); end
+	
+	oldLocX = settings.MotesOfEnchantment.X / oldScreenWidth;
+	_G.MOELocX = oldLocX * screenWidth;
+	settings.MotesOfEnchantment.X = string.format("%.0f", _G.MOELocX);
+	if ShowMotesOfEnchantment and _G.MOEWhere == 1 then MOE[ "Ctr" ]:SetPosition( _G.MOELocX, _G.MOELocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );
