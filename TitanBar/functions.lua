@@ -293,12 +293,6 @@ function ShowToolTipWin( ToShow )
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["GGBh"], L["EIt2"], 
             L["EIt3"] );
-	elseif ToShow == "AOE" then -- Ash of Gorgoroth
-		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
-		h = 65;
-		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["AOEh"], L["EIt2"], 
-            L["EIt3"] );
 	elseif ToShow == "BB" then -- Bingo Badge
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
@@ -547,15 +541,6 @@ function UpdateGiftgiversBrand()
 		GGB[ "Lbl" ]:SetText( GetCurrency( L[ "MGGB" ] ) );
 		GGB[ "Lbl" ]:SetSize( GGB[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "GGB" );
-	end
-end
---**^
---**v Update Ash of Gorgoroth currency on TitanBar v**
-function UpdateAshOfEnchantment()
-	if _G.AOEWhere == 1 then
-		AOE[ "Lbl" ]:SetText( GetCurrency( L[ "MAOE" ] ) );
-		AOE[ "Lbl" ]:SetSize( AOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
-		AjustIcon( "AOE" );
 	end
 end
 --**^
@@ -925,7 +910,6 @@ function ChangeColor(tColor)
 		if ShowStarsofMerit then SOM[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowCentralGondorSilverPiece then CGSP[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowGiftgiversBrand then GGB[ "Ctr" ]:SetBackColor( tColor ); end
-		if ShowAshOfEnchantment then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowAniversaryToken then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
@@ -960,7 +944,6 @@ function ChangeColor(tColor)
 		if sFrom == "SOM" then SOM[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "CGSP" then CGSP[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "GGB" then GGB[ "Ctr" ]:SetBackColor( tColor ); end
-		if sFrom == "AOE" then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "BB" then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "LAT" then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "MOE" then MOE[ "Ctr" ]:SetBackColor( tColor ); end
@@ -1190,12 +1173,6 @@ function AjustIcon(str)
 		GGB[ "Ctr" ]:SetSize( GGB[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		GGB[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
 		GGB[ "Icon" ]:SetStretchMode( 3 );
-	elseif str == "AOE" then
-		AOE[ "Icon" ]:SetStretchMode( 1 );
-		AOE[ "Icon" ]:SetPosition(AOE[ "Lbl" ]:GetLeft()+AOE[ "Lbl" ]:GetWidth()+3,Y);
-		AOE[ "Ctr" ]:SetSize( AOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
-		AOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		AOE[ "Icon" ]:SetStretchMode( 3 );
 	elseif str == "BB" then
 		BB[ "Icon" ]:SetStretchMode( 1 );
 		BB[ "Icon" ]:SetPosition(BB[ "Lbl" ]:GetLeft()+BB[ "Lbl" ]:GetWidth()+3,Y);

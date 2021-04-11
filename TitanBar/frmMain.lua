@@ -174,7 +174,6 @@ function frmMain()
 			if _G.SOMWhere ~= 3 then ImportCtr( "SOM" ); end
 			if _G.CGSPWhere ~= 3 then ImportCtr( "CGSP" ); end
 			if _G.GGBWhere ~= 3 then ImportCtr( "GGB" ); end
-			if _G.AOEWhere ~= 3 then ImportCtr( "AOE" ); end
 			if _G.BBWhere ~= 3 then ImportCtr( "BB" ); end
 			if _G.LATWhere ~= 3 then ImportCtr( "LAT" ); end
 			if _G.MOEWhere ~= 3 then ImportCtr( "MOE" ); end
@@ -185,7 +184,7 @@ function frmMain()
 		ShowYuleToken, ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions = false, false, false, false;
 		ShowSeals, ShowVault, ShowSharedStorage, ShowAmrothSilverPiece = false, false, false, false;
 		ShowStarsofMerit, ShowCentralGondorSilverPiece, ShowGiftgiversBrand = false, false, false;
-		ShowAshOfEnchantment, ShowBingoBadge, ShowAnniversaryToken, ShowReputation = false, false, false, false;
+		ShowBingoBadge, ShowAnniversaryToken, ShowReputation = false, false, false;
 		ShowMotesOfEnchantment = false;
 		if PlayerWalletSize ~= nil or PlayerWalletSize ~= 0 then
 			if ShowWallet then ImportCtr( "WI" ); end
@@ -314,7 +313,6 @@ function frmMain()
 				if _G.SOMWhere ~= 3 then ImportCtr( "SOM" ); end
 				if _G.CGSPWhere ~= 3 then ImportCtr( "CGSP" ); end
 				if _G.GGBWhere ~= 3 then ImportCtr( "GGB" ); end
-				if _G.AOEWhere ~= 3 then ImportCtr( "AOE" ); end
 				if _G.BBWhere ~= 3 then ImportCtr( "BB" ); end
 				if _G.LATWhere ~= 3 then ImportCtr( "LAT" ); end
 				if _G.MOEWhere ~= 3 then ImportCtr( "MOE" ); end

@@ -352,12 +352,6 @@ function ImportCtr( value )
             GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY );
         end
         if _G.GGBWhere ~= 3 then UpdateGiftgiversBrand(); end
-    elseif value == "AOE" then --Ash of Gorgoroth
-        if _G.AOEWhere == 1 then
-            import (AppCtrD.."AshOfEnchantment");
-            AOE[ "Ctr" ]:SetPosition( _G.AOELocX, _G.AOELocY );
-        end
-        if _G.AOEWhere ~= 3 then UpdateAshOfEnchantment(); end
     elseif value == "BB" then --Bingo Badge
         if _G.BBWhere == 1 then
             import (AppCtrD.."BingoBadge");
@@ -1072,7 +1066,6 @@ function UpdateCurrency( str )
     if str == L[ "MSOM" ] and ShowStarsofMerit then UpdateStarsofMerit(); end
     if str == L[ "MCGSP" ] and ShowCentralGondorSilverPiece then UpdateCentralGondorSilverPiece(); end
     if str == L[ "MGGB" ] and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
-    if str == L[ "MAOE" ] and ShowAshOfEnchantment then UpdateAshOfEnchantment(); end
     if str == L[ "MBB" ] and ShowBingoBadge then UpdateBingoBadge(); end
     if str == L[ "MLAT" ] and ShowAnniversaryToken then UpdateAnniversaryToken(); end
 	if str == L[ "MMOE" ] and ShowMotesOfEnchantment then UpdateMotesOfEnchantment(); end

@@ -55,7 +55,6 @@ _G.WalletItem = {
 	StarsofMerit = { Icon = 0x4115bea4 },
 	CentralGondorSilverPiece = { Icon = 0x41155957 },
 	GiftgiversBrand = { Icon = 0x4115c888 },
-	AshOfEnchantment = { Icon = 0x411B91DD },
 	BingoBadge = { Icon = 0x410E6EE4 },
 	AnniversaryToken = { Icon = 0x4110E2E7 },
 	LOTROPTS = { Icon = 0x4113478C },

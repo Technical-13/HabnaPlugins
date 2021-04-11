@@ -36,7 +36,6 @@ function UnloadControl( value )
 		if ShowStarsofMerit then _G.SOMWhere = 3; ShowHideStarsofMerit(); end
 		if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
 		if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
-		if ShowAshOfEnchantment then _G.AOEWhere = 3; ShowHideAshOfEnchantment(); end
 		if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
 		if ShowAnniversaryToken then _G.LATWhere = 3; ShowHideAnniversaryToken(); end
 		if ShowMotesOfEnchantment then _G.MOEWhere = 3; ShowHideMotesOfEnchantment(); end
@@ -70,7 +69,6 @@ function UnloadControl( value )
 			elseif _G.sFromCtr == "SOM" then _G.SOMWhere = 3; ShowHideStarsofMerit();
 			elseif _G.sFromCtr == "CGSP" then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece();
 			elseif _G.sFromCtr == "GGB" then _G.GGBWhere = 3; ShowHideGiftgiversBrand();
-			elseif _G.sFromCtr == "AOE" then _G.AOEWhere = 3; ShowHideAshOfEnchantment();
 			elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
 			elseif _G.sFromCtr == "LAT" then _G.LATWhere = 3; ShowHideAnniversaryToken();
 			elseif _G.sFromCtr == "MOE" then _G.MOEWhere = 3; ShowHideMotesOfEnchantment();
@@ -118,7 +116,6 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "SOM" then tA, tR, tG, tB = SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue;
 		elseif _G.sFromCtr == "CGSP" then tA, tR, tG, tB = CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue;
 		elseif _G.sFromCtr == "GGB" then tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
-		elseif _G.sFromCtr == "AOE" then tA, tR, tG, tB = AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue;
 		elseif _G.sFromCtr == "BB" then tA, tR, tG, tB = BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue;
 		elseif _G.sFromCtr == "LAT" then tA, tR, tG, tB = LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue;
 		elseif _G.sFromCtr == "MOE" then tA, tR, tG, tB = MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue;
@@ -184,8 +181,6 @@ function BGColor( cmd, value )
 		if ShowCentralGondorSilverPiece then CGSP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
 		if ShowGiftgiversBrand then GGB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
-		AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue = tA, tR, tG, tB;
-		if ShowAshOfEnchantment then AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
@@ -283,9 +278,6 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "GGB" then
 			GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
 			GGB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
-		elseif _G.sFromCtr == "AOE" then
-			AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue = tA, tR, tG, tB;
-			AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "BB" then
 			BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
 			BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );

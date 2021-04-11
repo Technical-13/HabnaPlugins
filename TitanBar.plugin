@@ -3,7 +3,7 @@
 	<Information>
 		<Name>TitanBar</Name>
 		<Author>Technical_13 (Patch by Duriel)</Author>
-		<Version>v1.35.01</Version>
+		<Version>v1.35.02</Version>
     <Image>HabnaPlugins/TitanBar/Resources/icon.tga</Image>
     <Description>This plugin will show various kinds of information on a bar at the top or bottom of your screen. Each display of information is called a "control". Control can be moved anywhere on the bar, and you can change the background color, font, icon size, and height of TitanBar and its controls.
 TitanBar supports all three official languages ('FR', 'EN', 'DE').
