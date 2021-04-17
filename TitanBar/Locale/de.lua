@@ -94,9 +94,12 @@ L[ "CGSPh" ] = "Deine Zentralgondorischen Silberst\195\188cke";
 -- Gift giver's Brand control
 L[ "MGGB" ] = "Zeichen des Schenkenden";
 L[ "GGBh" ] = "Deine Zeichen des Schenkenden";
--- Ash of Enchantment control
-L[ "MAOE" ] = "Asche der Verzauberung";
-L[ "AOEh" ] = "Dies sind deine Asche der Verzauberung";
+-- Motes of Enchantment control
+L[ "MMOE" ] = "Motes of Enchantment";
+L[ "MOEh" ] = "These are your Motes of Enchantment";
+-- Embers of Enchantment control
+L[ "MEOE" ] = "Embers of Enchantment";
+L[ "EOEh" ] = "These are your Embers of Enchantment";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";-- Thx Wicky!
@@ -254,6 +257,7 @@ L[ "RPWF" ]    = "Wildes Volk"; -- Wilderfolk
 L[ "RPTGA" ]   = "Die Gro\195\159e Allianz"; -- The Great Alliance
 L[ "RPTWC" ]   = "Die Wei\195\159e Schar"; -- The White Company
 L[ "RPRMI" ]   = "Die R\195\188ckeroberung von Minas Ithil";
+L[ "RPPOW" ]   = "Protectors of Wilderland";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings

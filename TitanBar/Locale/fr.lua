@@ -94,9 +94,12 @@ L[ "CGSPh" ] = "These are your Pi\195\168ces d'argent du gondor Central";
 -- Gift giver's Brand control
 L[ "MGGB" ] = "Marque du Donateur";
 L[ "GGBh" ] = "These are your Marques du Donateur";
--- Ash of Enchantment control
-L[ "MAOE" ] = "Cendre d'enchantement";
-L[ "AOEh" ] = "Ce sont vos cendres d'enchantement";
+-- Motes of Enchantment control
+L[ "MMOE" ] = "Motes of Enchantment";
+L[ "MOEh" ] = "These are your Motes of Enchantment";
+-- Embers of Enchantment control
+L[ "MEOE" ] = "Embers of Enchantment";
+L[ "EOEh" ] = "These are your Embers of Enchantment";
 
 -- Control Menu
 L[ "MCU" ] = "D\195\169charger ...";
@@ -254,6 +257,7 @@ L[ "RPWF" ]    = "Peuple Sauvage"; -- Wilderfolk
 L[ "RPTGA" ]   = "La Grande Alliance"; -- The Great Alliance
 L[ "RPTWC" ]   = "La Compagnie Blanche"; -- The White Company
 L[ "RPRMI" ]   = "R\195\169clamation de Minas Ithil";
+L[ "RPPOW" ]   = "Protectors of Wilderland";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings

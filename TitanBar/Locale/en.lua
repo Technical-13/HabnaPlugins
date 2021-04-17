@@ -257,6 +257,7 @@ L[ "RPWF" ]    = "Wilderfolk";
 L[ "RPTGA" ]   = "The Great Alliance";
 L[ "RPTWC" ]   = "The White Company";
 L[ "RPRMI" ]   = "Reclamation of Minas Ithil";
+L[ "RPPOW" ]   = "Protectors of Wilderland";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings

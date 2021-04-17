@@ -932,7 +932,9 @@ function LoadPlayerReputation()
         "RPWF",
         -- Minas Morgul
         "RPTGA", "RPTWC", "RPRMI",
-        -- Special Event
+        -- Wells of Langflood
+		"RPPOW",
+		-- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
         "RPACC",
@@ -957,7 +959,9 @@ function LoadPlayerReputation()
         1,
         -- Minas Morgul
         12, 3, 13,
-        -- Special Event
+        -- Wells of Langflood
+		1,
+		-- Special Event
         6, 7, 7,
         -- Accelerator
         10,
