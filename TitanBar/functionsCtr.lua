@@ -370,7 +370,13 @@ function ImportCtr( value )
             MOE[ "Ctr" ]:SetPosition( _G.MOELocX, _G.MOELocY );
         end
         if _G.MOEWhere ~= 3 then UpdateMotesOfEnchantment(); end	
-    elseif value == "RP" then --Reputation Points
+	elseif value == "EOE" then --Embers of Enchantment
+        if _G.EOEWhere == 1 then
+            import (AppCtrD.."EmbersOfEnchantment");
+            EOE[ "Ctr" ]:SetPosition( _G.EOELocX, _G.EOELocY );
+        end
+        if _G.EOEWhere ~= 3 then UpdateEmbersOfEnchantment(); end 
+	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
             [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000, [9] = 1 },
@@ -1069,6 +1075,7 @@ function UpdateCurrency( str )
     if str == L[ "MBB" ] and ShowBingoBadge then UpdateBingoBadge(); end
     if str == L[ "MLAT" ] and ShowAnniversaryToken then UpdateAnniversaryToken(); end
 	if str == L[ "MMOE" ] and ShowMotesOfEnchantment then UpdateMotesOfEnchantment(); end
+	if str == L[ "MEOE" ] and ShowEmbersOfEnchantment then UpdateEmbersOfEnchantment(); end
 end
 
 function GetCurrency( str )

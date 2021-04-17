@@ -810,6 +810,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.MOEWhere = tonumber(settings.MotesOfEnchantment.W);
 	if _G.MOEWhere == 3 and ShowMotesOfEnchantment then _G.MOEWhere = 1; settings.MotesOfEnchantment.W = string.format("%.0f", _G.MOEWhere); end	
 
+	if settings.EmbersOfEnchantment == nil then settings.EmbersOfEnchantment = {}; end
+	if settings.EmbersOfEnchantment.V == nil then settings.EmbersOfEnchantment.V = false; end
+	if settings.EmbersOfEnchantment.A == nil then settings.EmbersOfEnchantment.A = string.format("%.3f", tA); end
+	if settings.EmbersOfEnchantment.R == nil then settings.EmbersOfEnchantment.R = string.format("%.3f", tR); end
+	if settings.EmbersOfEnchantment.G == nil then settings.EmbersOfEnchantment.G = string.format("%.3f", tG); end
+	if settings.EmbersOfEnchantment.B == nil then settings.EmbersOfEnchantment.B = string.format("%.3f", tB); end
+	if settings.EmbersOfEnchantment.X == nil then settings.EmbersOfEnchantment.X = string.format("%.0f", tX); end
+	if settings.EmbersOfEnchantment.Y == nil then settings.EmbersOfEnchantment.Y = string.format("%.0f", tY); end
+	if settings.EmbersOfEnchantment.W == nil then settings.EmbersOfEnchantment.W = string.format("%.0f", tW); end
+	ShowEmbersOfEnchantment = settings.EmbersOfEnchantment.V;
+	EOEbcAlpha = tonumber(settings.EmbersOfEnchantment.A);
+	EOEbcRed = tonumber(settings.EmbersOfEnchantment.R);
+	EOEbcGreen = tonumber(settings.EmbersOfEnchantment.G);
+	EOEbcBlue = tonumber(settings.EmbersOfEnchantment.B);
+	_G.EOELocX = tonumber(settings.EmbersOfEnchantment.X);
+	_G.EOELocY = tonumber(settings.EmbersOfEnchantment.Y);
+	_G.EOEWhere = tonumber(settings.EmbersOfEnchantment.W);
+	if _G.EOEWhere == 3 and ShowEmbersOfEnchantment then _G.EOEWhere = 1; settings.EmbersOfEnchantment.W = string.format("%.0f", _G.EOEWhere); end
+
 	SaveSettings( false );
 	
 	--if settings.TitanBar.W ~= screenWidth then ReplaceCtr(); end --Replace control if screen width as changed
@@ -1207,6 +1226,16 @@ function SaveSettings(str)
 		settings.MotesOfEnchantment.X = string.format("%.0f", _G.MOELocX);
 		settings.MotesOfEnchantment.Y = string.format("%.0f", _G.MOELocY);
 		settings.MotesOfEnchantment.W = string.format("%.0f", _G.MOEWhere);
+		
+		settings.EmbersOfEnchantment = {};
+		settings.EmbersOfEnchantment.V = ShowEmbersOfEnchantment;
+		settings.EmbersOfEnchantment.A = string.format("%.3f", EOEbcAlpha);
+		settings.EmbersOfEnchantment.R = string.format("%.3f", EOEbcRed);
+		settings.EmbersOfEnchantment.G = string.format("%.3f", EOEbcGreen);
+		settings.EmbersOfEnchantment.B = string.format("%.3f", EOEbcBlue);
+		settings.EmbersOfEnchantment.X = string.format("%.0f", _G.EOELocX);
+		settings.EmbersOfEnchantment.Y = string.format("%.0f", _G.EOELocY);
+		settings.EmbersOfEnchantment.W = string.format("%.0f", _G.EOEWhere);	
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1255,7 +1284,8 @@ function ResetSettings()
 	ShowGiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
 	ShowBingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
 	ShowAnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
-	ShowMotesOfEnchantment, MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue, _G.MOELocX, _G.MOELocY, _G.MOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Motes of Enchantment Control	
+	ShowMotesOfEnchantment, MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue, _G.MOELocX, _G.MOELocY, _G.MOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Motes of Enchantment Control
+	ShowEmbersOfEnchantment, EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue, _G.EOELocX, _G.EOELocY, _G.EOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Embers of Enchantment Control	
 	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1428,6 +1458,11 @@ function ReplaceCtr()
 	_G.MOELocX = oldLocX * screenWidth;
 	settings.MotesOfEnchantment.X = string.format("%.0f", _G.MOELocX);
 	if ShowMotesOfEnchantment and _G.MOEWhere == 1 then MOE[ "Ctr" ]:SetPosition( _G.MOELocX, _G.MOELocY ); end
+	
+	oldLocX = settings.EmbersOfEnchantment.X / oldScreenWidth;
+	_G.EOELocX = oldLocX * screenWidth;
+	settings.EmbersOfEnchantment.X = string.format("%.0f", _G.EOELocX);
+	if ShowEmbersOfEnchantment and _G.EOEWhere == 1 then EOE[ "Ctr" ]:SetPosition( _G.EOELocX, _G.EOELocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

@@ -93,6 +93,7 @@ function frmBackground()
 	if sFrom == "BB" then curSelAlpha =BBbcAlpha; curSelRed = BBbcRed; curSelGreen = BBbcGreen; curSelBlue = BBbcBlue; end
 	if sFrom == "LAT" then curSelAlpha =LATbcAlpha; curSelRed = LATbcRed; curSelGreen = LATbcGreen; curSelBlue = LATbcBlue; end
 	if sFrom == "MOE" then curSelAlpha =MOEbcAlpha; curSelRed = MOEbcRed; curSelGreen = MOEbcGreen; curSelBlue = MOEbcBlue; end
+	if sFrom == "EOE" then curSelAlpha =EOEbcAlpha; curSelRed = EOEbcRed; curSelGreen = EOEbcGreen; curSelBlue = EOEbcBlue; end
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
 	-- **^
@@ -330,6 +331,8 @@ function UpdateBCvariable()
 		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+
 	else
 		if sFrom == "TitanBar" then bcAlpha = curSelAlpha; bcRed = curSelRed; bcGreen = curSelGreen; bcBlue = curSelBlue; end
 		if sFrom == "WI" then WIbcAlpha = curSelAlpha; WIbcRed = curSelRed; WIbcGreen = curSelGreen; WIbcBlue = curSelBlue; end
@@ -364,5 +367,6 @@ function UpdateBCvariable()
 		if sFrom == "BB" then BBbcAlpha = curSelAlpha; BBbcRed = curSelRed; BBbcGreen = curSelGreen; BBbcBlue = curSelBlue; end
 		if sFrom == "LAT" then LATbcAlpha = curSelAlpha; LATbcRed = curSelRed; LATbcGreen = curSelGreen; LATbcBlue = curSelBlue; end
 		if sFrom == "MOE" then MOEbcAlpha = curSelAlpha; MOEbcRed = curSelRed; MOEbcGreen = curSelGreen; MOEbcBlue = curSelBlue; end
+		if sFrom == "EOE" then EOEbcAlpha = curSelAlpha; EOEbcRed = curSelRed; EOEbcGreen = curSelGreen; EOEbcBlue = curSelBlue; end
 	end
 end

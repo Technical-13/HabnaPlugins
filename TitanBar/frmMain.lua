@@ -177,6 +177,7 @@ function frmMain()
 			if _G.BBWhere ~= 3 then ImportCtr( "BB" ); end
 			if _G.LATWhere ~= 3 then ImportCtr( "LAT" ); end
 			if _G.MOEWhere ~= 3 then ImportCtr( "MOE" ); end
+			if _G.EOEWhere ~= 3 then ImportCtr( "EOE" ); end
 		end
 	else
 		-- Disable infos not useful in Monster Play
@@ -186,6 +187,7 @@ function frmMain()
 		ShowStarsofMerit, ShowCentralGondorSilverPiece, ShowGiftgiversBrand = false, false, false;
 		ShowBingoBadge, ShowAnniversaryToken, ShowReputation = false, false, false;
 		ShowMotesOfEnchantment = false;
+		ShowEmbersOfEnchantment = false;
 		if PlayerWalletSize ~= nil or PlayerWalletSize ~= 0 then
 			if ShowWallet then ImportCtr( "WI" ); end
 			if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end
@@ -316,6 +318,7 @@ function frmMain()
 				if _G.BBWhere ~= 3 then ImportCtr( "BB" ); end
 				if _G.LATWhere ~= 3 then ImportCtr( "LAT" ); end
 				if _G.MOEWhere ~= 3 then ImportCtr( "MOE" ); end
+				if _G.EOEWhere ~= 3 then ImportCtr( "EOE" ); end
 			end
 
 			screenWidth, screenHeight = Turbine.UI.Display.GetSize();

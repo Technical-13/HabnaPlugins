@@ -309,6 +309,11 @@ function ShowToolTipWin( ToShow )
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["MOEh"], L["EIt2"], L["EIt3"] );	
+	elseif ToShow == "EOE" then -- Embers of Enchantment
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["EOEh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -568,6 +573,15 @@ function UpdateMotesOfEnchantment()
 		MOE[ "Lbl" ]:SetText( GetCurrency( L[ "MMOE" ] ) );
 		MOE[ "Lbl" ]:SetSize( MOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "MOE" );
+	end
+end
+--**^
+--**v Update Embers of Enchantment currency on TitanBar v**
+function UpdateEmbersOfEnchantment()
+	if _G.EOEWhere == 1 then
+		EOE[ "Lbl" ]:SetText( GetCurrency( L[ "MEOE" ] ) );
+		EOE[ "Lbl" ]:SetSize( EOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "EOE" );
 	end
 end
 --**^
@@ -913,6 +927,7 @@ function ChangeColor(tColor)
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowAniversaryToken then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -947,6 +962,7 @@ function ChangeColor(tColor)
 		if sFrom == "BB" then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "LAT" then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "MOE" then MOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "EOE" then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1190,7 +1206,13 @@ function AjustIcon(str)
 		MOE[ "Icon" ]:SetPosition(MOE[ "Lbl" ]:GetLeft()+MOE[ "Lbl" ]:GetWidth()+3,Y);
 		MOE[ "Ctr" ]:SetSize( MOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		MOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		MOE[ "Icon" ]:SetStretchMode( 3 );	
+		MOE[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "EOE" then
+		EOE[ "Icon" ]:SetStretchMode( 1 );
+		EOE[ "Icon" ]:SetPosition(EOE[ "Lbl" ]:GetLeft()+EOE[ "Lbl" ]:GetWidth()+3,Y);
+		EOE[ "Ctr" ]:SetSize( EOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		EOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		EOE[ "Icon" ]:SetStretchMode( 3 );		
 	end
 end
 

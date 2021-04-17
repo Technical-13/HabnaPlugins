@@ -514,3 +514,14 @@ function ShowHideMotesOfEnchantment()
 	end
 	MOE[ "Ctr" ]:SetVisible( ShowMotesOfEnchantment );
 end
+function ShowHideEmbersOfEnchantment()
+	ShowEmbersOfEnchantment = not ShowEmbersOfEnchantment;
+	settings.EmbersOfEnchantment.V = ShowEmbersOfEnchantment;
+	settings.EmbersOfEnchantment.W = string.format( "%.0f", _G.EOEWhere );
+	SaveSettings( false );
+	ImportCtr( "EOE" );
+	if ShowEmbersOfEnchantment then
+		EOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue ) );
+	end
+	EOE[ "Ctr" ]:SetVisible( ShowEmbersOfEnchantment );
+end

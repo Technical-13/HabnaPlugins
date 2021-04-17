@@ -97,6 +97,9 @@ L[ "GGBh" ] = "These are your Gift-giver's Brands";
 -- Motes of Enchantment control
 L[ "MMOE" ] = "Motes of Enchantment";
 L[ "MOEh" ] = "These are your Motes of Enchantment";
+-- Embers of Enchantment control
+L[ "MEOE" ] = "Embers of Enchantment";
+L[ "EOEh" ] = "These are your Embers of Enchantment";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";
