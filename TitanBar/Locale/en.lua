@@ -258,6 +258,8 @@ L[ "RPTGA" ]   = "The Great Alliance";
 L[ "RPTWC" ]   = "The White Company";
 L[ "RPRMI" ]   = "Reclamation of Minas Ithil";
 L[ "RPPOW" ]   = "Protectors of Wilderland";
+L[ "RPMOG" ]   = "March on Gundabad";
+L[ "RPGA" ]   = "The Gabil'akk\195\162";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings

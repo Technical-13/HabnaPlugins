@@ -934,6 +934,8 @@ function LoadPlayerReputation()
         "RPTGA", "RPTWC", "RPRMI",
         -- Wells of Langflood
 		"RPPOW",
+		-- Elderslade
+		"RPMOG", "RPGA",
 		-- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -961,6 +963,8 @@ function LoadPlayerReputation()
         12, 3, 13,
         -- Wells of Langflood
 		1,
+		-- Elderslade
+		1, 1,
 		-- Special Event
         6, 7, 7,
         -- Accelerator
