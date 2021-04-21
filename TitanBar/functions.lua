@@ -293,12 +293,6 @@ function ShowToolTipWin( ToShow )
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["GGBh"], L["EIt2"], 
             L["EIt3"] );
-	elseif ToShow == "AOE" then -- Ash of Gorgoroth
-		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
-		h = 65;
-		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["AOEh"], L["EIt2"], 
-            L["EIt3"] );
 	elseif ToShow == "BB" then -- Bingo Badge
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
@@ -310,6 +304,16 @@ function ShowToolTipWin( ToShow )
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["LATh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "MOE" then -- Motes of Enchantment
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["MOEh"], L["EIt2"], L["EIt3"] );	
+	elseif ToShow == "EOE" then -- Embers of Enchantment
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["EOEh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -545,15 +549,6 @@ function UpdateGiftgiversBrand()
 	end
 end
 --**^
---**v Update Ash of Gorgoroth currency on TitanBar v**
-function UpdateAshOfEnchantment()
-	if _G.AOEWhere == 1 then
-		AOE[ "Lbl" ]:SetText( GetCurrency( L[ "MAOE" ] ) );
-		AOE[ "Lbl" ]:SetSize( AOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
-		AjustIcon( "AOE" );
-	end
-end
---**^
 --**v Update Bingo Badge currency on TitanBar v**
 function UpdateBingoBadge()
 	if _G.BBWhere == 1 then
@@ -569,6 +564,24 @@ function UpdateAnniversaryToken()
 		LAT[ "Lbl" ]:SetText( GetCurrency( L[ "MLAT" ] ) );
 		LAT[ "Lbl" ]:SetSize( LAT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "LAT" );
+	end
+end
+--**^
+--**v Update Motes of Enchantment currency on TitanBar v**
+function UpdateMotesOfEnchantment()
+	if _G.MOEWhere == 1 then
+		MOE[ "Lbl" ]:SetText( GetCurrency( L[ "MMOE" ] ) );
+		MOE[ "Lbl" ]:SetSize( MOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "MOE" );
+	end
+end
+--**^
+--**v Update Embers of Enchantment currency on TitanBar v**
+function UpdateEmbersOfEnchantment()
+	if _G.EOEWhere == 1 then
+		EOE[ "Lbl" ]:SetText( GetCurrency( L[ "MEOE" ] ) );
+		EOE[ "Lbl" ]:SetSize( EOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "EOE" );
 	end
 end
 --**^
@@ -911,9 +924,10 @@ function ChangeColor(tColor)
 		if ShowStarsofMerit then SOM[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowCentralGondorSilverPiece then CGSP[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowGiftgiversBrand then GGB[ "Ctr" ]:SetBackColor( tColor ); end
-		if ShowAshOfEnchantment then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowAniversaryToken then LAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -945,9 +959,10 @@ function ChangeColor(tColor)
 		if sFrom == "SOM" then SOM[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "CGSP" then CGSP[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "GGB" then GGB[ "Ctr" ]:SetBackColor( tColor ); end
-		if sFrom == "AOE" then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "BB" then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "LAT" then LAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "MOE" then MOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "EOE" then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1174,12 +1189,6 @@ function AjustIcon(str)
 		GGB[ "Ctr" ]:SetSize( GGB[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		GGB[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
 		GGB[ "Icon" ]:SetStretchMode( 3 );
-	elseif str == "AOE" then
-		AOE[ "Icon" ]:SetStretchMode( 1 );
-		AOE[ "Icon" ]:SetPosition(AOE[ "Lbl" ]:GetLeft()+AOE[ "Lbl" ]:GetWidth()+3,Y);
-		AOE[ "Ctr" ]:SetSize( AOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
-		AOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		AOE[ "Icon" ]:SetStretchMode( 3 );
 	elseif str == "BB" then
 		BB[ "Icon" ]:SetStretchMode( 1 );
 		BB[ "Icon" ]:SetPosition(BB[ "Lbl" ]:GetLeft()+BB[ "Lbl" ]:GetWidth()+3,Y);
@@ -1192,6 +1201,18 @@ function AjustIcon(str)
 		LAT[ "Ctr" ]:SetSize( LAT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		LAT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
 		LAT[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "MOE" then
+		MOE[ "Icon" ]:SetStretchMode( 1 );
+		MOE[ "Icon" ]:SetPosition(MOE[ "Lbl" ]:GetLeft()+MOE[ "Lbl" ]:GetWidth()+3,Y);
+		MOE[ "Ctr" ]:SetSize( MOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		MOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		MOE[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "EOE" then
+		EOE[ "Icon" ]:SetStretchMode( 1 );
+		EOE[ "Icon" ]:SetPosition(EOE[ "Lbl" ]:GetLeft()+EOE[ "Lbl" ]:GetWidth()+3,Y);
+		EOE[ "Ctr" ]:SetSize( EOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		EOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		EOE[ "Icon" ]:SetStretchMode( 3 );		
 	end
 end
 

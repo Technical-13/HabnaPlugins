@@ -352,12 +352,6 @@ function ImportCtr( value )
             GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY );
         end
         if _G.GGBWhere ~= 3 then UpdateGiftgiversBrand(); end
-    elseif value == "AOE" then --Ash of Gorgoroth
-        if _G.AOEWhere == 1 then
-            import (AppCtrD.."AshOfEnchantment");
-            AOE[ "Ctr" ]:SetPosition( _G.AOELocX, _G.AOELocY );
-        end
-        if _G.AOEWhere ~= 3 then UpdateAshOfEnchantment(); end
     elseif value == "BB" then --Bingo Badge
         if _G.BBWhere == 1 then
             import (AppCtrD.."BingoBadge");
@@ -370,7 +364,19 @@ function ImportCtr( value )
             LAT[ "Ctr" ]:SetPosition( _G.LATLocX, _G.LATLocY );
         end
         if _G.LATWhere ~= 3 then UpdateAnniversaryToken(); end
-    elseif value == "RP" then --Reputation Points
+	elseif value == "MOE" then --Motes of Enchantment
+        if _G.MOEWhere == 1 then
+            import (AppCtrD.."MotesOfEnchantment");
+            MOE[ "Ctr" ]:SetPosition( _G.MOELocX, _G.MOELocY );
+        end
+        if _G.MOEWhere ~= 3 then UpdateMotesOfEnchantment(); end	
+	elseif value == "EOE" then --Embers of Enchantment
+        if _G.EOEWhere == 1 then
+            import (AppCtrD.."EmbersOfEnchantment");
+            EOE[ "Ctr" ]:SetPosition( _G.EOELocX, _G.EOELocY );
+        end
+        if _G.EOEWhere ~= 3 then UpdateEmbersOfEnchantment(); end 
+	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
             [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000, [9] = 1 },
@@ -926,7 +932,11 @@ function LoadPlayerReputation()
         "RPWF",
         -- Minas Morgul
         "RPTGA", "RPTWC", "RPRMI",
-        -- Special Event
+        -- Wells of Langflood
+		"RPPOW",
+		-- Elderslade
+		"RPMOG", "RPGA",
+		-- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
         "RPACC",
@@ -951,7 +961,11 @@ function LoadPlayerReputation()
         1,
         -- Minas Morgul
         12, 3, 13,
-        -- Special Event
+        -- Wells of Langflood
+		1,
+		-- Elderslade
+		1, 1,
+		-- Special Event
         6, 7, 7,
         -- Accelerator
         10,
@@ -1066,9 +1080,10 @@ function UpdateCurrency( str )
     if str == L[ "MSOM" ] and ShowStarsofMerit then UpdateStarsofMerit(); end
     if str == L[ "MCGSP" ] and ShowCentralGondorSilverPiece then UpdateCentralGondorSilverPiece(); end
     if str == L[ "MGGB" ] and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
-    if str == L[ "MAOE" ] and ShowAshOfEnchantment then UpdateAshOfEnchantment(); end
     if str == L[ "MBB" ] and ShowBingoBadge then UpdateBingoBadge(); end
     if str == L[ "MLAT" ] and ShowAnniversaryToken then UpdateAnniversaryToken(); end
+	if str == L[ "MMOE" ] and ShowMotesOfEnchantment then UpdateMotesOfEnchantment(); end
+	if str == L[ "MEOE" ] and ShowEmbersOfEnchantment then UpdateEmbersOfEnchantment(); end
 end
 
 function GetCurrency( str )

@@ -94,9 +94,12 @@ L[ "CGSPh" ] = "These are your Central Gondor Silver Pieces";
 -- Gift giver's Brand control
 L[ "MGGB" ] = "Gift-giver's Brand";
 L[ "GGBh" ] = "These are your Gift-giver's Brands";
--- Ash of Enchantment control
-L[ "MAOE" ] = "Ash of Enchantment";
-L[ "AOEh" ] = "These are your Ash of Enchantment";
+-- Motes of Enchantment control
+L[ "MMOE" ] = "Motes of Enchantment";
+L[ "MOEh" ] = "These are your Motes of Enchantment";
+-- Embers of Enchantment control
+L[ "MEOE" ] = "Embers of Enchantment";
+L[ "EOEh" ] = "These are your Embers of Enchantment";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";
@@ -254,6 +257,9 @@ L[ "RPWF" ]    = "Wilderfolk";
 L[ "RPTGA" ]   = "The Great Alliance";
 L[ "RPTWC" ]   = "The White Company";
 L[ "RPRMI" ]   = "Reclamation of Minas Ithil";
+L[ "RPPOW" ]   = "Protectors of Wilderland";
+L[ "RPMOG" ]   = "March on Gundabad";
+L[ "RPGA" ]   = "The Gabil'akk\195\162";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings

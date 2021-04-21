@@ -479,17 +479,6 @@ function ShowHideGiftgiversBrand()
 	end
 	GGB[ "Ctr" ]:SetVisible( ShowGiftgiversBrand );
 end
-function ShowHideAshOfEnchantment()
-	ShowAshOfEnchantment = not ShowAshOfEnchantment;
-	settings.AshOfEnchantment.V = ShowAshOfEnchantment;
-	settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere);
-	SaveSettings( false );
-	ImportCtr( "AOE" );
-	if ShowAshOfEnchantment then
-		AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue ) );
-	end
-	AOE[ "Ctr" ]:SetVisible( ShowAshOfEnchantment );
-end
 -- **^
 -- **v Show/Hide Bingo Badges v**
 function ShowHideBingoBadge()
@@ -513,4 +502,26 @@ function ShowHideAnniversaryToken()
 		LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue ) );
 	end
 	LAT[ "Ctr" ]:SetVisible( ShowAnniversaryToken );
+end
+function ShowHideMotesOfEnchantment()
+	ShowMotesOfEnchantment = not ShowMotesOfEnchantment;
+	settings.MotesOfEnchantment.V = ShowMotesOfEnchantment;
+	settings.MotesOfEnchantment.W = string.format( "%.0f", _G.MOEWhere );
+	SaveSettings( false );
+	ImportCtr( "MOE" );
+	if ShowMotesOfEnchantment then
+		MOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue ) );
+	end
+	MOE[ "Ctr" ]:SetVisible( ShowMotesOfEnchantment );
+end
+function ShowHideEmbersOfEnchantment()
+	ShowEmbersOfEnchantment = not ShowEmbersOfEnchantment;
+	settings.EmbersOfEnchantment.V = ShowEmbersOfEnchantment;
+	settings.EmbersOfEnchantment.W = string.format( "%.0f", _G.EOEWhere );
+	SaveSettings( false );
+	ImportCtr( "EOE" );
+	if ShowEmbersOfEnchantment then
+		EOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue ) );
+	end
+	EOE[ "Ctr" ]:SetVisible( ShowEmbersOfEnchantment );
 end
