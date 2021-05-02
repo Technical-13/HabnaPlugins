@@ -106,6 +106,9 @@ L[ "FOSh" ] = "These are your Figments of Splendour";
 -- Fall Festival Tokens control
 L[ "MFFT" ] = "Fall Festival Tokens";
 L[ "FFTh" ] = "These are your Fall Festival Tokens";
+-- Farmers Faire Tokens control
+L[ "MFFAT" ] = "Farmers Faire Token";
+L[ "FFATh" ] = "These are your Farmers Faire Tokens";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";-- Thx Wicky!

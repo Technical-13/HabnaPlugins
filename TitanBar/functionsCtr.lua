@@ -384,10 +384,16 @@ function ImportCtr( value )
         if _G.FOSWhere ~= 3 then UpdateFigmentsOfSplendour(); end
 	elseif value == "FFT" then --Fall Festival Tokens
         if _G.FFTWhere == 1 then
-            import (AppCtrD.."FallFestivalTokens");
+            import (AppCtrD.."FallFestivalToken");
             FFT[ "Ctr" ]:SetPosition( _G.FFTLocX, _G.FFTLocY );
         end
-        if _G.FFTWhere ~= 3 then UpdateFallFestivalTokens(); end	
+        if _G.FFTWhere ~= 3 then UpdateFallFestivalToken(); end
+	elseif value == "FFAT" then --Farmers Faire Tokens
+        if _G.FFATWhere == 1 then
+            import (AppCtrD.."FarmersFaireToken");
+            FFAT[ "Ctr" ]:SetPosition( _G.FFATLocX, _G.FFATLocY );
+        end
+        if _G.FFATWhere ~= 3 then UpdateFarmersFaireToken(); end	
 	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -1097,7 +1103,8 @@ function UpdateCurrency( str )
 	if str == L[ "MMOE" ] and ShowMotesOfEnchantment then UpdateMotesOfEnchantment(); end
 	if str == L[ "MEOE" ] and ShowEmbersOfEnchantment then UpdateEmbersOfEnchantment(); end
 	if str == L[ "MFOS" ] and ShowFigmentsOfSplendour then UpdateFigmentsOfSplendour(); end
-	if str == L[ "MFFT" ] and ShowFallFestivalTokens then UpdateFallFestivalTokens(); end
+	if str == L[ "MFFT" ] and ShowFallFestivalToken then UpdateFallFestivalToken(); end
+	if str == L[ "MFFAT" ] and ShowFarmersFaireToken then UpdateFarmersFaireToken(); end
 end
 
 function GetCurrency( str )

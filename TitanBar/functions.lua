@@ -323,7 +323,12 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFTh"], L["EIt2"], L["EIt3"] );		
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFTh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "FFAT" then -- Farmers Faire Token
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFATh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -605,11 +610,20 @@ function UpdateFigmentsOfSplendour()
 end
 --**^
 --**v Update Fall Festival Tokens currency on TitanBar v**
-function UpdateFallFestivalTokens()
+function UpdateFallFestivalToken()
 	if _G.FFTWhere == 1 then
 		FFT[ "Lbl" ]:SetText( GetCurrency( L[ "MFFT" ] ) );
 		FFT[ "Lbl" ]:SetSize( FFT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "FFT" );
+	end
+end
+--**^
+--**v Update Farmers Faire Tokens currency on TitanBar v**
+function UpdateFarmersFaireToken()
+	if _G.FFATWhere == 1 then
+		FFAT[ "Lbl" ]:SetText( GetCurrency( L[ "MFFAT" ] ) );
+		FFAT[ "Lbl" ]:SetSize( FFAT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "FFAT" );
 	end
 end
 --**^
@@ -958,7 +972,8 @@ function ChangeColor(tColor)
 		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowFigmentsOfSplendour then FOS[ "Ctr" ]:SetBackColor( tColor ); end
-		if ShowFallFestivalTokens then FFT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowFallFestivalToken then FFT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -996,6 +1011,7 @@ function ChangeColor(tColor)
 		if sFrom == "EOE" then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "FOS" then FOS[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "FFT" then FFT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "FFAT" then FFT[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1257,7 +1273,13 @@ function AjustIcon(str)
 		FFT[ "Icon" ]:SetPosition(FFT[ "Lbl" ]:GetLeft()+FFT[ "Lbl" ]:GetWidth()+3,Y);
 		FFT[ "Ctr" ]:SetSize( FFT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		FFT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		FFT[ "Icon" ]:SetStretchMode( 3 );	
+		FFT[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "FFAT" then
+		FFAT[ "Icon" ]:SetStretchMode( 1 );
+		FFAT[ "Icon" ]:SetPosition(FFAT[ "Lbl" ]:GetLeft()+FFAT[ "Lbl" ]:GetWidth()+3,Y);
+		FFAT[ "Ctr" ]:SetSize( FFAT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		FFAT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		FFAT[ "Icon" ]:SetStretchMode( 3 );	
 	end
 end
 

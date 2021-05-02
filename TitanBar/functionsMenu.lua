@@ -538,14 +538,26 @@ function ShowHideFigmentsOfSplendour()
 	FOS[ "Ctr" ]:SetVisible( ShowFigmentsOfSplendour );
 end
 
-function ShowHideFallFestivalTokens()
-	ShowFallFestivalTokens = not ShowFallFestivalTokens;
-	settings.FallFestivalTokens.V = ShowFallFestivalTokens;
-	settings.FallFestivalTokens.W = string.format( "%.0f", _G.FFTWhere );
+function ShowHideFallFestivalToken()
+	ShowFallFestivalToken = not ShowFallFestivalToken;
+	settings.FallFestivalToken.V = ShowFallFestivalToken;
+	settings.FallFestivalToken.W = string.format( "%.0f", _G.FFTWhere );
 	SaveSettings( false );
 	ImportCtr( "FFT" );
-	if ShowFallFestivalTokens then
+	if ShowFallFestivalToken then
 		FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue ) );
 	end
-	FFT[ "Ctr" ]:SetVisible( ShowFallFestivalTokens );
+	FFT[ "Ctr" ]:SetVisible( ShowFallFestivalToken );
+end
+
+function ShowHideFarmersFaireToken()
+	ShowFarmersFaireToken = not ShowFarmersFaireToken;
+	settings.FarmersFaireToken.V = ShowFarmersFaireToken;
+	settings.FarmersFaireToken.W = string.format( "%.0f", _G.FFATWhere );
+	SaveSettings( false );
+	ImportCtr( "FFAT" );
+	if ShowFarmersFaireToken then
+		FFAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue ) );
+	end
+	FFAT[ "Ctr" ]:SetVisible( ShowFarmersFaireToken);
 end

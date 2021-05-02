@@ -36,7 +36,8 @@ if LAT ~= nil then WalletControls[ "LAT" ] = { ShowHide = ShowAnniversaryToken, 
 if MOE ~= nil then WalletControls[ "MOE" ] = { ShowHide = ShowMotesOfEnchantment, Control = MOE[ "Ctr" ] }; end
 if EOE ~= nil then WalletControls[ "EOE" ] = { ShowHide = ShowEmbersOfEnchantment, Control = EOE[ "Ctr" ] }; end
 if FOS ~= nil then WalletControls[ "FOS" ] = { ShowHide = ShowFigmentsOfSplendour, Control = FOS[ "Ctr" ] }; end
-if FFT ~= nil then WalletControls[ "FFT" ] = { ShowHide = ShowFallFestivalTokens, Control = FFT[ "Ctr" ] }; end
+if FFT ~= nil then WalletControls[ "FFT" ] = { ShowHide = ShowFallFestivalToken, Control = FFT[ "Ctr" ] }; end
+if FFAT ~= nil then WalletControls[ "FFAT" ] = { ShowHide = ShowFarmersFaireToken, Control = FFAT[ "Ctr" ] }; end
 
 tFonts = { "Arial12", "TrajanPro13", "TrajanPro14", "TrajanPro15", "TrajanPro16", "TrajanPro18", "TrajanPro19", "TrajanPro20", "TrajanPro21",
 			"TrajanPro23", "TrajanPro24", "TrajanPro25", "TrajanPro26", "TrajanPro28", "TrajanProBold16", "TrajanProBold22", "TrajanProBold24",

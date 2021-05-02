@@ -59,7 +59,8 @@ function RefreshWITTListBox()
 		elseif wttcur == L["MMOE"] then ttw = _G.MOEWhere; CtrIconCodeIs=WalletItem.MotesOfEnchantment.Icon; CtrQteIs=GetCurrency( L[ "MMOE" ] );
 		elseif wttcur == L["MEOE"] then ttw = _G.EOEWhere; CtrIconCodeIs=WalletItem.EmbersOfEnchantment.Icon; CtrQteIs=GetCurrency( L[ "MEOE" ] );
 		elseif wttcur == L["MFOS"] then ttw = _G.FOSWhere; CtrIconCodeIs=WalletItem.FigmentsOfSplendour.Icon; CtrQteIs=GetCurrency( L[ "MFOS" ] );
-		elseif wttcur == L["MFFT"] then ttw = _G.FFTWhere; CtrIconCodeIs=WalletItem.FallFestivalTokens.Icon; CtrQteIs=GetCurrency( L[ "MFFT" ] );		
+		elseif wttcur == L["MFFT"] then ttw = _G.FFTWhere; CtrIconCodeIs=WalletItem.FallFestivalToken.Icon; CtrQteIs=GetCurrency( L[ "MFFT" ] );
+		elseif wttcur == L["MFFAT"] then ttw = _G.FFATWhere; CtrIconCodeIs=WalletItem.FarmersFaireToken.Icon; CtrQteIs=GetCurrency( L[ "MFFAT" ] );		
 		end
 		
 		if tonumber(ttw) == 2 then
