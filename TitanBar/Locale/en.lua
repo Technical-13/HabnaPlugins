@@ -100,6 +100,9 @@ L[ "MOEh" ] = "These are your Motes of Enchantment";
 -- Embers of Enchantment control
 L[ "MEOE" ] = "Embers of Enchantment";
 L[ "EOEh" ] = "These are your Embers of Enchantment";
+-- Figments of Splendour control
+L[ "MFOS" ] = "Figments of Splendour";
+L[ "FOSh" ] = "These are your Figments of Splendour";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";
@@ -504,6 +507,7 @@ L[ "Dwarf" ] = "Dwarf";
 L[ "Hobbit" ] = "Hobbit";
 L[ "Beorning" ] = "Beorning";
 L[ "HighElf" ] = "High Elf";
+L[ "StoutAxe" ] = "Stout-axe";
 
 -- Free People Class
 L[ "Burglar" ] = "Burglar";

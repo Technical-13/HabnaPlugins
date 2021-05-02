@@ -525,3 +525,15 @@ function ShowHideEmbersOfEnchantment()
 	end
 	EOE[ "Ctr" ]:SetVisible( ShowEmbersOfEnchantment );
 end
+
+function ShowHideFigmentsOfSplendour()
+	ShowFigmentsOfSplendour = not ShowFigmentsOfSplendour;
+	settings.FigmentsOfSplendour.V = ShowFigmentsOfSplendour;
+	settings.FigmentsOfSplendour.W = string.format( "%.0f", _G.FOSWhere );
+	SaveSettings( false );
+	ImportCtr( "FOS" );
+	if ShowFigmentsOfSplendour then
+		FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue ) );
+	end
+	FOS[ "Ctr" ]:SetVisible( ShowFigmentsOfSplendour );
+end

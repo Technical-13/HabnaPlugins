@@ -375,7 +375,13 @@ function ImportCtr( value )
             import (AppCtrD.."EmbersOfEnchantment");
             EOE[ "Ctr" ]:SetPosition( _G.EOELocX, _G.EOELocY );
         end
-        if _G.EOEWhere ~= 3 then UpdateEmbersOfEnchantment(); end 
+        if _G.EOEWhere ~= 3 then UpdateEmbersOfEnchantment(); end
+	elseif value == "FOS" then --Figments of Splendour
+        if _G.FOSWhere == 1 then
+            import (AppCtrD.."FigmentsOfSplendour");
+            FOS[ "Ctr" ]:SetPosition( _G.FOSLocX, _G.FOSLocY );
+        end
+        if _G.FOSWhere ~= 3 then UpdateFigmentsOfSplendour(); end	
 	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -1084,6 +1090,7 @@ function UpdateCurrency( str )
     if str == L[ "MLAT" ] and ShowAnniversaryToken then UpdateAnniversaryToken(); end
 	if str == L[ "MMOE" ] and ShowMotesOfEnchantment then UpdateMotesOfEnchantment(); end
 	if str == L[ "MEOE" ] and ShowEmbersOfEnchantment then UpdateEmbersOfEnchantment(); end
+	if str == L[ "MFOS" ] and ShowFigmentsOfSplendour then UpdateFigmentsOfSplendour(); end
 end
 
 function GetCurrency( str )

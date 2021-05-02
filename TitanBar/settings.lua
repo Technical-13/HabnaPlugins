@@ -828,6 +828,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.EOELocY = tonumber(settings.EmbersOfEnchantment.Y);
 	_G.EOEWhere = tonumber(settings.EmbersOfEnchantment.W);
 	if _G.EOEWhere == 3 and ShowEmbersOfEnchantment then _G.EOEWhere = 1; settings.EmbersOfEnchantment.W = string.format("%.0f", _G.EOEWhere); end
+	
+	if settings.FigmentsOfSplendour == nil then settings.FigmentsOfSplendour = {}; end
+	if settings.FigmentsOfSplendour.V == nil then settings.FigmentsOfSplendour.V = false; end
+	if settings.FigmentsOfSplendour.A == nil then settings.FigmentsOfSplendour.A = string.format("%.3f", tA); end
+	if settings.FigmentsOfSplendour.R == nil then settings.FigmentsOfSplendour.R = string.format("%.3f", tR); end
+	if settings.FigmentsOfSplendour.G == nil then settings.FigmentsOfSplendour.G = string.format("%.3f", tG); end
+	if settings.FigmentsOfSplendour.B == nil then settings.FigmentsOfSplendour.B = string.format("%.3f", tB); end
+	if settings.FigmentsOfSplendour.X == nil then settings.FigmentsOfSplendour.X = string.format("%.0f", tX); end
+	if settings.FigmentsOfSplendour.Y == nil then settings.FigmentsOfSplendour.Y = string.format("%.0f", tY); end
+	if settings.FigmentsOfSplendour.W == nil then settings.FigmentsOfSplendour.W = string.format("%.0f", tW); end
+	ShowFigmentsOfSplendour = settings.FigmentsOfSplendour.V;
+	FOSbcAlpha = tonumber(settings.FigmentsOfSplendour.A);
+	FOSbcRed = tonumber(settings.FigmentsOfSplendour.R);
+	FOSbcGreen = tonumber(settings.FigmentsOfSplendour.G);
+	FOSbcBlue = tonumber(settings.FigmentsOfSplendour.B);
+	_G.FOSLocX = tonumber(settings.FigmentsOfSplendour.X);
+	_G.FOSLocY = tonumber(settings.FigmentsOfSplendour.Y);
+	_G.FOSWhere = tonumber(settings.FigmentsOfSplendour.W);
+	if _G.FOSWhere == 3 and ShowFigmentsOfSplendour then _G.FOSWhere = 1; settings.FigmentsOfSplendour.W = string.format("%.0f", _G.FOSWhere); end
 
 	SaveSettings( false );
 	
@@ -1235,7 +1254,17 @@ function SaveSettings(str)
 		settings.EmbersOfEnchantment.B = string.format("%.3f", EOEbcBlue);
 		settings.EmbersOfEnchantment.X = string.format("%.0f", _G.EOELocX);
 		settings.EmbersOfEnchantment.Y = string.format("%.0f", _G.EOELocY);
-		settings.EmbersOfEnchantment.W = string.format("%.0f", _G.EOEWhere);	
+		settings.EmbersOfEnchantment.W = string.format("%.0f", _G.EOEWhere);
+
+		settings.FigmentsOfSplendour = {};
+		settings.FigmentsOfSplendour.V = ShowFigmentsOfSplendour;
+		settings.FigmentsOfSplendour.A = string.format("%.3f", FOSbcAlpha);
+		settings.FigmentsOfSplendour.R = string.format("%.3f", FOSbcRed);
+		settings.FigmentsOfSplendour.G = string.format("%.3f", FOSbcGreen);
+		settings.FigmentsOfSplendour.B = string.format("%.3f", FOSbcBlue);
+		settings.FigmentsOfSplendour.X = string.format("%.0f", _G.FOSLocX);
+		settings.FigmentsOfSplendour.Y = string.format("%.0f", _G.FOSLocY);
+		settings.FigmentsOfSplendour.W = string.format("%.0f", _G.FOSWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1285,7 +1314,8 @@ function ResetSettings()
 	ShowBingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
 	ShowAnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
 	ShowMotesOfEnchantment, MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue, _G.MOELocX, _G.MOELocY, _G.MOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Motes of Enchantment Control
-	ShowEmbersOfEnchantment, EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue, _G.EOELocX, _G.EOELocY, _G.EOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Embers of Enchantment Control	
+	ShowEmbersOfEnchantment, EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue, _G.EOELocX, _G.EOELocY, _G.EOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Embers of Enchantment Control
+	ShowFigmentsOfSplendour, FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue, _G.FOSLocX, _G.FOSLocY, _G.FOSWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Figments of Splendour Control	
 	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1463,6 +1493,11 @@ function ReplaceCtr()
 	_G.EOELocX = oldLocX * screenWidth;
 	settings.EmbersOfEnchantment.X = string.format("%.0f", _G.EOELocX);
 	if ShowEmbersOfEnchantment and _G.EOEWhere == 1 then EOE[ "Ctr" ]:SetPosition( _G.EOELocX, _G.EOELocY ); end
+	
+	oldLocX = settings.FigmentsOfSplendour.X / oldScreenWidth;
+	_G.FOSLocX = oldLocX * screenWidth;
+	settings.FigmentsOfSplendour.X = string.format("%.0f", _G.FOSLocX);
+	if ShowFigmentsOfSplendour and _G.FOSWhere == 1 then FOS[ "Ctr" ]:SetPosition( _G.FOSLocX, _G.FOSLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

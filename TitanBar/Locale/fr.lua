@@ -100,6 +100,9 @@ L[ "MOEh" ] = "These are your Motes of Enchantment";
 -- Embers of Enchantment control
 L[ "MEOE" ] = "Embers of Enchantment";
 L[ "EOEh" ] = "These are your Embers of Enchantment";
+-- Figments of Splendour control
+L[ "MFOS" ] = "Figments of Splendour";
+L[ "FOSh" ] = "These are your Figments of Splendour";
 
 -- Control Menu
 L[ "MCU" ] = "D\195\169charger ...";
@@ -515,6 +518,7 @@ L[ "Lore-Master" ] = "Ma\195\174tre du savoir";
 L[ "Minstrel" ] = "M\195\169nestrel";
 L[ "Rune-Keeper" ] = "Gardien des runes";
 L[ "Warden" ] = "Sentinelle";
+L[ "StoutAxe" ] = "Nain Hache robuste";
 
 -- Monster Play Class
 L[ "Reaver" ] = "Reaver";

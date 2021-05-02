@@ -313,7 +313,12 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["EOEh"], L["EIt2"], L["EIt3"] );	
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["EOEh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "FOS" then -- Figments of Splendour
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FOSh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -585,6 +590,15 @@ function UpdateEmbersOfEnchantment()
 	end
 end
 --**^
+--**v Update Figments of Splendour currency on TitanBar v**
+function UpdateFigmentsOfSplendour()
+	if _G.FOSWhere == 1 then
+		FOS[ "Lbl" ]:SetText( GetCurrency( L[ "MFOS" ] ) );
+		FOS[ "Lbl" ]:SetSize( FOS[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "FOS" );
+	end
+end
+--**^
 
 --**v Update backpack infos on TitanBar v**
 function UpdateBackpackInfos()
@@ -635,6 +649,7 @@ function UpdatePlayersInfos()
 	elseif PlayerRaceIs == 81 then PlayerRaceIs = L[ "Hobbit" ];
 	elseif PlayerRaceIs == 114 then PlayerRaceIs = L[ "Beorning" ];
 	elseif PlayerRaceIs == 117 then PlayerRaceIs = L[ "HighElf" ];
+	elseif PlayerRaceIs == 120 then PlayerRaceIs = L[ "StoutAxe" ];
 
 	--Monster play race
 	elseif PlayerRaceIs == 7 then PlayerRaceIs = ""; end
@@ -928,6 +943,7 @@ function ChangeColor(tColor)
 		if ShowAniversaryToken then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowFigmentsOfSplendour then FOS[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -963,6 +979,7 @@ function ChangeColor(tColor)
 		if sFrom == "LAT" then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "MOE" then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "EOE" then EOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "FOS" then FOS[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1212,7 +1229,13 @@ function AjustIcon(str)
 		EOE[ "Icon" ]:SetPosition(EOE[ "Lbl" ]:GetLeft()+EOE[ "Lbl" ]:GetWidth()+3,Y);
 		EOE[ "Ctr" ]:SetSize( EOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		EOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		EOE[ "Icon" ]:SetStretchMode( 3 );		
+		EOE[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "FOS" then
+		FOS[ "Icon" ]:SetStretchMode( 1 );
+		FOS[ "Icon" ]:SetPosition(FOS[ "Lbl" ]:GetLeft()+FOS[ "Lbl" ]:GetWidth()+3,Y);
+		FOS[ "Ctr" ]:SetSize( FOS[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		FOS[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		FOS[ "Icon" ]:SetStretchMode( 3 );	
 	end
 end
 
