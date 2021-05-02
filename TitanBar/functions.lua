@@ -164,7 +164,7 @@ function ShowToolTipWin( ToShow )
 	local bblTo, x, y, w = "left", -5, -15, 0; 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 	
-	w = 310;
+	w = 350;
 	if TBLocale == "fr" then w = 315;
 	elseif TBLocale == "de" then
 		if ToShow == "DI" then w = 225; 
