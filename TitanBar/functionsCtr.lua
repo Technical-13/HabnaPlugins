@@ -913,7 +913,7 @@ function LoadPlayerReputation()
     RepOrder = {
         -- Normal faction advancement + Forochel and Minas Tirith
         "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA",
-        "RPLF", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
+        "RPLF", "RPTWB", "RPLOTA", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
         "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW",
         "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML",
         "RPP", "RPRI", "RPRR", "RPDMT", "RPDA",
@@ -943,7 +943,7 @@ function LoadPlayerReputation()
     };
     RepType = {
         1, 1, 1, 1, 1, 1, 1, 1,
-        2, 1, 1, 1, 1, 1, 1, 1,
+        2, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 3, 1,

@@ -260,6 +260,8 @@ L[ "RPRMI" ]   = "R\195\169clamation de Minas Ithil";
 L[ "RPPOW" ]   = "Protectors of Wilderland";
 L[ "RPMOG" ]   = "March on Gundabad";
 L[ "RPGA" ]   = "The Gabil'akk\195\162";
+L[ "RPTWB"]	   = "The Woodcutter's Brotherhood";
+L[ "RPLOTA"]   = "The League of the Axe";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
