@@ -85,9 +85,20 @@ import (AppDirD.."FontMetric");
 frmMain();
 
 if PlayerAlign == 1 then 
-    MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"],
-    L["MYT"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
-    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MBB"], L["MLAT"], L["MMOE"], L["MEOE"], L["MFOS"] };
+    MenuItem = { 
+	-- Coin
+	L["MGSC"], L["MCP"], L["MDP"], L["MLP"], L["MMC"],
+	-- Currency
+	L["MMOE"], L["MFOS"], L["MEOE"],
+	-- Instances and Skirmishes
+	L["MSM"], L["MMP"], L["MSL"], L["MSOM"],
+	-- Festivals and Events
+	L["MLAT"], L["MYT"],
+	-- Item Advancement
+	L["MSP"],
+	-- Other   
+    L["MHT"], L["MASP"], L["MCGSP"], L["MGGB"], L["MBB"],
+	};
 else MenuItem = { L["MCP"], L["MLP"] }; end
 
 TitanBarCommand = Turbine.ShellCommand()

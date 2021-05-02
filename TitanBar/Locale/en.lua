@@ -50,49 +50,49 @@ L[ "MReputation" ] = "Reputation";
 L[ "MLP" ] = "LOTRO points";
 L[ "LPh" ] = "These are your LOTRO points";
 -- Mithril Coins control
-L[ "MMC" ] = "Mithril Coin";
+L[ "MMC" ] = "Mithril Coins";
 L[ "MCh" ] = "These are your Mitril coins";
 -- Yule Tokens control
-L[ "MYT" ] = "Yule Festival Token";
+L[ "MYT" ] = "Yule Festival Tokens";
 L[ "YTh" ] = "These are your Yule Festival Tokens";
 -- Anniversary Tokens control
-L[ "MLAT" ] = "Anniversary Token";
+L[ "MLAT" ] = "Anniversary Tokens";
 L[ "LATh" ] = "These are your Anniversary Tokens";
 -- Bingo Badge control
-L[ "MBB" ] = "Bingo Badge";
+L[ "MBB" ] = "Bingo Badges";
 L[ "BBh" ] = "These are your Bingo Badges";
 -- Skirmish marks control
-L[ "MSM" ] = "Mark";
+L[ "MSM" ] = "Marks";
 L[ "SMh" ] = "These are your skirmish marks";
 -- Destiny Points control
 L[ "MDP" ] = "Destiny points";
 L[ "DPh" ] = "These are your destiny points";
 -- Shards control
-L[ "MSP" ] = "Shard";
+L[ "MSP" ] = "Shards";
 L[ "SPh" ] = "These are your shard";
 -- Tokens of Hytbold control
-L[ "MHT" ] = "Token of Hytbold";
+L[ "MHT" ] = "Tokens of Hytbold";
 L[ "HTh" ] = "These are your Tokens of Hytbold";
 -- Medallions control
-L[ "MMP" ] = "Medallion";
+L[ "MMP" ] = "Medallions";
 L[ "MPh" ] = "These are your medallions";
 -- Seals control
-L[ "MSL" ] = "Seal";
+L[ "MSL" ] = "Seals";
 L[ "SLh" ] = "These are your seals";
 -- Commendations control
-L[ "MCP" ] = "Commendation";
+L[ "MCP" ] = "Commendations";
 L[ "CPh" ] = "These are your Commendations";
 -- Amroth Silver Piece control
-L[ "MASP" ] = "Amroth Silver Piece";
+L[ "MASP" ] = "Amroth Silver Pieces";
 L[ "ASPh" ] = "These are your Amroth Silver Pieces";
 -- Stars of Merit control
-L[ "MSOM" ] = "Star of Merit";
+L[ "MSOM" ] = "Stars of Merit";
 L[ "SOMh" ] = "These are your Stars of Merit";
 -- Central Gondor Silver Piece control
-L[ "MCGSP" ] = "Central Gondor Silver Piece";
+L[ "MCGSP" ] = "Central Gondor Silver Pieces";
 L[ "CGSPh" ] = "These are your Central Gondor Silver Pieces";
 -- Gift giver's Brand control
-L[ "MGGB" ] = "Gift-giver's Brand";
+L[ "MGGB" ] = "Gift-giver's Brands";
 L[ "GGBh" ] = "These are your Gift-giver's Brands";
 -- Motes of Enchantment control
 L[ "MMOE" ] = "Motes of Enchantment";
