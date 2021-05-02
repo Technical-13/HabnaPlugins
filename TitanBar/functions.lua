@@ -318,7 +318,12 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["FOSh"], L["EIt2"], L["EIt3"] );	
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FOSh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "FFT" then -- Fall Festival Tokens
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFTh"], L["EIt2"], L["EIt3"] );		
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -596,6 +601,15 @@ function UpdateFigmentsOfSplendour()
 		FOS[ "Lbl" ]:SetText( GetCurrency( L[ "MFOS" ] ) );
 		FOS[ "Lbl" ]:SetSize( FOS[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "FOS" );
+	end
+end
+--**^
+--**v Update Fall Festival Tokens currency on TitanBar v**
+function UpdateFallFestivalTokens()
+	if _G.FFTWhere == 1 then
+		FFT[ "Lbl" ]:SetText( GetCurrency( L[ "MFFT" ] ) );
+		FFT[ "Lbl" ]:SetSize( FFT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "FFT" );
 	end
 end
 --**^
@@ -944,6 +958,7 @@ function ChangeColor(tColor)
 		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowFigmentsOfSplendour then FOS[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowFallFestivalTokens then FFT[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -980,6 +995,7 @@ function ChangeColor(tColor)
 		if sFrom == "MOE" then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "EOE" then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "FOS" then FOS[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "FFT" then FFT[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1235,7 +1251,13 @@ function AjustIcon(str)
 		FOS[ "Icon" ]:SetPosition(FOS[ "Lbl" ]:GetLeft()+FOS[ "Lbl" ]:GetWidth()+3,Y);
 		FOS[ "Ctr" ]:SetSize( FOS[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		FOS[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		FOS[ "Icon" ]:SetStretchMode( 3 );	
+		FOS[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "FFT" then
+		FFT[ "Icon" ]:SetStretchMode( 1 );
+		FFT[ "Icon" ]:SetPosition(FFT[ "Lbl" ]:GetLeft()+FFT[ "Lbl" ]:GetWidth()+3,Y);
+		FFT[ "Ctr" ]:SetSize( FFT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		FFT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		FFT[ "Icon" ]:SetStretchMode( 3 );	
 	end
 end
 

@@ -41,6 +41,7 @@ function UnloadControl( value )
 		if ShowMotesOfEnchantment then _G.MOEWhere = 3; ShowHideMotesOfEnchantment(); end
 		if ShowEmbersOfEnchantment then _G.EOEWhere = 3; ShowHideEmbersOfEnchantment(); end
 		if ShowFigmentsOfSplendour then _G.FOSWhere = 3; ShowHideFigmentsOfSplendour(); end
+		if ShowFallFestivalTokens then _G.FFTWhere = 3; ShowHideFallFestivalTokens(); end
 		elseif value == "this" then
 			if _G.sFromCtr == "WI" then ShowHideWallet();
 			elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
@@ -76,6 +77,7 @@ function UnloadControl( value )
 			elseif _G.sFromCtr == "MOE" then _G.MOEWhere = 3; ShowHideMotesOfEnchantment();
 			elseif _G.sFromCtr == "EOE" then _G.EOEWhere = 3; ShowHideEmbersOfEnchantment();
 			elseif _G.sFromCtr == "FOS" then _G.FOSWhere = 3; ShowHideFigmentsOfSplendour();
+			elseif _G.sFromCtr == "FFT" then _G.FFTWhere = 3; ShowHideFallFestivalTokens();
 			end
 		end
 
@@ -125,6 +127,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "MOE" then tA, tR, tG, tB = MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue;
 		elseif _G.sFromCtr == "EOE" then tA, tR, tG, tB = EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue;
 		elseif _G.sFromCtr == "FOS" then tA, tR, tG, tB = FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue;
+		elseif _G.sFromCtr == "FFT" then tA, tR, tG, tB = FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue;
 		end
 	end
 	
@@ -197,6 +200,8 @@ function BGColor( cmd, value )
 		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue = tA, tR, tG, tB;
 		if ShowFigmentsOfSplendour then FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue = tA, tR, tG, tB;
+		if ShowFallFestivalTokens then FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
@@ -302,7 +307,10 @@ function BGColor( cmd, value )
 			EOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "FOS" then
 			FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue = tA, tR, tG, tB;
-			FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	
+			FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "FFT" then
+			FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue = tA, tR, tG, tB;
+			FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;

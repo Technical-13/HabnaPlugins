@@ -696,6 +696,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.ASPLocY = tonumber(settings.AmrothSilverPiece.Y);
 	_G.ASPWhere = tonumber(settings.AmrothSilverPiece.W);
 	if _G.ASPWhere == 3 and ShowAmrothSilverPiece then _G.ASPWhere = 1; settings.AmrothSilverPiece.W = string.format("%.0f", _G.ASPWhere); end --Remove after Oct, 15th 2013
+	
 	if settings.StarsofMerit == nil then settings.StarsofMerit = {}; end
 	if settings.StarsofMerit.V == nil then settings.StarsofMerit.V = false; end
 	if settings.StarsofMerit.A == nil then settings.StarsofMerit.A = string.format("%.3f", tA); end
@@ -847,6 +848,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.FOSLocY = tonumber(settings.FigmentsOfSplendour.Y);
 	_G.FOSWhere = tonumber(settings.FigmentsOfSplendour.W);
 	if _G.FOSWhere == 3 and ShowFigmentsOfSplendour then _G.FOSWhere = 1; settings.FigmentsOfSplendour.W = string.format("%.0f", _G.FOSWhere); end
+	
+	if settingsFallFestivalTokens == nil then settings.FallFestivalTokens = {}; end
+	if settings.FallFestivalTokens.V == nil then settings.FallFestivalTokens.V = false; end
+	if settings.FallFestivalTokens.A == nil then settings.FallFestivalTokens.A = string.format("%.3f", tA); end
+	if settings.FallFestivalTokens.R == nil then settings.FallFestivalTokens.R = string.format("%.3f", tR); end
+	if settings.FallFestivalTokens.G == nil then settings.FallFestivalTokens.G = string.format("%.3f", tG); end
+	if settings.FallFestivalTokens.B == nil then settings.FallFestivalTokens.B = string.format("%.3f", tB); end
+	if settings.FallFestivalTokens.X == nil then settings.FallFestivalTokens.X = string.format("%.0f", tX); end
+	if settings.FallFestivalTokens.Y == nil then settings.FallFestivalTokens.Y = string.format("%.0f", tY); end
+	if settings.FallFestivalTokens.W == nil then settings.FallFestivalTokens.W = string.format("%.0f", tW); end
+	ShowFallFestivalTokens = settings.FallFestivalTokens.V;
+	FFTbcAlpha = tonumber(settings.FallFestivalTokens.A);
+	FFTbcRed = tonumber(settings.FallFestivalTokens.R);
+	FFTbcGreen = tonumber(settings.FallFestivalTokens.G);
+	FFTbcBlue = tonumber(settings.FallFestivalTokens.B);
+	_G.FFTLocX = tonumber(settings.FallFestivalTokens.X);
+	_G.FFTLocY = tonumber(settings.FallFestivalTokens.Y);
+	_G.FFTWhere = tonumber(settings.FallFestivalTokens.W);
+	if _G.FFTWhere == 3 and ShowFallFestivalTokens then _G.FFTWhere = 1; settings.FallFestivalTokens.W = string.format("%.0f", _G.FFTWhere); end
 
 	SaveSettings( false );
 	
@@ -1265,6 +1285,16 @@ function SaveSettings(str)
 		settings.FigmentsOfSplendour.X = string.format("%.0f", _G.FOSLocX);
 		settings.FigmentsOfSplendour.Y = string.format("%.0f", _G.FOSLocY);
 		settings.FigmentsOfSplendour.W = string.format("%.0f", _G.FOSWhere);
+		
+		settings.FallFestivalTokens = {};
+		settings.FallFestivalTokens.V = ShowFallFestivalTokens;
+		settings.FallFestivalTokens.A = string.format("%.3f", FFTbcAlpha);
+		settings.FallFestivalTokens.R = string.format("%.3f", FFTbcRed);
+		settings.FallFestivalTokens.G = string.format("%.3f", FFTbcGreen);
+		settings.FallFestivalTokens.B = string.format("%.3f", FFTbcBlue);
+		settings.FallFestivalTokens.X = string.format("%.0f", _G.FFTLocX);
+		settings.FallFestivalTokens.Y = string.format("%.0f", _G.FFTLocY);
+		settings.FallFestivalTokens.W = string.format("%.0f", _G.FFTWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1315,7 +1345,8 @@ function ResetSettings()
 	ShowAnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
 	ShowMotesOfEnchantment, MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue, _G.MOELocX, _G.MOELocY, _G.MOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Motes of Enchantment Control
 	ShowEmbersOfEnchantment, EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue, _G.EOELocX, _G.EOELocY, _G.EOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Embers of Enchantment Control
-	ShowFigmentsOfSplendour, FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue, _G.FOSLocX, _G.FOSLocY, _G.FOSWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Figments of Splendour Control	
+	ShowFigmentsOfSplendour, FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue, _G.FOSLocX, _G.FOSLocY, _G.FOSWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Figments of Splendour Control
+	ShowFallFestivalTokens, FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue, _G.FFTLocX, _G.FFTLocY, _G.FFTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Fall Festival Tokens Control		
 	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1498,6 +1529,11 @@ function ReplaceCtr()
 	_G.FOSLocX = oldLocX * screenWidth;
 	settings.FigmentsOfSplendour.X = string.format("%.0f", _G.FOSLocX);
 	if ShowFigmentsOfSplendour and _G.FOSWhere == 1 then FOS[ "Ctr" ]:SetPosition( _G.FOSLocX, _G.FOSLocY ); end
+	
+	oldLocX = settings.FallFestivalTokens.X / oldScreenWidth;
+	_G.FFTLocX = oldLocX * screenWidth;
+	settings.FallFestivalTokens.X = string.format("%.0f", _G.FFTLocX);
+	if ShowFallFestivalTokens and _G.FFTWhere == 1 then FFT[ "Ctr" ]:SetPosition( _G.FFTLocX, _G.FFTLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

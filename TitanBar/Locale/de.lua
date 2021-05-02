@@ -103,6 +103,9 @@ L[ "EOEh" ] = "These are your Embers of Enchantment";
 -- Figments of Splendour control
 L[ "MFOS" ] = "Figments of Splendour";
 L[ "FOSh" ] = "These are your Figments of Splendour";
+-- Fall Festival Tokens control
+L[ "MFFT" ] = "Fall Festival Tokens";
+L[ "FFTh" ] = "These are your Fall Festival Tokens";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";-- Thx Wicky!

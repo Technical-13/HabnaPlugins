@@ -537,3 +537,15 @@ function ShowHideFigmentsOfSplendour()
 	end
 	FOS[ "Ctr" ]:SetVisible( ShowFigmentsOfSplendour );
 end
+
+function ShowHideFallFestivalTokens()
+	ShowFallFestivalTokens = not ShowFallFestivalTokens;
+	settings.FallFestivalTokens.V = ShowFallFestivalTokens;
+	settings.FallFestivalTokens.W = string.format( "%.0f", _G.FFTWhere );
+	SaveSettings( false );
+	ImportCtr( "FFT" );
+	if ShowFallFestivalTokens then
+		FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue ) );
+	end
+	FFT[ "Ctr" ]:SetVisible( ShowFallFestivalTokens );
+end

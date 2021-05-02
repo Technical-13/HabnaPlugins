@@ -258,7 +258,11 @@ function frmWalletWindow()
 		elseif wcur == L["MFOS"] then
 			_G.FOSWhere = SelIndex; settings.FigmentsOfSplendour.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowFigmentsOfSplendour then ShowHideFigmentsOfSplendour(); end
-			else if ShowFigmentsOfSplendour then ShowHideFigmentsOfSplendour(); end end	
+			else if ShowFigmentsOfSplendour then ShowHideFigmentsOfSplendour(); end end
+		elseif wcur == L["MFFT"] then
+			_G.FFTWhere = SelIndex; settings.FallFestivalTokens.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowFallFestivalTokens then ShowFallFestivalTokens(); end
+			else if ShowFallFestivalTokens then ShowHideFallFestivalTokens(); end end	
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
