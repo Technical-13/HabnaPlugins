@@ -403,7 +403,9 @@ function ImportCtr( value )
                         [5] = 20000, [6] = 20000, [7] = 30000, [8] = 1 },
             ['RPRMI'] = { [1] = 4000, [2] = 6000, [3] = 8000, [4] = 10000,
                         [5] = 12000, [6] = 14000, [7] = 16000, [8] = 18000,
-                        [9] = 20000, [10] = 1 }
+                        [9] = 20000, [10] = 1 },
+			['RPGA'] = { [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
+                        [5] = 45000, [6] = 1 }			
             };
             -- Reputation max points per rank
         import (AppCtrD.."Reputation");
@@ -482,7 +484,7 @@ function ImportCtr( value )
                                     max = max - 1
                                 end
                                 RPPROG = "default";
-                                if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" then
+                                if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" or name == "RPGA" then
                                     RPPROG = name;
                                 end
                                 max = RPGR[RPPROG][ max ];
@@ -559,11 +561,11 @@ function GetEquipmentInfos()
             if itemEquip[i].WearState == 0 then
                 itemEquip[i].WearStatePts = 0; -- undefined
             elseif itemEquip[i].WearState == 3 then
-                itemEquip[i].WearStatePts = 0; -- Broken / cassÃ©
+                itemEquip[i].WearStatePts = 0; -- Broken / cassé
             elseif itemEquip[i].WearState == 1 then
-                itemEquip[i].WearStatePts = 20; -- Damaged / endommagÃ©
+                itemEquip[i].WearStatePts = 20; -- Damaged / endommagé
             elseif itemEquip[i].WearState == 4 then
-                itemEquip[i].WearStatePts = 99; -- Worn / usÃ©
+                itemEquip[i].WearStatePts = 99; -- Worn / usé
             elseif itemEquip[i].WearState == 2 then
                 itemEquip[i].WearStatePts = 100;
             end -- Pristine / parfait
@@ -982,7 +984,7 @@ function LoadPlayerReputation()
         -- Wells of Langflood
 		1,
 		-- Elderslade
-		1, 1,
+		1, 14,
 		-- Special Event
         6, 7, 7,
         -- Accelerator
@@ -1002,6 +1004,7 @@ function LoadPlayerReputation()
         [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6"}, -- why another??? Dwarfs of Erebor
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
         [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
+		[14] = {"RPGAR1", "RPGAR2", "RPGAR3", "RPGAR4", "RPGAR5", "RPGAR6"} -- The Gabil'akkâ
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");

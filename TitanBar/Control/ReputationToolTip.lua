@@ -71,7 +71,7 @@ function RPRefreshListBox()
 
             name = RepOrder[i];
             RPPROG = "default";
-            if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" then
+            if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" or name == "RPGA" then
                 RPPROG = name;
             end
 
