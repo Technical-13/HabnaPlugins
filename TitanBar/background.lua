@@ -97,6 +97,7 @@ function frmBackground()
 	if sFrom == "FOS" then curSelAlpha = FOSbcAlpha; curSelRed = FOSbcRed; curSelGreen = FOSbcGreen; curSelBlue = FOSbcBlue; end
 	if sFrom == "FFT" then curSelAlpha = FFTbcAlpha; curSelRed = FFTbcRed; curSelGreen = FFTbcGreen; curSelBlue = FFTbcBlue; end
 	if sFrom == "FFAT" then curSelAlpha = FFATbcAlpha; curSelRed = FFATbcRed; curSelGreen = FFATbcGreen; curSelBlue = FFATbcBlue; end
+	if sFrom == "SPL" then curSelAlpha = SPLbcAlpha; curSelRed = SPLbcRed; curSelGreen = SPLbcGreen; curSelBlue = SPLbcBlue; end
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
 	-- **^
@@ -338,6 +339,7 @@ function UpdateBCvariable()
 		FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 
 	else
 		if sFrom == "TitanBar" then bcAlpha = curSelAlpha; bcRed = curSelRed; bcGreen = curSelGreen; bcBlue = curSelBlue; end
@@ -377,5 +379,6 @@ function UpdateBCvariable()
 		if sFrom == "FOS" then FOSbcAlpha = curSelAlpha; FOSbcRed = curSelRed; FOSbcGreen = curSelGreen; FOSbcBlue = curSelBlue; end
 		if sFrom == "FFT" then FFTbcAlpha = curSelAlpha; FFTbcRed = curSelRed; FFTbcGreen = curSelGreen; FFTbcBlue = curSelBlue; end
 		if sFrom == "FFAT" then FFATbcAlpha = curSelAlpha; FFATbcRed = curSelRed; FFATbcGreen = curSelGreen; FFATbcBlue = curSelBlue; end
+		if sFrom == "SPL" then SPLbcAlpha = curSelAlpha; SPLbcRed = curSelRed; SPLbcGreen = curSelGreen; SPLbcBlue = curSelBlue; end
 	end
 end

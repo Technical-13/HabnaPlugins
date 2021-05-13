@@ -886,6 +886,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.FFATLocY = tonumber(settings.FarmersFaireToken.Y);
 	_G.FFATWhere = tonumber(settings.FarmersFaireToken.W);
 	if _G.FFATWhere == 3 and ShowFarmersFaireToken then _G.FFATWhere = 1; settings.FarmersFaireToken.W = string.format("%.0f", _G.FFATWhere); end
+	
+	if settings.SpringLeaf == nil then settings.SpringLeaf= {}; end
+	if settings.SpringLeaf.V == nil then settings.SpringLeaf.V = false; end
+	if settings.SpringLeaf.A == nil then settings.SpringLeaf.A = string.format("%.3f", tA); end
+	if settings.SpringLeaf.R == nil then settings.SpringLeaf.R = string.format("%.3f", tR); end
+	if settings.SpringLeaf.G == nil then settings.SpringLeaf.G = string.format("%.3f", tG); end
+	if settings.SpringLeaf.B == nil then settings.SpringLeaf.B = string.format("%.3f", tB); end
+	if settings.SpringLeaf.X == nil then settings.SpringLeaf.X = string.format("%.0f", tX); end
+	if settings.SpringLeaf.Y == nil then settings.SpringLeaf.Y = string.format("%.0f", tY); end
+	if settings.SpringLeaf.W == nil then settings.SpringLeaf.W = string.format("%.0f", tW); end
+	ShowSpringLeaf = settings.SpringLeaf.V;
+	SPLbcAlpha = tonumber(settings.SpringLeaf.A);
+	SPLbcRed = tonumber(settings.SpringLeaf.R);
+	SPLbcGreen = tonumber(settings.SpringLeaf.G);
+	SPLbcBlue = tonumber(settings.SpringLeaf.B);
+	_G.SPLLocX = tonumber(settings.SpringLeaf.X);
+	_G.SPLLocY = tonumber(settings.SpringLeaf.Y);
+	_G.SPLWhere = tonumber(settings.SpringLeaf.W);
+	if _G.SPLWhere == 3 and ShowSpringLeaf then _G.SPLWhere = 1; settings.SpringLeaf.W = string.format("%.0f", _G.SPLWhere); end
 
 	SaveSettings( false );
 	
@@ -1324,6 +1343,16 @@ function SaveSettings(str)
 		settings.FarmersFaireToken.X = string.format("%.0f", _G.FFATLocX);
 		settings.FarmersFaireToken.Y = string.format("%.0f", _G.FFATLocY);
 		settings.FarmersFaireToken.W = string.format("%.0f", _G.FFATWhere);
+		
+		settings.SpringLeaf = {};
+		settings.SpringLeaf.V = ShowSpringLeaf;
+		settings.SpringLeaf.A = string.format("%.3f", SPLbcAlpha);
+		settings.SpringLeaf.R = string.format("%.3f", SPLbcRed);
+		settings.SpringLeaf.G = string.format("%.3f", SPLbcGreen);
+		settings.SpringLeaf.B = string.format("%.3f", SPLbcBlue);
+		settings.SpringLeaf.X = string.format("%.0f", _G.SPLLocX);
+		settings.SpringLeaf.Y = string.format("%.0f", _G.SPLLocY);
+		settings.SpringLeaf.W = string.format("%.0f", _G.SPLWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1376,7 +1405,8 @@ function ResetSettings()
 	ShowEmbersOfEnchantment, EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue, _G.EOELocX, _G.EOELocY, _G.EOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Embers of Enchantment Control
 	ShowFigmentsOfSplendour, FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue, _G.FOSLocX, _G.FOSLocY, _G.FOSWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Figments of Splendour Control
 	ShowFallFestivalToken, FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue, _G.FFTLocX, _G.FFTLocY, _G.FFTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Fall Festival Tokens Control	
-	ShowFarmersFaireToken, FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue, _G.FFATLocX, _G.FFATLocY, _G.FFATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Farmers Festival Token Control	
+	ShowFarmersFaireToken, FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue, _G.FFATLocX, _G.FFATLocY, _G.FFATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Farmers Festival Token Control
+	ShowSpringLeaf, SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue, _G.SPLLocX, _G.SPLLocY, _G.SPLWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Spring Leaf Control	
 	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1569,6 +1599,11 @@ function ReplaceCtr()
 	_G.FFATLocX = oldLocX * screenWidth;
 	settings.FarmersFaireToken.X = string.format("%.0f", _G.FFATLocX);
 	if ShowFarmersFaireToken and _G.FFATWhere == 1 then FFAT[ "Ctr" ]:SetPosition( _G.FFATLocX, _G.FFATLocY ); end
+	
+	oldLocX = settings.SpringLeaf.X / oldScreenWidth;
+	_G.SPLLocX = oldLocX * screenWidth;
+	settings.SpringLeaf.X = string.format("%.0f", _G.SPLLocX);
+	if ShowSpringLeaf and _G.SPLWhere == 1 then SPL[ "Ctr" ]:SetPosition( _G.SPLLocX, _G.SPLLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

@@ -328,7 +328,12 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFATh"], L["EIt2"], L["EIt3"] );	
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFATh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "SPL" then -- Spring Leaves
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["SPLh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -624,6 +629,15 @@ function UpdateFarmersFaireToken()
 		FFAT[ "Lbl" ]:SetText( GetCurrency( L[ "MFFAT" ] ) );
 		FFAT[ "Lbl" ]:SetSize( FFAT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "FFAT" );
+	end
+end
+--**^
+--**v Update Spring Leaves currency on TitanBar v**
+function UpdateSpringLeaf()
+	if _G.SPLWhere == 1 then
+		SPL[ "Lbl" ]:SetText( GetCurrency( L[ "MSPL" ] ) );
+		SPL[ "Lbl" ]:SetSize( SPL[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "SPL" );
 	end
 end
 --**^
@@ -974,6 +988,7 @@ function ChangeColor(tColor)
 		if ShowFigmentsOfSplendour then FOS[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowFallFestivalToken then FFT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -1011,7 +1026,8 @@ function ChangeColor(tColor)
 		if sFrom == "EOE" then EOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "FOS" then FOS[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "FFT" then FFT[ "Ctr" ]:SetBackColor( tColor ); end
-		if sFrom == "FFAT" then FFT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "FFAT" then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "SPL" then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1279,7 +1295,13 @@ function AjustIcon(str)
 		FFAT[ "Icon" ]:SetPosition(FFAT[ "Lbl" ]:GetLeft()+FFAT[ "Lbl" ]:GetWidth()+3,Y);
 		FFAT[ "Ctr" ]:SetSize( FFAT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		FFAT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		FFAT[ "Icon" ]:SetStretchMode( 3 );	
+		FFAT[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "SPL" then
+		SPL[ "Icon" ]:SetStretchMode( 1 );
+		SPL[ "Icon" ]:SetPosition(SPL[ "Lbl" ]:GetLeft()+SPL[ "Lbl" ]:GetWidth()+3,Y);
+		SPL[ "Ctr" ]:SetSize( SPL[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		SPL[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		SPL[ "Icon" ]:SetStretchMode( 3 );		
 	end
 end
 

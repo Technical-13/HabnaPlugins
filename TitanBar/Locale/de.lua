@@ -109,6 +109,9 @@ L[ "FFTh" ] = "These are your Fall Festival Tokens";
 -- Farmers Faire Tokens control
 L[ "MFFAT" ] = "Farmers Faire Token";
 L[ "FFATh" ] = "These are your Farmers Faire Tokens";
+-- Spring Leaves control
+L[ "MSPL" ] = "Spring Leaf";
+L[ "FSPLh" ] = "These are your Spring Leaves";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";-- Thx Wicky!

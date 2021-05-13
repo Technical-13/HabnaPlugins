@@ -561,3 +561,15 @@ function ShowHideFarmersFaireToken()
 	end
 	FFAT[ "Ctr" ]:SetVisible( ShowFarmersFaireToken);
 end
+
+function ShowHideSpringLeaf()
+	ShowSpringLeaf = not ShowSpringLeaf;
+	settings.SpringLeaf.V = ShowSpringLeaf;
+	settings.SpringLeaf.W = string.format( "%.0f", _G.SPLWhere );
+	SaveSettings( false );
+	ImportCtr( "SPL" );
+	if ShowSpringLeaf then
+		SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue ) );
+	end
+	SPL[ "Ctr" ]:SetVisible( ShowSpringLeaf);
+end

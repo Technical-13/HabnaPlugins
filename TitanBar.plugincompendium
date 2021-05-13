@@ -2,8 +2,8 @@
 <PluginConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>967</Id>
   <Name>TitanBar</Name>
-  <Version>v1.35.12</Version>
-  <Author>Technical_13 (Patch by Duriel)</Author>
+  <Version>v1.35.13</Version>
+  <Author>Duriel</Author>
   <InfoUrl>http://www.lotrointerface.com/downloads/info967</InfoUrl>
   <DownloadUrl>http://www.lotrointerface.com/downloads/download967</DownloadUrl>
   <Descriptors>

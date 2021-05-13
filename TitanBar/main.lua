@@ -16,7 +16,7 @@ AppLocaleD = AppDirD.."Locale.";
 
 Version = Plugins["TitanBar"]:GetVersion();--> ** TitanBar current version **
 _G.TB = {};
-WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 };
+WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 };
 windowOpen = true;
 _G.Debug = false;-- True will enable some functions when I'm debugging
 
@@ -93,7 +93,7 @@ if PlayerAlign == 1 then
 	-- Instances and Skirmishes
 	L["MSM"], L["MMP"], L["MSL"], L["MSOM"],
 	-- Festivals and Events
-	L["MLAT"], L["MFFT"], L["MFFAT"], L["MYT"],
+	L["MLAT"], L["MFFT"], L["MFFAT"], L["MSPL"], L["MYT"],
 	-- Item Advancement
 	L["MSP"],
 	-- Other   

@@ -267,6 +267,10 @@ function frmWalletWindow()
 			_G.FFATWhere = SelIndex; settings.FarmersFaireToken.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowFarmersFaireToken then ShowFarmersFaireToken(); end
 			else if ShowFarmersFaireToken then ShowHideFarmersFaireToken(); end end	
+		elseif wcur == L["MSPL"] then
+			_G.SPLWhere = SelIndex; settings.SpringLeaf.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowSpringLeaf then ShowSpringLeaf(); end
+			else if ShowSpringLeaf then ShowHideSpringLeaf(); end end		
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -347,7 +351,8 @@ function RefreshWIListBox()
 				elseif wcur == L["MEOE"] then tw = _G.EOEWhere; -- Embers of Enchantment
 				elseif wcur == L["MFOS"] then tw = _G.FOSWhere; -- Figments of Splendour
 				elseif wcur == L["MFFT"] then tw = _G.FFTWhere; -- Fall Festival Token
-				elseif wcur == L["MFFAT"] then tw = _G.FFATWhere; -- Farmers Faire Token					
+				elseif wcur == L["MFFAT"] then tw = _G.FFATWhere; -- Farmers Faire Token
+				elseif wcur == L["MSPL"] then tw = _G.SPLWhere; -- Spring Leaf
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end
 
