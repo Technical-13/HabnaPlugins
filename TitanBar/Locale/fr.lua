@@ -87,19 +87,31 @@ L[ "MASP" ] = "Pi\195\168ce d'argent d'Amroth";
 L[ "ASPh" ] = "Ce sont vos Pi\195\168ces d'argent d'Amroth";
 -- Stars of Merit control
 L[ "MSOM" ] = "\195\137toile du m\195\169rite";
-L[ "SOMh" ] = "These are your \195\137toiles du m\195\169rite";
+L[ "SOMh" ] = "Ce sont vos \195\137toiles du m\195\169rite";
 -- Central Gondor Silver Piece control
 L[ "MCGSP" ] = "Pi\195\168ce d'argent du Gondor central";
-L[ "CGSPh" ] = "These are your Pi\195\168ces d'argent du gondor Central";
+L[ "CGSPh" ] = "Ce sont vos Pi\195\168ces d'argent du gondor Central";
 -- Gift giver's Brand control
 L[ "MGGB" ] = "Marque du Donateur";
-L[ "GGBh" ] = "These are your Marques du Donateur";
+L[ "GGBh" ] = "Ce sont vos Marques du Donateur";
 -- Motes of Enchantment control
-L[ "MMOE" ] = "Motes of Enchantment";
-L[ "MOEh" ] = "These are your Motes of Enchantment";
+L[ "MMOE" ] = "Grain d\226\128\153enchantement";
+L[ "MOEh" ] = "Ce sont vos Grains d'Enchantement";
 -- Embers of Enchantment control
-L[ "MEOE" ] = "Embers of Enchantment";
-L[ "EOEh" ] = "These are your Embers of Enchantment";
+L[ "MEOE" ] = "Braise d\226\128\153enchantement";
+L[ "EOEh" ] = "Ce sont vos Braises d'Enchantement";
+-- Figments of Splendour control
+L[ "MFOS" ] = "Mirage de splendeur";
+L[ "FOSh" ] = "Ce sont vos Mirages de Splendour";
+-- Fall Festival Tokens control
+L[ "MFFT" ] = "Jeton du festival d'automne";
+L[ "FFTh" ] = "Ce sont vos Jetons du Festival d'Automne";
+-- Farmers Faire Tokens control
+L[ "MFFAT" ] = "Jeton de la Foire des fermiers";
+L[ "FFATh" ] = "Ce sont vos Jetons de la Foire des Fermiers";
+-- Spring Leaves control
+L[ "MSPL" ] = "Feuille de printemps";
+L[ "SPLh" ] = "Ce sont vos Feuille de Printemps";
 
 -- Control Menu
 L[ "MCU" ] = "D\195\169charger ...";
@@ -257,9 +269,11 @@ L[ "RPWF" ]    = "Peuple Sauvage"; -- Wilderfolk
 L[ "RPTGA" ]   = "La Grande Alliance"; -- The Great Alliance
 L[ "RPTWC" ]   = "La Compagnie Blanche"; -- The White Company
 L[ "RPRMI" ]   = "R\195\169clamation de Minas Ithil";
-L[ "RPPOW" ]   = "Protectors of Wilderland";
-L[ "RPMOG" ]   = "March on Gundabad";
-L[ "RPGA" ]   = "The Gabil'akk\195\162";
+L[ "RPPOW" ]   = "Protecteurs des Terres sauvages";
+L[ "RPMOG" ]   = "Les Reconqu\195\169rants de Gundabad";
+L[ "RPGA" ]    = "Les Gabil'akk\195\162";
+L[ "RPTWB"]	   = "The Woodcutter's Brotherhood";
+L[ "RPLOTA"]   = "The League of the Axe";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
@@ -299,6 +313,12 @@ L[ "RPMI7" ]  = "The Trial of Madness";
 L[ "RPMI8" ]  = "The Reclamation Continues IV";
 L[ "RPMI9" ]  = "The Trial of Despair";
 L[ "RPMI10" ] = "The Trial of Death";
+L[ "RPGAR1" ] = "Idmul";
+L[ "RPGAR2" ] = "Dumul";
+L[ "RPGAR3" ] = "Izkhas";
+L[ "RPGAR4" ] = "Uzkhas";
+L[ "RPGAR5" ] = "Fabar\195\162l";
+L[ "RPGAR6" ] = "Azghzabad";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renomm\195\169e"; L[ "IFIF" ] = "Total de renomm\195\169e:";
@@ -513,6 +533,7 @@ L[ "Lore-Master" ] = "Ma\195\174tre du savoir";
 L[ "Minstrel" ] = "M\195\169nestrel";
 L[ "Rune-Keeper" ] = "Gardien des runes";
 L[ "Warden" ] = "Sentinelle";
+L[ "StoutAxe" ] = "Nain Hache robuste";
 
 -- Monster Play Class
 L[ "Reaver" ] = "Reaver";

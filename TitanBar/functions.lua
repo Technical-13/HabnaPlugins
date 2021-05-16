@@ -164,7 +164,7 @@ function ShowToolTipWin( ToShow )
 	local bblTo, x, y, w = "left", -5, -15, 0; 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 	
-	w = 310;
+	w = 350;
 	if TBLocale == "fr" then w = 315;
 	elseif TBLocale == "de" then
 		if ToShow == "DI" then w = 225; 
@@ -313,7 +313,27 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["EOEh"], L["EIt2"], L["EIt3"] );	
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["EOEh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "FOS" then -- Figments of Splendour
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FOSh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "FFT" then -- Fall Festival Tokens
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFTh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "FFAT" then -- Farmers Faire Token
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["FFATh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "SPL" then -- Spring Leaves
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["SPLh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -585,6 +605,42 @@ function UpdateEmbersOfEnchantment()
 	end
 end
 --**^
+--**v Update Figments of Splendour currency on TitanBar v**
+function UpdateFigmentsOfSplendour()
+	if _G.FOSWhere == 1 then
+		FOS[ "Lbl" ]:SetText( GetCurrency( L[ "MFOS" ] ) );
+		FOS[ "Lbl" ]:SetSize( FOS[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "FOS" );
+	end
+end
+--**^
+--**v Update Fall Festival Tokens currency on TitanBar v**
+function UpdateFallFestivalToken()
+	if _G.FFTWhere == 1 then
+		FFT[ "Lbl" ]:SetText( GetCurrency( L[ "MFFT" ] ) );
+		FFT[ "Lbl" ]:SetSize( FFT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "FFT" );
+	end
+end
+--**^
+--**v Update Farmers Faire Tokens currency on TitanBar v**
+function UpdateFarmersFaireToken()
+	if _G.FFATWhere == 1 then
+		FFAT[ "Lbl" ]:SetText( GetCurrency( L[ "MFFAT" ] ) );
+		FFAT[ "Lbl" ]:SetSize( FFAT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "FFAT" );
+	end
+end
+--**^
+--**v Update Spring Leaves currency on TitanBar v**
+function UpdateSpringLeaf()
+	if _G.SPLWhere == 1 then
+		SPL[ "Lbl" ]:SetText( GetCurrency( L[ "MSPL" ] ) );
+		SPL[ "Lbl" ]:SetSize( SPL[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "SPL" );
+	end
+end
+--**^
 
 --**v Update backpack infos on TitanBar v**
 function UpdateBackpackInfos()
@@ -635,6 +691,7 @@ function UpdatePlayersInfos()
 	elseif PlayerRaceIs == 81 then PlayerRaceIs = L[ "Hobbit" ];
 	elseif PlayerRaceIs == 114 then PlayerRaceIs = L[ "Beorning" ];
 	elseif PlayerRaceIs == 117 then PlayerRaceIs = L[ "HighElf" ];
+	elseif PlayerRaceIs == 120 then PlayerRaceIs = L[ "StoutAxe" ];
 
 	--Monster play race
 	elseif PlayerRaceIs == 7 then PlayerRaceIs = ""; end
@@ -928,6 +985,10 @@ function ChangeColor(tColor)
 		if ShowAniversaryToken then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowFigmentsOfSplendour then FOS[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowFallFestivalToken then FFT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -963,6 +1024,10 @@ function ChangeColor(tColor)
 		if sFrom == "LAT" then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "MOE" then MOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "EOE" then EOE[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "FOS" then FOS[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "FFT" then FFT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "FFAT" then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "SPL" then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1212,7 +1277,31 @@ function AjustIcon(str)
 		EOE[ "Icon" ]:SetPosition(EOE[ "Lbl" ]:GetLeft()+EOE[ "Lbl" ]:GetWidth()+3,Y);
 		EOE[ "Ctr" ]:SetSize( EOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		EOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		EOE[ "Icon" ]:SetStretchMode( 3 );		
+		EOE[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "FOS" then
+		FOS[ "Icon" ]:SetStretchMode( 1 );
+		FOS[ "Icon" ]:SetPosition(FOS[ "Lbl" ]:GetLeft()+FOS[ "Lbl" ]:GetWidth()+3,Y);
+		FOS[ "Ctr" ]:SetSize( FOS[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		FOS[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		FOS[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "FFT" then
+		FFT[ "Icon" ]:SetStretchMode( 1 );
+		FFT[ "Icon" ]:SetPosition(FFT[ "Lbl" ]:GetLeft()+FFT[ "Lbl" ]:GetWidth()+3,Y);
+		FFT[ "Ctr" ]:SetSize( FFT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		FFT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		FFT[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "FFAT" then
+		FFAT[ "Icon" ]:SetStretchMode( 1 );
+		FFAT[ "Icon" ]:SetPosition(FFAT[ "Lbl" ]:GetLeft()+FFAT[ "Lbl" ]:GetWidth()+3,Y);
+		FFAT[ "Ctr" ]:SetSize( FFAT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		FFAT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		FFAT[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "SPL" then
+		SPL[ "Icon" ]:SetStretchMode( 1 );
+		SPL[ "Icon" ]:SetPosition(SPL[ "Lbl" ]:GetLeft()+SPL[ "Lbl" ]:GetWidth()+3,Y);
+		SPL[ "Ctr" ]:SetSize( SPL[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		SPL[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		SPL[ "Icon" ]:SetStretchMode( 3 );		
 	end
 end
 

@@ -16,7 +16,7 @@ AppLocaleD = AppDirD.."Locale.";
 
 Version = Plugins["TitanBar"]:GetVersion();--> ** TitanBar current version **
 _G.TB = {};
-WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 };
+WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 };
 windowOpen = true;
 _G.Debug = false;-- True will enable some functions when I'm debugging
 
@@ -85,9 +85,20 @@ import (AppDirD.."FontMetric");
 frmMain();
 
 if PlayerAlign == 1 then 
-    MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"],
-    L["MYT"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
-    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MBB"], L["MLAT"], L["MMOE"], L["MEOE"] };
+    MenuItem = { 
+	-- Coin
+	L["MGSC"], L["MCP"], L["MDP"], L["MLP"], L["MMC"],
+	-- Currency
+	L["MMOE"], L["MFOS"], L["MEOE"],
+	-- Instances and Skirmishes
+	L["MSM"], L["MMP"], L["MSL"], L["MSOM"],
+	-- Festivals and Events
+	L["MLAT"], L["MFFT"], L["MFFAT"], L["MSPL"], L["MYT"],
+	-- Item Advancement
+	L["MSP"],
+	-- Other   
+    L["MHT"], L["MASP"], L["MCGSP"], L["MGGB"], L["MBB"],
+	};
 else MenuItem = { L["MCP"], L["MLP"] }; end
 
 TitanBarCommand = Turbine.ShellCommand()

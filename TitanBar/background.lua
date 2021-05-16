@@ -88,12 +88,16 @@ function frmBackground()
 	if sFrom == "GT" then curSelAlpha = GTbcAlpha; curSelRed = GTbcRed; curSelGreen = GTbcGreen; curSelBlue = GTbcBlue; end
 	if sFrom == "ASP" then curSelAlpha =ASPbcAlpha; curSelRed = ASPbcRed; curSelGreen = ASPbcGreen; curSelBlue = ASPbcBlue; end
 	if sFrom == "SOM" then curSelAlpha =SOMbcAlpha; curSelRed = SOMbcRed; curSelGreen = SOMbcGreen; curSelBlue = SOMbcBlue; end
-	if sFrom == "CGSP" then curSelAlpha =CGSPbcAlpha; curSelRed = CGSPbcRed; curSelGreen = CGSPbcGreen; curSelBlue = CGSPbcBlue; end
-	if sFrom == "GGB" then curSelAlpha =GGBbcAlpha; curSelRed = GGBbcRed; curSelGreen = GGBbcGreen; curSelBlue = GGBbcBlue; end
-	if sFrom == "BB" then curSelAlpha =BBbcAlpha; curSelRed = BBbcRed; curSelGreen = BBbcGreen; curSelBlue = BBbcBlue; end
-	if sFrom == "LAT" then curSelAlpha =LATbcAlpha; curSelRed = LATbcRed; curSelGreen = LATbcGreen; curSelBlue = LATbcBlue; end
-	if sFrom == "MOE" then curSelAlpha =MOEbcAlpha; curSelRed = MOEbcRed; curSelGreen = MOEbcGreen; curSelBlue = MOEbcBlue; end
-	if sFrom == "EOE" then curSelAlpha =EOEbcAlpha; curSelRed = EOEbcRed; curSelGreen = EOEbcGreen; curSelBlue = EOEbcBlue; end
+	if sFrom == "CGSP" then curSelAlpha = CGSPbcAlpha; curSelRed = CGSPbcRed; curSelGreen = CGSPbcGreen; curSelBlue = CGSPbcBlue; end
+	if sFrom == "GGB" then curSelAlpha = GGBbcAlpha; curSelRed = GGBbcRed; curSelGreen = GGBbcGreen; curSelBlue = GGBbcBlue; end
+	if sFrom == "BB" then curSelAlpha = BBbcAlpha; curSelRed = BBbcRed; curSelGreen = BBbcGreen; curSelBlue = BBbcBlue; end
+	if sFrom == "LAT" then curSelAlpha = LATbcAlpha; curSelRed = LATbcRed; curSelGreen = LATbcGreen; curSelBlue = LATbcBlue; end
+	if sFrom == "MOE" then curSelAlpha = MOEbcAlpha; curSelRed = MOEbcRed; curSelGreen = MOEbcGreen; curSelBlue = MOEbcBlue; end
+	if sFrom == "EOE" then curSelAlpha = EOEbcAlpha; curSelRed = EOEbcRed; curSelGreen = EOEbcGreen; curSelBlue = EOEbcBlue; end
+	if sFrom == "FOS" then curSelAlpha = FOSbcAlpha; curSelRed = FOSbcRed; curSelGreen = FOSbcGreen; curSelBlue = FOSbcBlue; end
+	if sFrom == "FFT" then curSelAlpha = FFTbcAlpha; curSelRed = FFTbcRed; curSelGreen = FFTbcGreen; curSelBlue = FFTbcBlue; end
+	if sFrom == "FFAT" then curSelAlpha = FFATbcAlpha; curSelRed = FFATbcRed; curSelGreen = FFATbcGreen; curSelBlue = FFATbcBlue; end
+	if sFrom == "SPL" then curSelAlpha = SPLbcAlpha; curSelRed = SPLbcRed; curSelGreen = SPLbcGreen; curSelBlue = SPLbcBlue; end
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
 	-- **^
@@ -332,6 +336,10 @@ function UpdateBCvariable()
 		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 
 	else
 		if sFrom == "TitanBar" then bcAlpha = curSelAlpha; bcRed = curSelRed; bcGreen = curSelGreen; bcBlue = curSelBlue; end
@@ -368,5 +376,9 @@ function UpdateBCvariable()
 		if sFrom == "LAT" then LATbcAlpha = curSelAlpha; LATbcRed = curSelRed; LATbcGreen = curSelGreen; LATbcBlue = curSelBlue; end
 		if sFrom == "MOE" then MOEbcAlpha = curSelAlpha; MOEbcRed = curSelRed; MOEbcGreen = curSelGreen; MOEbcBlue = curSelBlue; end
 		if sFrom == "EOE" then EOEbcAlpha = curSelAlpha; EOEbcRed = curSelRed; EOEbcGreen = curSelGreen; EOEbcBlue = curSelBlue; end
+		if sFrom == "FOS" then FOSbcAlpha = curSelAlpha; FOSbcRed = curSelRed; FOSbcGreen = curSelGreen; FOSbcBlue = curSelBlue; end
+		if sFrom == "FFT" then FFTbcAlpha = curSelAlpha; FFTbcRed = curSelRed; FFTbcGreen = curSelGreen; FFTbcBlue = curSelBlue; end
+		if sFrom == "FFAT" then FFATbcAlpha = curSelAlpha; FFATbcRed = curSelRed; FFATbcGreen = curSelGreen; FFATbcBlue = curSelBlue; end
+		if sFrom == "SPL" then SPLbcAlpha = curSelAlpha; SPLbcRed = curSelRed; SPLbcGreen = curSelGreen; SPLbcBlue = curSelBlue; end
 	end
 end

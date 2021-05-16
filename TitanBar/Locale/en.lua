@@ -65,7 +65,7 @@ L[ "BBh" ] = "These are your Bingo Badges";
 L[ "MSM" ] = "Mark";
 L[ "SMh" ] = "These are your skirmish marks";
 -- Destiny Points control
-L[ "MDP" ] = "Destiny points";
+L[ "MDP" ] = "Destiny point";
 L[ "DPh" ] = "These are your destiny points";
 -- Shards control
 L[ "MSP" ] = "Shard";
@@ -100,6 +100,18 @@ L[ "MOEh" ] = "These are your Motes of Enchantment";
 -- Embers of Enchantment control
 L[ "MEOE" ] = "Embers of Enchantment";
 L[ "EOEh" ] = "These are your Embers of Enchantment";
+-- Figments of Splendour control
+L[ "MFOS" ] = "Figments of Splendour";
+L[ "FOSh" ] = "These are your Figments of Splendour";
+-- Fall Festival Tokens control
+L[ "MFFT" ] = "Fall Festival Token";
+L[ "FFTh" ] = "These are your Fall Festival Tokens";
+-- Farmers Faire Tokens control
+L[ "MFFAT" ] = "Farmers Faire Token";
+L[ "FFATh" ] = "These are your Farmers Faire Tokens";
+-- Spring Leaves control
+L[ "MSPL" ] = "Spring Leaf";
+L[ "SPLh" ] = "These are your Spring Leaves";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";
@@ -259,7 +271,9 @@ L[ "RPTWC" ]   = "The White Company";
 L[ "RPRMI" ]   = "Reclamation of Minas Ithil";
 L[ "RPPOW" ]   = "Protectors of Wilderland";
 L[ "RPMOG" ]   = "March on Gundabad";
-L[ "RPGA" ]   = "The Gabil'akk\195\162";
+L[ "RPGA" ]    = "The Gabil\39akk\195\162";
+L[ "RPTWB"]	   = "The Woodcutter's Brotherhood";
+L[ "RPLOTA"]   = "The League of the Axe";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings
@@ -299,6 +313,13 @@ L[ "RPMI7" ]  = "The Trial of Madness";
 L[ "RPMI8" ]  = "The Reclamation Continues IV";
 L[ "RPMI9" ]  = "The Trial of Despair";
 L[ "RPMI10" ] = "The Trial of Death";
+L[ "RPGAR1" ] = "Idmul";
+L[ "RPGAR2" ] = "Dumul";
+L[ "RPGAR3" ] = "Izkhas";
+L[ "RPGAR4" ] = "Uzkhas";
+L[ "RPGAR5" ] = "Fabar\195\162l";
+L[ "RPGAR6" ] = "Azghzabad";
+
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renown"; L[ "IFIF" ] = "Total renown:";
@@ -502,6 +523,7 @@ L[ "Dwarf" ] = "Dwarf";
 L[ "Hobbit" ] = "Hobbit";
 L[ "Beorning" ] = "Beorning";
 L[ "HighElf" ] = "High Elf";
+L[ "StoutAxe" ] = "Stout-axe";
 
 -- Free People Class
 L[ "Burglar" ] = "Burglar";

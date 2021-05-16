@@ -254,7 +254,23 @@ function frmWalletWindow()
 		elseif wcur == L["MEOE"] then
 			_G.EOEWhere = SelIndex; settings.EmbersOfEnchantment.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowEmbersOfEnchantment then ShowHideEmbersOfEnchantment(); end
-			else if ShowEmbersOfEnchantment then ShowHideEmbersOfEnchantment(); end end			
+			else if ShowEmbersOfEnchantment then ShowHideEmbersOfEnchantment(); end end
+		elseif wcur == L["MFOS"] then
+			_G.FOSWhere = SelIndex; settings.FigmentsOfSplendour.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowFigmentsOfSplendour then ShowHideFigmentsOfSplendour(); end
+			else if ShowFigmentsOfSplendour then ShowHideFigmentsOfSplendour(); end end
+		elseif wcur == L["MFFT"] then
+			_G.FFTWhere = SelIndex; settings.FallFestivalToken.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowFallFestivalToken then ShowFallFestivalToken(); end
+			else if ShowFallFestivalToken then ShowHideFallFestivalToken(); end end
+		elseif wcur == L["MFFAT"] then
+			_G.FFATWhere = SelIndex; settings.FarmersFaireToken.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowFarmersFaireToken then ShowFarmersFaireToken(); end
+			else if ShowFarmersFaireToken then ShowHideFarmersFaireToken(); end end	
+		elseif wcur == L["MSPL"] then
+			_G.SPLWhere = SelIndex; settings.SpringLeaf.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowSpringLeaf then ShowSpringLeaf(); end
+			else if ShowSpringLeaf then ShowHideSpringLeaf(); end end		
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -332,7 +348,11 @@ function RefreshWIListBox()
 				elseif wcur == L["MBB"] then tw = _G.BBWhere; -- Bingo Badges
 				elseif wcur == L["MLAT"] then tw = _G.LATWhere; -- Anniversary Tokens
 				elseif wcur == L["MMOE"] then tw = _G.MOEWhere; -- Motes of Enchantment
-				elseif wcur == L["MEOE"] then tw = _G.EOEWhere; -- Embers of Enchantment				
+				elseif wcur == L["MEOE"] then tw = _G.EOEWhere; -- Embers of Enchantment
+				elseif wcur == L["MFOS"] then tw = _G.FOSWhere; -- Figments of Splendour
+				elseif wcur == L["MFFT"] then tw = _G.FFTWhere; -- Fall Festival Token
+				elseif wcur == L["MFFAT"] then tw = _G.FFATWhere; -- Farmers Faire Token
+				elseif wcur == L["MSPL"] then tw = _G.SPLWhere; -- Spring Leaf
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end
 

@@ -525,3 +525,51 @@ function ShowHideEmbersOfEnchantment()
 	end
 	EOE[ "Ctr" ]:SetVisible( ShowEmbersOfEnchantment );
 end
+
+function ShowHideFigmentsOfSplendour()
+	ShowFigmentsOfSplendour = not ShowFigmentsOfSplendour;
+	settings.FigmentsOfSplendour.V = ShowFigmentsOfSplendour;
+	settings.FigmentsOfSplendour.W = string.format( "%.0f", _G.FOSWhere );
+	SaveSettings( false );
+	ImportCtr( "FOS" );
+	if ShowFigmentsOfSplendour then
+		FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue ) );
+	end
+	FOS[ "Ctr" ]:SetVisible( ShowFigmentsOfSplendour );
+end
+
+function ShowHideFallFestivalToken()
+	ShowFallFestivalToken = not ShowFallFestivalToken;
+	settings.FallFestivalToken.V = ShowFallFestivalToken;
+	settings.FallFestivalToken.W = string.format( "%.0f", _G.FFTWhere );
+	SaveSettings( false );
+	ImportCtr( "FFT" );
+	if ShowFallFestivalToken then
+		FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue ) );
+	end
+	FFT[ "Ctr" ]:SetVisible( ShowFallFestivalToken );
+end
+
+function ShowHideFarmersFaireToken()
+	ShowFarmersFaireToken = not ShowFarmersFaireToken;
+	settings.FarmersFaireToken.V = ShowFarmersFaireToken;
+	settings.FarmersFaireToken.W = string.format( "%.0f", _G.FFATWhere );
+	SaveSettings( false );
+	ImportCtr( "FFAT" );
+	if ShowFarmersFaireToken then
+		FFAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue ) );
+	end
+	FFAT[ "Ctr" ]:SetVisible( ShowFarmersFaireToken);
+end
+
+function ShowHideSpringLeaf()
+	ShowSpringLeaf = not ShowSpringLeaf;
+	settings.SpringLeaf.V = ShowSpringLeaf;
+	settings.SpringLeaf.W = string.format( "%.0f", _G.SPLWhere );
+	SaveSettings( false );
+	ImportCtr( "SPL" );
+	if ShowSpringLeaf then
+		SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue ) );
+	end
+	SPL[ "Ctr" ]:SetVisible( ShowSpringLeaf);
+end
