@@ -3,7 +3,7 @@
 	<Information>
 		<Name>TitanBar</Name>
 		<Author>Duriel</Author>
-		<Version>v1.35.13</Version>
+		<Version>v1.35.14</Version>
     <Image>HabnaPlugins/TitanBar/Resources/icon.tga</Image>
     <Description>This plugin will show various kinds of information on a bar at the top or bottom of your screen. Each display of information is called a "control". Control can be moved anywhere on the bar, and you can change the background color, font, icon size, and height of TitanBar and its controls.
 TitanBar supports all three official languages ('FR', 'EN', 'DE').
@@ -38,7 +38,7 @@ Available control:
 -- ...and many more!
 
 *: Information is not available in the API, so it's currently based on advancement chat channel; it will only work if this channel is active.
-**: Not perfect because the API returns less than optimal values for this.  See https://github.com/Technical-13/HabnaPlugins/issues/11 for more details.
+**: Not perfect because the API returns less than optimal values for this.
 ***: On TitanBar or as a ToolTip in 'Wallet' control. More coming soon.
     </Description>
 	</Information>
