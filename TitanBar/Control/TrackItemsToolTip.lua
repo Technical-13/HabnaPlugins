@@ -48,7 +48,7 @@ function TIRefreshListBox()
 		--lblName:SetFont ( 12 );
 		lblName:SetText( L["BINI"] );
 		lblName:SetPosition( 0, 0 );
-		lblName:SetSize( 210, 35 );
+		lblName:SetSize( 275, 35 );
 		lblName:SetForeColor( Color["green"] );
 		lblName:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
 		--lblName:SetBackColor( Color["red"] ); -- debug purpose
@@ -179,7 +179,7 @@ function TIRefreshListBox()
 
 	TITTListBox:SetHeight( TITTPosY );
 
-	if #ITL == 0 or not bItemInListFoundInBag then _G.ToolTipWin:SetSize( 250, TITTPosY - 7 );
+	if #ITL == 0 or not bItemInListFoundInBag then _G.ToolTipWin:SetSize( 300, TITTPosY - 7 );
 	else _G.ToolTipWin:SetSize( 320, TITTPosY - 7 ); end
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();

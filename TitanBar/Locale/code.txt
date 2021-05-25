@@ -35,3 +35,4 @@ need codes for special characters:
 ú=\195\186
 û=\195\187
 ü=\195\188
+’=\226\128\153

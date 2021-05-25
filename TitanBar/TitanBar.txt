@@ -20,6 +20,16 @@ To add a new control:
 	- Add control shell command in 'main.lua'
 	- Add control file in control directory
 
+To add a new currency:
+	- Add  text names to the 'de', 'en', and 'fr' localization files
+	- Add currency in 'functions.lua', in 'functionsCtr.lua', 'functionsMenuControl.lua, & in 'functionsMenu.lua'
+	- Add currency in 'settings.lua'
+	- Add currency in 'frmOptions.lua' & 'frmMain.lua'
+	- Add currency in 'background.lua'
+	- Add currency in 'main.lua'
+	- Add currency in 'TBressources.lua'
+	- Add currency file in control directory
+	- Add currency in 'WalletToolTip.lua' & 'WalletWindow.lua' (control directory)
 
 TitanBar Known Issues/Limitations:
 	- Player Location (Player location is not accessible in API. It's currently based on chat channel, so it will only work if any one of those channel is active: 'Trade', 'Regional', 'RP', 'OOC' or 'LFF'.)
