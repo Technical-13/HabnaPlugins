@@ -1,36 +1,3 @@
-To add a faction:
-  - Add faction text names to the 'de', 'en', and 'fr' localization files
-	  - https://github.com/Technical-13/HabnaPlugins/blob/master/TitanBar/Locale/de.lua#L141
-	  - https://github.com/Technical-13/HabnaPlugins/blob/master/TitanBar/Locale/en.lua#L141
-	  - https://github.com/Technical-13/HabnaPlugins/blob/master/TitanBar/Locale/fr.lua#L141
-	- Add faction name to LoadPlayerReputation() in 'functionsCtr.lua'
-    -  https://github.com/Technical-13/HabnaPlugins/blob/master/TitanBar/functionsCtr.lua#L874-L891
-
-
-To add a new control:
-	- Add  text names to the 'de', 'en', and 'fr' localization files
-	  - https://github.com/Technical-13/HabnaPlugins/blob/master/TitanBar/Locale/de.lua
-	  - https://github.com/Technical-13/HabnaPlugins/blob/master/TitanBar/Locale/en.lua
-	  - https://github.com/Technical-13/HabnaPlugins/blob/master/TitanBar/Locale/fr.lua
-	- Add control in 'menu.lua'
-	- Add control in 'functions.lua', in 'functionsCtr.lua', 'functionsMenuControl.lua, & in 'functionsMenu.lua'
-	- Add control in 'settings.lua'
-	- Add control in 'frmOptions.lua'
-	- Add control in 'background.lua'
-	- Add control shell command in 'main.lua'
-	- Add control file in control directory
-
-To add a new currency:
-	- Add  text names to the 'de', 'en', and 'fr' localization files
-	- Add currency in 'functions.lua', in 'functionsCtr.lua', 'functionsMenuControl.lua, & in 'functionsMenu.lua'
-	- Add currency in 'settings.lua'
-	- Add currency in 'frmOptions.lua' & 'frmMain.lua'
-	- Add currency in 'background.lua'
-	- Add currency in 'main.lua'
-	- Add currency in 'TBressources.lua'
-	- Add currency file in control directory
-	- Add currency in 'WalletToolTip.lua' & 'WalletWindow.lua' (control directory)
-
 TitanBar Known Issues/Limitations:
 	- Player Location (Player location is not accessible in API. It's currently based on chat channel, so it will only work if any one of those channel is active: 'Trade', 'Regional', 'RP', 'OOC' or 'LFF'.)
 	- Equipment score (Score based on item Quality & Toughness)
@@ -58,3 +25,6 @@ TitanBar Future Enhancements:
 
 	Try to change the game time update to a eventHandler (if possible)
 	Broadcast control infos to selected chat channel (Maybe later if needed)
+
+You want to update TitanBar?
+Have a look at TitanBarMaintenance.txt and have fun ;)

@@ -1010,7 +1010,7 @@ function LoadPlayerReputation()
         [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6"}, -- why another??? Dwarfs of Erebor
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
         [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
-		[14] = {"RPGAR1", "RPGAR2", "RPGAR3", "RPGAR4", "RPGAR5", "RPGAR6"} -- The Gabil'akkâ
+		[14] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5", "RPGA6"} -- The Gabil'akkâ
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");

@@ -324,10 +324,32 @@ end
 function UpdateBCvariable()
 	curSelAlpha = curAlpha;
 	if BGWToAll then
-		bcAlpha, WIbcAlpha, MIbcAlpha, DPbcAlpha, SPbcAlpha, SMbcAlpha, MCbcAlpha, HTbcAlpha, MPbcAlpha, SLbcAlpha, CPbcAlpha, BIbcAlpha, PIbcAlpha, EIbcAlpha, DIbcAlpha, TIbcAlpha, IFbcAlpha, VTbcAlpha, SSbcAlpha, BKbcAlpha, DNbcAlpha, RPbcAlpha, LPbcAlpha, PLbcAlpha, GTbcAlpha, YTbcAlpha = curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha,curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha;
-		bcRed, WIbcRed, MIbcRed, DPbcRed, SPbcRed, SMbcRed, MCbcRed,HTbcRed, MPbcRed, SLbcRed, CPbcRed, BIbcRed, PIbcRed, EIbcRed, DIbcRed, TIbcRed, IFbcRed, VTbcRed, SSbcRed, BKbcRed, DNbcRed, RPbcRed, LPbcRed, PLbcRed, GTbcRed, YTbcRed =  curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed;
-		bcGreen, WIbcGreen, MIbcGreen, DPbcGreen, SPbcGreen, SMbcGreen, MCbcGreen,HTbcGreen, MPbcGreen, SLbcGreen, CPbcGreen, BIbcGreen, PIbcGreen, EIbcGreen, DIbcGreen, TIbcGreen, IFbcGreen, VTbcGreen, SSbcGreen, BKbcGreen, DNbcGreen, RPbcGreen, LPbcGreen, PLbcGreen, GTbcGreen, YTbcGreen= curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen,curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen;
-		bcBlue, WIbcBlue, MIbcBlue, DPbcBlue, SPbcBlue, SMbcBlue, MCbcBlue,HTbcBlue, MPbcBlue, SLbcBlue, CPbcBlue, BIbcBlue, PIbcBlue, EIbcBlue, DIbcBlue, TIbcBlue, IFbcBlue, VTbcBlue, SSbcBlue, BKbcBlue, DNbcBlue, RPbcBlue, LPbcBlue, PLbcBlue, GTbcBlue, YTbcBlue = curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue;
+		bcAlpha, bcRed, bcGreen, bcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		WIbcAlpha, WIbcRed, WIbcGreen, WIbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		MIbcAlpha, MIbcRed, MIbcGreen, MIbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
