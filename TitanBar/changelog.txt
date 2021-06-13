@@ -4,7 +4,9 @@ You do not need the original files.
 
 Need translations (mostly French)! 
 If you notice an error, please send me a pm or post it on the boards.
-
+=================================================
+v1.35.18 (June 13, 2021)
+- Corrected zip-file for LOTRO Interface
 =================================================
 v1.35.17 (June 12, 2021)
 - Added reputation factions (The Haban'akkâ of Thráin, Kharum-ubnâr)
