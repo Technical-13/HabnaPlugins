@@ -962,6 +962,8 @@ function LoadPlayerReputation()
 		"RPPOW",
 		-- Elderslade
 		"RPMOG", "RPGA",
+		--Azanulbizar
+		"RPHOT", "RPKU",
 		-- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -969,7 +971,7 @@ function LoadPlayerReputation()
     };
     RepType = {
         1, 1, 1, 1, 1, 1, 1, 1,
-        2, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        2, 1, 2, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 3, 1,
@@ -991,6 +993,8 @@ function LoadPlayerReputation()
 		1,
 		-- Elderslade
 		1, 14,
+		--Azanulbizar
+		14, 2,
 		-- Special Event
         6, 7, 7,
         -- Accelerator

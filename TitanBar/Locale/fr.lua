@@ -272,8 +272,10 @@ L[ "RPRMI" ]   = "R\195\169clamation de Minas Ithil";
 L[ "RPPOW" ]   = "Protecteurs des Terres sauvages";
 L[ "RPMOG" ]   = "Les Reconqu\195\169rants de Gundabad";
 L[ "RPGA" ]    = "Les Gabil'akk\195\162";
-L[ "RPTWB"]	   = "The Woodcutter's Brotherhood";
-L[ "RPLOTA"]   = "The League of the Axe";
+L[ "RPTWB"]	   = "Confr\195\169rie des B\195\185cherons";
+L[ "RPLOTA"]   = "La Ligue de la hache";
+L[ "RPHOT" ]   = "Les Haban\39akk\195\162 de Thr\195\162in";
+L[ "RPKU" ]    = "Karum-ubn\195\162r";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings

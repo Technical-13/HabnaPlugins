@@ -270,9 +270,11 @@ L[ "RPTWC" ]   = "Die Weisse Schar";
 L[ "RPRMI" ]   = "Die R\195\188ckeroberung von Minas Ithil";
 L[ "RPPOW" ]   = "Besch\195\188tzer des Wilderlands";
 L[ "RPMOG" ]   = "Marsch auf Gundabad";
-L[ "RPGA" ]   = "Die Gabil'akk\195\162";
-L[ "RPTWB"]	   = "The Woodcutter's Brotherhood";
-L[ "RPLOTA"]   = "The League of the Axe";
+L[ "RPGA" ]    = "Die Gabil'akk\195\162";
+L[ "RPTWB"]	   = "Bruderschaft der Holzf\195\164ller";
+L[ "RPLOTA"]   = "Der Bund der Axt";
+L[ "RPHOT" ]   = "Die Haban\39akk\195\162 von Thr\195\162in";
+L[ "RPKU" ]    = "Karum-ubn\195\162r";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings

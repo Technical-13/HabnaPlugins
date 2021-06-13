@@ -6,6 +6,15 @@ Need translations (mostly French)!
 If you notice an error, please send me a pm or post it on the boards.
 
 =================================================
+v1.35.17 (June 12, 2021)
+- Added reputation factions (The Haban'akkâ of Thráin, Kharum-ubnâr)
+- The values for "The Haban'akkâ of Thráin" and the "Kharum-ubnâr" don't update automatically. No idea why.
+- Corrected the name of the "Woodcutter's Brotherhood"
+- Corrected the reputation levels of "The League of the Axe"
+- Corrected some missing German and French translations
+
+
+=================================================
 v1.35.16 (May 20, 2021)
 - Updated the "readme.md", "changelog.txt" and "credits.txt" files
 - Added "TitanBarMaintenance.txt" (How to update TitanBar)
