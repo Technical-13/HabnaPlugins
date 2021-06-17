@@ -939,7 +939,7 @@ function LoadPlayerReputation()
     RepOrder = {
         -- Normal faction advancement + Forochel and Minas Tirith
         "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA",
-        "RPLF", "RPTWB", "RPLOTA", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
+        "RPLF", "RPWB", "RPLOTA", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
         "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW",
         "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML",
         "RPP", "RPRI", "RPRR", "RPDMT", "RPDA",

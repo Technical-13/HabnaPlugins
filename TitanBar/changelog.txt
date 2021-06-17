@@ -5,6 +5,9 @@ You do not need the original files.
 Need translations (mostly French)! 
 If you notice an error, please send me a pm or post it on the boards.
 =================================================
+v1.35.19 (June 15, 2021)
+- Corrected an error in the reputation display (Woodcutter's Brotherhood was missing)
+=================================================
 v1.35.18 (June 13, 2021)
 - Corrected zip-file for LOTRO Interface
 =================================================
