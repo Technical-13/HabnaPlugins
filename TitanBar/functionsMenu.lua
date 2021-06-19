@@ -573,3 +573,15 @@ function ShowHideSpringLeaf()
 	end
 	SPL[ "Ctr" ]:SetVisible( ShowSpringLeaf);
 end
+
+function ShowHideMidsummerToken()
+	ShowMidsummerToken = not ShowMidsummerToken;
+	settings.MidsummerToken.V = ShowMidsummerToken;
+	settings.MidsummerToken.W = string.format( "%.0f", _G.MSTWhere );
+	SaveSettings( false );
+	ImportCtr( "MST" );
+	if ShowMidsummerToken then
+		MST[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue ) );
+	end
+	MST[ "Ctr" ]:SetVisible( ShowMidsummerToken);
+end

@@ -112,6 +112,9 @@ L[ "FFATh" ] = "These are your Farmers Faire Tokens";
 -- Spring Leaves control
 L[ "MSPL" ] = "Spring Leaf";
 L[ "SPLh" ] = "These are your Spring Leaves";
+-- Midsummer Tokens control
+L[ "MMST" ] = "Midsummer Token";
+L[ "MSTh" ] = "These are your Midsummer Tokens";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";

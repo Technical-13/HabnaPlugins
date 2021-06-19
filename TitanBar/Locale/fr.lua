@@ -112,6 +112,9 @@ L[ "FFATh" ] = "Ce sont vos Jetons de la Foire des Fermiers";
 -- Spring Leaves control
 L[ "MSPL" ] = "Feuille de printemps";
 L[ "SPLh" ] = "Ce sont vos Feuille de Printemps";
+-- Midsummer Tokens control
+L[ "MMST" ] = "Jeton du solstice d'\195\169t\195\169";
+L[ "MSTh" ] = "Ce sont vos Jetons du solstice d'été";
 
 -- Control Menu
 L[ "MCU" ] = "D\195\169charger ...";

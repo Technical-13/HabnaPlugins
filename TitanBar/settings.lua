@@ -905,6 +905,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.SPLLocY = tonumber(settings.SpringLeaf.Y);
 	_G.SPLWhere = tonumber(settings.SpringLeaf.W);
 	if _G.SPLWhere == 3 and ShowSpringLeaf then _G.SPLWhere = 1; settings.SpringLeaf.W = string.format("%.0f", _G.SPLWhere); end
+	
+	if settings.MidsummerToken == nil then settings.MidsummerToken= {}; end
+	if settings.MidsummerToken.V == nil then settings.MidsummerToken.V = false; end
+	if settings.MidsummerToken.A == nil then settings.MidsummerToken.A = string.format("%.3f", tA); end
+	if settings.MidsummerToken.R == nil then settings.MidsummerToken.R = string.format("%.3f", tR); end
+	if settings.MidsummerToken.G == nil then settings.MidsummerToken.G = string.format("%.3f", tG); end
+	if settings.MidsummerToken.B == nil then settings.MidsummerToken.B = string.format("%.3f", tB); end
+	if settings.MidsummerToken.X == nil then settings.MidsummerToken.X = string.format("%.0f", tX); end
+	if settings.MidsummerToken.Y == nil then settings.MidsummerToken.Y = string.format("%.0f", tY); end
+	if settings.MidsummerToken.W == nil then settings.MidsummerToken.W = string.format("%.0f", tW); end
+	ShowMidsummerToken = settings.MidsummerToken.V;
+	MSTbcAlpha = tonumber(settings.MidsummerToken.A);
+	MSTbcRed = tonumber(settings.MidsummerToken.R);
+	MSTbcGreen = tonumber(settings.MidsummerToken.G);
+	MSTbcBlue = tonumber(settings.MidsummerToken.B);
+	_G.MSTLocX = tonumber(settings.MidsummerToken.X);
+	_G.MSTLocY = tonumber(settings.MidsummerToken.Y);
+	_G.MSTWhere = tonumber(settings.MidsummerToken.W);
+	if _G.MSTWhere == 3 and ShowMidsummerToken then _G.MSTWhere = 1; settings.MidsummerToken.W = string.format("%.0f", _G.MSTWhere); end
 
 	SaveSettings( false );
 	
@@ -1353,6 +1372,16 @@ function SaveSettings(str)
 		settings.SpringLeaf.X = string.format("%.0f", _G.SPLLocX);
 		settings.SpringLeaf.Y = string.format("%.0f", _G.SPLLocY);
 		settings.SpringLeaf.W = string.format("%.0f", _G.SPLWhere);
+		
+		settings.MidsummerToken = {};
+		settings.MidsummerToken.V = ShowMidsummerToken;
+		settings.MidsummerToken.A = string.format("%.3f", MSTbcAlpha);
+		settings.MidsummerToken.R = string.format("%.3f", MSTbcRed);
+		settings.MidsummerToken.G = string.format("%.3f", MSTbcGreen);
+		settings.MidsummerToken.B = string.format("%.3f", MSTbcBlue);
+		settings.MidsummerToken.X = string.format("%.0f", _G.MSTLocX);
+		settings.MidsummerToken.Y = string.format("%.0f", _G.MSTLocY);
+		settings.MidsummerToken.W = string.format("%.0f", _G.MSTWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1407,6 +1436,7 @@ function ResetSettings()
 	ShowFallFestivalToken, FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue, _G.FFTLocX, _G.FFTLocY, _G.FFTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Fall Festival Tokens Control	
 	ShowFarmersFaireToken, FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue, _G.FFATLocX, _G.FFATLocY, _G.FFATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Farmers Festival Token Control
 	ShowSpringLeaf, SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue, _G.SPLLocX, _G.SPLLocY, _G.SPLWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Spring Leaf Control	
+	ShowMidsummerToken, MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue, _G.MSTLocX, _G.MSTLocY, _G.MSTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for  Midsummer Token Control	
 	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1604,6 +1634,11 @@ function ReplaceCtr()
 	_G.SPLLocX = oldLocX * screenWidth;
 	settings.SpringLeaf.X = string.format("%.0f", _G.SPLLocX);
 	if ShowSpringLeaf and _G.SPLWhere == 1 then SPL[ "Ctr" ]:SetPosition( _G.SPLLocX, _G.SPLLocY ); end
+	
+	oldLocX = settings.MidsummerToken.X / oldScreenWidth;
+	_G.MSTLocX = oldLocX * screenWidth;
+	settings.MidsummerToken.X = string.format("%.0f", _G.MSTLocX);
+	if ShowMidsummerToken and _G.MSTWhere == 1 then MST[ "Ctr" ]:SetPosition( _G.MSTLocX, _G.MSTLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

@@ -111,6 +111,9 @@ L[ "FFATh" ] = "Eure Bauernfest-M\195\188nzen";
 -- Spring Leaves control
 L[ "MSPL" ] = "Fr\195\188hlingsblatt";
 L[ "FSPLh" ] = "Eure Fr\195\188hlingsbl\195\164tter";
+-- Midsummer Tokens control
+L[ "MMST" ] = "Mittsommer-Marke";
+L[ "MSTh" ] = "Eure Mittsommer-Marken";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";

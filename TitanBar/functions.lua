@@ -333,7 +333,12 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["SPLh"], L["EIt2"], L["EIt3"] );	
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["SPLh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "MST" then -- Midsummer Tokens
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["MSTh"], L["EIt2"], L["EIt3"] );	
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -638,6 +643,15 @@ function UpdateSpringLeaf()
 		SPL[ "Lbl" ]:SetText( GetCurrency( L[ "MSPL" ] ) );
 		SPL[ "Lbl" ]:SetSize( SPL[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "SPL" );
+	end
+end
+--**^
+--**v Update Midsummer Token currency on TitanBar v**
+function UpdateMidsummerToken()
+	if _G.MSTWhere == 1 then
+		MST[ "Lbl" ]:SetText( GetCurrency( L[ "MMST" ] ) );
+		SMST[ "Lbl" ]:SetSize( MST[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "MST" );
 	end
 end
 --**^
@@ -989,6 +1003,7 @@ function ChangeColor(tColor)
 		if ShowFallFestivalToken then FFT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowMidsummerToken then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -1028,6 +1043,7 @@ function ChangeColor(tColor)
 		if sFrom == "FFT" then FFT[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "FFAT" then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "SPL" then SPL[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "MST" then MST[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1301,7 +1317,13 @@ function AjustIcon(str)
 		SPL[ "Icon" ]:SetPosition(SPL[ "Lbl" ]:GetLeft()+SPL[ "Lbl" ]:GetWidth()+3,Y);
 		SPL[ "Ctr" ]:SetSize( SPL[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		SPL[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		SPL[ "Icon" ]:SetStretchMode( 3 );		
+		SPL[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "MST" then
+		MST[ "Icon" ]:SetStretchMode( 1 );
+		MST[ "Icon" ]:SetPosition(MST[ "Lbl" ]:GetLeft()+MST[ "Lbl" ]:GetWidth()+3,Y);
+		MST[ "Ctr" ]:SetSize( MST[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		MST[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		MST[ "Icon" ]:SetStretchMode( 3 );	
 	end
 end
 

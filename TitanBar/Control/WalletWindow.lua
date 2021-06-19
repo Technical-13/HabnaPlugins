@@ -270,7 +270,11 @@ function frmWalletWindow()
 		elseif wcur == L["MSPL"] then
 			_G.SPLWhere = SelIndex; settings.SpringLeaf.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowSpringLeaf then ShowSpringLeaf(); end
-			else if ShowSpringLeaf then ShowHideSpringLeaf(); end end		
+			else if ShowSpringLeaf then ShowHideSpringLeaf(); end end
+		elseif wcur == L["MMST"] then
+			_G.MSTWhere = SelIndex; settings.MidsummerToken.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowMidsummerToken then ShowMidsummerToken(); end
+			else if ShowMidsummerToken then ShowHideMidsummerToken(); end end	
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -353,6 +357,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MFFT"] then tw = _G.FFTWhere; -- Fall Festival Token
 				elseif wcur == L["MFFAT"] then tw = _G.FFATWhere; -- Farmers Faire Token
 				elseif wcur == L["MSPL"] then tw = _G.SPLWhere; -- Spring Leaf
+				elseif wcur == L["MMST"] then tw = _G.MSTWhere; -- Midsummer Token
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end
 

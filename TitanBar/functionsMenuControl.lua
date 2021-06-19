@@ -44,6 +44,7 @@ function UnloadControl( value )
 		if ShowFallFestivalToken then _G.FFTWhere = 3; ShowHideFallFestivalToken(); end
 		if ShowFarmersFaireToken then _G.FFATWhere = 3; ShowHideFarmersFaireToken(); end
 		if ShowSpringLeaf then _G.SPLWhere = 3; ShowHideSpringLeaf(); end
+		if ShowMidsummerToken then _G.MSTWhere = 3; ShowHideMidsummerToken(); end
 		elseif value == "this" then
 			if _G.sFromCtr == "WI" then ShowHideWallet();
 			elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
@@ -82,6 +83,7 @@ function UnloadControl( value )
 			elseif _G.sFromCtr == "FFT" then _G.FFTWhere = 3; ShowHideFallFestivalToken();
 			elseif _G.sFromCtr == "FFAT" then _G.FFATWhere = 3; ShowHideFarmersFaireToken();
 			elseif _G.sFromCtr == "SPL" then _G.SPLWhere = 3; ShowHideSpringLeaf();
+			elseif _G.sFromCtr == "MST" then _G.MSTWhere = 3; ShowHideMidsummerToken();
 			end
 		end
 
@@ -134,6 +136,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "FFT" then tA, tR, tG, tB = FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue;
 		elseif _G.sFromCtr == "FFAT" then tA, tR, tG, tB = FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue;
 		elseif _G.sFromCtr == "SPL" then tA, tR, tG, tB = SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue;
+		elseif _G.sFromCtr == "MST" then tA, tR, tG, tB = MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue;
 		end
 	end
 	
@@ -212,6 +215,8 @@ function BGColor( cmd, value )
 		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue = tA, tR, tG, tB;
 		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue = tA, tR, tG, tB;
+		if ShowMidsummerToken then MST[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
@@ -326,7 +331,10 @@ function BGColor( cmd, value )
 			FFAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "SPL" then
 			SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue = tA, tR, tG, tB;
-			SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	
+			SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "MST" then
+			MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue = tA, tR, tG, tB;
+			MST[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );			
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;

@@ -5,6 +5,9 @@ You do not need the original files.
 Need translations (mostly French)! 
 If you notice an error, please send me a pm or post it on the boards.
 =================================================
+v1.35.20 (June 17, 2021)
+- Added "Midsummer Tokens"
+=================================================
 v1.35.19 (June 15, 2021)
 - Corrected an error in the reputation display (Woodcutter's Brotherhood was missing)
 =================================================

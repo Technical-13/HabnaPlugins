@@ -400,6 +400,12 @@ function ImportCtr( value )
             SPL[ "Ctr" ]:SetPosition( _G.SPLLocX, _G.SPLLocY );
         end
         if _G.SPLWhere ~= 3 then UpdateSpringLeaf(); end	
+	elseif value == "MST" then --Midsummer Tokens
+        if _G.MSTWhere == 1 then
+            import (AppCtrD.."MidsummerToken");
+            MST[ "Ctr" ]:SetPosition( _G.MSTLocX, _G.MSTLocY );
+        end
+        if _G.MSTWhere ~= 3 then UpdateMidsummerToken(); end	
 	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -1119,6 +1125,7 @@ function UpdateCurrency( str )
 	if str == L[ "MFFT" ] and ShowFallFestivalToken then UpdateFallFestivalToken(); end
 	if str == L[ "MFFAT" ] and ShowFarmersFaireToken then UpdateFarmersFaireToken(); end
 	if str == L[ "MSPL" ] and ShowSpringLeaf then UpdateSpringLeaf(); end
+	if str == L[ "MMST" ] and ShowMidsummerToken then UpdateMidsummerToken(); end
 end
 
 function GetCurrency( str )
