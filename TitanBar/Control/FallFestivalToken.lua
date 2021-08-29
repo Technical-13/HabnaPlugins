@@ -1,10 +1,10 @@
--- Fall Festival Tokens.lua
+-- Fall Festival Token.lua
 -- Written by Duriel
 
 
-_G.FFT = {}; -- Fall Festival Tokens table in _G
+_G.FFT = {}; -- Fall Festival Token table in _G
 
---**v Control of Fall Festival Tokens v**
+--**v Control of Fall Festival Token v**
 FFT["Ctr"] = Turbine.UI.Control();
 FFT["Ctr"]:SetParent( TB["win"] );
 FFT["Ctr"]:SetMouseVisible( false );
@@ -12,12 +12,12 @@ FFT["Ctr"]:SetZOrder( 2 );
 FFT["Ctr"]:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 FFT["Ctr"]:SetBackColor( Turbine.UI.Color( FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue ) );
 --**^
---**v Fall Festival Tokens & icon on TitanBar v**
+--**v Fall Festival Token & icon on TitanBar v**
 FFT["Icon"] = Turbine.UI.Control();
 FFT["Icon"]:SetParent( FFT["Ctr"] );
 FFT["Icon"]:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 FFT["Icon"]:SetSize( 32, 32 );
-FFT["Icon"]:SetBackground( WalletItem.FallFestivalTokens.Icon );-- in-game icon 32x32
+FFT["Icon"]:SetBackground( WalletItem.FallFestivalToken.Icon );-- in-game icon 32x32
 --**^
 
 FFT["Icon"].MouseMove = function( sender, args )
@@ -90,9 +90,9 @@ FFT["Lbl"].MouseUp = function( sender, args )
 	FFT["Ctr"]:SetZOrder( 2 );
 	dragging = false;
 	_G.FFTLocX = FFT["Ctr"]:GetLeft();
-	settings.FallFestivalTokens.X = string.format("%.0f", _G.FFTLocX);
+	settings.FallFestivalToken.X = string.format("%.0f", _G.FFTLocX);
 	_G.FFTLocY = FFT["Ctr"]:GetTop();
-	settings.FallFestivalTokens.Y = string.format("%.0f", _G.FFTLocY);
+	settings.FallFestivalToken.Y = string.format("%.0f", _G.FFTLocY);
 	SaveSettings( false );
 end
 --**^

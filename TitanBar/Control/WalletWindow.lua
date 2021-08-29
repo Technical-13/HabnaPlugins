@@ -11,7 +11,7 @@ function frmWalletWindow()
 	-- **v Set some window stuff v**
 	_G.wWI = Turbine.UI.Lotro.Window();
 	if GLocale == "de" then w = 300; else w = 280; end
-	_G.wWI:SetSize( w, 500 ); --280x260
+	_G.wWI:SetSize( w, 640 ); --280x260
     _G.wWI:SetPosition( WIWLeft, WIWTop );
 	_G.wWI:SetText( L["MBag"] );
 	_G.wWI:SetVisible( true );
@@ -61,11 +61,44 @@ function frmWalletWindow()
 	WIlbltext:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
 	WIlbltext:SetForeColor( Color["green"] );
 
+   local WIFilterlbl = Turbine.UI.Label();
+    WIFilterlbl:SetParent(_G.wWI);
+    WIFilterlbl:SetSize(60,20);
+    WIFilterlbl:SetPosition(20,75);
+    WIFilterlbl:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
+    WIFilterlbl:SetText("Search:");
+    local WIFiltertxt = Turbine.UI.Lotro.TextBox();
+    WIFiltertxt:SetParent(_G.wWI);
+    WIFiltertxt:SetFont(Turbine.UI.Lotro.Font.Verdana16);
+    WIFiltertxt:SetMultiline(false);
+    WIFiltertxt:SetPosition(80,75);
+    WIFiltertxt:SetSize(_G.wWI:GetWidth() - 120, 20);
+    WIFiltertxt.Text = "";
+    WIFiltertxt.TextChanged = function()
+        if WIFiltertxt.Text ~= WIFiltertxt:GetText() then
+            WIFiltertxt.Text = WIFiltertxt:GetText();
+            WIFilter(WIFiltertxt.Text);
+        end
+    end
+
+   function WIFilter()
+        filterText = string.lower(WIFiltertxt.Text);
+        for i=1,WIListBox:GetItemCount() do
+            local row = WIListBox:GetItem(i);
+            if string.find(string.lower(row.curLbl:GetText()),filterText) == nil then
+                row:SetHeight(0);
+            else
+                row:SetHeight(20);
+            end
+        end
+    end
+
 	-- **v Set the Wallet listbox v**
 	WIListBox = Turbine.UI.ListBox();
 	WIListBox:SetParent( _G.wWI );
 	WIListBox:SetZOrder( 1 );
-	WIListBox:SetPosition( 20, WIlbltext:GetTop()+WIlbltext:GetHeight()+5 );
+	WIListBox:SetPosition( 20, 115 );
+	--WIListBox:SetPosition( 20, WIlbltext:GetTop()+WIlbltext:GetHeight()+5 );
 	WIListBox:SetSize( _G.wWI:GetWidth()-40, _G.wWI:GetHeight()-95 );
 	WIListBox:SetMaxItemsPerLine( 1 );
 	WIListBox:SetOrientation( Turbine.UI.Orientation.Horizontal );
@@ -261,19 +294,19 @@ function frmWalletWindow()
 			else if ShowFigmentsOfSplendour then ShowHideFigmentsOfSplendour(); end end
 		elseif wcur == L["MFFT"] then
 			_G.FFTWhere = SelIndex; settings.FallFestivalToken.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowFallFestivalToken then ShowFallFestivalToken(); end
+			if SelIndex == 1 then if not ShowFallFestivalToken then ShowHideFallFestivalToken(); end
 			else if ShowFallFestivalToken then ShowHideFallFestivalToken(); end end
 		elseif wcur == L["MFFAT"] then
 			_G.FFATWhere = SelIndex; settings.FarmersFaireToken.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowFarmersFaireToken then ShowFarmersFaireToken(); end
+			if SelIndex == 1 then if not ShowFarmersFaireToken then ShowHideFarmersFaireToken(); end
 			else if ShowFarmersFaireToken then ShowHideFarmersFaireToken(); end end	
 		elseif wcur == L["MSPL"] then
 			_G.SPLWhere = SelIndex; settings.SpringLeaf.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowSpringLeaf then ShowSpringLeaf(); end
+			if SelIndex == 1 then if not ShowSpringLeaf then ShowHideSpringLeaf(); end
 			else if ShowSpringLeaf then ShowHideSpringLeaf(); end end
 		elseif wcur == L["MMST"] then
 			_G.MSTWhere = SelIndex; settings.MidsummerToken.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowMidsummerToken then ShowMidsummerToken(); end
+			if SelIndex == 1 then if not ShowMidsummerToken then ShowHideMidsummerToken(); end
 			else if ShowMidsummerToken then ShowHideMidsummerToken(); end end	
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
@@ -307,14 +340,15 @@ function RefreshWIListBox()
 	
 	for i = 1, #MenuItem do		
 		--**v Control of all data v**
-		local RPCtr = Turbine.UI.Control();
-		RPCtr:SetParent( WIListBox );
-		RPCtr:SetSize( WIListBox:GetWidth(), 20 );
+		local WICtr = Turbine.UI.Control();
+		WICtr:SetParent( WIListBox );
+		WICtr:SetSize( WIListBox:GetWidth(), 20 );
 		--**^
 		
 		-- Wallet currency name
 		local curLbl = Turbine.UI.Label();
-		curLbl:SetParent( RPCtr );
+		WICtr.curLbl = curLbl;
+		curLbl:SetParent( WICtr );
 		curLbl:SetText( MenuItem[WalletOrder[i]] );
 		curLbl:SetSize( WIListBox:GetWidth(), 20 );
 		curLbl:SetPosition( 0, 0 );
@@ -367,6 +401,7 @@ function RefreshWIListBox()
 			end
 		end
 
-		WIListBox:AddItem( RPCtr );
+		WIListBox:AddItem( WICtr );
 	end
+	WIFilter();
 end

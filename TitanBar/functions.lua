@@ -650,7 +650,7 @@ end
 function UpdateMidsummerToken()
 	if _G.MSTWhere == 1 then
 		MST[ "Lbl" ]:SetText( GetCurrency( L[ "MMST" ] ) );
-		SMST[ "Lbl" ]:SetSize( MST[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		MST[ "Lbl" ]:SetSize( MST[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "MST" );
 	end
 end
@@ -1003,7 +1003,7 @@ function ChangeColor(tColor)
 		if ShowFallFestivalToken then FFT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( tColor ); end
-		if ShowMidsummerToken then SPL[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowMidsummerToken then MST[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end

@@ -97,7 +97,7 @@ if PlayerAlign == 1 then
 	-- Item Advancement
 	L["MSP"],
 	-- Other   
-    L["MHT"], L["MASP"], L["MCGSP"], L["MGGB"], L["MBB"],
+    L["MASP"], L["MBB"], L["MCGSP"], L["MGGB"], L["MHT"],
 	};
 else MenuItem = { L["MCP"], L["MLP"] }; end
 
