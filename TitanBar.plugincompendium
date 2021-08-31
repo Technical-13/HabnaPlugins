@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PluginConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>967</Id>
+  <Id>1140</Id>
   <Name>TitanBar</Name>
-  <Version>v1.34.01</Version>
-  <Author>Technical_13</Author>
-  <InfoUrl>http://www.lotrointerface.com/downloads/info967</InfoUrl>
-  <DownloadUrl>http://www.lotrointerface.com/downloads/download967</DownloadUrl>
+  <Version>v1.35.21</Version>
+  <Author>Duriel</Author>
+  <InfoUrl>https://www.lotrointerface.com/downloads/info1140</InfoUrl>
+  <DownloadUrl>https://www.lotrointerface.com/downloads/download1140</DownloadUrl>
   <Descriptors>
     <descriptor>HabnaPlugins\TitanBar.plugin</descriptor>
     <descriptor>HabnaPlugins\TitanBarReloader.plugin</descriptor>

@@ -1,157 +1,97 @@
-This is a replacement for TitanBar v1.29.00 by Thorondor which replaced v1.24 by Habana.
+This is a replacement for TitanBar v1.34.00 by Technical-13 which replaced v1.29.00 by Thorondor which replaced v1.24 by Habana.
 You do not need the original files.
 
-Todo:
-- (requested by Modnar) Real time and/or In-game time alarm
-- (requested by Modnar) User-defined control sizes
 
-Known Issues:
-- The percentages on the PlayerInfo control don't include equipment.
-- Some missing/poor translations. (Mostly French)
-- Controls Thorondor added may not unload from submenu.
-- Some low res icons; searching for replacements.
-
-=================================================
-v1.31.07 (April 03, 2018)
-
-Now with more refactoring!
-
-Fixed:
-- some minor localization errors
-
-=================================================
-v1.31.05 (January 29, 2018) (alpha)
-
-Fixed:
-- some major bugs in refactoring the wallet
-- German reputation tracking
-
-=================================================
-v1.31.01 (January 29, 2018) (alpha)
-
-Changed:
-- Refactoring the wallet
--- Faster Loading!
--- More flexibility to add more currencies!
-
-=================================================
-v1.30.28 (January 25, 2018)
-
-Changed:
-- Faction order now more closely represents the order in which you'll encounter them in the game
--- "Special Event" factions will be near the bottom in chronological order
--- "Reputation Accelerator" will remain at the very bottom of the table
-
-Added:
-- Currencies
--- Bingo Badges
--- Yule Festival Tokens
--- Anniversary Tokens
-
-=================================================
-v1.30.27 (January 16, 2018)
-
-Fixed:
-- Player Info: Improvements lua https://github.com/Technical-13/HabnaPlugins/issues/39
-- Track Items: Improvements https://github.com/Technical-13/HabnaPlugins/issues/41
-
-=================================================
-v1.30.261 (January 12, 2018)
-
-Repacked for LPC: No coding changes.
-
-=================================================
-v1.30.26 (January 11, 2018)
-
-Fixed:
-- Wrong reputations in french lua https://github.com/Technical-13/HabnaPlugins/issues/34
-- Lua error 978 https://github.com/Technical-13/HabnaPlugins/issues/35
-
-=================================================
-v1.30.25 (January 8, 2018)
-
-Fixed:
-- Profiles failed to save on non-English clients
--- saving does not work on non-english client
---- https://github.com/Technical-13/HabnaPlugins/issues/15
--- No saving Profile
---- https://github.com/Technical-13/HabnaPlugins/issues/31
-- Error and new Reputation https://github.com/Technical-13/HabnaPlugins/issues/29
-- Errors on french version https://github.com/Technical-13/HabnaPlugins/issues/32
-
-Added:
-- New reputations for:
--- Conquest of Gorgoroth
--- Enmity of Fushaum Bal sout
--- Enmity of Fushaum Bal north
--- Red Sky Clan
--- Reputation Accelerator! - Thanks Drono/4andreas
-- Currency - Ash of Gorgoroth
--- https://github.com/Technical-13/HabnaPlugins/pull/30
-
-=================================================
-v1.30.2 (November 6, 2017)
-
-Fixed:
-- ComboBox fix https://github.com/Technical-13/HabnaPlugins/pull/20
-- Format/color for French client https://github.com/Technical-13/HabnaPlugins/pull/25
-
-Added:
-- Host of the West reputation https://github.com/Technical-13/HabnaPlugins/pull/24
-
-Refactored:
-- Reputation https://github.com/Technical-13/HabnaPlugins/pull/24
-- Money info https://github.com/Technical-13/HabnaPlugins/pull/24
-- Player stats with Mordor https://github.com/Technical-13/HabnaPlugins/pull/24
-
-
-
-=================================================
-v1.30.11 (Febuary 11, 2017)
-
-Fixed:
-- "Invalid Data Scope": https://github.com/Technical-13/HabnaPlugins/issues/7
-- Item durability more accurate on toolbar load: https://github.com/Technical-13/HabnaPlugins/issues/8
-- DurabilityInfoToolTip color coding feature is wrong.: https://github.com/Technical-13/HabnaPlugins/issues/10
-
-=================================================
-v1.30.08 (Febuary 9, 2017)
-
-New:
-- Reputations will now automatically be hidden from the toolTip when at max
-	- Option to toggle this feature on/off not currently WAI (haven't figured out how to restore previous selection)
-
-=================================================
-v1.30.07 (Febuary 8, 2017)
-
-Bug fixes:
-- Fixed https://github.com/Technical-13/HabnaPlugins/issues/3 via
-  https://github.com/Technical-13/HabnaPlugins/commit/8c46d8b034ff3e69cdf9dad0b3ce6cbc6dd66e61
-- Fixed missing icon to be able to delete profiles (4andreas)
-- Item durability more accurate, despite larger gap; For details, see:
-  https://github.com/Technical-13/HabnaPlugins/issues/6
-- Previous users with their Turbine Points set should now see their LOTRO Points
-
-Known issues:
--  https://github.com/Technical-13/HabnaPlugins/issues
-=================================================
-v1.30.04 (Febuary 7, 2017)
-
-Bug fix:
-- Fixed https://github.com/Technical-13/HabnaPlugins/issues/4 :: "Set back color" bug
-
-=================================================
-v1.30.02 (Febuary 5, 2017)
-
-New:
-- PlayerInfosToolTip now properly goes to level 105 (tappino)
-- U18 reputation factions added. (tappino)
-- "Chicken Chasing League of Eriador" reputation faction added.
-
-Changed:
-- "Turbine Point" to "LOTRO Point" update
-- "Turbine" to "SSG" update where appropriate
-
-	
-Need translations! 
+Need translations (mostly French)! 
 If you notice an error, please send me a pm or post it on the boards.
+=================================================
+v1.35.20 (June 17, 2021)
+- Added "Midsummer Tokens"
+=================================================
+v1.35.19 (June 15, 2021)
+- Corrected an error in the reputation display (Woodcutter's Brotherhood was missing)
+=================================================
+v1.35.18 (June 13, 2021)
+- Corrected zip-file for LOTRO Interface
+=================================================
+v1.35.17 (June 12, 2021)
+- Added reputation factions (The Haban'akkâ of Thráin, Kharum-ubnâr)
+- The values for "The Haban'akkâ of Thráin" and the "Kharum-ubnâr" don't update automatically. No idea why.
+- Corrected the name of the "Woodcutter's Brotherhood"
+- Corrected the reputation levels of "The League of the Axe"
+- Corrected some missing German and French translations
+
+
+=================================================
+v1.35.16 (May 20, 2021)
+- Updated the "readme.md", "changelog.txt" and "credits.txt" files
+- Added "TitanBarMaintenance.txt" (How to update TitanBar)
+- Removed the update instructions from "TitanBar.txt"
+
+=================================================
+v1.35.15 (May 16, 2021)
+- Corrected ID for Plugin Compendium
+
+=================================================
+v1.35.14 (May 16, 2021)
+- Added German and French localization
+
+=================================================
+v1.35.13 (May 13, 2021)
+- Added "Spring Leaves"
+
+=================================================
+v1.35.12 (May 12, 2021)
+- Added reputation levels for "The Gabil'akkâ"
+- Converted files to ANSI
+
+=================================================
+v1.35.11 (May 02, 2021)
+- Added "Farmers Faire Tokens"
+
+=================================================
+v1.35.10 (May 02, 2021)
+- Added "Fall Festival Tokens"
+
+=================================================
+v1.35.09 (May 02, 2021)
+- Rearranged wallet
+
+=================================================
+v1.35.08 (May 02, 2021)
+- Added "Figments of Splendour"
+
+=================================================
+v1.35.07 (May 02, 2021)
+- Added "Woodcutter's Brotherhood"
+- Added "The League of the Axe"
+
+=================================================
+v1.35.06 (May 02, 2021)
+- Changed width of currency tooltip window
+
+=================================================
+v1.35.05 (April 21, 2021)
+- Added "March on Gundabad"
+- Added "The Gavul'akkâ"
+
+=================================================
+v1.35.04 (April 17, 2021)
+- Added "Protectors of Wilderland"
+
+=================================================
+v1.35.03 (April 17, 2021)
+- Added "Embers of Enchantment"
+
+=================================================
+v1.35.02 (April 11, 2021)
+- Removed "Ash of Enchantment"
+
+=================================================
+v1.35.01 (April 11, 2021)
+- Added "How to add a new currency"
+- Corrected XP needed for each player level (level 120 to 130)
+
+=================================================
+v1.35.00 (April 11, 2021)
+- Added "Motes of Enchantment"

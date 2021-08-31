@@ -65,7 +65,7 @@ L[ "BBh" ] = "These are your Bingo Badges";
 L[ "MSM" ] = "Mark";
 L[ "SMh" ] = "These are your skirmish marks";
 -- Destiny Points control
-L[ "MDP" ] = "Destiny points";
+L[ "MDP" ] = "Destiny point";
 L[ "DPh" ] = "These are your destiny points";
 -- Shards control
 L[ "MSP" ] = "Shard";
@@ -94,9 +94,27 @@ L[ "CGSPh" ] = "These are your Central Gondor Silver Pieces";
 -- Gift giver's Brand control
 L[ "MGGB" ] = "Gift-giver's Brand";
 L[ "GGBh" ] = "These are your Gift-giver's Brands";
--- Ash of Enchantment control
-L[ "MAOE" ] = "Ash of Enchantment";
-L[ "AOEh" ] = "These are your Ash of Enchantment";
+-- Motes of Enchantment control
+L[ "MMOE" ] = "Motes of Enchantment";
+L[ "MOEh" ] = "These are your Motes of Enchantment";
+-- Embers of Enchantment control
+L[ "MEOE" ] = "Embers of Enchantment";
+L[ "EOEh" ] = "These are your Embers of Enchantment";
+-- Figments of Splendour control
+L[ "MFOS" ] = "Figments of Splendour";
+L[ "FOSh" ] = "These are your Figments of Splendour";
+-- Fall Festival Tokens control
+L[ "MFFT" ] = "Fall Festival Token";
+L[ "FFTh" ] = "These are your Fall Festival Tokens";
+-- Farmers Faire Tokens control
+L[ "MFFAT" ] = "Farmers Faire Token";
+L[ "FFATh" ] = "These are your Farmers Faire Tokens";
+-- Spring Leaves control
+L[ "MSPL" ] = "Spring Leaf";
+L[ "SPLh" ] = "These are your Spring Leaves";
+-- Midsummer Tokens control
+L[ "MMST" ] = "Midsummer Token";
+L[ "MSTh" ] = "These are your Midsummer Tokens";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";
@@ -254,6 +272,13 @@ L[ "RPWF" ]    = "Wilderfolk";
 L[ "RPTGA" ]   = "The Great Alliance";
 L[ "RPTWC" ]   = "The White Company";
 L[ "RPRMI" ]   = "Reclamation of Minas Ithil";
+L[ "RPPOW" ]   = "Protectors of Wilderland";
+L[ "RPMOG" ]   = "March on Gundabad";
+L[ "RPGA" ]    = "The Gabil\39akk\195\162";
+L[ "RPWB"]	   = "Woodcutter's Brotherhood";
+L[ "RPLOTA"]   = "The League of the Axe";
+L[ "RPHOT" ]   = "The Haban\226\128\153akk\195\162 of Thr\195\161in"; 
+L[ "RPKU" ]    = "Kharum-ubn\195\162r";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings
@@ -293,6 +318,13 @@ L[ "RPMI7" ]  = "The Trial of Madness";
 L[ "RPMI8" ]  = "The Reclamation Continues IV";
 L[ "RPMI9" ]  = "The Trial of Despair";
 L[ "RPMI10" ] = "The Trial of Death";
+L[ "RPGA1" ] = "Idmul";
+L[ "RPGA2" ] = "Dumul";
+L[ "RPGA3" ] = "Izkhas";
+L[ "RPGA4" ] = "Uzkhas";
+L[ "RPGA5" ] = "Fabar\195\162l";
+L[ "RPGA6" ] = "Azghzabad";
+
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renown"; L[ "IFIF" ] = "Total renown:";
@@ -496,6 +528,7 @@ L[ "Dwarf" ] = "Dwarf";
 L[ "Hobbit" ] = "Hobbit";
 L[ "Beorning" ] = "Beorning";
 L[ "HighElf" ] = "High Elf";
+L[ "StoutAxe" ] = "Stout-axe";
 
 -- Free People Class
 L[ "Burglar" ] = "Burglar";

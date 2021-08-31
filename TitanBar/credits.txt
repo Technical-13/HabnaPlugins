@@ -36,7 +36,11 @@ Credits for v1.25.00 - v1.29.00:
 	Bornfight - For DE and FR translations (v1.25.00)
 	Hyoss - For the XP table lvl 96 to 100
 
-Credits for v1.30 on:
+Credits for v1.30 - v1.34:
 	Technical_13 - Maintainer
 	4andreas (Drono) - Developer/contributor
 	Tappino - U18 reputation factions and XP table lvl 101 to 105
+
+Credits for v1.35:
+		Duriel - Maintainer
+		Nadia - German translation

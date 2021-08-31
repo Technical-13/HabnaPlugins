@@ -55,10 +55,16 @@ _G.WalletItem = {
 	StarsofMerit = { Icon = 0x4115bea4 },
 	CentralGondorSilverPiece = { Icon = 0x41155957 },
 	GiftgiversBrand = { Icon = 0x4115c888 },
-	AshOfEnchantment = { Icon = 0x411B91DD },
 	BingoBadge = { Icon = 0x410E6EE4 },
 	AnniversaryToken = { Icon = 0x4110E2E7 },
-	LOTROPTS = { Icon = 0x4113478C }
+	LOTROPTS = { Icon = 0x4113478C },
+	MotesOfEnchantment = { Icon = 0x411B91DD },
+	EmbersOfEnchantment = { Icon = 0x411CE971 },
+	FigmentsOfSplendour = { Icon = 0x411CF13B },
+	FallFestivalToken = { Icon = 0x410D85DE },
+	FarmersFaireToken = { Icon = 0x410E7BD6 },
+	SpringLeaf = { Icon = 0x410D74CB },
+	MidsummerToken = { Icon = 0x411EE829 }
 };
 
 _G.DurabilitySlotsBG = { 0x41007eed, 0x41007ef6, 0x41007ef7, 0x41007eef, 0x41007eee, 0x41007ee9, 0x41007ef0, 0x41007ef9, 0x41007ef8,

@@ -36,9 +36,15 @@ function UnloadControl( value )
 		if ShowStarsofMerit then _G.SOMWhere = 3; ShowHideStarsofMerit(); end
 		if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
 		if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
-		if ShowAshOfEnchantment then _G.AOEWhere = 3; ShowHideAshOfEnchantment(); end
 		if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
 		if ShowAnniversaryToken then _G.LATWhere = 3; ShowHideAnniversaryToken(); end
+		if ShowMotesOfEnchantment then _G.MOEWhere = 3; ShowHideMotesOfEnchantment(); end
+		if ShowEmbersOfEnchantment then _G.EOEWhere = 3; ShowHideEmbersOfEnchantment(); end
+		if ShowFigmentsOfSplendour then _G.FOSWhere = 3; ShowHideFigmentsOfSplendour(); end
+		if ShowFallFestivalToken then _G.FFTWhere = 3; ShowHideFallFestivalToken(); end
+		if ShowFarmersFaireToken then _G.FFATWhere = 3; ShowHideFarmersFaireToken(); end
+		if ShowSpringLeaf then _G.SPLWhere = 3; ShowHideSpringLeaf(); end
+		if ShowMidsummerToken then _G.MSTWhere = 3; ShowHideMidsummerToken(); end
 		elseif value == "this" then
 			if _G.sFromCtr == "WI" then ShowHideWallet();
 			elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
@@ -69,9 +75,15 @@ function UnloadControl( value )
 			elseif _G.sFromCtr == "SOM" then _G.SOMWhere = 3; ShowHideStarsofMerit();
 			elseif _G.sFromCtr == "CGSP" then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece();
 			elseif _G.sFromCtr == "GGB" then _G.GGBWhere = 3; ShowHideGiftgiversBrand();
-			elseif _G.sFromCtr == "AOE" then _G.AOEWhere = 3; ShowHideAshOfEnchantment();
 			elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
 			elseif _G.sFromCtr == "LAT" then _G.LATWhere = 3; ShowHideAnniversaryToken();
+			elseif _G.sFromCtr == "MOE" then _G.MOEWhere = 3; ShowHideMotesOfEnchantment();
+			elseif _G.sFromCtr == "EOE" then _G.EOEWhere = 3; ShowHideEmbersOfEnchantment();
+			elseif _G.sFromCtr == "FOS" then _G.FOSWhere = 3; ShowHideFigmentsOfSplendour();
+			elseif _G.sFromCtr == "FFT" then _G.FFTWhere = 3; ShowHideFallFestivalToken();
+			elseif _G.sFromCtr == "FFAT" then _G.FFATWhere = 3; ShowHideFarmersFaireToken();
+			elseif _G.sFromCtr == "SPL" then _G.SPLWhere = 3; ShowHideSpringLeaf();
+			elseif _G.sFromCtr == "MST" then _G.MSTWhere = 3; ShowHideMidsummerToken();
 			end
 		end
 
@@ -116,9 +128,15 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "SOM" then tA, tR, tG, tB = SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue;
 		elseif _G.sFromCtr == "CGSP" then tA, tR, tG, tB = CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue;
 		elseif _G.sFromCtr == "GGB" then tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
-		elseif _G.sFromCtr == "AOE" then tA, tR, tG, tB = AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue;
 		elseif _G.sFromCtr == "BB" then tA, tR, tG, tB = BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue;
 		elseif _G.sFromCtr == "LAT" then tA, tR, tG, tB = LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue;
+		elseif _G.sFromCtr == "MOE" then tA, tR, tG, tB = MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue;
+		elseif _G.sFromCtr == "EOE" then tA, tR, tG, tB = EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue;
+		elseif _G.sFromCtr == "FOS" then tA, tR, tG, tB = FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue;
+		elseif _G.sFromCtr == "FFT" then tA, tR, tG, tB = FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue;
+		elseif _G.sFromCtr == "FFAT" then tA, tR, tG, tB = FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue;
+		elseif _G.sFromCtr == "SPL" then tA, tR, tG, tB = SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue;
+		elseif _G.sFromCtr == "MST" then tA, tR, tG, tB = MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue;
 		end
 	end
 	
@@ -181,12 +199,24 @@ function BGColor( cmd, value )
 		if ShowCentralGondorSilverPiece then CGSP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
 		if ShowGiftgiversBrand then GGB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
-		AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue = tA, tR, tG, tB;
-		if ShowAshOfEnchantment then AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
 		if ShowAnniversaryToken then LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue = tA, tR, tG, tB;
+		if ShowMotesOfEnchantment then MOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue = tA, tR, tG, tB;
+		if ShowEmbersOfEnchantment then EOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue = tA, tR, tG, tB;
+		if ShowFigmentsOfSplendour then FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue = tA, tR, tG, tB;
+		if ShowFallFestivalToken then FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue = tA, tR, tG, tB;
+		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue = tA, tR, tG, tB;
+		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue = tA, tR, tG, tB;
+		if ShowMidsummerToken then MST[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
@@ -278,15 +308,33 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "GGB" then
 			GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
 			GGB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
-		elseif _G.sFromCtr == "AOE" then
-			AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue = tA, tR, tG, tB;
-			AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "BB" then
 			BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
 			BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "LAT" then
 			LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
 			LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "MOE" then
+			MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue = tA, tR, tG, tB;
+			MOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	
+		elseif _G.sFromCtr == "EOE" then
+			EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue = tA, tR, tG, tB;
+			EOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "FOS" then
+			FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue = tA, tR, tG, tB;
+			FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "FFT" then
+			FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue = tA, tR, tG, tB;
+			FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "FFAT" then
+			FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue = tA, tR, tG, tB;
+			FFAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "SPL" then
+			SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue = tA, tR, tG, tB;
+			SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "MST" then
+			MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue = tA, tR, tG, tB;
+			MST[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );			
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;

@@ -352,12 +352,6 @@ function ImportCtr( value )
             GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY );
         end
         if _G.GGBWhere ~= 3 then UpdateGiftgiversBrand(); end
-    elseif value == "AOE" then --Ash of Gorgoroth
-        if _G.AOEWhere == 1 then
-            import (AppCtrD.."AshOfEnchantment");
-            AOE[ "Ctr" ]:SetPosition( _G.AOELocX, _G.AOELocY );
-        end
-        if _G.AOEWhere ~= 3 then UpdateAshOfEnchantment(); end
     elseif value == "BB" then --Bingo Badge
         if _G.BBWhere == 1 then
             import (AppCtrD.."BingoBadge");
@@ -370,7 +364,49 @@ function ImportCtr( value )
             LAT[ "Ctr" ]:SetPosition( _G.LATLocX, _G.LATLocY );
         end
         if _G.LATWhere ~= 3 then UpdateAnniversaryToken(); end
-    elseif value == "RP" then --Reputation Points
+	elseif value == "MOE" then --Motes of Enchantment
+        if _G.MOEWhere == 1 then
+            import (AppCtrD.."MotesOfEnchantment");
+            MOE[ "Ctr" ]:SetPosition( _G.MOELocX, _G.MOELocY );
+        end
+        if _G.MOEWhere ~= 3 then UpdateMotesOfEnchantment(); end	
+	elseif value == "EOE" then --Embers of Enchantment
+        if _G.EOEWhere == 1 then
+            import (AppCtrD.."EmbersOfEnchantment");
+            EOE[ "Ctr" ]:SetPosition( _G.EOELocX, _G.EOELocY );
+        end
+        if _G.EOEWhere ~= 3 then UpdateEmbersOfEnchantment(); end
+	elseif value == "FOS" then --Figments of Splendour
+        if _G.FOSWhere == 1 then
+            import (AppCtrD.."FigmentsOfSplendour");
+            FOS[ "Ctr" ]:SetPosition( _G.FOSLocX, _G.FOSLocY );
+        end
+        if _G.FOSWhere ~= 3 then UpdateFigmentsOfSplendour(); end
+	elseif value == "FFT" then --Fall Festival Tokens
+        if _G.FFTWhere == 1 then
+            import (AppCtrD.."FallFestivalToken");
+            FFT[ "Ctr" ]:SetPosition( _G.FFTLocX, _G.FFTLocY );
+        end
+        if _G.FFTWhere ~= 3 then UpdateFallFestivalToken(); end
+	elseif value == "FFAT" then --Farmers Faire Tokens
+        if _G.FFATWhere == 1 then
+            import (AppCtrD.."FarmersFaireToken");
+            FFAT[ "Ctr" ]:SetPosition( _G.FFATLocX, _G.FFATLocY );
+        end
+        if _G.FFATWhere ~= 3 then UpdateFarmersFaireToken(); end
+	elseif value == "SPL" then --Spring Leaves
+        if _G.SPLWhere == 1 then
+            import (AppCtrD.."SpringLeaf");
+            SPL[ "Ctr" ]:SetPosition( _G.SPLLocX, _G.SPLLocY );
+        end
+        if _G.SPLWhere ~= 3 then UpdateSpringLeaf(); end	
+	elseif value == "MST" then --Midsummer Tokens
+        if _G.MSTWhere == 1 then
+            import (AppCtrD.."MidsummerToken");
+            MST[ "Ctr" ]:SetPosition( _G.MSTLocX, _G.MSTLocY );
+        end
+        if _G.MSTWhere ~= 3 then UpdateMidsummerToken(); end	
+	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
             [5] = 45000, [6] = 60000, [7] = 90000, [8] = 200000, [9] = 1 },
@@ -379,7 +415,9 @@ function ImportCtr( value )
                         [5] = 20000, [6] = 20000, [7] = 30000, [8] = 1 },
             ['RPRMI'] = { [1] = 4000, [2] = 6000, [3] = 8000, [4] = 10000,
                         [5] = 12000, [6] = 14000, [7] = 16000, [8] = 18000,
-                        [9] = 20000, [10] = 1 }
+                        [9] = 20000, [10] = 1 },
+			['RPGA'] = { [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
+                        [5] = 45000, [6] = 1 }			
             };
             -- Reputation max points per rank
         import (AppCtrD.."Reputation");
@@ -458,7 +496,7 @@ function ImportCtr( value )
                                     max = max - 1
                                 end
                                 RPPROG = "default";
-                                if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" then
+                                if name == "RPTGA" or name == "RPTWC" or name == "RPRMI" or name == "RPGA" then
                                     RPPROG = name;
                                 end
                                 max = RPGR[RPPROG][ max ];
@@ -535,11 +573,11 @@ function GetEquipmentInfos()
             if itemEquip[i].WearState == 0 then
                 itemEquip[i].WearStatePts = 0; -- undefined
             elseif itemEquip[i].WearState == 3 then
-                itemEquip[i].WearStatePts = 0; -- Broken / cassÃ©
+                itemEquip[i].WearStatePts = 0; -- Broken / cassé
             elseif itemEquip[i].WearState == 1 then
-                itemEquip[i].WearStatePts = 20; -- Damaged / endommagÃ©
+                itemEquip[i].WearStatePts = 20; -- Damaged / endommagé
             elseif itemEquip[i].WearState == 4 then
-                itemEquip[i].WearStatePts = 99; -- Worn / usÃ©
+                itemEquip[i].WearStatePts = 99; -- Worn / usé
             elseif itemEquip[i].WearState == 2 then
                 itemEquip[i].WearStatePts = 100;
             end -- Pristine / parfait
@@ -907,7 +945,7 @@ function LoadPlayerReputation()
     RepOrder = {
         -- Normal faction advancement + Forochel and Minas Tirith
         "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA",
-        "RPLF", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
+        "RPLF", "RPWB", "RPLOTA", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
         "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW",
         "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML",
         "RPP", "RPRI", "RPRR", "RPDMT", "RPDA",
@@ -926,14 +964,20 @@ function LoadPlayerReputation()
         "RPWF",
         -- Minas Morgul
         "RPTGA", "RPTWC", "RPRMI",
-        -- Special Event
+        -- Wells of Langflood
+		"RPPOW",
+		-- Elderslade
+		"RPMOG", "RPGA",
+		--Azanulbizar
+		"RPHOT", "RPKU",
+		-- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
         "RPACC",
     };
     RepType = {
         1, 1, 1, 1, 1, 1, 1, 1,
-        2, 1, 1, 1, 1, 1, 1, 1,
+        2, 1, 2, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 3, 1,
@@ -951,7 +995,13 @@ function LoadPlayerReputation()
         1,
         -- Minas Morgul
         12, 3, 13,
-        -- Special Event
+        -- Wells of Langflood
+		1,
+		-- Elderslade
+		1, 14,
+		--Azanulbizar
+		14, 2,
+		-- Special Event
         6, 7, 7,
         -- Accelerator
         10,
@@ -970,6 +1020,7 @@ function LoadPlayerReputation()
         [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6"}, -- why another??? Dwarfs of Erebor
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
         [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
+		[14] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5", "RPGA6"} -- The Gabil'akkâ
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");
@@ -1066,9 +1117,15 @@ function UpdateCurrency( str )
     if str == L[ "MSOM" ] and ShowStarsofMerit then UpdateStarsofMerit(); end
     if str == L[ "MCGSP" ] and ShowCentralGondorSilverPiece then UpdateCentralGondorSilverPiece(); end
     if str == L[ "MGGB" ] and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
-    if str == L[ "MAOE" ] and ShowAshOfEnchantment then UpdateAshOfEnchantment(); end
     if str == L[ "MBB" ] and ShowBingoBadge then UpdateBingoBadge(); end
     if str == L[ "MLAT" ] and ShowAnniversaryToken then UpdateAnniversaryToken(); end
+	if str == L[ "MMOE" ] and ShowMotesOfEnchantment then UpdateMotesOfEnchantment(); end
+	if str == L[ "MEOE" ] and ShowEmbersOfEnchantment then UpdateEmbersOfEnchantment(); end
+	if str == L[ "MFOS" ] and ShowFigmentsOfSplendour then UpdateFigmentsOfSplendour(); end
+	if str == L[ "MFFT" ] and ShowFallFestivalToken then UpdateFallFestivalToken(); end
+	if str == L[ "MFFAT" ] and ShowFarmersFaireToken then UpdateFarmersFaireToken(); end
+	if str == L[ "MSPL" ] and ShowSpringLeaf then UpdateSpringLeaf(); end
+	if str == L[ "MMST" ] and ShowMidsummerToken then UpdateMidsummerToken(); end
 end
 
 function GetCurrency( str )

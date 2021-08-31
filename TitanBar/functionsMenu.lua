@@ -479,17 +479,6 @@ function ShowHideGiftgiversBrand()
 	end
 	GGB[ "Ctr" ]:SetVisible( ShowGiftgiversBrand );
 end
-function ShowHideAshOfEnchantment()
-	ShowAshOfEnchantment = not ShowAshOfEnchantment;
-	settings.AshOfEnchantment.V = ShowAshOfEnchantment;
-	settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere);
-	SaveSettings( false );
-	ImportCtr( "AOE" );
-	if ShowAshOfEnchantment then
-		AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue ) );
-	end
-	AOE[ "Ctr" ]:SetVisible( ShowAshOfEnchantment );
-end
 -- **^
 -- **v Show/Hide Bingo Badges v**
 function ShowHideBingoBadge()
@@ -513,4 +502,86 @@ function ShowHideAnniversaryToken()
 		LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue ) );
 	end
 	LAT[ "Ctr" ]:SetVisible( ShowAnniversaryToken );
+end
+function ShowHideMotesOfEnchantment()
+	ShowMotesOfEnchantment = not ShowMotesOfEnchantment;
+	settings.MotesOfEnchantment.V = ShowMotesOfEnchantment;
+	settings.MotesOfEnchantment.W = string.format( "%.0f", _G.MOEWhere );
+	SaveSettings( false );
+	ImportCtr( "MOE" );
+	if ShowMotesOfEnchantment then
+		MOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue ) );
+	end
+	MOE[ "Ctr" ]:SetVisible( ShowMotesOfEnchantment );
+end
+function ShowHideEmbersOfEnchantment()
+	ShowEmbersOfEnchantment = not ShowEmbersOfEnchantment;
+	settings.EmbersOfEnchantment.V = ShowEmbersOfEnchantment;
+	settings.EmbersOfEnchantment.W = string.format( "%.0f", _G.EOEWhere );
+	SaveSettings( false );
+	ImportCtr( "EOE" );
+	if ShowEmbersOfEnchantment then
+		EOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue ) );
+	end
+	EOE[ "Ctr" ]:SetVisible( ShowEmbersOfEnchantment );
+end
+
+function ShowHideFigmentsOfSplendour()
+	ShowFigmentsOfSplendour = not ShowFigmentsOfSplendour;
+	settings.FigmentsOfSplendour.V = ShowFigmentsOfSplendour;
+	settings.FigmentsOfSplendour.W = string.format( "%.0f", _G.FOSWhere );
+	SaveSettings( false );
+	ImportCtr( "FOS" );
+	if ShowFigmentsOfSplendour then
+		FOS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue ) );
+	end
+	FOS[ "Ctr" ]:SetVisible( ShowFigmentsOfSplendour );
+end
+
+function ShowHideFallFestivalToken()
+	ShowFallFestivalToken = not ShowFallFestivalToken;
+	settings.FallFestivalToken.V = ShowFallFestivalToken;
+	settings.FallFestivalToken.W = string.format( "%.0f", _G.FFTWhere );
+	SaveSettings( false );
+	ImportCtr( "FFT" );
+	if ShowFallFestivalToken then
+		FFT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue ) );
+	end
+	FFT[ "Ctr" ]:SetVisible( ShowFallFestivalToken );
+end
+
+function ShowHideFarmersFaireToken()
+	ShowFarmersFaireToken = not ShowFarmersFaireToken;
+	settings.FarmersFaireToken.V = ShowFarmersFaireToken;
+	settings.FarmersFaireToken.W = string.format( "%.0f", _G.FFATWhere );
+	SaveSettings( false );
+	ImportCtr( "FFAT" );
+	if ShowFarmersFaireToken then
+		FFAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue ) );
+	end
+	FFAT[ "Ctr" ]:SetVisible( ShowFarmersFaireToken);
+end
+
+function ShowHideSpringLeaf()
+	ShowSpringLeaf = not ShowSpringLeaf;
+	settings.SpringLeaf.V = ShowSpringLeaf;
+	settings.SpringLeaf.W = string.format( "%.0f", _G.SPLWhere );
+	SaveSettings( false );
+	ImportCtr( "SPL" );
+	if ShowSpringLeaf then
+		SPL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue ) );
+	end
+	SPL[ "Ctr" ]:SetVisible( ShowSpringLeaf);
+end
+
+function ShowHideMidsummerToken()
+	ShowMidsummerToken = not ShowMidsummerToken;
+	settings.MidsummerToken.V = ShowMidsummerToken;
+	settings.MidsummerToken.W = string.format( "%.0f", _G.MSTWhere );
+	SaveSettings( false );
+	ImportCtr( "MST" );
+	if ShowMidsummerToken then
+		MST[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue ) );
+	end
+	MST[ "Ctr" ]:SetVisible( ShowMidsummerToken);
 end

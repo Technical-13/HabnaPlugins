@@ -696,6 +696,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.ASPLocY = tonumber(settings.AmrothSilverPiece.Y);
 	_G.ASPWhere = tonumber(settings.AmrothSilverPiece.W);
 	if _G.ASPWhere == 3 and ShowAmrothSilverPiece then _G.ASPWhere = 1; settings.AmrothSilverPiece.W = string.format("%.0f", _G.ASPWhere); end --Remove after Oct, 15th 2013
+	
 	if settings.StarsofMerit == nil then settings.StarsofMerit = {}; end
 	if settings.StarsofMerit.V == nil then settings.StarsofMerit.V = false; end
 	if settings.StarsofMerit.A == nil then settings.StarsofMerit.A = string.format("%.3f", tA); end
@@ -753,25 +754,6 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.GGBWhere = tonumber(settings.GiftgiversBrand.W);
 	if _G.GGBWhere == 3 and ShowGiftgiversBrand then _G.GGBWhere = 1; settings.GiftgiversBrand.W = string.format("%.0f", _G.GGBWhere); end --Remove after Oct, 15th 2013
 
-	if settings.AshOfEnchantment == nil then settings.AshOfEnchantment = {}; end
-	if settings.AshOfEnchantment.V == nil then settings.AshOfEnchantment.V = false; end
-	if settings.AshOfEnchantment.A == nil then settings.AshOfEnchantment.A = string.format("%.3f", tA); end
-	if settings.AshOfEnchantment.R == nil then settings.AshOfEnchantment.R = string.format("%.3f", tR); end
-	if settings.AshOfEnchantment.G == nil then settings.AshOfEnchantment.G = string.format("%.3f", tG); end
-	if settings.AshOfEnchantment.B == nil then settings.AshOfEnchantment.B = string.format("%.3f", tB); end
-	if settings.AshOfEnchantment.X == nil then settings.AshOfEnchantment.X = string.format("%.0f", tX); end
-	if settings.AshOfEnchantment.Y == nil then settings.AshOfEnchantment.Y = string.format("%.0f", tY); end
-	if settings.AshOfEnchantment.W == nil then settings.AshOfEnchantment.W = string.format("%.0f", tW); end
-	ShowAshOfEnchantment = settings.AshOfEnchantment.V;
-	AOEbcAlpha = tonumber(settings.AshOfEnchantment.A);
-	AOEbcRed = tonumber(settings.AshOfEnchantment.R);
-	AOEbcGreen = tonumber(settings.AshOfEnchantment.G);
-	AOEbcBlue = tonumber(settings.AshOfEnchantment.B);
-	_G.AOELocX = tonumber(settings.AshOfEnchantment.X);
-	_G.AOELocY = tonumber(settings.AshOfEnchantment.Y);
-	_G.AOEWhere = tonumber(settings.AshOfEnchantment.W);
-	if _G.AOEWhere == 3 and ShowAshOfEnchantment then _G.AOEWhere = 1; settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere); end
-	
 	if settings.BingoBadge == nil then settings.BingoBadge = {}; end
 	if settings.BingoBadge.V == nil then settings.BingoBadge.V = false; end
 	if settings.BingoBadge.A == nil then settings.BingoBadge.A = string.format("%.3f", tA); end
@@ -809,6 +791,139 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.LATLocY = tonumber(settings.AnniversaryToken.Y);
 	_G.LATWhere = tonumber(settings.AnniversaryToken.W);
 	if _G.LATWhere == 3 and ShowAnniversaryToken then _G.LATWhere = 1; settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere); end
+
+	if settings.MotesOfEnchantment == nil then settings.MotesOfEnchantment = {}; end
+	if settings.MotesOfEnchantment.V == nil then settings.MotesOfEnchantment.V = false; end
+	if settings.MotesOfEnchantment.A == nil then settings.MotesOfEnchantment.A = string.format("%.3f", tA); end
+	if settings.MotesOfEnchantment.R == nil then settings.MotesOfEnchantment.R = string.format("%.3f", tR); end
+	if settings.MotesOfEnchantment.G == nil then settings.MotesOfEnchantment.G = string.format("%.3f", tG); end
+	if settings.MotesOfEnchantment.B == nil then settings.MotesOfEnchantment.B = string.format("%.3f", tB); end
+	if settings.MotesOfEnchantment.X == nil then settings.MotesOfEnchantment.X = string.format("%.0f", tX); end
+	if settings.MotesOfEnchantment.Y == nil then settings.MotesOfEnchantment.Y = string.format("%.0f", tY); end
+	if settings.MotesOfEnchantment.W == nil then settings.MotesOfEnchantment.W = string.format("%.0f", tW); end
+	ShowMotesOfEnchantment = settings.MotesOfEnchantment.V;
+	MOEbcAlpha = tonumber(settings.MotesOfEnchantment.A);
+	MOEbcRed = tonumber(settings.MotesOfEnchantment.R);
+	MOEbcGreen = tonumber(settings.MotesOfEnchantment.G);
+	MOEbcAlphabcBlue = tonumber(settings.MotesOfEnchantment.B);
+	_G.MOELocX = tonumber(settings.MotesOfEnchantment.X);
+	_G.MOELocY = tonumber(settings.MotesOfEnchantment.Y);
+	_G.MOEWhere = tonumber(settings.MotesOfEnchantment.W);
+	if _G.MOEWhere == 3 and ShowMotesOfEnchantment then _G.MOEWhere = 1; settings.MotesOfEnchantment.W = string.format("%.0f", _G.MOEWhere); end	
+
+	if settings.EmbersOfEnchantment == nil then settings.EmbersOfEnchantment = {}; end
+	if settings.EmbersOfEnchantment.V == nil then settings.EmbersOfEnchantment.V = false; end
+	if settings.EmbersOfEnchantment.A == nil then settings.EmbersOfEnchantment.A = string.format("%.3f", tA); end
+	if settings.EmbersOfEnchantment.R == nil then settings.EmbersOfEnchantment.R = string.format("%.3f", tR); end
+	if settings.EmbersOfEnchantment.G == nil then settings.EmbersOfEnchantment.G = string.format("%.3f", tG); end
+	if settings.EmbersOfEnchantment.B == nil then settings.EmbersOfEnchantment.B = string.format("%.3f", tB); end
+	if settings.EmbersOfEnchantment.X == nil then settings.EmbersOfEnchantment.X = string.format("%.0f", tX); end
+	if settings.EmbersOfEnchantment.Y == nil then settings.EmbersOfEnchantment.Y = string.format("%.0f", tY); end
+	if settings.EmbersOfEnchantment.W == nil then settings.EmbersOfEnchantment.W = string.format("%.0f", tW); end
+	ShowEmbersOfEnchantment = settings.EmbersOfEnchantment.V;
+	EOEbcAlpha = tonumber(settings.EmbersOfEnchantment.A);
+	EOEbcRed = tonumber(settings.EmbersOfEnchantment.R);
+	EOEbcGreen = tonumber(settings.EmbersOfEnchantment.G);
+	EOEbcBlue = tonumber(settings.EmbersOfEnchantment.B);
+	_G.EOELocX = tonumber(settings.EmbersOfEnchantment.X);
+	_G.EOELocY = tonumber(settings.EmbersOfEnchantment.Y);
+	_G.EOEWhere = tonumber(settings.EmbersOfEnchantment.W);
+	if _G.EOEWhere == 3 and ShowEmbersOfEnchantment then _G.EOEWhere = 1; settings.EmbersOfEnchantment.W = string.format("%.0f", _G.EOEWhere); end
+	
+	if settings.FigmentsOfSplendour == nil then settings.FigmentsOfSplendour = {}; end
+	if settings.FigmentsOfSplendour.V == nil then settings.FigmentsOfSplendour.V = false; end
+	if settings.FigmentsOfSplendour.A == nil then settings.FigmentsOfSplendour.A = string.format("%.3f", tA); end
+	if settings.FigmentsOfSplendour.R == nil then settings.FigmentsOfSplendour.R = string.format("%.3f", tR); end
+	if settings.FigmentsOfSplendour.G == nil then settings.FigmentsOfSplendour.G = string.format("%.3f", tG); end
+	if settings.FigmentsOfSplendour.B == nil then settings.FigmentsOfSplendour.B = string.format("%.3f", tB); end
+	if settings.FigmentsOfSplendour.X == nil then settings.FigmentsOfSplendour.X = string.format("%.0f", tX); end
+	if settings.FigmentsOfSplendour.Y == nil then settings.FigmentsOfSplendour.Y = string.format("%.0f", tY); end
+	if settings.FigmentsOfSplendour.W == nil then settings.FigmentsOfSplendour.W = string.format("%.0f", tW); end
+	ShowFigmentsOfSplendour = settings.FigmentsOfSplendour.V;
+	FOSbcAlpha = tonumber(settings.FigmentsOfSplendour.A);
+	FOSbcRed = tonumber(settings.FigmentsOfSplendour.R);
+	FOSbcGreen = tonumber(settings.FigmentsOfSplendour.G);
+	FOSbcBlue = tonumber(settings.FigmentsOfSplendour.B);
+	_G.FOSLocX = tonumber(settings.FigmentsOfSplendour.X);
+	_G.FOSLocY = tonumber(settings.FigmentsOfSplendour.Y);
+	_G.FOSWhere = tonumber(settings.FigmentsOfSplendour.W);
+	if _G.FOSWhere == 3 and ShowFigmentsOfSplendour then _G.FOSWhere = 1; settings.FigmentsOfSplendour.W = string.format("%.0f", _G.FOSWhere); end
+	
+	if settings.FallFestivalToken == nil then settings.FallFestivalToken = {}; end
+	if settings.FallFestivalToken.V == nil then settings.FallFestivalToken.V = false; end
+	if settings.FallFestivalToken.A == nil then settings.FallFestivalToken.A = string.format("%.3f", tA); end
+	if settings.FallFestivalToken.R == nil then settings.FallFestivalToken.R = string.format("%.3f", tR); end
+	if settings.FallFestivalToken.G == nil then settings.FallFestivalToken.G = string.format("%.3f", tG); end
+	if settings.FallFestivalToken.B == nil then settings.FallFestivalToken.B = string.format("%.3f", tB); end
+	if settings.FallFestivalToken.X == nil then settings.FallFestivalToken.X = string.format("%.0f", tX); end
+	if settings.FallFestivalToken.Y == nil then settings.FallFestivalToken.Y = string.format("%.0f", tY); end
+	if settings.FallFestivalToken.W == nil then settings.FallFestivalToken.W = string.format("%.0f", tW); end
+	ShowFallFestivalToken = settings.FallFestivalToken.V;
+	FFTbcAlpha = tonumber(settings.FallFestivalToken.A);
+	FFTbcRed = tonumber(settings.FallFestivalToken.R);
+	FFTbcGreen = tonumber(settings.FallFestivalToken.G);
+	FFTbcBlue = tonumber(settings.FallFestivalToken.B);
+	_G.FFTLocX = tonumber(settings.FallFestivalToken.X);
+	_G.FFTLocY = tonumber(settings.FallFestivalToken.Y);
+	_G.FFTWhere = tonumber(settings.FallFestivalToken.W);
+	if _G.FFTWhere == 3 and ShowFallFestivalToken then _G.FFTWhere = 1; settings.FallFestivalToken.W = string.format("%.0f", _G.FFTWhere); end
+	
+	if settings.FarmersFaireToken == nil then settings.FarmersFaireToken= {}; end
+	if settings.FarmersFaireToken.V == nil then settings.FarmersFaireToken.V = false; end
+	if settings.FarmersFaireToken.A == nil then settings.FarmersFaireToken.A = string.format("%.3f", tA); end
+	if settings.FarmersFaireToken.R == nil then settings.FarmersFaireToken.R = string.format("%.3f", tR); end
+	if settings.FarmersFaireToken.G == nil then settings.FarmersFaireToken.G = string.format("%.3f", tG); end
+	if settings.FarmersFaireToken.B == nil then settings.FarmersFaireToken.B = string.format("%.3f", tB); end
+	if settings.FarmersFaireToken.X == nil then settings.FarmersFaireToken.X = string.format("%.0f", tX); end
+	if settings.FarmersFaireToken.Y == nil then settings.FarmersFaireToken.Y = string.format("%.0f", tY); end
+	if settings.FarmersFaireToken.W == nil then settings.FarmersFaireToken.W = string.format("%.0f", tW); end
+	ShowFarmersFaireToken = settings.FarmersFaireToken.V;
+	FFATbcAlpha = tonumber(settings.FarmersFaireToken.A);
+	FFATbcRed = tonumber(settings.FarmersFaireToken.R);
+	FFATbcGreen = tonumber(settings.FarmersFaireToken.G);
+	FFATbcBlue = tonumber(settings.FarmersFaireToken.B);
+	_G.FFATLocX = tonumber(settings.FarmersFaireToken.X);
+	_G.FFATLocY = tonumber(settings.FarmersFaireToken.Y);
+	_G.FFATWhere = tonumber(settings.FarmersFaireToken.W);
+	if _G.FFATWhere == 3 and ShowFarmersFaireToken then _G.FFATWhere = 1; settings.FarmersFaireToken.W = string.format("%.0f", _G.FFATWhere); end
+	
+	if settings.SpringLeaf == nil then settings.SpringLeaf= {}; end
+	if settings.SpringLeaf.V == nil then settings.SpringLeaf.V = false; end
+	if settings.SpringLeaf.A == nil then settings.SpringLeaf.A = string.format("%.3f", tA); end
+	if settings.SpringLeaf.R == nil then settings.SpringLeaf.R = string.format("%.3f", tR); end
+	if settings.SpringLeaf.G == nil then settings.SpringLeaf.G = string.format("%.3f", tG); end
+	if settings.SpringLeaf.B == nil then settings.SpringLeaf.B = string.format("%.3f", tB); end
+	if settings.SpringLeaf.X == nil then settings.SpringLeaf.X = string.format("%.0f", tX); end
+	if settings.SpringLeaf.Y == nil then settings.SpringLeaf.Y = string.format("%.0f", tY); end
+	if settings.SpringLeaf.W == nil then settings.SpringLeaf.W = string.format("%.0f", tW); end
+	ShowSpringLeaf = settings.SpringLeaf.V;
+	SPLbcAlpha = tonumber(settings.SpringLeaf.A);
+	SPLbcRed = tonumber(settings.SpringLeaf.R);
+	SPLbcGreen = tonumber(settings.SpringLeaf.G);
+	SPLbcBlue = tonumber(settings.SpringLeaf.B);
+	_G.SPLLocX = tonumber(settings.SpringLeaf.X);
+	_G.SPLLocY = tonumber(settings.SpringLeaf.Y);
+	_G.SPLWhere = tonumber(settings.SpringLeaf.W);
+	if _G.SPLWhere == 3 and ShowSpringLeaf then _G.SPLWhere = 1; settings.SpringLeaf.W = string.format("%.0f", _G.SPLWhere); end
+	
+	if settings.MidsummerToken == nil then settings.MidsummerToken= {}; end
+	if settings.MidsummerToken.V == nil then settings.MidsummerToken.V = false; end
+	if settings.MidsummerToken.A == nil then settings.MidsummerToken.A = string.format("%.3f", tA); end
+	if settings.MidsummerToken.R == nil then settings.MidsummerToken.R = string.format("%.3f", tR); end
+	if settings.MidsummerToken.G == nil then settings.MidsummerToken.G = string.format("%.3f", tG); end
+	if settings.MidsummerToken.B == nil then settings.MidsummerToken.B = string.format("%.3f", tB); end
+	if settings.MidsummerToken.X == nil then settings.MidsummerToken.X = string.format("%.0f", tX); end
+	if settings.MidsummerToken.Y == nil then settings.MidsummerToken.Y = string.format("%.0f", tY); end
+	if settings.MidsummerToken.W == nil then settings.MidsummerToken.W = string.format("%.0f", tW); end
+	ShowMidsummerToken = settings.MidsummerToken.V;
+	MSTbcAlpha = tonumber(settings.MidsummerToken.A);
+	MSTbcRed = tonumber(settings.MidsummerToken.R);
+	MSTbcGreen = tonumber(settings.MidsummerToken.G);
+	MSTbcBlue = tonumber(settings.MidsummerToken.B);
+	_G.MSTLocX = tonumber(settings.MidsummerToken.X);
+	_G.MSTLocY = tonumber(settings.MidsummerToken.Y);
+	_G.MSTWhere = tonumber(settings.MidsummerToken.W);
+	if _G.MSTWhere == 3 and ShowMidsummerToken then _G.MSTWhere = 1; settings.MidsummerToken.W = string.format("%.0f", _G.MSTWhere); end
 
 	SaveSettings( false );
 	
@@ -1178,16 +1293,6 @@ function SaveSettings(str)
 		settings.GiftgiversBrand.Y = string.format("%.0f", _G.GGBLocY);
 		settings.GiftgiversBrand.W = string.format("%.0f", _G.GGBWhere);
 		
-		settings.AshOfEnchantment = {};
-		settings.AshOfEnchantment.V = ShowAshOfEnchantment;
-		settings.AshOfEnchantment.A = string.format("%.3f", AOEbcAlpha);
-		settings.AshOfEnchantment.R = string.format("%.3f", AOEbcRed);
-		settings.AshOfEnchantment.G = string.format("%.3f", AOEbcGreen);
-		settings.AshOfEnchantment.B = string.format("%.3f", AOEbcBlue);
-		settings.AshOfEnchantment.X = string.format("%.0f", _G.AOELocX);
-		settings.AshOfEnchantment.Y = string.format("%.0f", _G.AOELocY);
-		settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere);
-		
 		settings.BingoBadge = {};
 		settings.BingoBadge.V = ShowBingoBadge;
 		settings.BingoBadge.A = string.format("%.3f", BBbcAlpha);
@@ -1207,6 +1312,76 @@ function SaveSettings(str)
 		settings.AnniversaryToken.X = string.format("%.0f", _G.LATLocX);
 		settings.AnniversaryToken.Y = string.format("%.0f", _G.LATLocY);
 		settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere);
+		
+		settings.MotesOfEnchantment = {};
+		settings.MotesOfEnchantment.V = ShowMotesOfEnchantment;
+		settings.MotesOfEnchantment.A = string.format("%.3f", MOEbcAlpha);
+		settings.MotesOfEnchantment.R = string.format("%.3f", MOEbcRed);
+		settings.MotesOfEnchantment.G = string.format("%.3f", MOEbcGreen);
+		settings.MotesOfEnchantment.B = string.format("%.3f", MOEbcBlue);
+		settings.MotesOfEnchantment.X = string.format("%.0f", _G.MOELocX);
+		settings.MotesOfEnchantment.Y = string.format("%.0f", _G.MOELocY);
+		settings.MotesOfEnchantment.W = string.format("%.0f", _G.MOEWhere);
+		
+		settings.EmbersOfEnchantment = {};
+		settings.EmbersOfEnchantment.V = ShowEmbersOfEnchantment;
+		settings.EmbersOfEnchantment.A = string.format("%.3f", EOEbcAlpha);
+		settings.EmbersOfEnchantment.R = string.format("%.3f", EOEbcRed);
+		settings.EmbersOfEnchantment.G = string.format("%.3f", EOEbcGreen);
+		settings.EmbersOfEnchantment.B = string.format("%.3f", EOEbcBlue);
+		settings.EmbersOfEnchantment.X = string.format("%.0f", _G.EOELocX);
+		settings.EmbersOfEnchantment.Y = string.format("%.0f", _G.EOELocY);
+		settings.EmbersOfEnchantment.W = string.format("%.0f", _G.EOEWhere);
+
+		settings.FigmentsOfSplendour = {};
+		settings.FigmentsOfSplendour.V = ShowFigmentsOfSplendour;
+		settings.FigmentsOfSplendour.A = string.format("%.3f", FOSbcAlpha);
+		settings.FigmentsOfSplendour.R = string.format("%.3f", FOSbcRed);
+		settings.FigmentsOfSplendour.G = string.format("%.3f", FOSbcGreen);
+		settings.FigmentsOfSplendour.B = string.format("%.3f", FOSbcBlue);
+		settings.FigmentsOfSplendour.X = string.format("%.0f", _G.FOSLocX);
+		settings.FigmentsOfSplendour.Y = string.format("%.0f", _G.FOSLocY);
+		settings.FigmentsOfSplendour.W = string.format("%.0f", _G.FOSWhere);
+		
+		settings.FallFestivalToken = {};
+		settings.FallFestivalToken.V = ShowFallFestivalToken;
+		settings.FallFestivalToken.A = string.format("%.3f", FFTbcAlpha);
+		settings.FallFestivalToken.R = string.format("%.3f", FFTbcRed);
+		settings.FallFestivalToken.G = string.format("%.3f", FFTbcGreen);
+		settings.FallFestivalToken.B = string.format("%.3f", FFTbcBlue);
+		settings.FallFestivalToken.X = string.format("%.0f", _G.FFTLocX);
+		settings.FallFestivalToken.Y = string.format("%.0f", _G.FFTLocY);
+		settings.FallFestivalToken.W = string.format("%.0f", _G.FFTWhere);
+		
+		settings.FarmersFaireToken = {};
+		settings.FarmersFaireToken.V = ShowFarmersFaireToken;
+		settings.FarmersFaireToken.A = string.format("%.3f", FFATbcAlpha);
+		settings.FarmersFaireToken.R = string.format("%.3f", FFATbcRed);
+		settings.FarmersFaireToken.G = string.format("%.3f", FFATbcGreen);
+		settings.FarmersFaireToken.B = string.format("%.3f", FFATbcBlue);
+		settings.FarmersFaireToken.X = string.format("%.0f", _G.FFATLocX);
+		settings.FarmersFaireToken.Y = string.format("%.0f", _G.FFATLocY);
+		settings.FarmersFaireToken.W = string.format("%.0f", _G.FFATWhere);
+		
+		settings.SpringLeaf = {};
+		settings.SpringLeaf.V = ShowSpringLeaf;
+		settings.SpringLeaf.A = string.format("%.3f", SPLbcAlpha);
+		settings.SpringLeaf.R = string.format("%.3f", SPLbcRed);
+		settings.SpringLeaf.G = string.format("%.3f", SPLbcGreen);
+		settings.SpringLeaf.B = string.format("%.3f", SPLbcBlue);
+		settings.SpringLeaf.X = string.format("%.0f", _G.SPLLocX);
+		settings.SpringLeaf.Y = string.format("%.0f", _G.SPLLocY);
+		settings.SpringLeaf.W = string.format("%.0f", _G.SPLWhere);
+		
+		settings.MidsummerToken = {};
+		settings.MidsummerToken.V = ShowMidsummerToken;
+		settings.MidsummerToken.A = string.format("%.3f", MSTbcAlpha);
+		settings.MidsummerToken.R = string.format("%.3f", MSTbcRed);
+		settings.MidsummerToken.G = string.format("%.3f", MSTbcGreen);
+		settings.MidsummerToken.B = string.format("%.3f", MSTbcBlue);
+		settings.MidsummerToken.X = string.format("%.0f", _G.MSTLocX);
+		settings.MidsummerToken.Y = string.format("%.0f", _G.MSTLocY);
+		settings.MidsummerToken.W = string.format("%.0f", _G.MSTWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1253,10 +1428,16 @@ function ResetSettings()
 	ShowStarsofMerit, SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue, _G.SOMLocX, _G.SOMLocY, _G.SOMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Stars of Merit Control
 	ShowCentralGondorSilverPiece, CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue, _G.CGSPLocX, _G.CGSPLocY, _G.CGSPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Central Gondor Silver Piece Control
 	ShowGiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
-	ShowAshOfEnchantment, AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue, _G.AOELocX, _G.AOELocY, _G.AOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Enchantment Control
 	ShowBingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
 	ShowAnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
-		
+	ShowMotesOfEnchantment, MOEbcAlpha, MOEbcRed, MOEbcGreen, MOEbcBlue, _G.MOELocX, _G.MOELocY, _G.MOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Motes of Enchantment Control
+	ShowEmbersOfEnchantment, EOEbcAlpha, EOEbcRed, EOEbcGreen, EOEbcBlue, _G.EOELocX, _G.EOELocY, _G.EOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Embers of Enchantment Control
+	ShowFigmentsOfSplendour, FOSbcAlpha, FOSbcRed, FOSbcGreen, FOSbcBlue, _G.FOSLocX, _G.FOSLocY, _G.FOSWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Figments of Splendour Control
+	ShowFallFestivalToken, FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue, _G.FFTLocX, _G.FFTLocY, _G.FFTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Fall Festival Tokens Control	
+	ShowFarmersFaireToken, FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue, _G.FFATLocX, _G.FFATLocY, _G.FFATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Farmers Festival Token Control
+	ShowSpringLeaf, SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue, _G.SPLLocX, _G.SPLLocY, _G.SPLWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Spring Leaf Control	
+	ShowMidsummerToken, MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue, _G.MSTLocX, _G.MSTLocY, _G.MSTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for  Midsummer Token Control	
+	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
 end
@@ -1398,30 +1579,66 @@ function ReplaceCtr()
 	_G.ASPLocX = oldLocX * screenWidth;
 	settings.AmrothSilverPiece.X = string.format("%.0f", _G.ASPLocX);
 	if ShowAmrothSilverPiece and _G.ASPWhere == 1 then ASP[ "Ctr" ]:SetPosition( _G.ASPLocX, _G.ASPLocY ); end
+	
 	oldLocX = settings.StarsofMerit.X / oldScreenWidth;
 	_G.SOMLocX = oldLocX * screenWidth;
 	settings.StarsofMerit.X = string.format("%.0f", _G.SOMLocX);
 	if ShowStarsofMerit and _G.SOMWhere == 1 then SOM[ "Ctr" ]:SetPosition( _G.SOMLocX, _G.SOMLocY ); end
+	
 	oldLocX = settings.CentralGondorSilverPiece.X / oldScreenWidth;
 	_G.CGSPLocX = oldLocX * screenWidth;
 	settings.CentralGondorSilverPiece.X = string.format("%.0f", _G.CGSPLocX);
 	if ShowCentralGondorSilverPiece and _G.CGSPWhere == 1 then CGSP[ "Ctr" ]:SetPosition( _G.CGSPLocX, _G.CGSPLocY ); end
+	
 	oldLocX = settings.GiftgiversBrand.X / oldScreenWidth;
 	_G.GGBLocX = oldLocX * screenWidth;
 	settings.GiftgiversBrand.X = string.format("%.0f", _G.GGBLocX);
 	if ShowGiftgiversBrand and _G.GGBWhere == 1 then GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY ); end
-	oldLocX = settings.AshOfEnchantment.X / oldScreenWidth;
-	_G.AOELocX = oldLocX * screenWidth;
-	settings.AshOfEnchantment.X = string.format("%.0f", _G.AOELocX);
-	if ShowAshOfEnchantment and _G.AOEWhere == 1 then AOE[ "Ctr" ]:SetPosition( _G.AOELocX, _G.AOELocY ); end
+	
 	oldLocX = settings.BingoBadge.X / oldScreenWidth;
 	_G.BBLocX = oldLocX * screenWidth;
 	settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);
 	if ShowBingoBadge and _G.BBWhere == 1 then BB[ "Ctr" ]:SetPosition( _G.BBLocX, _G.BBLocY ); end
+	
 	oldLocX = settings.AnniversaryToken.X / oldScreenWidth;
 	_G.LATLocX = oldLocX * screenWidth;
 	settings.AnniversaryToken.X = string.format("%.0f", _G.LATLocX);
 	if ShowAnniversaryToken and _G.LATWhere == 1 then LAT[ "Ctr" ]:SetPosition( _G.LATLocX, _G.LATLocY ); end
+	
+	oldLocX = settings.MotesOfEnchantment.X / oldScreenWidth;
+	_G.MOELocX = oldLocX * screenWidth;
+	settings.MotesOfEnchantment.X = string.format("%.0f", _G.MOELocX);
+	if ShowMotesOfEnchantment and _G.MOEWhere == 1 then MOE[ "Ctr" ]:SetPosition( _G.MOELocX, _G.MOELocY ); end
+	
+	oldLocX = settings.EmbersOfEnchantment.X / oldScreenWidth;
+	_G.EOELocX = oldLocX * screenWidth;
+	settings.EmbersOfEnchantment.X = string.format("%.0f", _G.EOELocX);
+	if ShowEmbersOfEnchantment and _G.EOEWhere == 1 then EOE[ "Ctr" ]:SetPosition( _G.EOELocX, _G.EOELocY ); end
+	
+	oldLocX = settings.FigmentsOfSplendour.X / oldScreenWidth;
+	_G.FOSLocX = oldLocX * screenWidth;
+	settings.FigmentsOfSplendour.X = string.format("%.0f", _G.FOSLocX);
+	if ShowFigmentsOfSplendour and _G.FOSWhere == 1 then FOS[ "Ctr" ]:SetPosition( _G.FOSLocX, _G.FOSLocY ); end
+	
+	oldLocX = settings.FallFestivalToken.X / oldScreenWidth;
+	_G.FFTLocX = oldLocX * screenWidth;
+	settings.FallFestivalToken.X = string.format("%.0f", _G.FFTLocX);
+	if ShowFallFestivalToken and _G.FFTWhere == 1 then FFT[ "Ctr" ]:SetPosition( _G.FFTLocX, _G.FFTLocY ); end
+	
+	oldLocX = settings.FarmersFaireToken.X / oldScreenWidth;
+	_G.FFATLocX = oldLocX * screenWidth;
+	settings.FarmersFaireToken.X = string.format("%.0f", _G.FFATLocX);
+	if ShowFarmersFaireToken and _G.FFATWhere == 1 then FFAT[ "Ctr" ]:SetPosition( _G.FFATLocX, _G.FFATLocY ); end
+	
+	oldLocX = settings.SpringLeaf.X / oldScreenWidth;
+	_G.SPLLocX = oldLocX * screenWidth;
+	settings.SpringLeaf.X = string.format("%.0f", _G.SPLLocX);
+	if ShowSpringLeaf and _G.SPLWhere == 1 then SPL[ "Ctr" ]:SetPosition( _G.SPLLocX, _G.SPLLocY ); end
+	
+	oldLocX = settings.MidsummerToken.X / oldScreenWidth;
+	_G.MSTLocX = oldLocX * screenWidth;
+	settings.MidsummerToken.X = string.format("%.0f", _G.MSTLocX);
+	if ShowMidsummerToken and _G.MSTWhere == 1 then MST[ "Ctr" ]:SetPosition( _G.MSTLocX, _G.MSTLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

@@ -1,0 +1,139 @@
+You can download the newest version of the code from GitHub:
+https://github.com/Duriel908/HabnaPlugins
+
+All files are encoded in ANSI. 
+Some of them were encoded as UTF-8 at some point but I had some interesting results while using them (didn't pick up reputation gain as an example). 
+I converted them back to ANSI because of that.
+Because the files are encoded in ANSI you have to use code for special characters. You can find the most commonly used in the "code.txt" file.
+I used the following page to get the code for different characters: https://www.utf8-chartable.de/
+Some text editors (Notepad++...) automatically convert ANSI files to UTF-8. I recommend to turn that feature off while working on then Plugin.
+For Notepad++ go to Settings -> Preferences -> New Document -> Remove the checkmark by "Apply to opened ANSI files".
+
+
+Adding a new reputation faction:
+- Add the faction text names to the 'de', 'en', and 'fr' localization files (Important: Excatly as they are written in the game, otherwise it won't work)
+-- Search for "All reputation names" and add the new name to the end of the existing list
+-- The abbreviation for reputation factions always starts with a "RP". After that it's normally the first letter of each word in the name of the reputation.
+-- Important: Check if the abbreviation you want to use, has already been used. If that is the case, get creative ;)
+- Add faction name to LoadPlayerReputation() in 'functionsCtr.lua'
+-- Search for "LoadPlayerReputation"
+-- Add the abbreviation to the RepOrder array
+-- Look for the correct type (how many reputation levels, when do they change, name of the levels) in the RepTypes array. 
+-- Then add the type to the RepType array. At the same position where you added the abbreviation in the RepOrder array. 
+-- And don't forget the comma (RepOrder and RepType), TitanBar won't load without it.
+- If you need to add a new reputation type
+-- Add the names of the reputation levels to the localization files ("de", "en" and "fr").
+--- Search for "All reputation standings" and add the new names to the end of the existing list.
+--- For the abbreviation: They also start with a "RP". If the new type is only for one reputation, you can use the abbreviation of that reputation and then add a number for each level.
+-- Add the reputation type to LoadPlayerReputation() in 'functionsCtr.lua'
+--- Search for "LoadPlayerReputation"
+--- Add the type to the RepTypes array
+-- Add the reputation Points to ImportCtr() in 'functionsCtr.lua'
+--- Search for "Reputation points"
+--- Add the abbreviation of the faction name and the points where the reputation levels change
+--- Search for "RPPROG = "default"" and add the new abbreviation in the if-statement under it
+-- Add the reputation points to in 'ReputationToolTip.lua'
+--- Search for "RPPROG = "default"" and add the new abbreviation in the if-statement under it
+
+
+Add a new currency:
+- Add  text names to the 'de', 'en', and 'fr' localization files
+-- Search for "Wallet Currency Controls" and add the new currency to the end of the existing list
+-- For the abbreviation: You need two for each currency. 
+--- The first one starts with an "M" and then normally the first letter of each word in the name of the currency.
+--- The second one starts normally with the first letter of each word in the name of the currency and then an "h".
+--- Important: Check if the abbreviation you want to use, has already been used. If that is the case, get creative ;)
+--- Important: The name behind the first abbreviation has to be exactly the name in the game (and most of the times singular). Otherwise it won't work.
+
+- Add currency in 'main.lua'
+-- Search for "WalletOrder" and add the next number to the array
+-- Search for "PlayerAlign == 1" and add the abbreviation to the MenuItem array. The position in that array defines the order in which the currencies are listed.
+
+- Add currency file in control directory
+-- Copy an existing currency file (I mostly use "AnniversaryToken.lua")
+-- Change the name of the file to the name of the new currency (as defined in the localization file, first abbreviation, no spaces between words).
+-- Replace everything which is connected to the old currency (abbreviation, name, comments) with the new one (I use the replace all function of Notepad++).
+
+- Add currency in 'TBressources.lua'
+-- or more correctly: Add the image of the currency
+-- Search for "_G.WalletItem"
+-- Copy the last entry in the array and paste it as the last entry
+-- Add a comma after the second to last entry (TitanBar won't load without it. It get's me every time)
+-- Replace the name in the last entry with the new currency
+-- Replace the hex value with the new icon value. (If you don't know the value scroll down to "HelloWorld-Plugin".
+
+For each point after this: Search through the files and every time the existing currencies are listed, add the new currency.
+- Add currency in 'functions.lua', in 'functionsCtr.lua', 'functionsMenuControl.lua, & in 'functionsMenu.lua'
+- Add currency in 'settings.lua'
+- Add currency in 'frmOptions.lua' & 'frmMain.lua'
+- Add currency in 'background.lua'
+- Add currency in 'WalletToolTip.lua' & 'WalletWindow.lua' (control directory)
+
+
+To add a new control (from Technical_13):
+- Add  text names to the 'de', 'en', and 'fr' localization files
+- Add control in 'menu.lua'
+- Add control in 'functions.lua', in 'functionsCtr.lua', 'functionsMenuControl.lua, & in 'functionsMenu.lua'
+- Add control in 'settings.lua'
+- Add control in 'frmOptions.lua'
+- Add control in 'background.lua'
+- Add control shell command in 'main.lua'
+- Add control file in control directory
+
+
+HelloWorld-Plugin
+I needed the icons for some of the new currencies and after much frustration I found a way to get them with a second plugin (creatively named the "HelloWorld-Plugin").
+The HelloWorld-Plugin lists all currencies with their icon-/image-number that you have in your wallet.
+1. Open the following path: %USERPROFILE%\Documents\The Lord of the Rings Online\Plugins\
+2. Create a new folder with the name "Duriel"
+3. Open that folder. The complete path should be: %USERPROFILE%\Documents\The Lord of the Rings Online\Plugins\Duriel
+4. Create a file with the name "HelloWorld.plugin"
+5. Create a folder with the name "HelloWorld"
+6. Open that folder. The complete path should be: %USERPROFILE%\Documents\The Lord of the Rings Online\Plugins\Duriel\HelloWorld
+7. Create a file with the name "main.lua"
+8. Copy the following code into the "HelloWorld.plugin" file. Then save the file.
+<?xml version="1.0"?>
+<Plugin>
+ <Information>
+  <Name>HelloWorld</Name>
+  <Author>Duriel</Author>
+  <Version>1.00</Version>
+ </Information>
+ <Package>Duriel.HelloWorld.Main</Package>
+ <Configuration Apartment="HelloWorld" />
+</Plugin>
+9. Copy the following code into the "main.lua" file. Then save the file.
+import "Turbine.UI";
+import "Turbine.UI.Lotro";
+import "Turbine"
+import "Turbine.Gameplay"
+
+function print(text) Turbine.Shell.WriteLine("<rgb=#00FFFF>HW:</rgb> "..text) end
+
+Player=Turbine.Gameplay.LocalPlayer:GetInstance();
+PlayerWallet = Player:GetWallet();
+PlayerWalletSize = PlayerWallet:GetSize();
+for i = 1, PlayerWalletSize do
+	CurItem = PlayerWallet:GetItem(i);
+	CurName = CurItem:GetName();
+	CurImage = CurItem:GetImage();
+	--print(i .. "=" .. CurName)
+	--print(i .. "=" .. CurImage)
+	print(CurName .. " has image number " .. CurImage)
+end
+10. Login to Lotro
+11. In the chat window type "/plugins list" (for German and French, scroll down to plugin commands). The HelloWorld-Plugin should be listed. If that is not the case, type "/plugins refresh" and then again "/plugins list"
+	The plugins are listed in the "Standard" channel.
+12. Type "/plugins load HelloWorld". You get a list with all currencies you have and the corresponding image number.
+13. Find the currency, which you want to add, and copy / make a note of the number.
+14. Open a hex converter of your choice (I use https://www.rapidtables.com/convert/number/decimal-to-hex.html)
+15. Paste the number in the decimal field and convert it to hex.
+16. Add the hex number to the "WalletItem" list in "TBResources.lua" (and remember to add that comma...)
+17. Unload the HelloWorld-Plugin if you don't need it. Type "/plugins unload HelloWorld".
+
+Plugin commands:
+I found out the hard way that the commands you use to load and unload plugins depend on the language of the client. So here are some commands with the translations.
+EN: "/plugins load <PluginName>, DE: "/Zusatzmodule laden <PluginName>", FR: "/plugins charger <PluginName>"
+EN: "/plugins unload <PluginName>, DE: "/Zusatzmodule entfernen <PluginName>", FR: "/plugins vider <PluginName>"
+EN: "/plugins list <PluginName>, DE: "/Zusatzmodule liste <PluginName>", FR: "/plugins liste <PluginName>"
+EN: "/plugins refresh <PluginName>, DE: "/Zusatzmodule aktualisieren <PluginName>", FR: "/plugins actualiser <PluginName>"
