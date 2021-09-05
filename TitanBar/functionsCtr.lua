@@ -490,7 +490,7 @@ function ImportCtr( value )
                                 if max == lastR and tot > 0 then
                                     tot = 0;
                                 end
-                                if v == 2 or v == 7 then
+                                if v == 2 or v == 7 or v == 15 then
                                     max = max - 1
                                 elseif v == 8 then
                                     max = max - 1
@@ -508,7 +508,7 @@ function ImportCtr( value )
                                 elseif tot < 0 then
                                     local newR = tonumber( PlayerReputation[ PN ][ name ].R ) - 1;
                                     isNewRNegative = newR;
-                                    if v == 2 or v == 7 or v == 8 then
+                                    if v == 2 or v == 7 or v == 8 or v == 15 then
                                         isNewRNegative = isNewRNegative + 1;
                                     end
                                     if isNewRNegative >= 0 then
@@ -977,7 +977,7 @@ function LoadPlayerReputation()
     };
     RepType = {
         1, 1, 1, 1, 1, 1, 1, 1,
-        2, 1, 2, 1, 1, 1, 1, 1, 1, 1,
+        2, 1, 15, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 3, 1,
@@ -1020,7 +1020,8 @@ function LoadPlayerReputation()
         [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6"}, -- why another??? Dwarfs of Erebor
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
         [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
-		[14] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5", "RPGA6"} -- The Gabil'akkâ
+		[14] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5", "RPGA6"}, -- The Gabil'akkâ
+		[15] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3", "RPGL4"}, -- League of the Axe
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");

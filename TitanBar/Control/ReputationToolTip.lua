@@ -77,7 +77,7 @@ function RPRefreshListBox()
 
 
             local tt = RepType[i];
-            if tt == 2 or tt == 7 or tt == 8 then
+            if tt == 2 or tt == 7 or tt == 8 or tt == 15 then
                 tm = RPGR[RPPROG][tonumber( tr-1 )];
             else
                 tm = RPGR[RPPROG][tonumber( tr )];
