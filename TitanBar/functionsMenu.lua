@@ -585,3 +585,15 @@ function ShowHideMidsummerToken()
 	end
 	MST[ "Ctr" ]:SetVisible( ShowMidsummerToken);
 end
+
+function ShowHideAncientScript()
+	ShowAncientScript = not ShowAncientScript;
+	settings.AncientScript.V = ShowAncientScript;
+	settings.AncientScript.W = string.format( "%.0f", _G.ASWhere );
+	SaveSettings( false );
+	ImportCtr( "AS" );
+	if ShowAncientScript then
+		AS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( ASbcAlpha, ASbcRed, ASbcGreen, ASbcBlue ) );
+	end
+	AS[ "Ctr" ]:SetVisible( ShowAncientScript);
+end

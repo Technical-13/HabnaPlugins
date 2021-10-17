@@ -115,6 +115,9 @@ L[ "SPLh" ] = "These are your Spring Leaves";
 -- Midsummer Tokens control
 L[ "MMST" ] = "Midsummer Token";
 L[ "MSTh" ] = "These are your Midsummer Tokens";
+-- Ancient Script control
+L[ "MAS" ] = "Ancient Script";
+L[ "ASh" ] = "These are your Ancient Scripts";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";
@@ -274,10 +277,10 @@ L[ "RPTWC" ]   = "The White Company";
 L[ "RPRMI" ]   = "Reclamation of Minas Ithil";
 L[ "RPPOW" ]   = "Protectors of Wilderland";
 L[ "RPMOG" ]   = "March on Gundabad";
-L[ "RPGA" ]    = "The Gabil\39akk\195\162";
+L[ "RPGA" ]    = "The Gabil'akk\195\162";
 L[ "RPWB"]	   = "Woodcutter's Brotherhood";
 L[ "RPLOTA"]   = "The League of the Axe";
-L[ "RPHOT" ]   = "The Haban\226\128\153akk\195\162 of Thr\195\161in"; 
+L[ "RPHOT" ]   = "The Haban'akk\195\162 of Thr\195\161in"; 
 L[ "RPKU" ]    = "Kharum-ubn\195\162r";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
@@ -540,6 +543,7 @@ L[ "Lore-Master" ] = "Lore-Master";
 L[ "Minstrel" ] = "Minstrel";
 L[ "Rune-Keeper" ] = "Rune-Keeper";
 L[ "Warden" ] = "Warden";
+L[ "Brawler" ] = "Brawler";
 
 -- Monster Play Class
 L[ "Reaver" ] = "Reaver";

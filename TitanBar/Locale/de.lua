@@ -114,6 +114,9 @@ L[ "FSPLh" ] = "Eure Fr\195\188hlingsbl\195\164tter";
 -- Midsummer Tokens control
 L[ "MMST" ] = "Mittsommer-Marke";
 L[ "MSTh" ] = "Eure Mittsommer-Marken";
+-- Ancient Script control
+L[ "MAS" ] = "Uralte Schrift";
+L[ "ASh" ] = "Eure Uralte Schriften";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";
@@ -274,10 +277,10 @@ L[ "RPRMI" ]   = "Die R\195\188ckeroberung von Minas Ithil";
 L[ "RPPOW" ]   = "Besch\195\188tzer des Wilderlands";
 L[ "RPMOG" ]   = "Marsch auf Gundabad";
 L[ "RPGA" ]    = "Die Gabil'akk\195\162";
-L[ "RPTWB"]	   = "Bruderschaft der Holzf\195\164ller";
+L[ "RPWB"]	   = "Bruderschaft der Holzf\195\164ller";
 L[ "RPLOTA"]   = "Der Bund der Axt";
-L[ "RPHOT" ]   = "Die Haban\39akk\195\162 von Thr\195\162in";
-L[ "RPKU" ]    = "Karum-ubn\195\162r";
+L[ "RPHOT" ]   = "Die Haban'akk\195\162 von Thr\195\162in";
+L[ "RPKU" ]    = "Kharum-ubn\195\162r";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings
@@ -538,6 +541,7 @@ L[ "Lore-Master" ] = "Kundiger";
 L[ "Minstrel" ] = "Barde";
 L[ "Rune-Keeper" ] = "Runenbewahrer";
 L[ "Warden" ] = "H\195\188ter";
+L[ "Brawler" ] = "Schl\195\164ger";
 
 -- Monster Play Class
 L[ "Reaver" ] = "Schnitter";

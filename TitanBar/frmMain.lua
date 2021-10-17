@@ -182,6 +182,8 @@ function frmMain()
 			if _G.FFTWhere ~= 3 then ImportCtr( "FFT" ); end
 			if _G.FFATWhere ~= 3 then ImportCtr( "FFAT" ); end
 			if _G.SPLWhere ~= 3 then ImportCtr( "SPL" ); end
+			if _G.MSTWhere ~= 3 then ImportCtr( "MST" ); end
+			if _G.ASWhere ~= 3 then ImportCtr( "AS" ); end
 		end
 	else
 		-- Disable infos not useful in Monster Play
@@ -196,6 +198,8 @@ function frmMain()
 		ShowFallFestivalToken = false;
 		ShowFarmersFaireToken = false;
 		ShowSpringLeaf = false;
+		ShowMidsummerToken = false;
+		ShowAncientScript = false;
 		if PlayerWalletSize ~= nil or PlayerWalletSize ~= 0 then
 			if ShowWallet then ImportCtr( "WI" ); end
 			if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end
@@ -331,6 +335,8 @@ function frmMain()
 				if _G.FFTWhere ~= 3 then ImportCtr( "FFT" ); end
 				if _G.FFATWhere ~= 3 then ImportCtr( "FFAT" ); end
 				if _G.SPLWhere ~= 3 then ImportCtr( "SPL" ); end
+				if _G.MSTWhere ~= 3 then ImportCtr( "MST" ); end
+				if _G.ASWhere ~= 3 then ImportCtr( "AS" ); end
 			end
 
 			screenWidth, screenHeight = Turbine.UI.Display.GetSize();

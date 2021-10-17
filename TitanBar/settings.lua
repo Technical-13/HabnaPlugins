@@ -924,6 +924,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.MSTLocY = tonumber(settings.MidsummerToken.Y);
 	_G.MSTWhere = tonumber(settings.MidsummerToken.W);
 	if _G.MSTWhere == 3 and ShowMidsummerToken then _G.MSTWhere = 1; settings.MidsummerToken.W = string.format("%.0f", _G.MSTWhere); end
+	
+	if settings.AncientScript == nil then settings.AncientScript= {}; end
+	if settings.AncientScript.V == nil then settings.AncientScript.V = false; end
+	if settings.AncientScript.A == nil then settings.AncientScript.A = string.format("%.3f", tA); end
+	if settings.AncientScript.R == nil then settings.AncientScript.R = string.format("%.3f", tR); end
+	if settings.AncientScript.G == nil then settings.AncientScript.G = string.format("%.3f", tG); end
+	if settings.AncientScript.B == nil then settings.AncientScript.B = string.format("%.3f", tB); end
+	if settings.AncientScript.X == nil then settings.AncientScript.X = string.format("%.0f", tX); end
+	if settings.AncientScript.Y == nil then settings.AncientScript.Y = string.format("%.0f", tY); end
+	if settings.AncientScript.W == nil then settings.AncientScript.W = string.format("%.0f", tW); end
+	ShowAncientScript = settings.AncientScript.V;
+	ASbcAlpha = tonumber(settings.AncientScript.A);
+	ASbcRed = tonumber(settings.AncientScript.R);
+	ASbcGreen = tonumber(settings.AncientScript.G);
+	ASbcBlue = tonumber(settings.AncientScript.B);
+	_G.ASLocX = tonumber(settings.AncientScript.X);
+	_G.ASLocY = tonumber(settings.AncientScript.Y);
+	_G.ASWhere = tonumber(settings.AncientScript.W);
+	if _G.ASWhere == 3 and ShowAncientScript then _G.ASWhere = 1; settings.AncientScript.W = string.format("%.0f", _G.ASWhere); end
 
 	SaveSettings( false );
 	
@@ -1382,6 +1401,16 @@ function SaveSettings(str)
 		settings.MidsummerToken.X = string.format("%.0f", _G.MSTLocX);
 		settings.MidsummerToken.Y = string.format("%.0f", _G.MSTLocY);
 		settings.MidsummerToken.W = string.format("%.0f", _G.MSTWhere);
+		
+		settings.AncientScript = {};
+		settings.AncientScript.V = ShowAncientScript;
+		settings.AncientScript.A = string.format("%.3f", ASbcAlpha);
+		settings.AncientScript.R = string.format("%.3f", ASbcRed);
+		settings.AncientScript.G = string.format("%.3f", ASbcGreen);
+		settings.AncientScript.B = string.format("%.3f", ASbcBlue);
+		settings.AncientScript.X = string.format("%.0f", _G.ASLocX);
+		settings.AncientScript.Y = string.format("%.0f", _G.ASLocY);
+		settings.AncientScript.W = string.format("%.0f", _G.ASWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1436,7 +1465,8 @@ function ResetSettings()
 	ShowFallFestivalToken, FFTbcAlpha, FFTbcRed, FFTbcGreen, FFTbcBlue, _G.FFTLocX, _G.FFTLocY, _G.FFTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Fall Festival Tokens Control	
 	ShowFarmersFaireToken, FFATbcAlpha, FFATbcRed, FFATbcGreen, FFATbcBlue, _G.FFATLocX, _G.FFATLocY, _G.FFATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Farmers Festival Token Control
 	ShowSpringLeaf, SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue, _G.SPLLocX, _G.SPLLocY, _G.SPLWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Spring Leaf Control	
-	ShowMidsummerToken, MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue, _G.MSTLocX, _G.MSTLocY, _G.MSTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for  Midsummer Token Control	
+	ShowMidsummerToken, MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue, _G.MSTLocX, _G.MSTLocY, _G.MSTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for  Midsummer Token Control
+	ShowAncientScript, ASbcAlpha, ASbcRed, ASbcGreen, ASbcBlue, _G.ASLocX, _G.ASLocY, _G.ASWhere = false, tA, tR, tG, tB, tX, tY, tW; --for  Ancient Script Control
 	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1639,6 +1669,11 @@ function ReplaceCtr()
 	_G.MSTLocX = oldLocX * screenWidth;
 	settings.MidsummerToken.X = string.format("%.0f", _G.MSTLocX);
 	if ShowMidsummerToken and _G.MSTWhere == 1 then MST[ "Ctr" ]:SetPosition( _G.MSTLocX, _G.MSTLocY ); end
+	
+	oldLocX = settings.AncientScript.X / oldScreenWidth;
+	_G.ASLocX = oldLocX * screenWidth;
+	settings.AncientScript.X = string.format("%.0f", _G.ASLocX);
+	if ShowAncientScript and _G.ASWhere == 1 then AS[ "Ctr" ]:SetPosition( _G.ASLocX, _G.ASLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

@@ -405,7 +405,13 @@ function ImportCtr( value )
             import (AppCtrD.."MidsummerToken");
             MST[ "Ctr" ]:SetPosition( _G.MSTLocX, _G.MSTLocY );
         end
-        if _G.MSTWhere ~= 3 then UpdateMidsummerToken(); end	
+        if _G.MSTWhere ~= 3 then UpdateMidsummerToken(); end
+	elseif value == "AS" then --Ancient Script
+        if _G.ASWhere == 1 then
+            import (AppCtrD.."AncientScript");
+            AS[ "Ctr" ]:SetPosition( _G.ASLocX, _G.ASLocY );
+        end
+        if _G.ASWhere ~= 3 then UpdateAncientScript(); end	
 	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -429,15 +435,15 @@ function ImportCtr( value )
                 -- Check string, Reputation Name and Reputation Point pattern
                     local cstr, rpnPattern, rppPatern, rpbPattern;
                     if GLocale == "en" then
-                        rpnPattern = "reputation with ([%a%p%u%l%s]*) has"..
+                        rpnPattern = "reputation with (.*) has"..
                             " increased by";
                         rppPattern = "has increased by ([%d%p]*)%.";
                     elseif GLocale == "fr" then
-                        rpnPattern = "de la faction ([%a%p%u%l%s]*) a "..
+                        rpnPattern = "de la faction (.*) a "..
                             "augment\195\169 de";
                         rppPattern = "a augment\195\169 de ([%d%p]*)%.";
                     elseif GLocale == "de" then
-                        rpnPattern = "Euer Ruf bei ([%a%p%u%l%s]*) hat sich um";
+                        rpnPattern = "Euer Ruf bei (.*) hat sich um";
                         rppPattern = "hat sich um ([%d%p]*) verbessert";
                     end
                     -- check string if an accelerator was used
@@ -1000,7 +1006,7 @@ function LoadPlayerReputation()
 		-- Elderslade
 		1, 14,
 		--Azanulbizar
-		14, 2,
+		16, 15,
 		-- Special Event
         6, 7, 7,
         -- Accelerator
@@ -1021,7 +1027,8 @@ function LoadPlayerReputation()
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
         [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
 		[14] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5", "RPGA6"}, -- The Gabil'akkâ
-		[15] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3", "RPGL4"}, -- League of the Axe
+		[15] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3", "RPGL4"}, -- Outsider to Ally
+		[16] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5"}, -- The Haban'akkâ of Thráin		
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");
@@ -1127,6 +1134,7 @@ function UpdateCurrency( str )
 	if str == L[ "MFFAT" ] and ShowFarmersFaireToken then UpdateFarmersFaireToken(); end
 	if str == L[ "MSPL" ] and ShowSpringLeaf then UpdateSpringLeaf(); end
 	if str == L[ "MMST" ] and ShowMidsummerToken then UpdateMidsummerToken(); end
+	if str == L[ "MAS" ] and ShowAncientScript then UpdateAncientScript(); end
 end
 
 function GetCurrency( str )

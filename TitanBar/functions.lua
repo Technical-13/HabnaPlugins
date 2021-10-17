@@ -338,7 +338,12 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["MSTh"], L["EIt2"], L["EIt3"] );	
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["MSTh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "AS" then -- Ancient Script
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["ASh"], L["EIt2"], L["EIt3"] );			
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -437,7 +442,7 @@ function UpdateMoney()
 		
 		local STS = totem - totsm;
 		if STS < 0 then STS = math.abs(STS); bSumSTS = false; end
-		walletStats[DOY][PN].SumTS = tostring(STS);
+		walletStats[DOY][PN].SuASS = tostring(STS);
 
 		Turbine.PluginData.Save( 
             Turbine.DataScope.Server, "TitanBarPlayerWalletStats", walletStats);
@@ -655,6 +660,15 @@ function UpdateMidsummerToken()
 	end
 end
 --**^
+--**v Update Ancient Script currency on TitanBar v**
+function UpdateAncientScript()
+	if _G.ASWhere == 1 then
+		AS[ "Lbl" ]:SetText( GetCurrency( L[ "MAS" ] ) );
+		AS[ "Lbl" ]:SetSize( AS[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "AS" );
+	end
+end
+--**^
 
 --**v Update backpack infos on TitanBar v**
 function UpdateBackpackInfos()
@@ -743,6 +757,9 @@ function UpdatePlayersInfos()
 	elseif PlayerClassIs == 214 then 
         PlayerClassIs = L["Beorning"]; 
         PlayerIconCodeIs = resources.PlayerIconCode.Beorning;
+	elseif PlayerClassIs == 215 then 
+        PlayerClassIs = L["Brawler"]; 
+        PlayerIconCodeIs = resources.PlayerIconCode.Brawler;	
 	
 	--Monster Play Class
 	elseif PlayerClassIs == 52 then 
@@ -913,7 +930,7 @@ function UpdateGameTime(str)
 
 	if str == "st" then
 		if _G.ShowST then
-			chour = chour + _G.UserGMT;
+			chour = chour + _G.UserGAS;
 			if chour < 0 then
 				chour = 24 + chour;
 				if chour == 0 then chour = 24; end
@@ -1004,6 +1021,7 @@ function ChangeColor(tColor)
 		if ShowFarmersFaireToken then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowMidsummerToken then MST[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowAncientScript then AS[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -1044,6 +1062,7 @@ function ChangeColor(tColor)
 		if sFrom == "FFAT" then FFAT[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "SPL" then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "MST" then MST[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "AS" then AS[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1323,7 +1342,13 @@ function AjustIcon(str)
 		MST[ "Icon" ]:SetPosition(MST[ "Lbl" ]:GetLeft()+MST[ "Lbl" ]:GetWidth()+3,Y);
 		MST[ "Ctr" ]:SetSize( MST[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		MST[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		MST[ "Icon" ]:SetStretchMode( 3 );	
+		MST[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "AS" then
+		AS[ "Icon" ]:SetStretchMode( 1 );
+		AS[ "Icon" ]:SetPosition(AS[ "Lbl" ]:GetLeft()+AS[ "Lbl" ]:GetWidth()+3,Y);
+		AS[ "Ctr" ]:SetSize( AS[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		AS[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		AS[ "Icon" ]:SetStretchMode( 3 );		
 	end
 end
 

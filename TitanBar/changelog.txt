@@ -4,15 +4,36 @@ You do not need the original files.
 
 Need translations (mostly French)! 
 If you notice an error, please send me a pm or post it on the boards.
+
+=================================================
+v.1.35.23 (October 17, 2021)
+- Added "Ancient Script"
+- Added the Brawler
+- Fixed some typos in the language files
+- Reputation factions with special characters in their name now update correctly (huge thanks to DaBear78 for figuring that one out!!)
+- Corrected the reputation levels of the "Kharum-ubnâr"
+
+=================================================
+v.1.35.22 (September 5, 2021)
+- Corrected the reputation levels of "The League of the Axe" (thanks NotACat!)
+
+=================================================
+v.1.35.21 (I forgot to upload that version)
+- Added a search bar to the wallet window
+- Corrected some issues with currencies (thanks b414213562!)
+
 =================================================
 v1.35.20 (June 17, 2021)
 - Added "Midsummer Tokens"
+
 =================================================
 v1.35.19 (June 15, 2021)
 - Corrected an error in the reputation display (Woodcutter's Brotherhood was missing)
+
 =================================================
 v1.35.18 (June 13, 2021)
 - Corrected zip-file for LOTRO Interface
+
 =================================================
 v1.35.17 (June 12, 2021)
 - Added reputation factions (The Haban'akkâ of Thráin, Kharum-ubnâr)
@@ -20,7 +41,6 @@ v1.35.17 (June 12, 2021)
 - Corrected the name of the "Woodcutter's Brotherhood"
 - Corrected the reputation levels of "The League of the Axe"
 - Corrected some missing German and French translations
-
 
 =================================================
 v1.35.16 (May 20, 2021)

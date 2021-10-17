@@ -26,7 +26,7 @@ _G.resources = {
 	Picker = AppRes.."picker.jpg",
 	PlayerInfo = { Morale = 0x410dcfce, Power = 0x410dcfcf, Armor = 0x410dcfd0, Wrath = 0x4115bdfe },
 	PlayerIconCode = { Guardian = 0x4111dd35, Captain = 0x4111dd31, Minstrel = 0x4111dd3b, Burglar = 0x4111dd2f, Hunter = 0x4111dd37, 
-					   Champion = 0x4111dd33, LoreMaster = 0x4111dd39, RuneKeeper = 0x4111dd3d, Warden = 0x4111dd3f, Beorning = 0x41153604 },
+					   Champion = 0x4111dd33, LoreMaster = 0x4111dd39, RuneKeeper = 0x4111dd3d, Warden = 0x4111dd3f, Beorning = 0x41153604, Brawler = 0x4120fcd9 },
 	Reputation = { Icon = 0x410d431a, BGGood = 0x41007df5, BGBad = 0x41007df5, BGGuild = 0x41007df5, BGFrame = 0x41007e94, BGWindow = 0x4100013B },	-- diff BG's
 	Ring = 0x41005f30,
 	Storage = { Shared = 0x41003830, Vault = 0x41005e9d }, --0x410e76b7 in-game icon 16x16 (Need 32x32)
@@ -64,7 +64,8 @@ _G.WalletItem = {
 	FallFestivalToken = { Icon = 0x410D85DE },
 	FarmersFaireToken = { Icon = 0x410E7BD6 },
 	SpringLeaf = { Icon = 0x410D74CB },
-	MidsummerToken = { Icon = 0x411EE829 }
+	MidsummerToken = { Icon = 0x411EE829 },
+	AncientScript = { Icon = 0x41212E84 }
 };
 
 _G.DurabilitySlotsBG = { 0x41007eed, 0x41007ef6, 0x41007ef7, 0x41007eef, 0x41007eee, 0x41007ee9, 0x41007ef0, 0x41007ef9, 0x41007ef8,

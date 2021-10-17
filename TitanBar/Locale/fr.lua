@@ -115,6 +115,9 @@ L[ "SPLh" ] = "Ce sont vos Feuille de Printemps";
 -- Midsummer Tokens control
 L[ "MMST" ] = "Jeton du solstice d'\195\169t\195\169";
 L[ "MSTh" ] = "Ce sont vos Jetons du solstice d'été";
+-- Ancient Script control
+L[ "MAS" ] = "\195\137criture ancienne";
+L[ "ASh" ] = "Ce sont vos \195\137criture ancienne";
 
 -- Control Menu
 L[ "MCU" ] = "D\195\169charger ...";
@@ -275,10 +278,10 @@ L[ "RPRMI" ]   = "R\195\169clamation de Minas Ithil";
 L[ "RPPOW" ]   = "Protecteurs des Terres sauvages";
 L[ "RPMOG" ]   = "Les Reconqu\195\169rants de Gundabad";
 L[ "RPGA" ]    = "Les Gabil'akk\195\162";
-L[ "RPTWB"]	   = "Confr\195\169rie des B\195\185cherons";
+L[ "RPWB"]	   = "Confr\195\169rie des B\195\185cherons";
 L[ "RPLOTA"]   = "La Ligue de la hache";
-L[ "RPHOT" ]   = "Les Haban\39akk\195\162 de Thr\195\162in";
-L[ "RPKU" ]    = "Karum-ubn\195\162r";
+L[ "RPHOT" ]   = "Les Haban'akk\195\162 de Thr\195\162in";
+L[ "RPKU" ]    = "Kharum-ubn\195\162r";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
@@ -527,6 +530,7 @@ L[ "Dwarf" ] = "Nain";
 L[ "Hobbit" ] = "Hobbit";
 L[ "Beorning" ] = "Beornide";
 L[ "HighElf" ] = "Haut Elfe";-- Thanks F0urEyes#3544 on Discord
+L[ "StoutAxe" ] = "Nain Hache robuste";
 
 -- Free People Class
 L[ "Burglar" ] = "Cambrioleur";
@@ -538,7 +542,7 @@ L[ "Lore-Master" ] = "Ma\195\174tre du savoir";
 L[ "Minstrel" ] = "M\195\169nestrel";
 L[ "Rune-Keeper" ] = "Gardien des runes";
 L[ "Warden" ] = "Sentinelle";
-L[ "StoutAxe" ] = "Nain Hache robuste";
+L[ "Brawler" ] = "Bagarreur";
 
 -- Monster Play Class
 L[ "Reaver" ] = "Reaver";
