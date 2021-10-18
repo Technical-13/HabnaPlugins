@@ -930,7 +930,7 @@ function UpdateGameTime(str)
 
 	if str == "st" then
 		if _G.ShowST then
-			chour = chour + _G.UserGAS;
+			chour = chour + _G.UserGMT;
 			if chour < 0 then
 				chour = 24 + chour;
 				if chour == 0 then chour = 24; end

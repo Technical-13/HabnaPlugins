@@ -321,12 +321,12 @@ L[ "RPMI7" ]  = "The Trial of Madness";
 L[ "RPMI8" ]  = "The Reclamation Continues IV";
 L[ "RPMI9" ]  = "The Trial of Despair";
 L[ "RPMI10" ] = "The Trial of Death";
-L[ "RPGAR1" ] = "Idmul";
-L[ "RPGAR2" ] = "Dumul";
-L[ "RPGAR3" ] = "Izkhas";
-L[ "RPGAR4" ] = "Uzkhas";
-L[ "RPGAR5" ] = "Fabar\195\162l";
-L[ "RPGAR6" ] = "Azghzabad";
+L[ "RPGA1" ] = "Idmul";
+L[ "RPGA2" ] = "Dumul";
+L[ "RPGA3" ] = "Izkhas";
+L[ "RPGA4" ] = "Uzkhas";
+L[ "RPGA5" ] = "Fabar\195\162l";
+L[ "RPGA6" ] = "Azghzabad";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renomm\195\169e"; L[ "IFIF" ] = "Total de renomm\195\169e:";

@@ -320,12 +320,12 @@ L[ "RPMI7" ]  = "Pr\195\188fung des Wahnsinn";
 L[ "RPMI8" ]  = "Die R\195\188ckeroberung geht weiter IV";
 L[ "RPMI9" ]  = "Pr\195\188fung der Verzweiflung";
 L[ "RPMI10" ] = "Pr\195\188fung des Todes";
-L[ "RPGAR1" ] = "Idmul";
-L[ "RPGAR2" ] = "Dumul";
-L[ "RPGAR3" ] = "Izkhas";
-L[ "RPGAR4" ] = "Uzkhas";
-L[ "RPGAR5" ] = "Fabar\195\162l";
-L[ "RPGAR6" ] = "Azghzabad";
+L[ "RPGA1" ] = "Idmul";
+L[ "RPGA2" ] = "Dumul";
+L[ "RPGA3" ] = "Izkhas";
+L[ "RPGA4" ] = "Uzkhas";
+L[ "RPGA5" ] = "Fabar\195\162l";
+L[ "RPGA6" ] = "Azghzabad";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Ansehen"; L[ "IFIF" ] = "Gesamtes Ansehen:";

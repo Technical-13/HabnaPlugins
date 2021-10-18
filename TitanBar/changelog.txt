@@ -6,6 +6,12 @@ Need translations (mostly French)!
 If you notice an error, please send me a pm or post it on the boards.
 
 =================================================
+v.1.35.24 (October 18, 2021)
+- Fixed a typo in functions.lua
+- Fixed some typos in the language files (including the missing reputation levels for "The Gabil'akkâ" in German and French)
+- Changed the size of the player information tooltip 
+
+=================================================
 v.1.35.23 (October 17, 2021)
 - Added "Ancient Script"
 - Added the Brawler
@@ -93,7 +99,7 @@ v1.35.06 (May 02, 2021)
 =================================================
 v1.35.05 (April 21, 2021)
 - Added "March on Gundabad"
-- Added "The Gavul'akkâ"
+- Added "The Gabil'akkâ"
 
 =================================================
 v1.35.04 (April 17, 2021)
