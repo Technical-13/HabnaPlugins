@@ -118,6 +118,12 @@ L[ "MSTh" ] = "Ce sont vos Jetons du solstice d'été";
 -- Ancient Script control
 L[ "MAS" ] = "\195\137criture ancienne";
 L[ "ASh" ] = "Ce sont vos \195\137criture ancienne";
+-- Inn League / Ale Association control
+L[ "MBOT" ] = "Médaille du goût";
+L[ "BOTh" ] = "Ce sont vos Médailles du goût";
+L[ "MBOD" ] = "Médaille de la honte";
+L[ "BODh" ] = "Ce sont vos Médailles de la honte";
+
 
 -- Control Menu
 L[ "MCU" ] = "D\195\169charger ...";

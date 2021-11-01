@@ -184,6 +184,8 @@ function frmMain()
 			if _G.SPLWhere ~= 3 then ImportCtr( "SPL" ); end
 			if _G.MSTWhere ~= 3 then ImportCtr( "MST" ); end
 			if _G.ASWhere ~= 3 then ImportCtr( "AS" ); end
+			if _G.BOTWhere ~= 3 then ImportCtr( "BOT" ); end
+			if _G.BODWhere ~= 3 then ImportCtr( "BOD" ); end
 		end
 	else
 		-- Disable infos not useful in Monster Play
@@ -337,6 +339,8 @@ function frmMain()
 				if _G.SPLWhere ~= 3 then ImportCtr( "SPL" ); end
 				if _G.MSTWhere ~= 3 then ImportCtr( "MST" ); end
 				if _G.ASWhere ~= 3 then ImportCtr( "AS" ); end
+				if _G.BOTWhere ~= 3 then ImportCtr( "BOT" ); end
+				if _G.BODWhere ~= 3 then ImportCtr( "BOD" ); end
 			end
 
 			screenWidth, screenHeight = Turbine.UI.Display.GetSize();

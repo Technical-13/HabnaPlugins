@@ -53,17 +53,19 @@ function frmWalletWindow()
 	end
 	-- **^
 	
+	local WIlbltextHeight = 35;
 	local WIlbltext = Turbine.UI.Label();
 	WIlbltext:SetParent( _G.wWI );
 	WIlbltext:SetText( L["WIt"] );
 	WIlbltext:SetPosition( 20, 35);
-	WIlbltext:SetSize( _G.wWI:GetWidth()-40 , 35 );
+	WIlbltext:SetSize( _G.wWI:GetWidth()-40 , WIlbltextHeight );
 	WIlbltext:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
 	WIlbltext:SetForeColor( Color["green"] );
 
-   local WIFilterlbl = Turbine.UI.Label();
+	local WIFilterlblHeight = 20;
+    local WIFilterlbl = Turbine.UI.Label();
     WIFilterlbl:SetParent(_G.wWI);
-    WIFilterlbl:SetSize(60,20);
+    WIFilterlbl:SetSize(60,WIFilterlblHeight);
     WIFilterlbl:SetPosition(20,75);
     WIFilterlbl:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
     WIFilterlbl:SetText("Search:");
@@ -94,12 +96,14 @@ function frmWalletWindow()
     end
 
 	-- **v Set the Wallet listbox v**
+	local WIListBoxHeight = 
+		_G.wWI:GetHeight()-95 - WIlbltextHeight - WIFilterlblHeight;
 	WIListBox = Turbine.UI.ListBox();
 	WIListBox:SetParent( _G.wWI );
 	WIListBox:SetZOrder( 1 );
 	WIListBox:SetPosition( 20, 115 );
 	--WIListBox:SetPosition( 20, WIlbltext:GetTop()+WIlbltext:GetHeight()+5 );
-	WIListBox:SetSize( _G.wWI:GetWidth()-40, _G.wWI:GetHeight()-95 );
+	WIListBox:SetSize( _G.wWI:GetWidth()-40, WIListBoxHeight );
 	WIListBox:SetMaxItemsPerLine( 1 );
 	WIListBox:SetOrientation( Turbine.UI.Orientation.Horizontal );
 	--WIListBox:SetBackColor( Color["red"] ); --debug purpose
@@ -312,6 +316,14 @@ function frmWalletWindow()
 			_G.ASWhere = SelIndex; settings.AncientScript.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowAncientScript then ShowHideAncientScript(); end
 			else if ShowAncientScript then ShowHideAncientScript(); end end		
+		elseif wcur == L["MBOT"] then
+		    _G.BOTWhere = SelIndex; settings.BadgeOfTaste.W = string.format("%.0f", SelIndex);
+		    if SelIndex == 1 then if not ShowBadgeOfTaste then ShowHideBadgeOfTaste(); end
+		    else if ShowBadgeOfTaste then ShowHideBadgeOfTaste(); end end
+		elseif wcur == L["MBOD"] then
+		    _G.BODWhere = SelIndex; settings.BadgeOfDishonour.W = string.format("%.0f", SelIndex);
+		    if SelIndex == 1 then if not ShowBadgeOfDishonour then ShowHideBadgeOfDishonour(); end
+		    else if ShowBadgeOfDishonour then ShowHideBadgeOfDishonour(); end end
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -397,6 +409,8 @@ function RefreshWIListBox()
 				elseif wcur == L["MSPL"] then tw = _G.SPLWhere; -- Spring Leaf
 				elseif wcur == L["MMST"] then tw = _G.MSTWhere; -- Midsummer Token
 				elseif wcur == L["MAS"] then tw = _G.ASWhere; -- Ancient Script
+				elseif wcur == L["MBOT"] then tw = _G.BOTWhere; -- Badge of Taste
+				elseif wcur == L["MBOD"] then tw = _G.BODWhere; -- Badge of Dishonour
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end
 

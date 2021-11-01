@@ -41,6 +41,8 @@ if FFAT ~= nil then WalletControls[ "FFAT" ] = { ShowHide = ShowFarmersFaireToke
 if SPL ~= nil then WalletControls[ "SPL" ] = { ShowHide = ShowSpringLeaf, Control = SPL[ "Ctr" ] }; end
 if MST ~= nil then WalletControls[ "MST" ] = { ShowHide = ShowMidsummerToken, Control = MST[ "Ctr" ] }; end
 if AS ~= nil then WalletControls[ "AS" ] = { ShowHide = ShowAncientScript, Control = AS[ "Ctr" ] }; end
+if BOT ~= nil then WalletControls[ "BOT" ] = { ShowHide = ShowBadgeOfTaste, Control = BOT[ "Ctr" ] }; end
+if BOD ~= nil then WalletControls[ "BOD" ] = { ShowHide = ShowBadgeOfDishonour, Control = BOD[ "Ctr" ] }; end
 
 tFonts = { "Arial12", "TrajanPro13", "TrajanPro14", "TrajanPro15", "TrajanPro16", "TrajanPro18", "TrajanPro19", "TrajanPro20", "TrajanPro21",
 			"TrajanPro23", "TrajanPro24", "TrajanPro25", "TrajanPro26", "TrajanPro28", "TrajanProBold16", "TrajanProBold22", "TrajanProBold24",

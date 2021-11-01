@@ -117,6 +117,11 @@ L[ "MSTh" ] = "Eure Mittsommer-Marken";
 -- Ancient Script control
 L[ "MAS" ] = "Uralte Schrift";
 L[ "ASh" ] = "Eure Uralte Schriften";
+-- Inn League / Ale Association control
+L[ "MBOT" ] = "Abzeichen des Geschmacks";
+L[ "BOTh" ] = "Eure Abzeichen des Geschmacks";
+L[ "MBOD" ] = "Abzeichen der Schande";
+L[ "BODh" ] = "Eure Abzeichen der Schande";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";

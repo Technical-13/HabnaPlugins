@@ -344,6 +344,16 @@ function ShowToolTipWin( ToShow )
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["ASh"], L["EIt2"], L["EIt3"] );			
+	elseif ToShow == "BOT" then -- Badge of Taste
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["BOTh"], L["EIt2"], L["EIt3"] );
+	elseif ToShow == "BOD" then -- Badge of Dishonour
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["BODh"], L["EIt2"], L["EIt3"] );
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -669,7 +679,24 @@ function UpdateAncientScript()
 	end
 end
 --**^
-
+--**v Update Badge of Taste currency on TitanBar v**
+function UpdateBadgeOfTaste()
+	if _G.BOTWhere == 1 then
+		BOT[ "Lbl" ]:SetText( GetCurrency( L[ "MBOT" ] ) );
+		BOT[ "Lbl" ]:SetSize( BOT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "BOT" );
+	end
+end
+--**^
+--**v Update Badge of Dishonour currency on TitanBar v**
+function UpdateBadgeOfDishonour()
+	if _G.BODWhere == 1 then
+		BOD[ "Lbl" ]:SetText( GetCurrency( L[ "MBOD" ] ) );
+		BOD[ "Lbl" ]:SetSize( BOD[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "BOD" );
+	end
+end
+--**^
 --**v Update backpack infos on TitanBar v**
 function UpdateBackpackInfos()
 	local max = backpack:GetSize();
@@ -1022,6 +1049,8 @@ function ChangeColor(tColor)
 		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowMidsummerToken then MST[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowAncientScript then AS[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowBadgeOfTaste then BOT[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowBadgeOfDishonour then BOD[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -1063,6 +1092,8 @@ function ChangeColor(tColor)
 		if sFrom == "SPL" then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "MST" then MST[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "AS" then AS[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "BOT" then BOT[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "BOD" then BOD[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1349,6 +1380,18 @@ function AjustIcon(str)
 		AS[ "Ctr" ]:SetSize( AS[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		AS[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
 		AS[ "Icon" ]:SetStretchMode( 3 );		
+	elseif str == "BOT" then
+		BOT[ "Icon" ]:SetStretchMode( 1 );
+		BOT[ "Icon" ]:SetPosition(BOT[ "Lbl" ]:GetLeft()+BOT[ "Lbl" ]:GetWidth()+3,Y);
+		BOT[ "Ctr" ]:SetSize( BOT[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		BOT[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		BOT[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "BOD" then
+		BOD[ "Icon" ]:SetStretchMode( 1 );
+		BOD[ "Icon" ]:SetPosition(BOD[ "Lbl" ]:GetLeft()+BOD[ "Lbl" ]:GetWidth()+3,Y);
+		BOD[ "Ctr" ]:SetSize( BOD[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		BOD[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		BOD[ "Icon" ]:SetStretchMode( 3 );
 	end
 end
 

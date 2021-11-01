@@ -100,6 +100,8 @@ function frmBackground()
 	if sFrom == "SPL" then curSelAlpha = SPLbcAlpha; curSelRed = SPLbcRed; curSelGreen = SPLbcGreen; curSelBlue = SPLbcBlue; end
 	if sFrom == "MST" then curSelAlpha = MSTbcAlpha; curSelRed = MSTbcRed; curSelGreen = MSTbcGreen; curSelBlue = MSTbcBlue; end
 	if sFrom == "AS" then curSelAlpha = ASbcAlpha; curSelRed = ASbcRed; curSelGreen = ASbcGreen; curSelBlue = ASbcBlue; end
+	if sFrom == "BOT" then curSelAlpha = BOTbcAlpha; curSelRed = BOTbcRed; curSelGreen = BOTbcGreen; curSelBlue = BOTbcBlue; end
+	if sFrom == "BOD" then curSelAlpha = BODbcAlpha; curSelRed = BODbcRed; curSelGreen = BODbcGreen; curSelBlue = BODbcBlue; end
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
 	-- **^
@@ -366,6 +368,8 @@ function UpdateBCvariable()
 		SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		ASbcAlpha, ASbcRed, ASbcGreen, ASbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		BOTbcAlpha, BOTbcRed, BOTbcGreen, BOTbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		BODbcAlpha, BODbcRed, BODbcGreen, BODbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 
 	else
 		if sFrom == "TitanBar" then bcAlpha = curSelAlpha; bcRed = curSelRed; bcGreen = curSelGreen; bcBlue = curSelBlue; end
@@ -408,5 +412,7 @@ function UpdateBCvariable()
 		if sFrom == "SPL" then SPLbcAlpha = curSelAlpha; SPLbcRed = curSelRed; SPLbcGreen = curSelGreen; SPLbcBlue = curSelBlue; end
 		if sFrom == "MST" then MSTbcAlpha = curSelAlpha; MSTbcRed = curSelRed; MSTbcGreen = curSelGreen; MSTbcBlue = curSelBlue; end
 		if sFrom == "AS" then ASbcAlpha = curSelAlpha; ASbcRed = curSelRed; ASbcGreen = curSelGreen; ASbcBlue = curSelBlue; end
+		if sFrom == "BOT" then BOTbcAlpha = curSelAlpha; BOTbcRed = curSelRed; BOTbcGreen = curSelGreen; BOTbcBlue = curSelBlue; end
+		if sFrom == "BOD" then BODbcAlpha = curSelAlpha; BODbcRed = curSelRed; BODbcGreen = curSelGreen; BODbcBlue = curSelBlue; end
 	end
 end

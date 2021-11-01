@@ -412,6 +412,18 @@ function ImportCtr( value )
             AS[ "Ctr" ]:SetPosition( _G.ASLocX, _G.ASLocY );
         end
         if _G.ASWhere ~= 3 then UpdateAncientScript(); end	
+    elseif value == "BOT" then --Badge of Taste
+        if _G.BOTWhere == 1 then
+            import (AppCtrD.."BadgeOfTaste");
+            BOT[ "Ctr" ]:SetPosition( _G.BOTLocX, _G.BOTLocY );
+        end
+        if _G.BOTWhere ~= 3 then UpdateBadgeOfTaste(); end
+    elseif value == "BOD" then --Badge of Dishonour
+        if _G.BODWhere == 1 then
+            import (AppCtrD.."BadgeOfDishonour");
+            BOD[ "Ctr" ]:SetPosition( _G.BODLocX, _G.BODLocY );
+        end
+        if _G.BODWhere ~= 3 then UpdateBadgeOfDishonour(); end
 	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -430,14 +442,16 @@ function ImportCtr( value )
         import (AppCtrD.."ReputationToolTip");
         RPcb = AddCallback(Turbine.Chat, "Received",
             function( sender, args )
+                if (args.ChatType ~= Turbine.ChatType.Advancement) then return; end
+                
                 rpMess = args.Message;
                 if rpMess ~= nil then
                 -- Check string, Reputation Name and Reputation Point pattern
                     local cstr, rpnPattern, rppPatern, rpbPattern;
                     if GLocale == "en" then
                         rpnPattern = "reputation with (.*) has"..
-                            " increased by";
-                        rppPattern = "has increased by ([%d%p]*)%.";
+                            " (.*) by";
+                        rppPattern = "has .* by ([%d%p]*)%.";
                     elseif GLocale == "fr" then
                         rpnPattern = "de la faction (.*) a "..
                             "augment\195\169 de";
@@ -466,7 +480,7 @@ function ImportCtr( value )
                             rpbPattern = "%(([%d%p]*) durch Bonus";
                         end
                     end
-                    local rpName = string.match( rpMess,rpnPattern );
+                    local rpName,increaseOrDecrease = string.match( rpMess,rpnPattern );
                     -- Reputation Name
                     if rpMess ~= nil and rpName ~= nil then
                         if rpbPattern ~= nil then
@@ -480,6 +494,9 @@ function ImportCtr( value )
                             PlayerReputation[ PN ][ "RPACC" ].P = string.format( "%.0f", tot );
                         end
                         local rpPTS = string.match( rpMess, rppPattern );
+                        if (increaseOrDecrease == L[ "RPDECREASE"]) then
+                            rpPTS = -rpPTS;
+                        end
                         -- Reputation points
                         local rpPTS = string.gsub( rpPTS, ",", "" );
                         -- Replace "," in 1,400 to get 1400
@@ -515,10 +532,10 @@ function ImportCtr( value )
                                     local newR = tonumber( PlayerReputation[ PN ][ name ].R ) - 1;
                                     isNewRNegative = newR;
                                     if v == 2 or v == 7 or v == 8 or v == 15 then
-                                        isNewRNegative = isNewRNegative + 1;
+                                        isNewRNegative = isNewRNegative - 1;
                                     end
                                     if isNewRNegative >= 0 then
-                                        max = RPGR[RPPROG][ ( newR ) ];
+                                        max = RPGR[RPPROG][ ( isNewRNegative ) ];
                                         PlayerReputation[ PN ][ name ].R = tostring( newR );
                                         tot = tot + max;
                                     end
@@ -1135,6 +1152,8 @@ function UpdateCurrency( str )
 	if str == L[ "MSPL" ] and ShowSpringLeaf then UpdateSpringLeaf(); end
 	if str == L[ "MMST" ] and ShowMidsummerToken then UpdateMidsummerToken(); end
 	if str == L[ "MAS" ] and ShowAncientScript then UpdateAncientScript(); end
+    if str == L[ "MBOT" ] and ShowBadgeOfTaste then UpdateBadgeOfTaste(); end
+    if str == L[ "MBOD" ] and ShowBadgeOfDishonour then UpdateBadgeOfDishonour(); end
 end
 
 function GetCurrency( str )

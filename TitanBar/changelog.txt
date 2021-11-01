@@ -6,6 +6,14 @@ Need translations (mostly French)!
 If you notice an error, please send me a pm or post it on the boards.
 
 =================================================
+v.1.35.25 (November 01, 2021)
+- Changed the size of the player information tooltip 
+- Included the patch from b414213562 ( thanks b414213562!) which	
+	- corrects the issue where TitanBar ignores reputation loss
+	- adds "Badges of Taste" and "Badges of Dishonour" as currency
+	- fixes an issue with the wallet window listbox where the scrollbar didn't appear correctly
+
+=================================================
 v.1.35.24 (October 18, 2021)
 - Fixed a typo in functions.lua
 - Fixed some typos in the language files (including the missing reputation levels for "The Gabil'akkâ" in German and French)

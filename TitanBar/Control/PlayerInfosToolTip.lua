@@ -214,7 +214,7 @@ end
 
 -- basic stat with Label and Value
 function CreateLabel(parent,index,LblSize,ValSize,x,y)
-    if index == 7 then LblSize,ValSize = 60,140; end -- Max lvl reached text too long
+    if index == 7 then LblSize,ValSize = 60,160; end -- Max lvl reached text too long
     local NewLabel = Turbine.UI.Label();
     NewLabel:SetParent(parent);
     if Data[index]["name"] == "Partial" then -- Indent Partial
@@ -251,7 +251,7 @@ end
 function CreateHeading(parent,index,x,y)
     local NewHeading = Turbine.UI.Label();
     NewHeading:SetParent(parent);
-    NewHeading:SetSize(200,18);
+    NewHeading:SetSize(220,18);
     NewHeading:SetPosition(x,y);
     NewHeading:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
     NewHeading:SetFont(Turbine.UI.Lotro.Font.TrajanPro16);
@@ -260,13 +260,13 @@ function CreateHeading(parent,index,x,y)
 
     local NewSeparator = Turbine.UI.Control();
     NewSeparator:SetParent(parent);
-    NewSeparator:SetSize(201,1);
+    NewSeparator:SetSize(221,1);
     NewSeparator:SetPosition(NewHeading:GetLeft(),NewHeading:GetTop()+18);
     NewSeparator:SetBackColor(Color["trueblue"]);
 end
 
 function ShowPIWindow()
-    CtrW = 310;
+    CtrW = 330;
     if PlayerAlign == 1 then th = 240; tw = 3*CtrW; else th = 75; tw = 2*CtrW; end --th: temp height / tw: temp width
 
     -- ( offsetX, offsetY, width, height, bubble side )
@@ -309,9 +309,9 @@ function ShowPIWindow()
         Separator:SetBackColor(Color["trueblue"]);
         local x,y = 20,47;
         for i = 4,33 do
-            if (i == 14) or (i == 22) or (i == 26) then y = 47; x = x + 230; end
+            if (i == 14) or (i == 22) or (i == 26) then y = 47; x = x + 240; end
             if DataHeading[i] ~= nill then CreateHeading(APICtr,i,x,y+5); y = y +27; end
-            CreateLabel(APICtr,i,100,100,x,y);
+            CreateLabel(APICtr,i,120,100,x,y);
             y = y + 15;
         end
         local CappedLabel=Turbine.UI.Label();
@@ -321,7 +321,7 @@ function ShowPIWindow()
         CappedLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         CappedLabel:SetForeColor(Color["yellow"]);
         CappedLabel:SetText("YELLOW - capped");
-        CappedLabel:SetPosition(590-CappedLabel:GetTextLength()*4.1,y-30);
+        CappedLabel:SetPosition(610-CappedLabel:GetTextLength()*4.1,y-30);
         
         local T2Label=Turbine.UI.Label();
         T2Label:SetParent(APICtr);
@@ -330,7 +330,7 @@ function ShowPIWindow()
         T2Label:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         T2Label:SetForeColor(Color["orange"]);
         T2Label:SetText("ORANGE - T2 capped");
-        T2Label:SetPosition(590-T2Label:GetTextLength()*4.1,y-15);
+        T2Label:SetPosition(610-T2Label:GetTextLength()*4.1,y-15);
         
         local T2NLabel=Turbine.UI.Label();
         T2NLabel:SetParent(APICtr);
@@ -339,7 +339,7 @@ function ShowPIWindow()
         T2NLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         T2NLabel:SetForeColor(Color["red"]);
         T2NLabel:SetText("RED - new T2 capped");
-        T2NLabel:SetPosition(590-T2NLabel:GetTextLength()*4.1,y);
+        T2NLabel:SetPosition(610-T2NLabel:GetTextLength()*4.1,y);
         
         local T3NLabel=Turbine.UI.Label();
         T3NLabel:SetParent(APICtr);
@@ -348,7 +348,7 @@ function ShowPIWindow()
         T3NLabel:SetFont(Turbine.UI.Lotro.Font.Verdana16);
         T3NLabel:SetForeColor(Color["purple"]);
         T3NLabel:SetText("PURPLE - new T3-5 capped");
-        T3NLabel:SetPosition(590-T3NLabel:GetTextLength()*4.1,y+15);
+        T3NLabel:SetPosition(610-T3NLabel:GetTextLength()*4.1,y+15);
     end
     
     ApplySkin();

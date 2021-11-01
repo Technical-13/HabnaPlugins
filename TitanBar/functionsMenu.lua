@@ -597,3 +597,27 @@ function ShowHideAncientScript()
 	end
 	AS[ "Ctr" ]:SetVisible( ShowAncientScript);
 end
+
+function ShowHideBadgeOfTaste()
+	ShowBadgeOfTaste = not ShowBadgeOfTaste;
+	settings.BadgeOfTaste.V = ShowBadgeOfTaste;
+	settings.BadgeOfTaste.W = string.format( "%.0f", _G.BOTWhere );
+	SaveSettings( false );
+	ImportCtr( "BOT" );
+	if ShowBadgeOfTaste then
+		BOT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( BOTbcAlpha, BOTbcRed, BOTbcGreen, BOTbcBlue ) );
+	end
+	BOT[ "Ctr" ]:SetVisible( ShowBadgeOfTaste );
+end
+
+function ShowHideBadgeOfDishonour()
+	ShowBadgeOfDishonour = not ShowBadgeOfDishonour;
+	settings.BadgeOfDishonour.V = ShowBadgeOfDishonour;
+	settings.BadgeOfDishonour.W = string.format( "%.0f", _G.BODWhere );
+	SaveSettings( false );
+	ImportCtr( "BOD" );
+	if ShowBadgeOfDishonour then
+		BOD[ "Ctr" ]:SetBackColor( Turbine.UI.Color( BODbcAlpha, BODbcRed, BODbcGreen, BODbcBlue ) );
+	end
+	BOD[ "Ctr" ]:SetVisible( ShowBadgeOfDishonour );
+end

@@ -42,5 +42,6 @@ Credits for v1.30 - v1.34:
 	Tappino - U18 reputation factions and XP table lvl 101 to 105
 
 Credits for v1.35:
-		Duriel - Maintainer
-		Nadia - German translation
+	Duriel - Maintainer
+	Nadia - German translation
+	b414213562 - For a patch and some videos
