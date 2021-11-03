@@ -443,7 +443,7 @@ function ImportCtr( value )
         RPcb = AddCallback(Turbine.Chat, "Received",
             function( sender, args )
                 if (args.ChatType ~= Turbine.ChatType.Advancement) then return; end
-                
+
                 rpMess = args.Message;
                 if rpMess ~= nil then
                 -- Check string, Reputation Name and Reputation Point pattern
@@ -454,11 +454,11 @@ function ImportCtr( value )
                         rppPattern = "has .* by ([%d%p]*)%.";
                     elseif GLocale == "fr" then
                         rpnPattern = "de la faction (.*) a "..
-                            "augment\195\169 de";
-                        rppPattern = "a augment\195\169 de ([%d%p]*)%.";
+                            "(.*) de";
+                        rppPattern = "a .* de ([%d%p]*)%.";
                     elseif GLocale == "de" then
-                        rpnPattern = "Euer Ruf bei (.*) hat sich um";
-                        rppPattern = "hat sich um ([%d%p]*) verbessert";
+                        rpnPattern = "Euer Ruf bei (.*) hat sich um .* (%a+)";
+                        rppPattern = "hat sich um ([%d%p]*) .*";
                     end
                     -- check string if an accelerator was used
                     if GLocale == "de" then

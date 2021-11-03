@@ -229,7 +229,7 @@ L[ "RPM" ]     = "Malledhrim";
 L[ "RPTRS" ]   = "Les Cavaliers de Stangarde";
 L[ "RPHLG" ]   = "Les H\195\169ros de la Gorge de Limeclair";
 L[ "RPMD" ]    = "Hommes du Pays de Dun";
-L[ "RPTR" ]    = "Les Cavaliers de Th\195\169odred";
+L[ "RPTR" ]    = "Cavaliers de Th\195\169odred";
 L[ "RPJG" ]    = "Guilde des bijoutiers";
 L[ "RPCG" ]    = "Guilde des cuisiniers";
 L[ "RPSG" ]    = "Guilde des \195\169rudits";
@@ -333,6 +333,9 @@ L[ "RPGA3" ] = "Izkhas";
 L[ "RPGA4" ] = "Uzkhas";
 L[ "RPGA5" ] = "Fabar\195\162l";
 L[ "RPGA6" ] = "Azghzabad";
+
+-- Reputation changes
+L[ "RPDECREASE"] = "diminu\195\169";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renomm\195\169e"; L[ "IFIF" ] = "Total de renomm\195\169e:";

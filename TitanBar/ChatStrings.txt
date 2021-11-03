@@ -1,0 +1,28 @@
+# Reputation string English without bonus (increase)
+Your reputation with Enmity of Fushaum Bal south has increased by 12.
+
+# Reputation string English with bonus (increase)
+Your reputation with Iron Garrison Miners has increased by 60 (30 from bonus).
+
+# Reputation string English (decrease)
+Your reputation with Enmity of Fushaum Bal north has decreased by 12.
+
+
+# Reputation string German without bonus (increase)
+Euer Ruf bei Minenbauer der Eisernen Garnison hat sich um 50 verbessert.
+
+# Reputation string German with bonus (increase)
+Euer Ruf bei der Gruppe "Minenbauer der Eisernen Garnison" wurde um 60 erhöht (30 durch Bonus).
+
+# Reputation string German (decrease)
+Euer Ruf bei Feindin des nördlichen Fushaum Bal hat sich um 12 verschlechtert.
+
+
+# Reputation string French without bonus (increase)
+Votre réputation auprès de la faction Ennemie du sud de Fushaum Bal a augmenté de 12.
+
+# Reputation string French with bonus (increase)
+Votre réputation auprès de la faction Mineurs de la Garnison de Fer a augmenté de 60 (30 du bonus).
+
+# Reputation string French (decrease)
+Votre réputation auprès de la faction Ennemie du nord de Fushaum Bal a diminué de 12.

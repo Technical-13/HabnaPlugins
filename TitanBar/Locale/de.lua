@@ -332,6 +332,9 @@ L[ "RPGA4" ] = "Uzkhas";
 L[ "RPGA5" ] = "Fabar\195\162l";
 L[ "RPGA6" ] = "Azghzabad";
 
+-- Reputation changes
+L[ "RPDECREASE"] = "verschlechtert";
+
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Ansehen"; L[ "IFIF" ] = "Gesamtes Ansehen:";
 else L[ "IFWTitle" ] = "Verrufenheit"; L[ "IFIF" ] = "Gesamte Verrufenheit:"; end
