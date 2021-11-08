@@ -4,7 +4,14 @@ You do not need the original files.
 
 Need translations (mostly French)! 
 If you notice an error, please send me a pm or post it on the boards.
-
+=================================================
+v.1.35.27 (November 08, 2021)
+- Corrected an issue with the player information tooltip
+- Added the reputation faction "Reclaimers of the Mountain-hold"
+- Added the XP for the levels 131-140 (thanks bornfight!)
+=================================================
+v.1.35.26 (November 03, 2021)
+- Corrected an issue where the reputation tracking wasn't working anymore
 =================================================
 v.1.35.25 (November 01, 2021)
 - Changed the size of the player information tooltip 

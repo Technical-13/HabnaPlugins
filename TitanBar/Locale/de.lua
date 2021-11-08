@@ -286,6 +286,7 @@ L[ "RPWB"]	   = "Bruderschaft der Holzf\195\164ller";
 L[ "RPLOTA"]   = "Der Bund der Axt";
 L[ "RPHOT" ]   = "Die Haban'akk\195\162 von Thr\195\162in";
 L[ "RPKU" ]    = "Kharum-ubn\195\162r";
+L[ "RPROFMH" ] = "R\195\188ckeroberung der Bergfestung";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings

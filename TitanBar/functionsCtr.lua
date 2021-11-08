@@ -993,6 +993,8 @@ function LoadPlayerReputation()
 		"RPMOG", "RPGA",
 		--Azanulbizar
 		"RPHOT", "RPKU",
+		--Gundabad
+		"RPROFMH",
 		-- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -1024,6 +1026,8 @@ function LoadPlayerReputation()
 		1, 14,
 		--Azanulbizar
 		16, 15,
+		--Gundabad
+		3,
 		-- Special Event
         6, 7, 7,
         -- Accelerator

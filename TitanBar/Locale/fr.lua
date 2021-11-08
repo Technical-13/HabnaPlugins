@@ -288,6 +288,7 @@ L[ "RPWB"]	   = "Confr\195\169rie des B\195\185cherons";
 L[ "RPLOTA"]   = "La Ligue de la hache";
 L[ "RPHOT" ]   = "Les Haban'akk\195\162 de Thr\195\162in";
 L[ "RPKU" ]    = "Kharum-ubn\195\162r";
+L[ "RPROFMH" ] = "La reconqu\195\170te de la Montagne";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
