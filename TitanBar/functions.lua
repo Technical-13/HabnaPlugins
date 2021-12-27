@@ -452,7 +452,7 @@ function UpdateMoney()
 		
 		local STS = totem - totsm;
 		if STS < 0 then STS = math.abs(STS); bSumSTS = false; end
-		walletStats[DOY][PN].SuASS = tostring(STS);
+		walletStats[DOY][PN].SumTS = tostring(STS);
 
 		Turbine.PluginData.Save( 
             Turbine.DataScope.Server, "TitanBarPlayerWalletStats", walletStats);

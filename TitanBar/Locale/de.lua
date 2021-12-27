@@ -284,9 +284,9 @@ L[ "RPMOG" ]   = "Marsch auf Gundabad";
 L[ "RPGA" ]    = "Die Gabil'akk\195\162";
 L[ "RPWB"]	   = "Bruderschaft der Holzf\195\164ller";
 L[ "RPLOTA"]   = "Der Bund der Axt";
-L[ "RPHOT" ]   = "Die Haban'akk\195\162 von Thr\195\162in";
+L[ "RPHOT" ]   = "Die Haban’akk\195\162 von Thr\195\161in";
 L[ "RPKU" ]    = "Kharum-ubn\195\162r";
-L[ "RPROFMH" ] = "R\195\188ckeroberung der Bergfestung";
+L[ "RPROFMH" ] = "R\195\188ckeroberer der Bergfestung";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings
