@@ -5,6 +5,12 @@ You do not need the original files.
 Need translations (mostly French)! 
 If you notice an error, please send me a pm or post it on the boards.
 =================================================
+v.1.35.30 (November 20, 2020)
+- Removed some code used for debugging
+=================================================
+v.1.35.29 (November 20, 2020)
+- Added the reputation factions "Defenders of The Angle", "The Yonder-Watch" and "Dúnedain of Cardolan"
+=================================================
 v.1.35.28 (December 27, 2021)
 - Corrected an issue with the money tooltip (thanks Bachia!)
 - Changed the faction names of two factions in the German localization file (thanks DaBear78, bornfight and Farothhen)
