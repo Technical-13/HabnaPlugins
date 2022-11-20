@@ -114,15 +114,15 @@ L[ "MSPL" ] = "Feuille de printemps";
 L[ "SPLh" ] = "Ce sont vos Feuille de Printemps";
 -- Midsummer Tokens control
 L[ "MMST" ] = "Jeton du solstice d'\195\169t\195\169";
-L[ "MSTh" ] = "Ce sont vos Jetons du solstice d'été";
+L[ "MSTh" ] = "Ce sont vos Jetons du solstice d'ï¿½tï¿½";
 -- Ancient Script control
 L[ "MAS" ] = "\195\137criture ancienne";
 L[ "ASh" ] = "Ce sont vos \195\137criture ancienne";
 -- Inn League / Ale Association control
-L[ "MBOT" ] = "Médaille du goût";
-L[ "BOTh" ] = "Ce sont vos Médailles du goût";
-L[ "MBOD" ] = "Médaille de la honte";
-L[ "BODh" ] = "Ce sont vos Médailles de la honte";
+L[ "MBOT" ] = "Mï¿½daille du goï¿½t";
+L[ "BOTh" ] = "Ce sont vos Mï¿½dailles du goï¿½t";
+L[ "MBOD" ] = "Mï¿½daille de la honte";
+L[ "BODh" ] = "Ce sont vos Mï¿½dailles de la honte";
 
 
 -- Control Menu
@@ -266,11 +266,11 @@ L[ "RPHOTW" ]  = "Arm\195\169e de l'ouest"; -- Thx Valiarym
 L[ "RPHOTWA" ] = "Arm\195\169e de l'ouest: Armures"; -- Thx Valiarym
 L[ "RPHOTWW" ] = "Arm\195\169e de l'ouest: Armes"; -- Thx Valiarym
 L[ "RPHOTWP" ] = "Arm\195\169e de l'ouest: Provisions"; -- Thx Valiarym
-L[ "RPCOG" ]   = "Conqu\195\170te de Gorgoroth";-- Conquête de Gorgoroth
+L[ "RPCOG" ]   = "Conqu\195\170te de Gorgoroth";-- Conquï¿½te de Gorgoroth
 L[ "RPEOFBs" ] = "Ennemie du sud de Fushaum Bal";
 L[ "RPEOFBn" ] = "Ennemie du nord de Fushaum Bal";
 L[ "RPRSC" ]   = "Clan du Ciel rouge";
-L[ "RPDOE" ]   = "Nains d’Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
+L[ "RPDOE" ]   = "Nains dï¿½Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
 L[ "RPEOF" ]   = "Elfes de Felegoth";-- Elves of Felegoth -- Thanks bornfight#0574 on Discord
 L[ "RPMOD" ]   = "Hommes de Dale";-- Men of Dale -- Thanks bornfight#0574 on Discord
 L[ "RPCCLE" ]  = "Ligue des Chasseurs de Poulets d'Eriador";
@@ -289,6 +289,9 @@ L[ "RPLOTA"]   = "La Ligue de la hache";
 L[ "RPHOT" ]   = "Les Haban'akk\195\162 de Thr\195\162in";
 L[ "RPKU" ]    = "Kharum-ubn\195\162r";
 L[ "RPROFMH" ] = "La reconqu\195\170te de la Montagne";
+L[ "RPDOTA" ]  = "DÃ©fenseurs de l'Angle";
+L[ "RPTYW" ]   = "La Garde de la ComtÃ¨ Lointaine";
+L[ "RPDOC" ]   = "Dunedain du Cardolan";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
@@ -296,19 +299,19 @@ L[ "RPMSR" ]  = "Statut maximum atteint";
 L[ "RPGL1" ]  = "Neutre";
 L[ "RPGL2" ]  = "Connaissance";
 L[ "RPGL3" ]  = "Ami";
-L[ "RPGL4" ]  = "Alli\195\169";-- Allié
-L[ "RPGL5" ]  = "Fr\195\168re";-- Frère
+L[ "RPGL4" ]  = "Alli\195\169";-- Alliï¿½
+L[ "RPGL5" ]  = "Fr\195\168re";-- Frï¿½re
 L[ "RPGL6" ]  = "Respect\195\169";-- thx axennexa
 L[ "RPGL7" ]  = "Honor\195\169";-- thx axennexa
 L[ "RPGL8" ]  = "Acclam\195\169";-- thx axennexa
-L[ "RPBL1" ]  = "\195\137tranger";-- Étranger
+L[ "RPBL1" ]  = "\195\137tranger";-- ï¿½tranger
 L[ "RPBL2" ]  = "Ennemi";
 L[ "RPGG1" ]  = "Initier";
 L[ "RPGG2" ]  = "Aprenti";
 L[ "RPGG3" ]  = "Compagnon";
 L[ "RPGG4" ]  = "Expert";
 L[ "RPGG5" ]  = "Artisan";
-L[ "RPGG6" ]  = "Ma\195\174tre";--Maître
+L[ "RPGG6" ]  = "Ma\195\174tre";--Maï¿½tre
 L[ "RPGG7" ]  = "Eastemnet Master";
 L[ "RPGG8" ]  = "Westemnet Master";
 L[ "RPGG9" ]  = "Grand Ma\195\174tre Honor\195\169";
@@ -372,7 +375,7 @@ L[ "PWProfile" ] = "Profil";
 L[ "PWEPN" ] = "Taper un nom";
 L[ "PWCreate" ] = "Cr\195\169er";
 L[ "PWNew" ] = "Nouveau profil";
-L[ "PWCreated" ] = "a \195\169t\195\169 cr\195\169\195\169";-- a été créé
+L[ "PWCreated" ] = "a \195\169t\195\169 cr\195\169\195\169";-- a ï¿½tï¿½ crï¿½ï¿½
 L[ "PWLoad" ] = "Charger";
 L[ "PWNFound" ] = "Aucun profile trouv\195\169";
 L[ "PWFail" ] = " ne peut pas \195\170tre charg\195\169, car la langue du jeu n'est pas la m\195\170me langue que ce profil";
@@ -382,7 +385,7 @@ L[ "PWDeleteFailed" ] = "Failed to delete profile ";-- Needs translation
 L[ "PWFailDelete" ] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
 L[ "PWDeleted" ] = "supprimer";
 L[ "PWSave" ] = "Sauvegarder";
-L[ "PWSaved" ] = "enregistr\195\169";-- enregistré
+L[ "PWSaved" ] = "enregistr\195\169";-- enregistrï¿½
 L[ "PWCancel" ] = "Annuler";
 
 -- Shell commands window

@@ -596,11 +596,11 @@ function GetEquipmentInfos()
             if itemEquip[i].WearState == 0 then
                 itemEquip[i].WearStatePts = 0; -- undefined
             elseif itemEquip[i].WearState == 3 then
-                itemEquip[i].WearStatePts = 0; -- Broken / cassé
+                itemEquip[i].WearStatePts = 0; -- Broken / cassï¿½
             elseif itemEquip[i].WearState == 1 then
-                itemEquip[i].WearStatePts = 20; -- Damaged / endommagé
+                itemEquip[i].WearStatePts = 20; -- Damaged / endommagï¿½
             elseif itemEquip[i].WearState == 4 then
-                itemEquip[i].WearStatePts = 99; -- Worn / usé
+                itemEquip[i].WearStatePts = 99; -- Worn / usï¿½
             elseif itemEquip[i].WearState == 2 then
                 itemEquip[i].WearStatePts = 100;
             end -- Pristine / parfait
@@ -967,7 +967,7 @@ end
 function LoadPlayerReputation()
     RepOrder = {
         -- Normal faction advancement + Forochel and Minas Tirith
-        "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA",
+        "RPMB", "RPTH", "RPTMS", "RPDOC", "RPTYW", "RPRE", "RPER", "RPDOTA", "RPTEl", "RPCN", "RPTWA",
         "RPLF", "RPWB", "RPLOTA", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM",
         "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW",
         "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML",
@@ -1001,7 +1001,7 @@ function LoadPlayerReputation()
         "RPACC",
     };
     RepType = {
-        1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         2, 1, 15, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1,
@@ -1047,9 +1047,9 @@ function LoadPlayerReputation()
         [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6"}, -- why another??? Dwarfs of Erebor
         [12] = {"RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- another one for Minas Morgul
         [13] = {"RPMI1", "RPMI2", "RPMI3", "RPMI4", "RPMI5", "RPMI6", "RPMI7", "RPMI8", "RPMI9", "RPMI10"}, -- and another one for the Reclamation, because... why not?
-		[14] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5", "RPGA6"}, -- The Gabil'akkâ
+		[14] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5", "RPGA6"}, -- The Gabil'akkï¿½
 		[15] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3", "RPGL4"}, -- Outsider to Ally
-		[16] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5"}, -- The Haban'akkâ of Thráin		
+		[16] = {"RPGA1", "RPGA2", "RPGA3", "RPGA4", "RPGA5"}, -- The Haban'akkï¿½ of Thrï¿½in		
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");

@@ -288,6 +288,9 @@ L[ "RPLOTA"]   = "The League of the Axe";
 L[ "RPHOT" ]   = "The Haban'akk\195\162 of Thr\195\161in"; 
 L[ "RPKU" ]    = "Kharum-ubn\195\162r";
 L[ "RPROFMH" ] = "Reclaimers of the Mountain-hold";
+L[ "RPDOTA" ]  = "Defenders of The Angle";
+L[ "RPTYW" ]   = "The Yonder-watch";
+L[ "RPDOC" ]   = "Dúnedain of Cardolan";
 L[ "RPACC" ]   = "Reputation Acceleration";
 
 -- All reputation standings

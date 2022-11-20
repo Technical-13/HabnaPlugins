@@ -287,6 +287,9 @@ L[ "RPLOTA"]   = "Der Bund der Axt";
 L[ "RPHOT" ]   = "Die Haban’akk\195\162 von Thr\195\161in";
 L[ "RPKU" ]    = "Kharum-ubn\195\162r";
 L[ "RPROFMH" ] = "R\195\188ckeroberer der Bergfestung";
+L[ "RPDOTA" ]  = "Verteidiger des Bogens";
+L[ "RPTYW" ]   = "Die Ferne Wacht";
+L[ "RPDOC" ]   = "Dúnedain von Cardolan";
 L[ "RPACC" ]   = "Rufbeschleunigung";
 
 -- All reputation standings

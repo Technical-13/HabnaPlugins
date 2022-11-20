@@ -4,8 +4,8 @@
 
 
 function AddCallback(object, event, callback)
-	--write("Add Event: " .. tostring(event));
-	--write("Add Callback: " .. tostring(callback));
+	write("Add Event: " .. tostring(event));
+	write("Add Callback: " .. tostring(callback));
     if (object[event] == nil) then
         object[event] = callback;
     else
@@ -19,8 +19,8 @@ function AddCallback(object, event, callback)
 end
 
 function RemoveCallback(object, event, callback)
-	--write("Remove Event: " .. tostring(event));
-	--write("Remove Callback: " .. tostring(callback));
+	write("Remove Event: " .. tostring(event));
+	write("Remove Callback: " .. tostring(callback));
     if (object[event] == callback) then
         object[event] = nil;
     else
@@ -699,6 +699,7 @@ end
 --**^
 --**v Update backpack infos on TitanBar v**
 function UpdateBackpackInfos()
+	write("Test");
 	local max = backpack:GetSize();
 	local freeslots = 0;
 
